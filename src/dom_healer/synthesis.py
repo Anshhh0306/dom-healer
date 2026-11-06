@@ -116,10 +116,24 @@ def _xpath_space(text: str) -> str:
     return _XML_SPACE.sub(" ", text).strip(" \t\r\n")
 
 
+#: CSS-modules class names: ``Component_local__hash``.  The hash changes on every
+#: build, so selectors use the stable ``Component_local__`` prefix instead.
+_CSS_MODULE = re.compile(r"^([A-Za-z][A-Za-z0-9-]*_[A-Za-z0-9-]+__)[A-Za-z0-9_-]{4,10}$")
+
+
+def _module_prefixes(el: Element) -> list[str]:
+    out = []
+    for cls in (el.get("class") or "").split():
+        m = _CSS_MODULE.match(cls)
+        if m and m.group(1) not in out:
+            out.append(m.group(1))
+    return out
+
+
 def _stable_classes(el: Element) -> list[str]:
     out = []
     for cls in (el.get("class") or "").split():
-        if is_obfuscated_class(cls) or not _SAFE_NAME.match(cls):
+        if is_obfuscated_class(cls) or not _SAFE_NAME.match(cls) or _CSS_MODULE.match(cls):
             continue
         toks = identifier_tokens(cls)
         if toks and not all(t in UTILITY_TOKENS for t in toks):
@@ -165,6 +179,7 @@ class _Synth:
         self.doc = doc
         self.el = el
         self.index: PageIndex = get_index(doc)
+        self._texts: dict[Element, str] = {}
         self._anchor_done = False
         self._anchor: tuple[Element, str, str] | None = None
 
@@ -212,9 +227,23 @@ class _Synth:
                 node = node.getparent()
             return True
 
+        texts = self._texts
+
         def match(scope: Element | None) -> list[Element]:
-            out = [e for e in self._iter(scope, tag) if _xpath_space(e.text_content()) == text]
+            out = []
+            for e in self._iter(scope, tag):
+                value = texts.get(e)
+                if value is None:
+                    value = texts[e] = _xpath_space(e.text_content())
+                if value == text:
+                    out.append(e)
             return [e for e in out if shown(e)] if visible else out
+
+        return match
+
+    def _class_prefix(self, tag: str, prefix: str) -> Matcher:
+        def match(scope: Element | None) -> list[Element]:
+            return [e for e in self._iter(scope, tag) if prefix in (e.get("class") or "")]
 
         return match
 
@@ -240,6 +269,10 @@ class _Synth:
                 f"[contains(concat(' ', normalize-space(@class), ' '), {xpath_literal(' ' + c + ' ')})]" for c in group
             )
             out.append(_Candidate(css, xpath, "class", self._classes(tag, group)))
+        for prefix in _module_prefixes(el)[:2]:
+            out.append(_Candidate(f"{tag}[class*={css_string(prefix)}]",
+                                  f"//{tag}[contains(@class, {xpath_literal(prefix)})]", "class-prefix",
+                                  self._class_prefix(tag, prefix)))
         if with_text:
             text = _xpath_space(el.text_content())
             if text and len(text) <= _MAX_TEXT:

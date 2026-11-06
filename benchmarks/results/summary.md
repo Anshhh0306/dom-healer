@@ -6,14 +6,14 @@
 
 | Method | Top-1 | 95% CI | Top-3 | 95% CI | p50 latency (ms) | p95 latency (ms) |
 |---|---:|---:|---:|---:|---:|---:|
-| Authored CSS | 1.7% | 1–4 | 1.7% | 1–4 | 0.107 | 0.303 |
-| Authored XPath | 9.6% | 6–14 | 12.5% | 9–17 | 0.028 | 0.052 |
-| Absolute XPath | 0.0% | 0–2 | 0.0% | 0–2 | 0.004 | 0.006 |
-| Same tag + text | 14.6% | 11–20 | 24.2% | 19–30 | 0.037 | 0.215 |
-| Attribute fallback chain | 19.2% | 15–25 | 29.6% | 24–36 | 0.140 | 0.451 |
-| dom-healer · heuristic | 86.2% | 81–90 | 92.5% | 88–95 | 4.748 | 8.430 |
-| dom-healer · LogisticRegression | 83.8% | 79–88 | 92.5% | 88–95 | 4.841 | 8.566 |
-| dom-healer · RandomForest | 79.6% | 74–84 | 92.9% | 89–96 | 14.799 | 18.880 |
+| Authored CSS | 1.7% | 1–4 | 1.7% | 1–4 | 0.086 | 0.272 |
+| Authored XPath | 9.6% | 6–14 | 12.5% | 9–17 | 0.023 | 0.045 |
+| Absolute XPath | 0.0% | 0–2 | 0.0% | 0–2 | 0.004 | 0.005 |
+| Same tag + text | 14.6% | 11–20 | 24.2% | 19–30 | 0.031 | 0.182 |
+| Attribute fallback chain | 19.2% | 15–25 | 29.6% | 24–36 | 0.117 | 0.389 |
+| dom-healer · heuristic | 86.2% | 81–90 | 92.5% | 88–95 | 3.940 | 7.063 |
+| dom-healer · LogisticRegression | 83.8% | 79–88 | 92.5% | 88–95 | 3.865 | 7.305 |
+| dom-healer · RandomForest | 79.6% | 74–84 | 92.9% | 89–96 | 11.769 | 15.816 |
 
 ## Top-1 by category
 
@@ -69,24 +69,24 @@
 
 | Method | cold p50 | cold p95 | cold max | % < 5 ms | warm p50 (index reused) |
 |---|---:|---:|---:|---:|---:|
-| Authored CSS | 0.107 | 0.303 | 0.382 | 100.0% |  |
-| Authored XPath | 0.028 | 0.052 | 0.073 | 100.0% |  |
-| Absolute XPath | 0.004 | 0.006 | 0.021 | 100.0% |  |
-| Same tag + text | 0.037 | 0.215 | 0.788 | 100.0% |  |
-| Attribute fallback chain | 0.140 | 0.451 | 1.023 | 100.0% |  |
-| dom-healer · heuristic | 4.748 | 8.430 | 10.056 | 55.0% | 1.252 |
-| dom-healer · LogisticRegression | 4.841 | 8.566 | 9.930 | 56.7% | 1.229 |
-| dom-healer · RandomForest | 14.799 | 18.880 | 27.630 | 0.8% | 10.943 |
+| Authored CSS | 0.086 | 0.272 | 0.326 | 100.0% |  |
+| Authored XPath | 0.023 | 0.045 | 0.076 | 100.0% |  |
+| Absolute XPath | 0.004 | 0.005 | 0.006 | 100.0% |  |
+| Same tag + text | 0.031 | 0.182 | 0.671 | 100.0% |  |
+| Attribute fallback chain | 0.117 | 0.389 | 0.885 | 100.0% |  |
+| dom-healer · heuristic | 3.940 | 7.063 | 8.901 | 70.0% | 1.040 |
+| dom-healer · LogisticRegression | 3.865 | 7.305 | 8.837 | 69.2% | 0.997 |
+| dom-healer · RandomForest | 11.769 | 15.816 | 19.414 | 0.8% | 8.076 |
 
-HTML parsing of the v2 page (not included above): p50 0.76 ms, p95 1.32 ms.
+HTML parsing of the v2 page (not included above): p50 0.66 ms, p95 1.17 ms.
 
 Median cold breakdown (ms):
 
 | Method | index | retrieval | features | ranking | synthesis |
 |---|---:|---:|---:|---:|---:|
-| dom-healer · heuristic | 0.547 | 1.088 | 2.020 | 0.095 | 0.640 |
-| dom-healer · LogisticRegression | 0.544 | 1.076 | 1.992 | 0.083 | 0.635 |
-| dom-healer · RandomForest | 0.552 | 1.083 | 2.002 | 9.983 | 0.679 |
+| dom-healer · heuristic | 0.449 | 0.818 | 1.651 | 0.085 | 0.542 |
+| dom-healer · LogisticRegression | 0.449 | 0.817 | 1.658 | 0.070 | 0.526 |
+| dom-healer · RandomForest | 0.452 | 0.826 | 1.662 | 7.934 | 0.559 |
 
 ## Other diagnostics
 

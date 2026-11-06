@@ -38,13 +38,13 @@ On 40 adversarially mutated page pairs (240 target elements; the [benchmark](#be
 
 | Method | Top-1 | Top-3 | Median latency |
 |---|---:|---:|---:|
-| **dom-healer, heuristic ranker (default)** | **86.2%** (95% CI 81–90) | **92.5%** | 4.75 ms cold · 1.25 ms warm |
-| dom-healer, LogisticRegression (5-fold CV) | 83.8% (79–88) | 92.5% | 4.84 ms cold · 1.23 ms warm |
-| dom-healer, RandomForest (5-fold CV) | 79.6% (74–84) | 92.9% | 14.80 ms cold |
-| Attribute fallback chain (id → test-id → name → aria-label → … → text) | 19.2% | 29.6% | 0.14 ms |
-| Same tag + same text | 14.6% | 24.2% | 0.04 ms |
-| Authored XPath | 9.6% | 12.5% | 0.03 ms |
-| Authored CSS | 1.7% | 1.7% | 0.11 ms |
+| **dom-healer, heuristic ranker (default)** | **86.2%** (95% CI 81–90) | **92.5%** | 3.94 ms cold · 1.04 ms warm |
+| dom-healer, LogisticRegression (5-fold CV) | 83.8% (79–88) | 92.5% | 3.87 ms cold · 1.00 ms warm |
+| dom-healer, RandomForest (5-fold CV) | 79.6% (74–84) | 92.9% | 11.77 ms cold |
+| Attribute fallback chain (id → test-id → name → aria-label → … → text) | 19.2% | 29.6% | 0.12 ms |
+| Same tag + same text | 14.6% | 24.2% | 0.03 ms |
+| Authored XPath | 9.6% | 12.5% | 0.02 ms |
+| Authored CSS | 1.7% | 1.7% | 0.09 ms |
 | DevTools-style absolute XPath | 0.0% | 0.0% | 0.004 ms |
 
 **Read these numbers critically:**
@@ -55,10 +55,13 @@ On 40 adversarially mutated page pairs (240 target elements; the [benchmark](#be
   the hand-tuned priors hold up as well as the learned models. The default ranker is therefore the heuristic. The
   LogisticRegression model is bundled as `ranker="linear"`.
 * **"< 5 ms" depends on what you count.** When the page index is reused for several selectors
-  on the same page (*warm*), healing takes a median of **1.25 ms**, a p95 of **2.56 ms**, and 99.6% of heals finish
-  under 5 ms. The *cold* worst case builds a fresh index and clears all caches for every single selector.
-  It has a median of **4.75 ms**, a **p95 of 8.4 ms**, and only 55% finish under 5 ms. Parsing the HTML adds a
-  median of 0.76 ms. Measured on a 4-vCPU Intel Xeon @ 2.10 GHz cloud VM with Python 3.13.
+  on the same page (*warm*), healing takes a median of **1.04 ms** and a p95 of **2.0 ms**, and **every** benchmark
+  heal finishes under 5 ms. The *cold* worst case builds a fresh index and clears all caches for every single selector.
+  It has a median of **3.94 ms**, a **p95 of 7.1 ms**, and 70% finish under 5 ms. Parsing the HTML adds a
+  median of 0.66 ms. Measured on a 4-vCPU Intel Xeon @ 2.10 GHz cloud VM with Python 3.13.
+* **Checked in a real browser.** Every one of the 207 correctly healed CSS selectors finds exactly the
+  right element in Chromium through Playwright, including the 54 inside shadow DOM
+  ([details](#real-browser-check)).
 * The baselines score low largely *by construction*: the v2 pages were written to break selectors.
   The useful comparison is against the fallback chain, which is what many "smart locator"
   setups do today.
@@ -124,7 +127,8 @@ change the defaults.
 ### MCP server
 
 `dom-healer mcp` exposes three tools to MCP clients (AI agents, IDEs): `repair_selector`,
-`capture_fingerprint` and `locate_element`. For example, in a client config:
+`capture_fingerprint` and `locate_element`. The test suite starts it as a subprocess and drives it with
+a real MCP client over stdio. For example, in a client config:
 
 ```json
 { "mcpServers": { "dom-healer": { "command": "dom-healer", "args": ["mcp"] } } }
@@ -175,11 +179,14 @@ models reason about "best on this page".
 **Selector synthesis** walks from the most to the least robust strategy and checks each
 attempt against the page index rather than re-running a selector engine. The returned
 CSS and XPath are re-checked with cssselect and libxml2. On the benchmark, every healed selector (238/238 CSS,
-238/238 XPath) resolves to exactly the predicted element.
+238/238 XPath) resolves to exactly the predicted element. Generated class names are never used: CSS-in-JS
+hashes (`css-1x9f2ab`, `sc-bdfBwQ`) are skipped, and CSS-modules classes are matched by their hash-free
+prefix (`table[class*="InvoiceTable_table__"]`), so the selector survives the next build.
 
 **Shadow DOM.** `<template shadowrootmode>` content is flattened into its host, which mirrors
-Playwright's shadow-piercing CSS. Emitted CSS works with Playwright. Selenium cannot evaluate
-XPath inside shadow roots, so the XPath for such elements only applies to the composed tree.
+Playwright's shadow-piercing CSS. The emitted CSS works in Playwright, and the real-browser check confirms it. Browser XPath
+engines (Playwright, Selenium) cannot see into shadow roots, so for such elements `result.in_shadow_dom` is
+`True` and the CLI warns you to use the CSS selector.
 
 ## Benchmark
 
@@ -209,7 +216,7 @@ selector matches exactly its target in v1 and that every required mutation is pr
 **Protocol.** The learned rankers are trained on the same candidate pools and features used at
 inference, with 5-fold cross-validation **grouped by suite**, so no page is ever in both the training and
 test folds. Leave-one-category-out is also reported. Latency is the median of 5 runs per target;
-"cold" rebuilds the page index and clears every memo cache on each run.
+"cold" rebuilds the page index and clears every memo cache on each run, while "warm" reuses the page's index.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/latency_dark.png">
@@ -269,6 +276,22 @@ on all 240 targets:
 The default is conservative: many `low_confidence` results are still right, so read the candidates
 before failing a test on them. The default was not tuned on this table; it was fixed beforehand.
 
+### Real-browser check
+
+dom-healer works on a static lxml tree, so `benchmarks/browser_check.py` checks the output where it
+will actually be used. It heals every target with the default ranker, opens each `v2.html` in Chromium
+through Playwright (JavaScript disabled, so the DOM matches) and evaluates the healed selectors with
+Playwright's `css=` and `xpath=` engines:
+
+| Correctly healed targets | n | CSS finds exactly the true element | XPath finds exactly the true element |
+|---|---:|---:|---:|
+| all | 207 | **207 (100%)** | 153 (73.9%) |
+| in light DOM | 153 | 153 (100%) | 153 (100%) |
+| inside shadow DOM | 54 | 54 (100%) | 0 (0%), expected: browser XPath can't pierce shadow roots |
+
+This also confirms that the lxml and Chromium parsers agree on these pages. All 240 ground-truth
+markers resolve to exactly one element in the browser.
+
 ### Reproduce
 
 ```bash
@@ -276,6 +299,7 @@ pip install -e ".[dev]"
 python benchmarks/validate_fixtures.py          # format + ground-truth checks
 python benchmarks/run_benchmark.py              # ~1–2 min; writes benchmarks/results/ and docs/assets/
 python benchmarks/run_benchmark.py --export-model   # also retrains the bundled LR model on all 40 suites
+python benchmarks/browser_check.py              # needs Node.js + `npm i playwright` (Chromium)
 ```
 
 `benchmarks/results/summary.md` holds every table above plus per-split, latency-breakdown and
@@ -290,9 +314,10 @@ feature-importance tables. `results.json` holds per-target ranks for every metho
 * **There is no CSS engine.** Visibility is inferred from `hidden`, `aria-hidden`, inline styles and common
   utility classes only. An element moved into a closed overflow menu is penalised as "hidden".
 * **Healed selectors are verified, but some are positional.** When v2 offers no stable attributes
-  (obfuscated classes, no ids or test ids), the CSS falls back to `anchor > div:nth-of-type(2) > …`
-  (89 of 238 benchmark heals). Those work now but are brittle against the next redesign. The XPath
-  output usually anchors on visible text instead.
+  (obfuscated classes, no ids or test ids), the CSS falls back to `anchor > tr:nth-of-type(9) > …`
+  (89 of 238 benchmark heals, mostly table cells). Those work now but are brittle against the next
+  redesign. Standard CSS cannot match on text, so the XPath output, which usually anchors on visible
+  text, is the more durable choice for light-DOM elements.
 * **The benchmark was built by the same project that built the engine.** The fixtures were written by
   sub-agents that were told not to read the engine. The initial heuristic weights and synonym table were
   written before any fixture existed. Later changes (the container-text signal, stemming and unit
@@ -304,7 +329,7 @@ feature-importance tables. `results.json` holds per-target ranks for every metho
 
 ```bash
 pip install -e ".[dev]"
-pytest --cov=dom_healer          # 166 tests, ~98% branch coverage
+pytest --cov=dom_healer          # 169 tests, ~98% branch coverage
 ruff check src tests
 ```
 
@@ -320,7 +345,7 @@ src/dom_healer/
   ml.py            training utilities (scikit-learn)
   cli.py           dom-healer CLI          mcp_server.py   MCP tools
   data/linear_ranker.json   bundled LogisticRegression weights
-benchmarks/        fixtures, validator, run_benchmark.py, plots.py, results/
+benchmarks/        fixtures, validator, run_benchmark.py, plots.py, browser_check.py, results/
 tests/             pytest suite
 ```
 

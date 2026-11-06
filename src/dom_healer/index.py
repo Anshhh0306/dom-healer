@@ -20,6 +20,7 @@ from lxml import etree
 
 from dom_healer.dom import Document, Element
 from dom_healer.fingerprint import (
+    OPTIONAL_FIELDS,
     TEST_ATTRS,
     ElementFingerprint,
     build_fingerprint,
@@ -389,11 +390,20 @@ class PageIndex:
         i = bisect_left(self._text_ords, end)
         return normalize_text(" ".join(self._text_vals[i : i + segments]), 120)
 
-    def fingerprint(self, el: Element, selector: str = "") -> ElementFingerprint:
-        """Fingerprint of ``el`` (cached per element)."""
+    def fingerprint(self, el: Element, selector: str = "", need: frozenset[str] | None = None) -> ElementFingerprint:
+        """Fingerprint of ``el`` (cached per element).
+
+        ``need`` (candidate scoring only) lists the optional context fields that
+        must be present; others may be skipped.  ``None`` means "everything".
+        """
         fp = self._fingerprints.get(el)
+        if fp is not None:
+            skipped = fp.__dict__.get("_skipped", frozenset())
+            if skipped and (need is None or skipped & need):
+                fp = None  # a later query needs a field this cached copy skipped
         if fp is None:
-            fp = self._fingerprints[el] = build_fingerprint(el, self)
+            skip = frozenset() if need is None else OPTIONAL_FIELDS - need
+            fp = self._fingerprints[el] = build_fingerprint(el, self, skip=skip)
         if selector and fp.selector != selector:
             fp = ElementFingerprint.from_dict({**fp.to_dict(), "selector": selector})
         return fp

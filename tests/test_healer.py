@@ -50,6 +50,12 @@ def test_heals_mutated_page(old_html, new_html, old_selector, new_selector, rank
     assert new_doc.absolute_xpath(result.element) == reference.absolute_xpath(expected[0])
 
 
+def test_shadow_dom_flag(old_html, new_html):
+    in_shadow = heal(old_html, new_html, "button[data-testid='add-SK-200']", ranker="heuristic")
+    assert in_shadow.in_shadow_dom and in_shadow.to_dict()["in_shadow_dom"] is True
+    assert not heal(old_html, new_html, "#weekly", ranker="heuristic").in_shadow_dom
+
+
 def test_valid_when_selector_still_works(old_html, new_html):
     result = heal(old_html, new_html, "//h3[text()='Mesa Hiker']", ranker="heuristic")
     assert result.status == STATUS_VALID and result.strategy == "original"

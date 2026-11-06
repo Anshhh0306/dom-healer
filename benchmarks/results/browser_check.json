@@ -1,0 +1,31 @@
+{
+ "groups": {
+  "all": {
+   "targets": 238,
+   "truth_resolvable": 238,
+   "wrong_prediction": 31
+  },
+  "correct": {
+   "n": 207,
+   "css_exact": 207,
+   "css_error": 0,
+   "xpath_exact": 153,
+   "xpath_error": 0
+  },
+  "shadow": {
+   "n": 54,
+   "css_exact": 54,
+   "css_error": 0,
+   "xpath_exact": 0,
+   "xpath_error": 0
+  },
+  "light": {
+   "n": 153,
+   "css_exact": 153,
+   "css_error": 0,
+   "xpath_exact": 153,
+   "xpath_error": 0
+  }
+ },
+ "css_failures": []
+}

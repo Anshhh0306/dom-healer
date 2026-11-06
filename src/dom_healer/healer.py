@@ -8,7 +8,7 @@ from typing import Any
 
 from dom_healer.dom import Document, DomHealerError, Element, SelectorError, ensure_document
 from dom_healer.features import feature_matrix
-from dom_healer.fingerprint import ElementFingerprint
+from dom_healer.fingerprint import ElementFingerprint, needed_fields
 from dom_healer.index import PageIndex, get_index  # noqa: F401  (re-exported)
 from dom_healer.rankers import Ranker, get_ranker
 from dom_healer.synthesis import SelectorSuggestion, suggest_selectors
@@ -95,6 +95,16 @@ class HealResult:
         return self.candidates[0] if self.candidates else None
 
     @property
+    def in_shadow_dom(self) -> bool:
+        """True if the best element lives inside a (declarative) shadow root.
+
+        Browser XPath engines (Playwright, Selenium) cannot see into shadow roots,
+        so use :attr:`selector` (CSS; Playwright pierces open shadow roots) then.
+        """
+        best = self.best
+        return bool(best is not None and best.fingerprint.shadow_depth > 0)
+
+    @property
     def element(self) -> Element | None:
         return self.candidates[0].element if self.candidates else None
 
@@ -105,6 +115,7 @@ class HealResult:
             "ok": self.ok,
             "original_selector": self.original_selector,
             "original_matches": self.original_matches,
+            "in_shadow_dom": self.in_shadow_dom,
             "selector": self.selector,
             "xpath": self.xpath,
             "strategy": self.strategy,
@@ -155,7 +166,8 @@ class Healer:
             if timings is not None:
                 timings.update(retrieval=(t1 - t0) * 1000.0, features=0.0, ranking=0.0)
             return []
-        cand_fps = [self.index.fingerprint(el) for el, _ in pool]
+        need = needed_fields(fingerprint)
+        cand_fps = [self.index.fingerprint(el, need=need) for el, _ in pool]
         X = feature_matrix(fingerprint, cand_fps, [s for _, s in pool])
         t2 = time.perf_counter()
         scores = self.ranker.score(X)

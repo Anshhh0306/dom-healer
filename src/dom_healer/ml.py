@@ -18,7 +18,7 @@ import numpy as np
 
 from dom_healer.dom import Document, Element, SelectorError
 from dom_healer.features import FEATURE_NAMES, feature_matrix
-from dom_healer.fingerprint import ElementFingerprint
+from dom_healer.fingerprint import ElementFingerprint, needed_fields
 from dom_healer.healer import DEFAULT_MAX_CANDIDATES, get_index
 from dom_healer.rankers import LinearRanker, SklearnRanker
 
@@ -71,7 +71,8 @@ def query_matrix(example: TrainingExample, max_candidates: int = DEFAULT_MAX_CAN
             extra = []
     pool = index.candidates(example.fingerprint, max_candidates, extra)
     elements = [el for el, _ in pool]
-    X = feature_matrix(example.fingerprint, [index.fingerprint(el) for el in elements], [s for _, s in pool])
+    need = needed_fields(example.fingerprint)
+    X = feature_matrix(example.fingerprint, [index.fingerprint(el, need=need) for el in elements], [s for _, s in pool])
     return X, elements
 
 

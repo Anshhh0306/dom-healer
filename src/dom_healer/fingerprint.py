@@ -316,7 +316,18 @@ def accessible_name(el: Element, index: PageIndex) -> tuple[str, str]:
 def _table_context(cell: Element, row: Element, table: Element | None, index: PageIndex) -> tuple[str, str]:
     cells = index.row_cells(row)
     col = next((i for i, c in enumerate(cells) if c is cell), -1)
-    row_text = " | ".join(t for t in (index.node_text(c, 60) for c in cells if c is not cell) if t)
+    parts: list[str] = []
+    length = 0
+    for c in cells:  # stop once the 200-char cap is reached (wide tables have many cells)
+        if c is cell:
+            continue
+        text = index.node_text(c, 60)
+        if text:
+            parts.append(text)
+            length += len(text) + 3
+            if length >= 200:
+                break
+    row_text = " | ".join(parts)
     header = ""
     if table is not None and col >= 0:
         hcells = index.header_cells(table)
@@ -339,8 +350,30 @@ def _container_text(el: Element, own_len: int, index: PageIndex, levels: int = 6
     return ""
 
 
-def build_fingerprint(el: Element, index: PageIndex, selector: str = "") -> ElementFingerprint:
-    """Capture the fingerprint of ``el`` (an element of ``index.doc``)."""
+#: Context fields that are expensive to compute and may be skipped for candidates
+#: (pairwise features ignore them when the stored fingerprint has no such signal).
+OPTIONAL_FIELDS = frozenset({"table", "container", "next_context"})
+
+
+def needed_fields(fp: ElementFingerprint) -> frozenset[str]:
+    """Optional candidate fields that comparing against ``fp`` actually uses."""
+    need = set()
+    if fp.row or fp.column_header:
+        need.add("table")
+    if fp.container:
+        need.add("container")
+    if fp.next_context:
+        need.add("next_context")
+    return frozenset(need)
+
+
+def build_fingerprint(el: Element, index: PageIndex, selector: str = "",
+                      skip: frozenset[str] = frozenset()) -> ElementFingerprint:
+    """Capture the fingerprint of ``el`` (an element of ``index.doc``).
+
+    ``skip`` names :data:`OPTIONAL_FIELDS` to leave empty (used for candidates);
+    the skipped names are remembered on the instance as ``_skipped``.
+    """
     tag = el.tag
     role = index.role(el)
     attrs = stable_attrs(el)
@@ -387,12 +420,12 @@ def build_fingerprint(el: Element, index: PageIndex, selector: str = "") -> Elem
         parent_sig = " ".join([parent.tag, *sorted(class_tokens(tuple((parent.get("class") or "").split())))])
 
     row_text, header = ("", "")
-    if cell is not None and row is not None:
+    if cell is not None and row is not None and "table" not in skip:
         row_text, header = _table_context(cell, row, table, index)
 
     full_text = index.node_text(el, 200) if tag not in _TEXT_SKIP else ""
-    container = _container_text(el, len(full_text), index)
-    return ElementFingerprint(
+    container = "" if "container" in skip else _container_text(el, len(full_text), index)
+    fp = ElementFingerprint(
         tag=tag,
         role=role,
         family=element_family(tag, role, input_type),
@@ -405,7 +438,7 @@ def build_fingerprint(el: Element, index: PageIndex, selector: str = "") -> Elem
         label=label,
         heading=index.heading_before(el),
         context=index.text_before(el),
-        next_context=index.text_after(el),
+        next_context="" if "next_context" in skip else index.text_after(el),
         container=container,
         row=row_text,
         column_header=header,
@@ -426,3 +459,6 @@ def build_fingerprint(el: Element, index: PageIndex, selector: str = "") -> Elem
         shadow_depth=index.doc.shadow_depth(el),
         selector=selector,
     )
+    if skip:
+        fp.__dict__["_skipped"] = frozenset(skip) & OPTIONAL_FIELDS
+    return fp

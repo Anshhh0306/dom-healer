@@ -108,3 +108,16 @@ def test_absolute_fallbacks():
     assert strategy == "position" and css.startswith("html > body")
     assert xstrategy == "position" and xpath.startswith("/html/body")
     assert select(doc, css) == [el] and select(doc, xpath) == [el]
+
+
+def test_css_module_classes_use_hash_free_prefix():
+    doc = parse_html(
+        "<html><body><table class='InvoiceTable_table__s0Ztj'><tr><td>a</td></tr></table>"
+        "<div class='Card_root__x7Gq2'><span>a</span></div><div class='Card_root__p9Lm1'><span>b</span></div>"
+        "</body></html>"
+    )
+    s = _check(doc, doc.select_one("table"))
+    assert s.css == 'table[class*="InvoiceTable_table__"]' and s.css_strategy == "class-prefix"
+    assert s.xpath == "//table[contains(@class, 'InvoiceTable_table__')]"
+    second = _check(doc, doc.select("div")[1].find("span"))
+    assert "__p9Lm1" not in second.css  # hash never appears; ambiguous prefix falls back to other strategies

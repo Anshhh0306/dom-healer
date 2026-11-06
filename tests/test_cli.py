@@ -35,6 +35,9 @@ def test_repair_text_output(pages):
     assert "status:     healed" in out
     assert 'css:        [name="email"]' in out
     assert "candidates:" in out and "timings:" in out
+    code, out, _ = _run(["repair", "--old-html", str(old), "--new-html", str(new), "--selector",
+                         "button[data-testid='add-SK-200']"])
+    assert code == 0 and "inside shadow DOM" in out
 
 
 def test_repair_json_output(pages):

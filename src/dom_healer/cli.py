@@ -81,7 +81,8 @@ def format_result(result: HealResult, top_k: int) -> str:
         lines.append(f"original:   {result.original_selector}  ({result.original_matches} match(es) in new page)")
     if result.selector:
         lines.append(f"css:        {result.selector}  [{result.strategy}]")
-        lines.append(f"xpath:      {result.xpath}")
+        note = "  (inside shadow DOM: browser XPath can't reach it, use the CSS)" if result.in_shadow_dom else ""
+        lines.append(f"xpath:      {result.xpath}{note}")
     if result.candidates:
         lines.append("candidates:")
         for cand in result.candidates[:top_k]:
