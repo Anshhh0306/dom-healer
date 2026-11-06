@@ -1,0 +1,104 @@
+{
+  "suite": "dashboard-01",
+  "category": "dashboard",
+  "title": "Product-analytics overview — Lumetric (SaaS analytics)",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "testid-change",
+    "copy-change",
+    "attribute-churn",
+    "insertion",
+    "structure-move"
+  ],
+  "notes": "v2 is a Next.js rewrite with CSS-modules class hashes. The date-range presets and the compare toggle move into a <date-range-picker> web component (declarative shadow root) with relabelled presets ('30D' -> 'Last 30 days') and a new 'Yesterday'/'Last 12 months' option; a hidden mobile filter sheet repeats the presets. KPI cards are reordered and a 'Stickiness' card is added; ids/test ids are gone. The chart panels swap places, intervals become Hour/Day/Week/Month and a new 'Sessions' chart repeats the same tabs. Top pages is re-sorted by pageviews, gains a 'Change' column and its own 'Export' button. A help launcher web component and an announcement banner are added.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'30D' preset of the date-range picker in the page header (the currently selected range)",
+      "css": ".date-range .preset-btn[data-range=\"30d\"]",
+      "xpath": "//div[@class='date-range']/button[normalize-space()='30D']",
+      "mutations": [
+        "shadow-dom",
+        "class-obfuscation",
+        "copy-change",
+        "attribute-churn",
+        "insertion",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Value of the 'Active users' KPI card (48,210)",
+      "css": "#kpi-active-users .kpi-value",
+      "xpath": "//div[@data-testid='kpi-active-users']//span[@class='kpi-value']",
+      "mutations": [
+        "class-obfuscation",
+        "sibling-reorder",
+        "id-change",
+        "testid-change",
+        "wrapper-divs",
+        "insertion",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "'Weekly' interval tab of the 'Active users over time' chart panel",
+      "css": "#panel-active-users .tabs > button:nth-child(2)",
+      "xpath": "//section[@id='panel-active-users']//button[@role='tab'][normalize-space()='Weekly']",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "id-change",
+        "insertion",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Export' button in the page-header toolbar (next to Share)",
+      "css": "#export-btn",
+      "xpath": "//button[normalize-space()='Export']",
+      "mutations": [
+        "id-change",
+        "class-obfuscation",
+        "wrapper-divs",
+        "attribute-churn",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'/pricing' page link in the Top pages table",
+      "css": "table.top-pages tbody tr:nth-child(2) td.page a",
+      "xpath": "//table[@class='top-pages']//a[text()='/pricing']",
+      "mutations": [
+        "class-obfuscation",
+        "sibling-reorder",
+        "wrapper-divs",
+        "attribute-churn",
+        "insertion"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Compare to previous period' checkbox next to the date-range picker",
+      "css": "input#compare-prev",
+      "xpath": "//label[contains(normalize-space(.),'Compare to previous period')]/input[@type='checkbox']",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "copy-change",
+        "wrapper-divs",
+        "attribute-churn",
+        "structure-move"
+      ]
+    }
+  ]
+}

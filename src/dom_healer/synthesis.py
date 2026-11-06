@@ -2,21 +2,37 @@
 
 Strategies are tried from most to least robust: stable ``id`` → test attributes
 (``data-testid`` …) → ``name``/``aria-label``/other stable attributes →
-semantic classes → anchored (unique ancestor + relative part) → accessible
-text (XPath only) → positional path.  Every emitted selector is evaluated
-against the document and must match exactly the target element.
+semantic classes → accessible text (XPath only) → anchored (unique ancestor +
+relative part) → positional path.
+
+Every candidate is a pair of CSS/XPath strings with identical semantics plus a
+fast *matcher* that counts its matches with the page index (attribute buckets,
+C-level tag iteration, ordinal-range scoping) instead of compiling and running
+a selector per attempt.  The selectors that are finally returned are always
+re-checked with the real CSS (cssselect) and XPath (libxml2) engines.
 """
 
 from __future__ import annotations
 
+import re
+from collections.abc import Callable
 from dataclasses import dataclass
 
 from dom_healer.dom import Document, Element, SelectorError, select
 from dom_healer.fingerprint import TEST_ATTRS
-from dom_healer.text import UTILITY_TOKENS, identifier_tokens, is_obfuscated_class, looks_generated
+from dom_healer.index import PageIndex, get_index
+from dom_healer.text import (
+    UTILITY_TOKENS,
+    identifier_tokens,
+    is_obfuscated_class,
+    looks_generated,
+    looks_random,
+)
 
 _ANCHOR_TAGS = ("form", "nav", "main", "header", "footer", "aside", "table", "dialog", "section", "article", "ul", "ol")
 _ATTR_PRIORITY = ("name", "aria-label", "placeholder", "title", "alt", "for", "type", "href", "role", "value")
+_SAFE_NAME = re.compile(r"^[A-Za-z_][A-Za-z0-9_-]*$")
+_XML_SPACE = re.compile(r"[ \t\r\n]+")
 _MAX_TEXT = 60
 
 
@@ -80,22 +96,30 @@ def xpath_literal(value: str) -> str:
 
 
 # ---------------------------------------------------------------------------------------
-# Helpers
+# Candidates
 # ---------------------------------------------------------------------------------------
 
+#: matcher(scope) -> elements matched in scope's subtree (scope=None: whole document)
+Matcher = Callable[[Element | None], list[Element]]
 
-def _unique(doc: Document, selector: str, el: Element, scope: Element | None = None) -> bool:
-    try:
-        matches = select(scope if scope is not None else doc.root, selector)
-    except SelectorError:  # pragma: no cover - generated selectors are always valid
-        return False
-    return len(matches) == 1 and matches[0] is el
+
+@dataclass(frozen=True)
+class _Candidate:
+    css: str | None  # None when the strategy is not expressible in CSS (text matching)
+    xpath: str  # always starts with "//" so it can be appended to an anchor's XPath
+    strategy: str
+    matcher: Matcher
+
+
+def _xpath_space(text: str) -> str:
+    """Whitespace normalisation identical to XPath ``normalize-space()``."""
+    return _XML_SPACE.sub(" ", text).strip(" \t\r\n")
 
 
 def _stable_classes(el: Element) -> list[str]:
     out = []
     for cls in (el.get("class") or "").split():
-        if is_obfuscated_class(cls) or ":" in cls or "[" in cls or "/" in cls:
+        if is_obfuscated_class(cls) or not _SAFE_NAME.match(cls):
             continue
         toks = identifier_tokens(cls)
         if toks and not all(t in UTILITY_TOKENS for t in toks):
@@ -121,14 +145,175 @@ def _attr_candidates(el: Element) -> list[tuple[str, str]]:
             continue
         out.append((key, value))
     for key, value in el.items():
-        if key.startswith("data-") and key not in TEST_ATTRS and value and len(value) <= 40:
-            if not looks_generated(value) and key not in ("data-reactid", "data-v"):
-                out.append((key, value))
+        if (
+            key.startswith("data-")
+            and key not in TEST_ATTRS
+            and _SAFE_NAME.match(key)
+            and value
+            and len(value) <= 40
+            and not looks_random(value)
+            and key not in ("data-reactid", "data-v")
+        ):
+            out.append((key, value))
     return out
 
 
-def _visible_text(el: Element) -> str:
-    return " ".join(el.text_content().split())
+class _Synth:
+    """Selector synthesis for one element, backed by the page index."""
+
+    def __init__(self, doc: Document, el: Element) -> None:
+        self.doc = doc
+        self.el = el
+        self.index: PageIndex = get_index(doc)
+        self._anchor_done = False
+        self._anchor: tuple[Element, str, str] | None = None
+
+    # -- matchers ------------------------------------------------------------------
+    def _scoped(self, elements: list[Element], scope: Element | None) -> list[Element]:
+        if scope is None:
+            return elements
+        index = self.index
+        return [e for e in elements if e is not scope and index.contains(scope, index.ordinal(e))]
+
+    def _attr(self, tag: str | None, key: str, value: str) -> Matcher:
+        def match(scope: Element | None) -> list[Element]:
+            found = self.index.elements_with(key, value)
+            if tag is not None:
+                found = [e for e in found if e.tag == tag]
+            return self._scoped(found, scope)
+
+        return match
+
+    def _iter(self, scope: Element | None, tag: str) -> list[Element]:
+        root = self.doc.root if scope is None else scope
+        return [e for e in root.iter(tag) if e is not scope]
+
+    def _classes(self, tag: str, classes: tuple[str, ...]) -> Matcher:
+        wanted = set(classes)
+
+        def match(scope: Element | None) -> list[Element]:
+            buckets = sorted((self.index.elements_with_class(c) for c in classes), key=len)
+            found = [
+                e for e in buckets[0] if e.tag == tag and (len(wanted) == 1 or wanted.issubset((e.get("class") or "").split()))
+            ]
+            return self._scoped(found, scope)
+
+        return match
+
+    def _tag(self, tag: str) -> Matcher:
+        return lambda scope: self._iter(scope, tag)
+
+    def _text(self, tag: str, text: str, visible: bool) -> Matcher:
+        def shown(e: Element) -> bool:
+            node: Element | None = e
+            while node is not None:
+                if node.get("hidden") is not None or node.get("aria-hidden") == "true":
+                    return False
+                node = node.getparent()
+            return True
+
+        def match(scope: Element | None) -> list[Element]:
+            out = [e for e in self._iter(scope, tag) if _xpath_space(e.text_content()) == text]
+            return [e for e in out if shown(e)] if visible else out
+
+        return match
+
+    # -- candidate lists ---------------------------------------------------------------
+    def local(self, el: Element, with_text: bool = True) -> list[_Candidate]:
+        tag = el.tag
+        out: list[_Candidate] = []
+        el_id = el.get("id")
+        if el_id and not looks_generated(el_id):
+            out.append(_Candidate(f"#{css_ident(el_id)}", f"//*[@id={xpath_literal(el_id)}]", "id",
+                                  self._attr(None, "id", el_id)))
+        for key, value in _attr_candidates(el):
+            strategy = "test-attribute" if key in TEST_ATTRS else f"attribute:{key}"
+            out.append(_Candidate(f"[{key}={css_string(value)}]", f"//*[@{key}={xpath_literal(value)}]", strategy,
+                                  self._attr(None, key, value)))
+            out.append(_Candidate(f"{tag}[{key}={css_string(value)}]", f"//{tag}[@{key}={xpath_literal(value)}]",
+                                  strategy, self._attr(tag, key, value)))
+        classes = _stable_classes(el)
+        groups = [(c,) for c in classes[:4]] + ([tuple(classes[:3])] if len(classes) >= 2 else [])
+        for group in groups:
+            css = f"{tag}." + ".".join(css_ident(c) for c in group)
+            xpath = f"//{tag}" + "".join(
+                f"[contains(concat(' ', normalize-space(@class), ' '), {xpath_literal(' ' + c + ' ')})]" for c in group
+            )
+            out.append(_Candidate(css, xpath, "class", self._classes(tag, group)))
+        if with_text:
+            text = _xpath_space(el.text_content())
+            if text and len(text) <= _MAX_TEXT:
+                lit = xpath_literal(text)
+                out.append(_Candidate(None, f"//{tag}[normalize-space()={lit}]", "text", self._text(tag, text, False)))
+                out.append(_Candidate(
+                    None,
+                    f"//{tag}[normalize-space()={lit}][not(ancestor-or-self::*[@hidden or @aria-hidden='true'])]",
+                    "visible-text",
+                    self._text(tag, text, True),
+                ))
+        return out
+
+    def unique(self, cand: _Candidate, el: Element, scope: Element | None = None) -> bool:
+        found = cand.matcher(scope)
+        return len(found) == 1 and found[0] is el
+
+    def anchor(self) -> tuple[Element, str, str] | None:
+        """Nearest ancestor with a unique, stable CSS + XPath selector (computed once)."""
+        if self._anchor_done:
+            return self._anchor
+        self._anchor_done = True
+        for depth, anc in enumerate(self.el.iterancestors()):
+            if depth > 10 or anc.tag in ("body", "html"):
+                break
+            for cand in self.local(anc, with_text=False):
+                if cand.css is not None and self.unique(cand, anc):
+                    self._anchor = (anc, cand.css, cand.xpath)
+                    return self._anchor
+            if anc.tag in _ANCHOR_TAGS and len(self._iter(None, anc.tag)) == 1:
+                self._anchor = (anc, anc.tag, f"//{anc.tag}")
+                return self._anchor
+        return None
+
+    # -- public strategies ---------------------------------------------------------------
+    def css(self) -> tuple[str, str]:
+        el = self.el
+        local = self.local(el, with_text=False)
+        for cand in local:
+            if cand.css is not None and self.unique(cand, el):
+                return cand.css, cand.strategy
+        anchor = self.anchor()
+        if anchor is not None:
+            anc, anc_css, _ = anchor
+            for cand in [*local, _Candidate(el.tag, f"//{el.tag}", "tag", self._tag(el.tag))]:
+                if cand.css is not None and self.unique(cand, el, scope=anc):
+                    return f"{anc_css} {cand.css}", f"anchored:{cand.strategy}"
+            return f"{anc_css} > {_relative_css(anc, el)}", "anchored:position"
+        return _absolute_css(el), "position"
+
+    def xpath(self) -> tuple[str, str]:
+        el = self.el
+        local = self.local(el)
+        # prefer the tag-qualified form of attribute candidates in XPath ("//input[@name='q']")
+        for i in range(len(local) - 1):
+            a, b = local[i], local[i + 1]
+            if a.strategy == b.strategy and a.xpath.startswith("//*[@") and b.xpath.startswith(f"//{el.tag}[@"):
+                local[i], local[i + 1] = b, a
+        for cand in local:
+            if self.unique(cand, el):
+                return cand.xpath, cand.strategy
+        anchor = self.anchor()
+        if anchor is not None:
+            anc, _, anc_xpath = anchor
+            for cand in [*local, _Candidate(el.tag, f"//{el.tag}", "tag", self._tag(el.tag))]:
+                if self.unique(cand, el, scope=anc):
+                    return anc_xpath + cand.xpath, f"anchored:{cand.strategy}"
+            return f"{anc_xpath}/{_relative_xpath(anc, el)}", "anchored:position"
+        return self.doc.absolute_xpath(el), "position"
+
+
+# ---------------------------------------------------------------------------------------
+# Positional helpers
+# ---------------------------------------------------------------------------------------
 
 
 def _nth_of_type(el: Element) -> str:
@@ -149,55 +334,6 @@ def _xpath_step(el: Element) -> str:
         return tag
     same = [c for c in parent if c.tag == tag]
     return tag if len(same) == 1 else f"{tag}[{same.index(el) + 1}]"
-
-
-def _local_css(el: Element) -> list[tuple[str, str]]:
-    """(css, strategy) options that do not involve ancestors."""
-    tag = el.tag
-    out: list[tuple[str, str]] = []
-    el_id = el.get("id")
-    if el_id and not looks_generated(el_id):
-        out.append((f"#{css_ident(el_id)}", "id"))
-    for key, value in _attr_candidates(el):
-        strategy = "test-attribute" if key in TEST_ATTRS else f"attribute:{key}"
-        out.append((f"[{key}={css_string(value)}]", strategy))
-        out.append((f"{tag}[{key}={css_string(value)}]", strategy))
-    classes = _stable_classes(el)
-    for cls in classes[:4]:
-        out.append((f"{tag}.{css_ident(cls)}", "class"))
-    if len(classes) >= 2:
-        out.append((f"{tag}." + ".".join(css_ident(c) for c in classes[:3]), "class"))
-    return out
-
-
-def _local_xpath(el: Element) -> list[tuple[str, str]]:
-    tag = el.tag
-    out: list[tuple[str, str]] = []
-    el_id = el.get("id")
-    if el_id and not looks_generated(el_id):
-        out.append((f"//*[@id={xpath_literal(el_id)}]", "id"))
-    for key, value in _attr_candidates(el):
-        strategy = "test-attribute" if key in TEST_ATTRS else f"attribute:{key}"
-        out.append((f"//{tag}[@{key}={xpath_literal(value)}]", strategy))
-    text = _visible_text(el)
-    if text and len(text) <= _MAX_TEXT:
-        out.append((f"//{tag}[normalize-space()={xpath_literal(text)}]", "text"))
-    return out
-
-
-def _anchor(doc: Document, el: Element) -> tuple[Element, str, str] | None:
-    """Nearest ancestor with a unique, stable CSS + XPath selector."""
-    for depth, anc in enumerate(el.iterancestors()):
-        if depth > 10 or anc.tag in ("body", "html"):
-            break
-        for css, _ in _local_css(anc):
-            if _unique(doc, css, anc):
-                xpaths = [x for x, _ in _local_xpath(anc) if _unique(doc, x, anc)]
-                if xpaths:
-                    return anc, css, xpaths[0]
-        if anc.tag in _ANCHOR_TAGS and len(doc.root.xpath(f"//{anc.tag}")) == 1:
-            return anc, anc.tag, f"//{anc.tag}"
-    return None
 
 
 def _relative_css(anchor: Element, el: Element) -> str:
@@ -227,48 +363,42 @@ def _absolute_css(el: Element) -> str:
     return " > ".join(reversed(steps))
 
 
+def _verified(doc: Document, selector: str, el: Element) -> bool:
+    try:
+        matches = select(doc, selector)
+    except SelectorError:  # pragma: no cover - generated selectors are always valid
+        return False
+    return len(matches) == 1 and matches[0] is el
+
+
 # ---------------------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------------------
 
 
 def suggest_css(doc: Document, el: Element) -> tuple[str, str]:
-    for css, strategy in _local_css(el):
-        if _unique(doc, css, el):
-            return css, strategy
-    anchor = _anchor(doc, el)
-    if anchor is not None:
-        anc, anc_css, _ = anchor
-        for css, strategy in _local_css(el):
-            scoped = f"{anc_css} {css}"
-            if _unique(doc, scoped, el):
-                return scoped, f"anchored:{strategy}"
-        scoped = f"{anc_css} > {_relative_css(anc, el)}"
-        if _unique(doc, scoped, el):
-            return scoped, "anchored:position"
-    return _absolute_css(el), "position"
+    """Most robust unique CSS selector for ``el`` and the strategy that produced it."""
+    css, strategy = _Synth(doc, el).css()
+    if not _verified(doc, css, el):  # pragma: no cover - safety net; matchers mirror CSS semantics
+        return _absolute_css(el), "position"
+    return css, strategy
 
 
 def suggest_xpath(doc: Document, el: Element) -> tuple[str, str]:
-    local = _local_xpath(el)
-    for xpath, strategy in local:
-        if _unique(doc, xpath, el):
-            return xpath, strategy
-    anchor = _anchor(doc, el)
-    if anchor is not None:
-        anc, _, anc_xpath = anchor
-        for xpath, strategy in local:
-            scoped = anc_xpath + xpath  # "//a[...]" + "//b[...]" -> descendant within anchor
-            if _unique(doc, scoped, el):
-                return scoped, f"anchored:{strategy}"
-        scoped = f"{anc_xpath}/{_relative_xpath(anc, el)}"
-        if _unique(doc, scoped, el):
-            return scoped, "anchored:position"
-    return doc.absolute_xpath(el), "position"
+    """Most robust unique XPath for ``el`` and the strategy that produced it."""
+    xpath, strategy = _Synth(doc, el).xpath()
+    if not _verified(doc, xpath, el):  # pragma: no cover - safety net; matchers mirror XPath semantics
+        return doc.absolute_xpath(el), "position"
+    return xpath, strategy
 
 
 def suggest_selectors(doc: Document, el: Element) -> SelectorSuggestion:
     """Robust, verified-unique CSS and XPath selectors for ``el`` in ``doc``."""
-    css, css_strategy = suggest_css(doc, el)
-    xpath, xpath_strategy = suggest_xpath(doc, el)
+    synth = _Synth(doc, el)
+    css, css_strategy = synth.css()
+    if not _verified(doc, css, el):  # pragma: no cover - safety net
+        css, css_strategy = _absolute_css(el), "position"
+    xpath, xpath_strategy = synth.xpath()
+    if not _verified(doc, xpath, el):  # pragma: no cover - safety net
+        xpath, xpath_strategy = doc.absolute_xpath(el), "position"
     return SelectorSuggestion(css=css, xpath=xpath, css_strategy=css_strategy, xpath_strategy=xpath_strategy)

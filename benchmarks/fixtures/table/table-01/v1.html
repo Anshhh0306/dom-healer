@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>People directory · Kestrel HR</title>
+<style>
+:root{--brand:#0b6e4f;--ink:#1d2433;--muted:#667085;--line:#e4e7ec;--bg:#f7f8fa}
+*{box-sizing:border-box}
+body{margin:0;font:14px/1.45 "Inter",system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+.app-header{display:flex;align-items:center;gap:32px;height:60px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line)}
+.app-nav{display:flex;gap:4px}
+.app-nav__link{padding:8px 12px;border-radius:6px;color:var(--muted);text-decoration:none}
+.app-nav__link--active{color:var(--brand);background:#e7f4ef;font-weight:600}
+.app-header__user{margin-left:auto;display:flex;align-items:center;gap:12px}
+.layout{display:grid;grid-template-columns:240px 1fr;gap:24px;max-width:1360px;margin:24px auto;padding:0 24px}
+.filters{background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px;align-self:start}
+.filters__group{border:0;padding:0;margin:0 0 16px}
+.check,.radio{display:flex;align-items:center;gap:8px;padding:3px 0}
+.count{margin-left:auto;color:var(--muted);font-size:12px}
+.page-title{font-size:22px;margin:4px 0}
+.toolbar{display:flex;justify-content:space-between;align-items:center;margin:16px 0}
+.search-field__input{width:340px;padding:8px 12px;border:1px solid var(--line);border-radius:6px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:6px;border:1px solid transparent;font-weight:500;cursor:pointer;text-decoration:none}
+.btn--primary{background:var(--brand);color:#fff}
+.btn--secondary{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn--small{padding:4px 10px;font-size:13px}
+.btn--link{background:none;color:var(--brand);padding:0}
+.data-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line)}
+.data-table__th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line)}
+.data-table__td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.sort-btn{all:unset;cursor:pointer}
+.cell-name{display:flex;align-items:center;gap:10px}
+.avatar{border-radius:50%}
+.employee-email{display:block;color:var(--muted);font-size:12px}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px}
+.badge--active{background:#e7f4ef;color:#0b6e4f}.badge--on-leave{background:#fff4e5;color:#b54708}.badge--onboarding{background:#eef4ff;color:#3538cd}
+.icon-btn{background:none;border:0;padding:4px;color:var(--muted);cursor:pointer}
+.table-footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.pagination{display:flex;gap:4px}
+.pagination__link{padding:6px 10px;border:1px solid var(--line);border-radius:6px;color:var(--ink);text-decoration:none}
+.pagination__link--current{background:var(--brand);color:#fff;border-color:var(--brand)}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.app-footer{display:flex;justify-content:space-between;padding:24px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<header class="app-header">
+  <a class="logo" href="/"><img src="/static/kestrel-logo.svg" alt="Kestrel HR" width="112" height="28"></a>
+  <nav class="app-nav" aria-label="Main">
+    <a class="app-nav__link" href="/dashboard">Dashboard</a>
+    <a class="app-nav__link app-nav__link--active" href="/people" aria-current="page">People</a>
+    <a class="app-nav__link" href="/time-off">Time off</a>
+    <a class="app-nav__link" href="/payroll">Payroll</a>
+    <a class="app-nav__link" href="/reports">Reports</a>
+    <a class="app-nav__link" href="/settings">Settings</a>
+  </nav>
+  <div class="app-header__user">
+    <button type="button" class="icon-btn" aria-label="Notifications"><svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button>
+    <span class="user-chip"><img class="avatar" src="/media/avatars/E1003.jpg" alt="" width="28" height="28"> Ana Lindqvist</span>
+  </div>
+</header>
+<div class="layout">
+  <aside class="filters" aria-label="Filters">
+    <h2 class="filters__title">Filters</h2>
+    <fieldset class="filters__group">
+      <legend>Department</legend>
+          <label class="check"><input type="checkbox" name="department" value="engineering"> Engineering <span class="count">68</span></label>
+          <label class="check"><input type="checkbox" name="department" value="sales"> Sales <span class="count">29</span></label>
+          <label class="check"><input type="checkbox" name="department" value="customer-success"> Customer Success <span class="count">25</span></label>
+          <label class="check"><input type="checkbox" name="department" value="marketing"> Marketing <span class="count">15</span></label>
+          <label class="check"><input type="checkbox" name="department" value="finance"> Finance <span class="count">14</span></label>
+          <label class="check"><input type="checkbox" name="department" value="design"> Design <span class="count">12</span></label>
+          <label class="check"><input type="checkbox" name="department" value="people"> People <span class="count">10</span></label>
+          <label class="check"><input type="checkbox" name="department" value="it"> IT <span class="count">9</span></label>
+          <label class="check"><input type="checkbox" name="department" value="legal"> Legal <span class="count">5</span></label>
+    </fieldset>
+    <fieldset class="filters__group">
+      <legend>Location</legend>
+      <select name="location" class="select"><option selected>All locations</option><option>Berlin</option><option>Dubai</option><option>Dublin</option><option>Lisbon</option><option>London</option><option>Oslo</option><option>Paris</option><option>Remote (APAC)</option><option>Remote (EU)</option><option>Remote (US)</option></select>
+    </fieldset>
+    <fieldset class="filters__group">
+      <legend>Status</legend>
+      <label class="radio"><input type="radio" name="status" value="any" checked> Any</label>
+      <label class="radio"><input type="radio" name="status" value="active"> Active</label>
+      <label class="radio"><input type="radio" name="status" value="on-leave"> On leave</label>
+      <label class="radio"><input type="radio" name="status" value="onboarding"> Onboarding</label>
+    </fieldset>
+    <button type="button" class="btn btn--link">Clear all filters</button>
+  </aside>
+  <main class="content" id="main">
+    <div class="page-head">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>People</span></nav>
+      <h1 class="page-title">People directory</h1>
+      <p class="page-subtitle">187 people across 9 departments and 10 locations</p>
+    </div>
+    <div class="toolbar">
+      <div class="search-field">
+        <label for="employee-search" class="visually-hidden">Search employees</label>
+        <input type="search" id="employee-search" name="q" class="search-field__input" placeholder="Search by name, email or title" autocomplete="off" data-dh-target="t2">
+      </div>
+      <div class="toolbar__actions">
+        <button type="button" class="btn btn--secondary" data-testid="export-csv">Export CSV</button>
+        <a href="/people/new" class="btn btn--primary" data-testid="add-employee">Add employee</a>
+      </div>
+    </div>
+    <table class="data-table" id="employee-table">
+      <thead>
+        <tr>
+          <th scope="col" class="data-table__th is-sortable is-sorted" data-sort-key="lastName" aria-sort="ascending"><button type="button" class="sort-btn">Name <span class="sort-icon" aria-hidden="true">&#9650;</span></button></th>
+          <th scope="col" class="data-table__th">Job title</th>
+          <th scope="col" class="data-table__th is-sortable" data-sort-key="department"><button type="button" class="sort-btn">Department <span class="sort-icon" aria-hidden="true">&#8597;</span></button></th>
+          <th scope="col" class="data-table__th">Location</th>
+          <th scope="col" class="data-table__th is-sortable" data-sort-key="startDate"><button type="button" class="sort-btn" data-dh-target="t1">Start date <span class="sort-icon" aria-hidden="true">&#8597;</span></button></th>
+          <th scope="col" class="data-table__th">Status</th>
+          <th scope="col" class="data-table__th data-table__th--actions"><span class="visually-hidden">Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="data-table__row" data-employee-id="E1204">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1204.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1204">Amara Castellanos</a><span class="employee-email">amara.castellanos@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Product Designer</td>
+            <td class="data-table__td">Design</td>
+            <td class="data-table__td">Lisbon</td>
+            <td class="data-table__td"><time datetime="2021-09-06">6 Sep 2021</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1077">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1077.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1077">Jonah Chen</a><span class="employee-email">jonah.chen@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Staff Software Engineer</td>
+            <td class="data-table__td">Engineering</td>
+            <td class="data-table__td">Oslo</td>
+            <td class="data-table__td"><time datetime="2018-02-19">19 Feb 2018</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1311">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1311.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1311">Fatima Chowdhury</a><span class="employee-email">fatima.chowdhury@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Payroll Specialist</td>
+            <td class="data-table__td">Finance</td>
+            <td class="data-table__td">London</td>
+            <td class="data-table__td"><time datetime="2022-04-25">25 Apr 2022</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1129">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1129.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1129">Marcus Coleman</a><span class="employee-email">marcus.coleman@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Site Reliability Engineer</td>
+            <td class="data-table__td">Engineering</td>
+            <td class="data-table__td">Remote (US)</td>
+            <td class="data-table__td"><time datetime="2019-11-04">4 Nov 2019</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee" data-dh-target="t3">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1342">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1342.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1342">Beatriz Costa</a><span class="employee-email">beatriz.costa@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Talent Acquisition Partner</td>
+            <td class="data-table__td">People</td>
+            <td class="data-table__td">Lisbon</td>
+            <td class="data-table__td"><time datetime="2023-01-16">16 Jan 2023</time></td>
+            <td class="data-table__td"><span class="badge badge--on-leave">On leave</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1018">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1018.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1018">Henrik Dahl</a><span class="employee-email">henrik.dahl@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Head of Infrastructure</td>
+            <td class="data-table__td">Engineering</td>
+            <td class="data-table__td">Oslo</td>
+            <td class="data-table__td"><time datetime="2016-08-29">29 Aug 2016</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1256">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1256.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1256">Camille Delacroix</a><span class="employee-email">camille.delacroix@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Marketing Manager</td>
+            <td class="data-table__td" data-dh-target="t4">Marketing</td>
+            <td class="data-table__td">Paris</td>
+            <td class="data-table__td"><time datetime="2021-03-01">1 Mar 2021</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1388">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1388.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1388">Ousmane Diallo</a><span class="employee-email">ousmane.diallo@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Financial Analyst</td>
+            <td class="data-table__td">Finance</td>
+            <td class="data-table__td">Paris</td>
+            <td class="data-table__td"><time datetime="2023-06-12">12 Jun 2023</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1193">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1193.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1193">Nikolai Dimitrov</a><span class="employee-email">nikolai.dimitrov@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Backend Engineer</td>
+            <td class="data-table__td">Engineering</td>
+            <td class="data-table__td">Berlin</td>
+            <td class="data-table__td"><time datetime="2020-10-05">5 Oct 2020</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1301">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1301.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1301">Siobhan Doherty</a><span class="employee-email">siobhan.doherty@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Customer Success Lead</td>
+            <td class="data-table__td">Customer Success</td>
+            <td class="data-table__td">Dublin</td>
+            <td class="data-table__td"><time datetime="2022-02-07">7 Feb 2022</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1099">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1099.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1099">Rafael Duarte</a><span class="employee-email">rafael.duarte@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Engineering Manager</td>
+            <td class="data-table__td">Engineering</td>
+            <td class="data-table__td">Lisbon</td>
+            <td class="data-table__td"><time datetime="2018-07-23">23 Jul 2018</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1415">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1415.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1415">Ingrid Eklund</a><span class="employee-email">ingrid.eklund@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">QA Engineer</td>
+            <td class="data-table__td">Engineering</td>
+            <td class="data-table__td">Oslo</td>
+            <td class="data-table__td"><time datetime="2024-01-08">8 Jan 2024</time></td>
+            <td class="data-table__td"><span class="badge badge--onboarding">Onboarding</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1236">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1236.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1236">Giulia Esposito</a><span class="employee-email">giulia.esposito@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">UX Researcher</td>
+            <td class="data-table__td">Design</td>
+            <td class="data-table__td">Remote (EU)</td>
+            <td class="data-table__td"><time datetime="2020-12-14">14 Dec 2020</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1163">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1163.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1163">Owen Evans</a><span class="employee-email">owen.evans@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Sales Director</td>
+            <td class="data-table__td">Sales</td>
+            <td class="data-table__td">London</td>
+            <td class="data-table__td"><time datetime="2019-05-20">20 May 2019</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1402">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1402.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1402">Yasmin Farouk</a><span class="employee-email">yasmin.farouk@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Account Executive</td>
+            <td class="data-table__td">Sales</td>
+            <td class="data-table__td">Dubai</td>
+            <td class="data-table__td"><time datetime="2023-10-02">2 Oct 2023</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1287">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1287.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1287">Tiago Ferreira</a><span class="employee-email">tiago.ferreira@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Frontend Engineer</td>
+            <td class="data-table__td">Engineering</td>
+            <td class="data-table__td">Lisbon</td>
+            <td class="data-table__td"><time datetime="2021-07-19">19 Jul 2021</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1058">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1058.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1058">Lena Fischer</a><span class="employee-email">lena.fischer@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Head of Marketing</td>
+            <td class="data-table__td">Marketing</td>
+            <td class="data-table__td">Berlin</td>
+            <td class="data-table__td"><time datetime="2017-04-03">3 Apr 2017</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1349">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1349.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1349">Declan Fitzgerald</a><span class="employee-email">declan.fitzgerald@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">IT Support Specialist</td>
+            <td class="data-table__td">IT</td>
+            <td class="data-table__td">Dublin</td>
+            <td class="data-table__td"><time datetime="2022-09-26">26 Sep 2022</time></td>
+            <td class="data-table__td"><span class="badge badge--on-leave">On leave</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1221">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1221.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1221">Élodie Fontaine</a><span class="employee-email">elodie.fontaine@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Legal Counsel</td>
+            <td class="data-table__td">Legal</td>
+            <td class="data-table__td">Paris</td>
+            <td class="data-table__td"><time datetime="2020-06-08">8 Jun 2020</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr class="data-table__row" data-employee-id="E1176">
+            <td class="data-table__td cell-name"><img class="avatar" src="/media/avatars/E1176.jpg" alt="" width="32" height="32"><div class="cell-name__text"><a class="employee-link" href="/people/E1176">Hiroshi Fujimoto</a><span class="employee-email">hiroshi.fujimoto@halvorsenpike.com</span></div></td>
+            <td class="data-table__td">Mobile Engineer</td>
+            <td class="data-table__td">Engineering</td>
+            <td class="data-table__td">Remote (APAC)</td>
+            <td class="data-table__td"><time datetime="2019-09-16">16 Sep 2019</time></td>
+            <td class="data-table__td"><span class="badge badge--active">Active</span></td>
+            <td class="data-table__td data-table__td--actions"><button type="button" class="btn btn--small btn--secondary" data-testid="edit-employee">Edit</button> <button type="button" class="icon-btn row-menu-trigger" aria-label="More actions" aria-haspopup="menu" data-testid="row-menu" data-dh-target="t6"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="table-footer">
+      <p class="table-footer__summary">Showing <strong>21</strong>&ndash;<strong>40</strong> of <strong>187</strong> people</p>
+      <nav class="pagination" aria-label="Pagination">
+        <a class="pagination__link pagination__link--prev" href="?page=1" rel="prev">&lsaquo; Previous</a>
+        <a class="pagination__link" href="?page=1">1</a>
+        <a class="pagination__link pagination__link--current" href="?page=2" aria-current="page">2</a>
+        <a class="pagination__link" href="?page=3" data-dh-target="t5">3</a>
+        <a class="pagination__link" href="?page=4">4</a>
+        <span class="pagination__gap">&hellip;</span>
+        <a class="pagination__link" href="?page=10">10</a>
+        <a class="pagination__link pagination__link--next" href="?page=3" rel="next">Next &rsaquo;</a>
+      </nav>
+    </div>
+  </main>
+</div>
+<footer class="app-footer">
+  <p>&copy; 2025 Halvorsen &amp; Pike Engineering AS &middot; Kestrel HR 4.12.3</p>
+  <nav class="app-footer__links" aria-label="Footer"><a href="/help">Help centre</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/status">System status</a></nav>
+</footer>
+</body>
+</html>

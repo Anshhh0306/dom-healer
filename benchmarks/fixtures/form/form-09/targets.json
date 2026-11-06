@@ -1,0 +1,99 @@
+{
+  "suite": "form-09",
+  "category": "form",
+  "title": "Auto insurance quote wizard, step 2 of 4: vehicle details — Shieldline",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion",
+    "tag-change"
+  ],
+  "notes": "v1 is a Bootstrap 4 wizard page whose step indicator lives inside an <sl-progress-tracker> declarative shadow root. v2 is an Angular 17 + Angular Material (MDC) rewrite: the step indicator moves out of the shadow root into a light-DOM mat-step-header list (step renamed 'Your vehicle'), while the VIN lookup moves into an <sl-vin-lookup> shadow root. Native selects become <mat-select role=combobox> (Make now first), ownership radios become mat-radio-buttons (reordered, relabelled 'Financed (car loan)'), 'Next' becomes 'Continue' and the 'Back' link becomes a mat-stroked-button. _ngcontent/ng-tns-* attributes and classes everywhere. Decoys: a compact mobile stepper repeating the step list, a sticky mobile action bar with a second 'Back' / 'Continue' pair, and Model/Year/Trim mat-selects next to Make.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Current step 'Vehicle' (step 2 of 4) in the progress indicator",
+      "css": "sl-progress-tracker li.is-current",
+      "xpath": "//ol[@class='steps']/li[2]",
+      "mutations": [
+        "shadow-dom",
+        "structure-move",
+        "class-obfuscation",
+        "copy-change",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Vehicle make dropdown",
+      "css": "#vehicle-make",
+      "xpath": "//select[@name='vehicle[make]']",
+      "mutations": [
+        "tag-change",
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "sibling-reorder",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "VIN input",
+      "css": "input#vin",
+      "xpath": "//input[@maxlength='17']",
+      "mutations": [
+        "shadow-dom",
+        "class-obfuscation",
+        "attribute-churn",
+        "copy-change",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Financed' ownership radio button",
+      "css": "input[name='vehicle[ownership]'][value='financed']",
+      "xpath": "//label[normalize-space()='Financed']/input",
+      "mutations": [
+        "class-obfuscation",
+        "wrapper-divs",
+        "attribute-churn",
+        "copy-change",
+        "sibling-reorder",
+        "id-change"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Next' button that continues to step 3",
+      "css": "button.btn-next",
+      "xpath": "//button[normalize-space()='Next']",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Back' link to step 1",
+      "css": "a.btn-back",
+      "xpath": "//a[normalize-space()='Back']",
+      "mutations": [
+        "tag-change",
+        "class-obfuscation",
+        "decoy"
+      ]
+    }
+  ]
+}

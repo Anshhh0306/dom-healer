@@ -1,0 +1,101 @@
+{
+  "suite": "ecommerce-04",
+  "category": "ecommerce",
+  "title": "Checkout review & place order — pet supply store",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "testid-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion",
+    "tag-change"
+  ],
+  "notes": "v2 is a styled-components checkout (sc-* class pairs) with a Shopify-like layout: a new 'Contact' block is inserted, 'Shipping address' becomes 'Ship to' and every block gets a 'Change' link. Shipping rates move into <tw-shipping-rates>'s shadow root, ordered fastest-first with carrier codes as values and React ids. The summary table becomes paragraphs; terms consent and the pay button get new ids/copy, and a mobile pay bar plus an order-summary toggle repeat the total and the 'Place your order' button; data-qa hooks are renamed or dropped. Order notes move into a collapsed 'Add delivery instructions' disclosure.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Expedited (2–3 business days)' shipping-method radio",
+      "css": "#ship-expedited",
+      "xpath": "//input[@name='shipping_method'][@value='expedited']",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "sibling-reorder"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "'Place order' submit button in the order summary",
+      "css": "button[data-qa='place-order-button']",
+      "xpath": "//button[normalize-space()='Place order']",
+      "mutations": [
+        "copy-change",
+        "id-change",
+        "testid-change",
+        "decoy",
+        "wrapper-divs",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Terms & Conditions consent checkbox",
+      "css": "#accept-terms",
+      "xpath": "//label[contains(.,'Terms')]/preceding-sibling::input[@type='checkbox']",
+      "mutations": [
+        "id-change",
+        "testid-change",
+        "attribute-churn",
+        "copy-change",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Edit' link of the shipping address section",
+      "css": ".review-section--shipping .edit-link",
+      "xpath": "//section[.//h2[normalize-space()='Shipping address']]//a[normalize-space()='Edit']",
+      "mutations": [
+        "copy-change",
+        "decoy",
+        "class-obfuscation",
+        "insertion",
+        "sibling-reorder"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Order total amount ($216.95) in the summary",
+      "css": "#order-total",
+      "xpath": "//tr[@class='total-row']/td",
+      "mutations": [
+        "tag-change",
+        "id-change",
+        "decoy",
+        "class-obfuscation",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Order notes / delivery instructions textarea",
+      "css": "textarea[name='order_note']",
+      "xpath": "//section[contains(@class,'review-section--notes')]//textarea",
+      "mutations": [
+        "id-change",
+        "attribute-churn",
+        "structure-move",
+        "wrapper-divs",
+        "copy-change"
+      ]
+    }
+  ]
+}

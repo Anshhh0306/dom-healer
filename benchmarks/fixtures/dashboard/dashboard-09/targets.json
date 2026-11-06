@@ -1,0 +1,101 @@
+{
+  "suite": "dashboard-09",
+  "category": "dashboard",
+  "title": "Customer-support helpdesk queue overview — Quokka Desk",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v1 is a classic three-column agent workspace whose presence select lives in a <presence-switch> shadow root. v2 is a Fluent UI v9 rewrite with atomic Griffel classes: the presence select moves out of shadow DOM into the header (keeping name='status'); the views sidebar becomes a horizontal TabList of role=tab buttons ('Waiting on customer' -> 'Awaiting customer', reordered) with a hidden overflow menu repeating every view; the ticket <table> becomes a role=grid DataGrid sorted by SLA, each SLA timer is an <sla-timer> web component (declarative shadow root) with shorter copy ('0h 08m' -> '8m'), and 'Claim' becomes 'Assign to me' on every row. 'New ticket' turns from a header link into a queue-header button while a hidden 'Create' menu in the header keeps a 'New ticket' link. Stat values become Fluent Text spans with new captions.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Claim' button of ticket #48213 ('Refund not received for order #77120')",
+      "css": "tr[data-ticket-id=\"48213\"] .qd-btn-claim",
+      "xpath": "//tr[.//span[text()='#48213']]//button[text()='Claim']",
+      "mutations": [
+        "copy-change",
+        "tag-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "SLA countdown of ticket #48190 ('SSO login loop for entire team')",
+      "css": "table.qd-tickets tbody tr:nth-child(2) .qd-sla",
+      "xpath": "//a[contains(text(),'SSO login loop')]/ancestor::tr/td[5]/span",
+      "mutations": [
+        "shadow-dom",
+        "copy-change",
+        "sibling-reorder",
+        "tag-change",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "'Waiting on customer' view in the ticket-views navigation",
+      "css": ".qd-view-list li:nth-child(4) a",
+      "xpath": "//a[starts-with(normalize-space(),'Waiting on customer')]",
+      "mutations": [
+        "tag-change",
+        "structure-move",
+        "copy-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Agent presence/status select (Online / Away / Offline)",
+      "css": "presence-switch select#agent-status",
+      "xpath": "//select[@name='status']",
+      "mutations": [
+        "shadow-dom",
+        "structure-move",
+        "id-change",
+        "copy-change",
+        "class-obfuscation",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'New ticket' action in the top bar",
+      "css": "a.qd-btn-new",
+      "xpath": "//header//a[contains(.,'New ticket')]",
+      "mutations": [
+        "tag-change",
+        "structure-move",
+        "copy-change",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'First response time (today)' statistic value (1h 12m)",
+      "css": ".qd-stats dl > div:first-child dd",
+      "xpath": "//dt[starts-with(text(),'First response time')]/following-sibling::dd",
+      "mutations": [
+        "tag-change",
+        "copy-change",
+        "class-obfuscation",
+        "wrapper-divs"
+      ]
+    }
+  ]
+}

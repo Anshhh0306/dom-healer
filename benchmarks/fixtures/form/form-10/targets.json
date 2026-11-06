@@ -1,0 +1,107 @@
+{
+  "suite": "form-10",
+  "category": "form",
+  "title": "Advanced home search filters (price range, beds/baths, property type, amenities) on a listings page — Hearthway Realty",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v1 is a server-rendered BEM page: left <aside> filter form#home-search (keywords, price range, bedrooms/bathrooms selects, property-type checkbox list, amenity checkboxes wrapped in labels, HOA/days-on-market, 'Search homes'/'Reset filters') beside a results summary and six listing cards. v2 is a Next.js + Tailwind rebuild: results now come first in the DOM (flex-row-reverse), the filter form gets a regenerated id and React ':rN:' ids, fields are regrouped (home type first, keywords/HOA moved into a 'More filters' <details>, Co-op and EV charger options added, property types and amenities reordered), names move to camelCase (priceMin, bedrooms, homeType, features), the price range lives in <hw-price-range> and the amenity list ('Features') in <hw-checkbox-group>, both declarative shadow roots with labels re-pointed via for. Copy changes: 'Search homes' -> 'Show results', 'Reset filters' -> 'Clear all', 'Bedrooms' -> 'Beds', 'Min price' -> 'Minimum', 'Swimming pool' -> 'Pool', '47 homes' -> '47 results'. Decoys: a header location search whose submit now says 'Search homes', a mobile quick-filter bar (md:hidden) with legacy min_price/max_price/beds controls, hidden min_price/max_price inputs that mirror the shadow price field, an active-filter chip row (House/Townhouse/Condo), a closed mobile filters <dialog> repeating Townhouse/Pool checkboxes, '47 results', 'Clear all' and 'Show results', and a hidden saved-search modal. Listing cards are reordered, a sponsored new-construction card is inserted, and market stats move into <hw-market-stats> shadow DOM.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Minimum price input of the price-range filter in the filter sidebar",
+      "css": "#price-min",
+      "xpath": "//input[@name='min_price']",
+      "mutations": [
+        "shadow-dom",
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Bedrooms ('Beds') select in the filter sidebar",
+      "css": "select.filter-select[name='beds']",
+      "xpath": "//label[normalize-space()='Bedrooms']/following-sibling::select",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "'Townhouse' property-type checkbox in the filter sidebar",
+      "css": ".property-types li:nth-child(3) input[type='checkbox']",
+      "xpath": "//input[@type='checkbox' and @value='townhouse']",
+      "mutations": [
+        "class-obfuscation",
+        "attribute-churn",
+        "sibling-reorder",
+        "insertion",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Swimming pool' amenity checkbox (now 'Pool' under Features) in the filter sidebar",
+      "css": "#amenity-pool",
+      "xpath": "//label[contains(normalize-space(.), 'Swimming pool')]/input",
+      "mutations": [
+        "shadow-dom",
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "sibling-reorder",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Submit button of the filter form ('Search homes', now 'Show results')",
+      "css": "form#home-search button[type='submit']",
+      "xpath": "//button[normalize-space()='Search homes']",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "id-change",
+        "wrapper-divs",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Result count text in the results summary ('47 homes', now '47 results')",
+      "css": ".results-summary .results-count",
+      "xpath": "//div[@class='results-summary']//h1/span[1]",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "structure-move",
+        "wrapper-divs",
+        "decoy"
+      ]
+    }
+  ]
+}

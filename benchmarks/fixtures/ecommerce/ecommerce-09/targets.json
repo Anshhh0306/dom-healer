@@ -1,0 +1,104 @@
+{
+  "suite": "ecommerce-09",
+  "category": "ecommerce",
+  "title": "Wishlist / saved-for-later page — home & gifts store",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "testid-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v1 renders 'Share list' inside the <hw-share-button> web component's shadow root; v2 drops that component and renders a plain light-DOM 'Share' button (a hidden kebab menu still has a 'Share list' item), while the privacy select moves into the new <hw-list-settings> shadow root with new name/values/copy. The page is rebuilt with prefixed Tailwind (tw-*): the sidebar of lists becomes a row of pill links (re-ordered, counts updated, a hidden mobile drawer repeats them), items become <article> cards sorted by price with a newly saved item, 'Move to cart' becomes 'Add to cart' (also used in 'Saved for later') with a renamed data-test hook, the remove 'x' becomes a trash button labelled 'Delete …', and a price-drop banner repeats the coffee set's new price.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Share list' button in the list header",
+      "css": "#share-list-btn",
+      "xpath": "//hw-share-button//button[normalize-space()='Share list']",
+      "mutations": [
+        "shadow-dom",
+        "structure-move",
+        "copy-change",
+        "id-change",
+        "decoy",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "'Move to cart' button of the 'Stoneware Pour-Over Coffee Set' wishlist item",
+      "css": "li[data-item-id='88213'] [data-test='move-to-cart']",
+      "xpath": "//li[.//a[normalize-space()='Stoneware Pour-Over Coffee Set']]//button[normalize-space()='Move to cart']",
+      "mutations": [
+        "copy-change",
+        "testid-change",
+        "tag-change",
+        "decoy",
+        "attribute-churn",
+        "sibling-reorder",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Remove (×) icon button of the 'Hand-Thrown Ceramic Vase, Sage' item",
+      "css": ".wishlist-grid > li:nth-child(4) .remove-item",
+      "xpath": "//button[@aria-label='Remove Hand-Thrown Ceramic Vase, Sage from list']",
+      "mutations": [
+        "attribute-churn",
+        "copy-change",
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "List privacy dropdown ('Private — only you')",
+      "css": "select#list-privacy",
+      "xpath": "//select[@name='privacy']",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Kitchen refresh' link in the 'Your lists' navigation",
+      "css": ".lists-nav li:nth-child(3) a",
+      "xpath": "//nav[@aria-label='Your lists']//a[contains(.,'Kitchen refresh')]",
+      "mutations": [
+        "structure-move",
+        "sibling-reorder",
+        "decoy",
+        "attribute-churn",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Current price ($54.00) of the 'Stoneware Pour-Over Coffee Set' item",
+      "css": "li[data-item-id='88213'] .price-now",
+      "xpath": "//a[normalize-space()='Stoneware Pour-Over Coffee Set']/following::span[@class='price-now'][1]",
+      "mutations": [
+        "decoy",
+        "class-obfuscation",
+        "attribute-churn",
+        "sibling-reorder",
+        "wrapper-divs"
+      ]
+    }
+  ]
+}

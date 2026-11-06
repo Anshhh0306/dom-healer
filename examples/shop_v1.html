@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><title>Trail Shop</title><style>.btn{color:red}</style></head>
+<body>
+<header class="site-header">
+  <nav class="main-nav" aria-label="Main">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/deals" class="nav-link">Deals</a>
+    <a href="/cart" class="nav-link" id="cart-link">Cart (2)</a>
+  </nav>
+</header>
+<main id="content">
+  <h1>Trail shoes</h1>
+  <div class="product-grid">
+    <div class="product-card" data-sku="TR-100">
+      <h3 class="product-title">Trail Runner 2</h3><span class="price">$120</span>
+      <button class="btn btn-primary add-to-cart" data-testid="add-TR-100">Add to cart</button>
+    </div>
+    <div class="product-card" data-sku="SK-200">
+      <h3 class="product-title">Summit Kicks</h3><span class="price">$95</span>
+      <button class="btn btn-primary add-to-cart" data-testid="add-SK-200">Add to cart</button>
+    </div>
+    <div class="product-card" data-sku="MH-300">
+      <h3 class="product-title">Mesa Hiker</h3><span class="price">$140</span>
+      <button class="btn btn-primary add-to-cart" data-testid="add-MH-300">Add to cart</button>
+    </div>
+  </div>
+  <form id="newsletter" name="newsletter" action="/subscribe">
+    <label for="nl-email">Email</label>
+    <input id="nl-email" name="email" type="email" placeholder="you@example.com">
+    <label><input type="checkbox" name="weekly" id="weekly"> Weekly digest</label>
+    <button type="submit" class="btn subscribe">Subscribe</button>
+  </form>
+  <table class="orders">
+    <thead><tr><th>Order</th><th>Status</th><th>Total</th><th>Actions</th></tr></thead>
+    <tbody>
+      <tr><td>#1001</td><td class="status">Shipped</td><td>$120</td><td><a href="/o/1001" class="view">View</a></td></tr>
+      <tr><td>#1002</td><td class="status">Pending</td><td>$95</td><td><a href="/o/1002" class="view">View</a></td></tr>
+    </tbody>
+  </table>
+</main>
+<footer class="site-footer"><p>&copy; Trail Shop</p></footer>
+</body></html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout – Review your order | Tailwag</title>
+<style>
+body{margin:0;font:15px/1.5 "Nunito Sans",Arial,sans-serif;color:#23303a;background:#f6f8f9}
+.checkout-header__inner{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;background:#fff;border-bottom:1px solid #e1e7eb}
+.checkout-steps{display:flex;gap:24px;list-style:none;padding:16px 32px;margin:0}.checkout-steps__step.is-current{font-weight:700;color:#0d6e6e}
+.checkout-grid{display:grid;grid-template-columns:1fr 380px;gap:32px;padding:0 32px}
+.review-section{background:#fff;border-radius:8px;padding:20px;margin-bottom:16px}
+.shipping-option{display:flex;gap:12px;padding:12px;border:1px solid #d6dee3;border-radius:6px;margin-bottom:8px}
+.btn-place-order{width:100%;padding:16px;border:0;border-radius:6px;background:#f2a900;font-weight:800;font-size:17px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body class="checkout-page">
+<header class="checkout-header">
+  <div class="checkout-header__inner">
+    <a class="checkout-header__logo" href="/"><svg class="checkout-header__mark" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7-4.4-9.3-8.6C1.2 8.3 3 5 6.4 5c2 0 3.3 1.1 4.1 2.3h3C14.3 6.1 15.6 5 17.6 5 21 5 22.8 8.3 21.3 11.4 19 15.6 12 20 12 20z"/></svg><span>Tailwag</span></a>
+    <p class="checkout-header__secure"><svg class="checkout-header__lock" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 11h12v9H6zM8 11V8a4 4 0 0 1 8 0v3"/></svg> Secure checkout</p>
+    <a class="checkout-header__help" href="/help/chat"><svg class="checkout-header__help-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Questions? Chat with us</a>
+  </div>
+</header>
+<main class="checkout">
+  <ol class="checkout-steps" aria-label="Checkout progress">
+    <li class="checkout-steps__step is-complete"><svg class="checkout-steps__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5 9-10"/></svg><a href="/checkout/shipping">1. Shipping</a></li>
+    <li class="checkout-steps__step is-complete"><svg class="checkout-steps__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5 9-10"/></svg><a href="/checkout/payment">2. Payment</a></li>
+    <li class="checkout-steps__step is-current" aria-current="step">3. Review</li>
+  </ol>
+  <form id="checkout-form" class="checkout-grid" action="/checkout/place-order" method="post">
+    <div class="checkout-main">
+      <h1 class="checkout-title">Review your order</h1>
+      <section class="review-section review-section--shipping" aria-labelledby="ship-addr-title">
+        <div class="review-section__header"><h2 class="review-section__title" id="ship-addr-title">Shipping address</h2><a class="edit-link" href="/checkout/shipping" data-dh-target="t4">Edit</a></div>
+        <address class="review-section__body">Jordan Alvarez<br>2187 Larkspur Lane, Apt 4B<br>Portland, OR 97214<br>(503) 555-0187</address>
+      </section>
+      <section class="review-section review-section--payment" aria-labelledby="payment-title">
+        <div class="review-section__header"><h2 class="review-section__title" id="payment-title">Payment method</h2><a class="edit-link" href="/checkout/payment">Edit</a></div>
+        <div class="review-section__body"><p>Visa ending in 4242 · Expires 08/28</p><p>Billing address: Same as shipping address</p></div>
+      </section>
+      <section class="review-section review-section--delivery" aria-labelledby="ship-method-title">
+        <div class="review-section__header"><h2 class="review-section__title" id="ship-method-title">Shipping method</h2></div>
+        <fieldset class="shipping-options">
+          <legend class="visually-hidden">Choose a shipping method</legend>
+          <div class="shipping-option is-selected"><input type="radio" name="shipping_method" id="ship-standard" value="standard" checked><label for="ship-standard"><span class="shipping-option__name">Standard (5–7 business days)</span><span class="shipping-option__eta">Arrives Thu, Nov 12 – Mon, Nov 16</span><span class="shipping-option__price">Free</span></label></div>
+          <div class="shipping-option"><input type="radio" name="shipping_method" id="ship-expedited" value="expedited" data-dh-target="t1"><label for="ship-expedited"><span class="shipping-option__name">Expedited (2–3 business days)</span><span class="shipping-option__eta">Arrives Mon, Nov 9 – Tue, Nov 10</span><span class="shipping-option__price">$9.99</span></label></div>
+          <div class="shipping-option"><input type="radio" name="shipping_method" id="ship-nextday" value="next_day"><label for="ship-nextday"><span class="shipping-option__name">Next business day</span><span class="shipping-option__eta">Arrives Fri, Nov 6</span><span class="shipping-option__price">$24.99</span></label></div>
+        </fieldset>
+        <p class="review-section__hint"><svg class="review-section__hint-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zm0-11v6m0-9h.01"/></svg> Orders placed after 3 PM PT ship the next business day.</p>
+      </section>
+      <section class="review-section review-section--items" aria-labelledby="items-title">
+        <div class="review-section__header"><h2 class="review-section__title" id="items-title">Items (5)</h2><a class="edit-link" href="/cart">Edit cart</a></div>
+        <ul class="review-items">
+          <li class="review-item"><img class="review-item__img" src="/assets/products/salmon-kibble-24lb_120.jpg" alt="" width="60" height="60"><div class="review-item__info"><p class="review-item__name">Grain-Free Salmon &amp; Sweet Potato Dry Dog Food, 24 lb</p><p class="review-item__meta">Qty 1 · Autoship every 4 weeks</p><p class="review-item__seller">Sold &amp; shipped by Tailwag · Item #257339</p></div><p class="review-item__price">$64.99</p></li>
+          <li class="review-item"><img class="review-item__img" src="/assets/products/ortho-bed-l-charcoal_120.jpg" alt="" width="60" height="60"><div class="review-item__info"><p class="review-item__name">Orthopedic Memory Foam Dog Bed, Large – Charcoal</p><p class="review-item__meta">Qty 1 · Ships separately</p><p class="review-item__seller">Sold &amp; shipped by Tailwag · Item #347753</p></div><p class="review-item__price">$89.99</p></li>
+          <li class="review-item"><img class="review-item__img" src="/assets/products/dental-sticks-30_120.jpg" alt="" width="60" height="60"><div class="review-item__info"><p class="review-item__name">Dental Chew Sticks, 30 count</p><p class="review-item__meta">Qty 2</p><p class="review-item__seller">Sold &amp; shipped by Tailwag · Item #666686</p></div><p class="review-item__price">$36.98</p></li>
+          <li class="review-item"><img class="review-item__img" src="/assets/products/harness-m-coral_120.jpg" alt="" width="60" height="60"><div class="review-item__info"><p class="review-item__name">Reflective No-Pull Harness, Medium – Coral</p><p class="review-item__meta">Qty 1</p><p class="review-item__seller">Sold &amp; shipped by Tailwag · Item #336046</p></div><p class="review-item__price">$24.99</p></li>
+        </ul>
+        <p class="review-section__delivery"><svg class="review-section__hint-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h11v9H3zM14 9h4l3 3v3h-7zM7 18a2 2 0 1 0 0-.01M17 18a2 2 0 1 0 0-.01"/></svg> Estimated delivery: <strong>Thu, Nov 12 – Mon, Nov 16</strong> with Standard shipping</p>
+      </section>
+      <section class="review-section review-section--gift" aria-labelledby="gift-title">
+        <h2 class="review-section__title" id="gift-title">Gift options</h2>
+        <div class="gift-option"><input type="checkbox" id="is-gift" name="is_gift" value="1"><label for="is-gift">This order contains a gift — hide prices on the packing slip</label></div>
+        <div class="gift-option gift-option--message" hidden><label for="gift-message">Gift message</label><input type="text" id="gift-message" name="gift_message" maxlength="120" placeholder="Happy Gotcha Day, Biscuit!"></div>
+      </section>
+      <section class="review-section review-section--notes" aria-labelledby="notes-title">
+        <h2 class="review-section__title" id="notes-title">Order notes <span class="optional">(optional)</span></h2>
+        <label class="visually-hidden" for="order-notes">Delivery instructions</label>
+        <textarea id="order-notes" name="order_note" rows="3" maxlength="250" placeholder="Delivery instructions, e.g. leave with the front desk" data-dh-target="t6"></textarea>
+      </section>
+    </div>
+    <aside class="checkout-summary" aria-labelledby="summary-title">
+      <h2 class="checkout-summary__title" id="summary-title">Order summary</h2>
+      <details class="promo">
+        <summary class="promo__toggle">Have a promo code?</summary>
+        <div class="promo__body"><label class="visually-hidden" for="promo-input">Promo code</label><input type="text" id="promo-input" name="promo" placeholder="Promo code"><button type="button" class="promo__apply">Apply</button></div>
+      </details>
+      <table class="summary-table">
+        <tbody>
+          <tr><th scope="row">Subtotal (5 items)</th><td>$216.95</td></tr>
+          <tr><th scope="row">Shipping</th><td>Free</td></tr>
+          <tr><th scope="row">Estimated tax</th><td>$0.00</td></tr>
+          <tr class="total-row"><th scope="row">Order total</th><td id="order-total" data-dh-target="t5">$216.95</td></tr>
+        </tbody>
+      </table>
+      <div class="terms-check"><input type="checkbox" id="accept-terms" name="terms" value="1" required data-qa="terms-checkbox" data-dh-target="t3"><label for="accept-terms">I agree to the <a href="/terms">Terms &amp; Conditions</a> and <a href="/returns">Return Policy</a></label></div>
+      <button type="submit" class="btn-place-order" id="place-order-btn" data-qa="place-order-button" data-dh-target="t2">Place order</button>
+      <p class="checkout-summary__fine">By placing your order you'll be charged $216.95 to your Visa ending in 4242.</p>
+      <a class="checkout-summary__back" href="/checkout/payment">‹ Return to payment</a>
+      <div class="checkout-summary__rewards"><svg class="checkout-summary__rewards-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9h18v4H3zM5 13h14v8H5zM12 9v12M12 9c-2-4-6-4-6-1.5S9 9 12 9zm0 0c2-4 6-4 6-1.5S15 9 12 9z"/></svg> You'll earn <strong>216 Wag Points</strong> with this order.</div>
+      <ul class="trust-badges"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 11h12v9H6zM8 11V8a4 4 0 0 1 8 0v3"/></svg> 256-bit SSL encryption</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 14 4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3"/></svg> 365-day returns</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg> 24/7 vet-tech support</li></ul>
+      <div class="order-help">
+        <h3 class="order-help__title">Order help</h3>
+        <details class="order-help__item"><summary>When will I be charged?</summary><p>Your card is authorized now and charged when your order ships. Autoship items are charged on each delivery.</p></details>
+        <details class="order-help__item"><summary>Can I change my Autoship schedule?</summary><p>Yes — skip, delay or cancel any time from <a href="/account/autoship">My Autoship</a>.</p></details>
+        <details class="order-help__item"><summary>What is your return policy?</summary><p>Not the right fit? Return most items within 365 days. <a href="/returns">See details</a>.</p></details>
+      </div>
+    </aside>
+  </form>
+</main>
+<footer class="checkout-footer">
+  <ul class="checkout-footer__links"><li><a href="/privacy">Privacy policy</a></li><li><a href="/terms">Terms of use</a></li><li><a href="/returns">Return policy</a></li><li><a href="/shipping">Shipping policy</a></li><li><a href="/accessibility">Accessibility</a></li></ul>
+  <p class="checkout-footer__help">Need help? Call <a href="tel:+18885550199">1-888-555-0199</a> — our pet care team is available 24/7.</p>
+  <ul class="checkout-footer__payments" aria-label="Accepted payment methods"><li class="pay-badge pay-badge--visa">Visa</li><li class="pay-badge pay-badge--mc">Mastercard</li><li class="pay-badge pay-badge--amex">American Express</li><li class="pay-badge pay-badge--discover">Discover</li><li class="pay-badge pay-badge--wallet">Wallet Pay</li><li class="pay-badge pay-badge--gift">Tailwag Gift Card</li></ul>
+  <p class="checkout-footer__copy">© 2026 Tailwag Pet Supply, Inc. · Pharmacy services provided by Tailwag Pharmacy, LLC.</p>
+</footer>
+</body>
+</html>

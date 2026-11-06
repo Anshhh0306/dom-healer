@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Submit a request – Voltaic Home Support</title>
+<meta name="description" content="Contact Voltaic Home support about your battery, solar or app.">
+<style>
+  body { font-family: "Work Sans", Helvetica, Arial, sans-serif; color: #1f2937; }
+  .support-hero { background: #111827; color: #f9fafb; padding: 48px 0; text-align: center; }
+  .contact-form label { font-weight: 600; }
+  .form-error.is-visible { display: block; color: #b91c1c; }
+  .is-invalid-input { border-color: #b91c1c; background: #fef2f2; }
+  .priority-field label { display: inline-block; margin-right: 1rem; font-weight: 400; }
+  .article-list li { padding: .35rem 0; border-bottom: 1px solid #f3f4f6; }
+  .footer { background: #f9fafb; margin-top: 4rem; padding: 3rem 0 2rem; font-size: .875rem; }
+</style>
+</head>
+<body>
+<div class="top-bar-container">
+  <div class="top-bar" id="main-menu">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text"><a class="logo" href="https://voltaichome.com"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="6" fill="#facc15"/><path d="m15 4-8 12h6l-2 8 8-12h-6z" fill="#1f2937"/></svg> Voltaic Home</a></li>
+<li><a href="https://voltaichome.com/batteries">Batteries</a></li>
+<li><a href="https://voltaichome.com/solar">Solar</a></li>
+<li><a href="https://voltaichome.com/app">Voltaic app</a></li>
+<li><a href="https://voltaichome.com/installers">Installers</a></li>
+        <li class="is-active"><a href="/">Support</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <form class="menu search-menu" action="/search" role="search">
+        <input type="search" name="query" placeholder="Search help articles" aria-label="Search help articles">
+        <button type="submit" class="button">Search</button>
+      </form>
+      <ul class="menu"><li><a href="/my-requests">My requests</a></li></ul>
+    </div>
+  </div>
+</div>
+<div class="hero-section support-hero">
+  <div class="hero-section-text">
+    <h1>How can we help?</h1>
+    <p>Our support team usually replies within 4 business hours.</p>
+  </div>
+</div>
+<div class="grid-container">
+  <section class="topic-tiles" aria-labelledby="browse-title">
+    <h2 id="browse-title" class="show-for-sr">Browse by topic</h2>
+    <div class="grid-x grid-margin-x small-up-2 medium-up-3">
+      <div class="cell"><a class="card topic-tile" href="/categories/billing"><div class="card-section"><svg class="topic-tile__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><h3 class="topic-tile__title">Billing &amp; payments</h3><p class="topic-tile__text">Invoices, financing and refunds</p></div></a></div>
+      <div class="cell"><a class="card topic-tile" href="/categories/installation"><div class="card-section"><svg class="topic-tile__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg><h3 class="topic-tile__title">Installation</h3><p class="topic-tile__text">Scheduling, permits and site visits</p></div></a></div>
+      <div class="cell"><a class="card topic-tile" href="/categories/battery"><div class="card-section"><svg class="topic-tile__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><h3 class="topic-tile__title">Battery &amp; backup</h3><p class="topic-tile__text">Charging, backup reserve, status lights</p></div></a></div>
+      <div class="cell"><a class="card topic-tile" href="/categories/app"><div class="card-section"><svg class="topic-tile__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg><h3 class="topic-tile__title">Voltaic app</h3><p class="topic-tile__text">Pairing, notifications and energy reports</p></div></a></div>
+      <div class="cell"><a class="card topic-tile" href="/categories/warranty"><div class="card-section"><svg class="topic-tile__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><h3 class="topic-tile__title">Warranty &amp; repairs</h3><p class="topic-tile__text">Coverage, claims and replacements</p></div></a></div>
+      <div class="cell"><a class="card topic-tile" href="/categories/moving"><div class="card-section"><svg class="topic-tile__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><h3 class="topic-tile__title">Moving home</h3><p class="topic-tile__text">Transferring ownership of a system</p></div></a></div>
+    </div>
+  </section>
+  <nav aria-label="You are here:" role="navigation">
+    <ul class="breadcrumbs">
+      <li><a href="/">Support</a></li>
+      <li><a href="/contact">Contact us</a></li>
+      <li><span class="show-for-sr">Current: </span>Submit a request</li>
+    </ul>
+  </nav>
+  <div class="grid-x grid-margin-x">
+    <main class="cell medium-8">
+      <h2>Submit a request</h2>
+      <div class="callout warning" data-closable>
+        <h5>Storm season notice</h5>
+        <p>If your Home Battery shows a red status light after an outage, see <a href="/articles/360021">Recovering after a power outage</a> before you submit a request.</p>
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close><span aria-hidden="true">&times;</span></button>
+      </div>
+      <form id="new_ticket" class="contact-form" action="/requests" method="post" enctype="multipart/form-data" data-abide novalidate>
+        <input type="hidden" name="utf8" value="&#x2713;">
+        <input type="hidden" name="authenticity_token" value="Zt5q1Kd8xP0aW3mRb7Lc9VnE2hJs6UgY4oFiTe">
+        <div class="grid-x grid-padding-x">
+          <div class="cell medium-6">
+            <label for="ticket-name">Your name
+              <input type="text" id="ticket-name" name="ticket[requester_name]" autocomplete="name" value="Hiroshi Tanaka" required>
+            </label>
+          </div>
+          <div class="cell medium-6">
+            <label for="ticket-email">Email address
+              <input type="email" id="ticket-email" name="ticket[requester_email]" autocomplete="email" value="h.tanaka@sonicmail.net" required>
+            </label>
+          </div>
+          <div class="cell medium-6">
+            <label for="support-topic">What can we help with?
+              <select id="support-topic" name="ticket[topic]" required data-dh-target="t1">
+                <option value="">Choose a topic&hellip;</option>
+<option value="billing">Billing &amp; payments</option>
+<option value="installation">Installation &amp; scheduling</option>
+<option value="performance" selected>Battery performance</option>
+<option value="app">App &amp; connectivity</option>
+<option value="warranty">Warranty claim</option>
+<option value="other">Something else</option>
+              </select>
+            </label>
+          </div>
+          <div class="cell medium-6">
+            <label for="order-number">Order number
+              <input type="text" id="order-number" name="ticket[order_number]" placeholder="e.g. VH-104233" pattern="^VH-[0-9]{6}$" value="VH-10423" class="is-invalid-input" aria-invalid="true" aria-describedby="order-number-error order-number-help" data-dh-target="t2">
+            </label>
+            <span class="form-error is-visible" id="order-number-error">Order numbers start with VH- followed by 6 digits.</span>
+            <p class="help-text" id="order-number-help"><a class="order-help-link" href="/articles/360014" data-dh-target="t5">Where do I find my order number?</a></p>
+          </div>
+          <div class="cell">
+            <label for="ticket-subject">Subject
+              <input type="text" id="ticket-subject" name="ticket[subject]" value="Battery stuck at 20% since the October firmware update">
+            </label>
+          </div>
+          <div class="cell message-field">
+            <label for="ticket-description">Describe the issue
+              <textarea id="ticket-description" name="ticket[description]" rows="7" placeholder="What happened, when it started, and what you've tried so far" required data-dh-target="t3"></textarea>
+            </label>
+            <p class="help-text">Please don't include passwords or full card numbers.</p>
+          </div>
+          <div class="cell">
+            <label class="attachments-label" for="ticket-attachments">Attachments <span class="optional">(optional)</span></label>
+            <input type="file" id="ticket-attachments" name="ticket[attachments][]" multiple accept="image/*,.pdf,.log,.txt" class="show-for-sr">
+            <label for="ticket-attachments" class="button hollow small"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg> Add files</label>
+            <p class="help-text">Up to 5 files, 20 MB each. A photo of the battery's status light helps a lot.</p>
+          </div>
+          <fieldset class="cell priority-field">
+            <legend>How urgent is this?</legend>
+            <input type="radio" name="ticket[priority]" value="low" id="priority-low"><label for="priority-low">Low &ndash; general question</label>
+            <input type="radio" name="ticket[priority]" value="normal" id="priority-normal" checked><label for="priority-normal">Normal &ndash; something isn't working right</label>
+            <input type="radio" name="ticket[priority]" value="urgent" id="priority-urgent" data-dh-target="t4"><label for="priority-urgent">Urgent &ndash; no power or a safety concern</label>
+          </fieldset>
+          <div class="cell">
+            <input type="checkbox" id="ticket-copy" name="ticket[cc_me]" value="1" checked><label for="ticket-copy">Email me a copy of this request</label>
+          </div>
+          <div class="cell">
+            <button type="submit" class="button expanded" data-dh-target="t6">Send request</button>
+          </div>
+        </div>
+      </form>
+    </main>
+    <aside class="cell medium-4">
+      <div class="card">
+        <div class="card-divider"><h3>Before you contact us</h3></div>
+        <div class="card-section">
+          <ul class="no-bullet article-list">
+<li><a href="/articles/360021">Recovering after a power outage</a></li>
+<li><a href="/articles/360033">Why isn&#x27;t my battery charging to 100%?</a></li>
+<li><a href="/articles/360009">Reconnecting the gateway to Wi-Fi</a></li>
+<li><a href="/articles/360041">Understanding your warranty</a></li>
+<li><a href="/articles/360052">Updating firmware from the app</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-divider"><h3>Talk to a person</h3></div>
+        <div class="card-section">
+          <p><strong>1-888-555-0136</strong><br>Mon&ndash;Fri 7 am&ndash;7 pm PT, Sat 8 am&ndash;4 pm PT</p>
+          <p class="system-status"><span class="badge success" aria-hidden="true">&#9679;</span> All systems operational</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+<footer class="footer">
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-6 medium-3">
+        <h4 class="footer-heading">Products</h4>
+        <ul class="menu vertical">
+<li><a href="https://voltaichome.com/battery-2">Home Battery 2</a></li>
+<li><a href="https://voltaichome.com/solar">Solar roof tiles</a></li>
+<li><a href="https://voltaichome.com/gateway">Gateway</a></li>
+<li><a href="https://voltaichome.com/ev">EV charger</a></li>
+        </ul>
+      </div>
+      <div class="cell small-6 medium-3">
+        <h4 class="footer-heading">Support</h4>
+        <ul class="menu vertical">
+<li><a href="/">Help center</a></li>
+<li><a href="/warranty">Warranty</a></li>
+<li><a href="/recalls">Recalls</a></li>
+<li><a href="https://status.voltaichome.com">System status</a></li>
+        </ul>
+      </div>
+      <div class="cell small-6 medium-3">
+        <h4 class="footer-heading">Company</h4>
+        <ul class="menu vertical">
+<li><a href="https://voltaichome.com/about">About</a></li>
+<li><a href="https://voltaichome.com/careers">Careers</a></li>
+<li><a href="https://voltaichome.com/news">Newsroom</a></li>
+        </ul>
+      </div>
+      <div class="cell small-6 medium-3">
+        <h4 class="footer-heading">Legal</h4>
+        <ul class="menu vertical">
+<li><a href="https://voltaichome.com/privacy">Privacy</a></li>
+<li><a href="https://voltaichome.com/terms">Terms</a></li>
+<li><a href="https://voltaichome.com/accessibility">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2026 Voltaic Home Energy, Inc. &middot; 1200 Folsom St, Sacramento, CA</p>
+  </div>
+</footer>
+</body>
+</html>

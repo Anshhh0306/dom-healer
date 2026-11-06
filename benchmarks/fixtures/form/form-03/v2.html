@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout - Copperline Coffee Roasters</title>
+<meta name="robots" content="noindex">
+<style data-styled="active" data-styled-version="5.3.11"></style>
+</head>
+<body>
+<div id="app">
+<header class="sc-uMYIry HjKCKY">
+  <div class="sc-uMYIry tgLbiF">
+    <a class="sc-lnWhFx CUtIki" href="https://copperlinecoffee.com" aria-label="Copperline Coffee Roasters">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#8a4b1f"/><path d="M11 22c4-1 8-6 12-11" stroke="#fde68a" stroke-width="2.5" fill="none"/></svg>
+      <span class="sc-lnWhFx dIgwBs">Copperline</span>
+    </a>
+    <p class="sc-wXyuaA MuyoEM"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>Secure checkout</span></p>
+    <a class="sc-aYhpjo yzSPnU" href="https://copperlinecoffee.com/cart" aria-label="Back to cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></a>
+  </div>
+</header>
+<div class="sc-klMITp YwnfME">
+  <button type="button" class="sc-JXzMeN kjVQly" aria-expanded="false" aria-controls="order-summary">
+    <span class="sc-JXzMeN ZoxavH">Show order summary</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    <strong class="sc-JXzMeN uhxSBx">$126.68</strong>
+  </button>
+</div>
+<div class="sc-zXBLBc NQIDoF">
+  <main class="sc-FsMXuR BkJHeM" id="checkout-main-column">
+    <form id="checkout-main" class="sc-YLYANn ikqJTx" action="/checkouts/cn/Z2NwLXVzLWVhc3QxOjAxSjk3/submit" method="post" novalidate>
+      <input type="hidden" name="checkoutToken" value="Z2NwLXVzLWVhc3QxOjAxSjk3WDBQS0NKR1E">
+      <section class="sc-MvGkhX YSnWMM" aria-labelledby="express-title">
+        <h2 id="express-title" class="sc-mIUHow NsvGMo">Express checkout</h2>
+        <div class="sc-MvGkhX oAVHZA">
+          <button type="button" class="sc-zxCtPC dIxBfs" aria-label="Pay with Shop Pay">Shop Pay</button>
+          <button type="button" class="sc-zxCtPC GvkEbG" aria-label="Pay with PayPal">PayPal</button>
+          <button type="button" class="sc-zxCtPC Mgpinb" aria-label="Pay with Google Pay">G Pay</button>
+        </div>
+        <p class="sc-ZprFsY UQEkNC"><span>OR</span></p>
+      </section>
+      <section class="sc-jcAlnR wfpqWP" aria-labelledby="contact-title">
+        <div class="sc-qvTkXc YVvHiX">
+          <h2 id="contact-title" class="sc-mIUHow bEAhKV">Contact</h2>
+          <a class="sc-sPSdPZ OuMePT" href="/account/login?return_to=%2Fcheckouts%2Fcn">Log in</a>
+        </div>
+        <div class="sc-QaezoJ bfoaGE">
+          <div class="sc-bZTDRf HtIjNi">
+            <input id="email" class="sc-rRcXhT fMhbsZ" name="email" type="email" autocomplete="email" placeholder="Email" value="theo.lindqvist@protonmail.com">
+            <label class="sc-mukNhh LFEkhV" for="email">Email</label>
+          </div>
+        </div>
+        <div class="sc-CPJQZt GIyAmZ">
+          <input type="checkbox" id="marketing_opt_in" name="marketing_opt_in" class="sc-tOaIRI mOnLwz">
+          <label for="marketing_opt_in">Email me with news and offers</label>
+        </div>
+      </section>
+      <section class="sc-jcAlnR wfpqWP" aria-labelledby="delivery-title">
+        <h2 id="delivery-title" class="sc-mIUHow bEAhKV">Delivery</h2>
+        <div class="sc-gijmZC UlJUVn" role="radiogroup" aria-label="Choose a delivery method">
+          <label class="sc-gijmZC gxcFBo"><input type="radio" name="deliveryStrategy" value="SHIPPING" checked class="sc-ZxUgzX kyJHfJ"><span>Ship</span></label>
+          <label class="sc-gijmZC dxQVsV"><input type="radio" name="deliveryStrategy" value="PICK_UP" class="sc-ZxUgzX kyJHfJ"><span>Pick up in Portland</span></label>
+        </div>
+        <div class="sc-QaezoJ bfoaGE">
+          <div class="sc-oQEWNT TsyMks">
+            <label class="sc-mukNhh MTZszv" for="Select0">Country/Region</label>
+            <select id="Select0" class="sc-HMqpVc SWhwIy" name="countryCode" autocomplete="shipping country"><option value="US" selected>United States</option><option value="CA">Canada</option></select>
+            <span class="sc-ekVksX ThTlWM"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+          </div>
+        </div>
+        <div class="sc-YZOPQn egrsOF">
+<div class="sc-QaezoJ bfoaGE">
+  <div class="sc-bZTDRf HtIjNi">
+    <input id="TextField0" class="sc-rRcXhT fMhbsZ" name="firstName" type="text" placeholder="First name (optional)" value="Theo" autocomplete="shipping given-name">
+    <label class="sc-mukNhh LFEkhV" for="TextField0">First name (optional)</label>
+  </div>
+</div>
+<div class="sc-QaezoJ bfoaGE">
+  <div class="sc-bZTDRf HtIjNi">
+    <input id="TextField1" class="sc-rRcXhT fMhbsZ" name="lastName" type="text" placeholder="Last name" value="Lindqvist" autocomplete="shipping family-name">
+    <label class="sc-mukNhh LFEkhV" for="TextField1">Last name</label>
+  </div>
+</div>
+        </div>
+<div class="sc-QaezoJ bfoaGE">
+  <div class="sc-bZTDRf HtIjNi">
+    <input id="TextField2" class="sc-rRcXhT fMhbsZ" name="company" type="text" placeholder="Company (optional)" autocomplete="shipping organization">
+    <label class="sc-mukNhh LFEkhV" for="TextField2">Company (optional)</label>
+  </div>
+</div>
+<div class="sc-QaezoJ bfoaGE">
+  <div class="sc-bZTDRf HtIjNi">
+    <input id="shipping-address1" class="sc-rRcXhT fMhbsZ" name="address1" type="text" placeholder="Address" value="4127 Fremont Ave N" autocomplete="shipping address-line1" role="combobox" aria-expanded="false" aria-autocomplete="list">
+    <label class="sc-mukNhh LFEkhV" for="shipping-address1">Address</label>
+  </div>
+</div>
+<div class="sc-QaezoJ bfoaGE">
+  <div class="sc-bZTDRf HtIjNi">
+    <input id="TextField3" class="sc-rRcXhT fMhbsZ" name="address2" type="text" placeholder="Apartment, suite, etc. (optional)" autocomplete="shipping address-line2">
+    <label class="sc-mukNhh LFEkhV" for="TextField3">Apartment, suite, etc. (optional)</label>
+  </div>
+</div>
+        <div class="sc-YZOPQn kVkTde">
+<div class="sc-QaezoJ bfoaGE">
+  <div class="sc-bZTDRf HtIjNi">
+    <input id="TextField4" class="sc-rRcXhT fMhbsZ" name="postalCode" type="text" placeholder="ZIP code" value="98103" autocomplete="shipping postal-code" inputmode="numeric" data-dh-target="t1">
+    <label class="sc-mukNhh LFEkhV" for="TextField4">ZIP code</label>
+  </div>
+</div>
+<div class="sc-QaezoJ bfoaGE">
+  <div class="sc-bZTDRf HtIjNi">
+    <input id="TextField5" class="sc-rRcXhT fMhbsZ" name="city" type="text" placeholder="City" value="Seattle" autocomplete="shipping address-level2">
+    <label class="sc-mukNhh LFEkhV" for="TextField5">City</label>
+  </div>
+</div>
+<div class="sc-QaezoJ bfoaGE">
+  <div class="sc-oQEWNT TsyMks">
+    <label class="sc-mukNhh MTZszv" for="Select1">State</label>
+    <select id="Select1" class="sc-HMqpVc SWhwIy" name="zone" autocomplete="address-level1">
+<option value="AL">Alabama</option>
+<option value="AK">Alaska</option>
+<option value="AZ">Arizona</option>
+<option value="AR">Arkansas</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="CT">Connecticut</option>
+<option value="DE">Delaware</option>
+<option value="DC">District of Columbia</option>
+<option value="FL">Florida</option>
+<option value="GA">Georgia</option>
+<option value="HI">Hawaii</option>
+<option value="ID">Idaho</option>
+<option value="IL">Illinois</option>
+<option value="IN">Indiana</option>
+<option value="IA">Iowa</option>
+<option value="KS">Kansas</option>
+<option value="KY">Kentucky</option>
+<option value="LA">Louisiana</option>
+<option value="ME">Maine</option>
+<option value="MD">Maryland</option>
+<option value="MA">Massachusetts</option>
+<option value="MI">Michigan</option>
+<option value="MN">Minnesota</option>
+<option value="MS">Mississippi</option>
+<option value="MO">Missouri</option>
+<option value="MT">Montana</option>
+<option value="NE">Nebraska</option>
+<option value="NV">Nevada</option>
+<option value="NH">New Hampshire</option>
+<option value="NJ">New Jersey</option>
+<option value="NM">New Mexico</option>
+<option value="NY">New York</option>
+<option value="NC">North Carolina</option>
+<option value="ND">North Dakota</option>
+<option value="OH">Ohio</option>
+<option value="OK">Oklahoma</option>
+<option value="OR">Oregon</option>
+<option value="PA">Pennsylvania</option>
+<option value="RI">Rhode Island</option>
+<option value="SC">South Carolina</option>
+<option value="SD">South Dakota</option>
+<option value="TN">Tennessee</option>
+<option value="TX">Texas</option>
+<option value="UT">Utah</option>
+<option value="VT">Vermont</option>
+<option value="VA">Virginia</option>
+<option value="WA" selected>Washington</option>
+<option value="WV">West Virginia</option>
+<option value="WI">Wisconsin</option>
+<option value="WY">Wyoming</option>
+    </select>
+    <span class="sc-ekVksX ThTlWM"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+  </div>
+</div>
+        </div>
+<div class="sc-QaezoJ bfoaGE">
+  <div class="sc-bZTDRf HtIjNi">
+    <input id="TextField6" class="sc-rRcXhT fMhbsZ" name="phone" type="tel" placeholder="Phone (optional)" autocomplete="shipping tel">
+    <label class="sc-mukNhh LFEkhV" for="TextField6">Phone (optional)</label>
+  </div>
+</div>
+        <div class="sc-CPJQZt GIyAmZ">
+          <input type="checkbox" id="save_shipping_information" name="save_shipping_information" class="sc-tOaIRI mOnLwz">
+          <label for="save_shipping_information">Save this information for next time</label>
+        </div>
+      </section>
+      <section class="sc-jcAlnR wfpqWP" aria-labelledby="shipping-method-title">
+        <h2 id="shipping-method-title" class="sc-mIUHow bEAhKV">Shipping method</h2>
+        <div class="sc-RntPYE NfjoJY">
+<label class="sc-MNKopb rlzSCB" for="shipping-expedited">
+  <input type="radio" id="shipping-expedited" name="shippingRate" value="expedited" class="sc-ZxUgzX kyJHfJ">
+  <span class="sc-MNKopb wcDXPQ">2-day shipping (UPS 2nd Day Air)</span><span class="sc-MNKopb WHnQnC">$14.50</span>
+</label>
+<label class="sc-MNKopb XvZbxB" for="shipping-standard">
+  <input type="radio" id="shipping-standard" name="shippingRate" value="standard" checked class="sc-ZxUgzX kyJHfJ">
+  <span class="sc-MNKopb wcDXPQ">Ground (5 to 7 business days)</span><span class="sc-MNKopb WHnQnC">$6.90</span>
+</label>
+        </div>
+      </section>
+      <section class="sc-jcAlnR wfpqWP" aria-labelledby="payment-title">
+        <h2 id="payment-title" class="sc-mIUHow bEAhKV">Payment</h2>
+        <p class="sc-aSgnom jqYmdv">All transactions are secure and encrypted.</p>
+        <fieldset class="sc-yFhilm XHTplN">
+          <legend class="sc-lqQcWf jngeFk">Choose a payment method</legend>
+          <div class="sc-pEeKKI EjcFdX">
+            <div class="sc-pEeKKI kSymHW">
+              <input type="radio" id="basic-creditCards" name="paymentMethod" value="credit_card" checked class="sc-ZxUgzX kyJHfJ">
+              <label for="basic-creditCards" class="sc-pEeKKI SJnYES">Credit card</label>
+              <span class="sc-fuKnSq YmKkKi"><svg width="24" height="16" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" rx="2" fill="#1a1f71"/><path d="M6 11 8 5h2l-2 6zm5 0 1-6h2l-1 6z" fill="#fff"/></svg><svg width="24" height="16" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" rx="2" fill="#1a1f71"/><path d="M6 11 8 5h2l-2 6zm5 0 1-6h2l-1 6z" fill="#fff"/></svg><svg width="24" height="16" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" rx="2" fill="#1a1f71"/><path d="M6 11 8 5h2l-2 6zm5 0 1-6h2l-1 6z" fill="#fff"/></svg></span>
+            </div>
+            <div class="sc-pEeKKI XvWsNr">
+              <cl-payment-element class="sc-zmgjEm RBzDHY" data-client-secret="pi_3QdX2kL9vR8sT1_secret_8Kq">
+                <template shadowrootmode="open">
+                  <style>:host{display:block;margin-top:12px}.form{display:grid;gap:12px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.label{display:block;font:500 13px/1.4 system-ui;color:#30313d;margin-bottom:4px}.input-wrap{position:relative}.input{width:100%;box-sizing:border-box;padding:12px;border:1px solid #e6e6e6;border-radius:6px;font:16px system-ui}.input:focus{outline:2px solid #8a4b1f}.brands{position:absolute;right:10px;top:10px;display:flex;gap:4px}</style>
+                  <div class="form" part="form">
+                    <div class="field number">
+                      <label class="label" for="Field-numberInput">Card number</label>
+                      <div class="input-wrap"><input id="Field-numberInput" class="input" name="number" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="1234 1234 1234 1234" aria-invalid="false" data-dh-target="t2"><div class="brands"><svg width="24" height="16" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" rx="2" fill="#1a1f71"/><path d="M6 11 8 5h2l-2 6zm5 0 1-6h2l-1 6z" fill="#fff"/></svg></div></div>
+                    </div>
+                    <div class="row">
+                      <div class="field expiry">
+                        <label class="label" for="Field-expiryInput">Expiration date</label>
+                        <div class="input-wrap"><input id="Field-expiryInput" class="input" name="expiry" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM / YY" aria-invalid="false" data-dh-target="t3"></div>
+                      </div>
+                      <div class="field cvc">
+                        <label class="label" for="Field-cvcInput">Security code</label>
+                        <div class="input-wrap"><input id="Field-cvcInput" class="input" name="cvc" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="CVC" aria-invalid="false"></div>
+                      </div>
+                    </div>
+                    <div class="field name">
+                      <label class="label" for="Field-nameInput">Name on card</label>
+                      <div class="input-wrap"><input id="Field-nameInput" class="input" name="name" type="text" autocomplete="cc-name" value="Theo Lindqvist"></div>
+                    </div>
+                  </div>
+                </template>
+              </cl-payment-element>
+              <fieldset class="sc-hncyFh HcDqcl">
+                <legend class="sc-hncyFh wGniHN">Billing address</legend>
+                <div class="sc-qXUmQl OFqiid">
+                  <input type="radio" id="billing-same" name="billingAddressChoice" value="same" checked class="sc-ZxUgzX kyJHfJ" data-dh-target="t4">
+                  <label for="billing-same">Same as shipping address</label>
+                </div>
+                <div class="sc-qXUmQl OFqiid">
+                  <input type="radio" id="billing-different" name="billingAddressChoice" value="different" class="sc-ZxUgzX kyJHfJ">
+                  <label for="billing-different">Use a different billing address</label>
+                </div>
+                <div class="sc-DZvyLC fQahKK" hidden>
+<div class="sc-QaezoJ bfoaGE">
+  <div class="sc-bZTDRf HtIjNi">
+    <input id="TextField7" class="sc-rRcXhT fMhbsZ" name="lastName" type="text" placeholder="Last name" autocomplete="billing family-name">
+    <label class="sc-mukNhh LFEkhV" for="TextField7">Last name</label>
+  </div>
+</div>
+<div class="sc-QaezoJ bfoaGE">
+  <div class="sc-bZTDRf HtIjNi">
+    <input id="TextField8" class="sc-rRcXhT fMhbsZ" name="address1" type="text" placeholder="Address" autocomplete="billing address-line1">
+    <label class="sc-mukNhh LFEkhV" for="TextField8">Address</label>
+  </div>
+</div>
+<div class="sc-QaezoJ bfoaGE">
+  <div class="sc-bZTDRf HtIjNi">
+    <input id="TextField9" class="sc-rRcXhT fMhbsZ" name="postalCode" type="text" placeholder="ZIP code" autocomplete="billing postal-code" inputmode="numeric">
+    <label class="sc-mukNhh LFEkhV" for="TextField9">ZIP code</label>
+  </div>
+</div>
+<div class="sc-QaezoJ bfoaGE">
+  <div class="sc-bZTDRf HtIjNi">
+    <input id="TextField10" class="sc-rRcXhT fMhbsZ" name="city" type="text" placeholder="City" autocomplete="billing address-level2">
+    <label class="sc-mukNhh LFEkhV" for="TextField10">City</label>
+  </div>
+</div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="sc-pEeKKI IcvJem">
+            <div class="sc-pEeKKI kSymHW">
+              <input type="radio" id="basic-paypal" name="paymentMethod" value="paypal" class="sc-ZxUgzX kyJHfJ">
+              <label for="basic-paypal" class="sc-pEeKKI SJnYES">PayPal</label>
+            </div>
+          </div>
+          <div class="sc-pEeKKI IcvJem">
+            <div class="sc-pEeKKI kSymHW">
+              <input type="radio" id="basic-affirm" name="paymentMethod" value="affirm" class="sc-ZxUgzX kyJHfJ">
+              <label for="basic-affirm" class="sc-pEeKKI SJnYES">Pay over time with Affirm</label>
+            </div>
+          </div>
+        </fieldset>
+      </section>
+      <div class="sc-XqNIVk edgIuP">
+        <button type="submit" id="checkout-pay-button" class="sc-DgyDcP fBUkSK" data-dh-target="t5"><span class="sc-DgyDcP BgOWXL">Pay now</span></button>
+      </div>
+    </form>
+    <footer class="sc-wIHXrz pfNbWh">
+      <ul class="sc-wIHXrz EEQILq">
+<li class="sc-wIHXrz cGsfac"><a class="sc-wIHXrz BzZRds" href="/policies/terms-of-service">Terms of service</a></li>
+<li class="sc-wIHXrz cGsfac"><a class="sc-wIHXrz BzZRds" href="/policies/privacy-policy">Privacy policy</a></li>
+<li class="sc-wIHXrz cGsfac"><a class="sc-wIHXrz BzZRds" href="/policies/shipping-policy">Shipping policy</a></li>
+<li class="sc-wIHXrz cGsfac"><a class="sc-wIHXrz BzZRds" href="/policies/refund-policy">Refund policy</a></li>
+      </ul>
+    </footer>
+  </main>
+  <aside id="order-summary" class="sc-QMfUdv JHzCVv" aria-label="Order summary">
+    <ul class="sc-nwTTBz Adepls">
+<li class="sc-fibkcQ ThJEXn">
+  <div class="sc-fibkcQ EKiaAd"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="8" fill="#f5f5f4"/><rect x="18" y="12" width="28" height="40" rx="4" fill="#d6d3d1"/></svg><span class="sc-igySzB cAIPjw" aria-label="Quantity">1</span></div>
+  <div class="sc-fibkcQ cjJwQo"><p class="sc-fibkcQ XrFCUu">Copperline Ceramic Dripper</p><p class="sc-fibkcQ xKlTcI">Matte white</p></div>
+  <p class="sc-fibkcQ FATLMC">$28.00</p>
+</li>
+<li class="sc-fibkcQ ThJEXn">
+  <div class="sc-fibkcQ EKiaAd"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="8" fill="#f5f5f4"/><rect x="18" y="12" width="28" height="40" rx="4" fill="#44403c"/></svg><span class="sc-igySzB cAIPjw" aria-label="Quantity">1</span></div>
+  <div class="sc-fibkcQ cjJwQo"><p class="sc-fibkcQ XrFCUu">Night Shift Espresso Blend</p><p class="sc-fibkcQ xKlTcI">1 kg / Espresso grind</p></div>
+  <p class="sc-fibkcQ FATLMC">$41.00</p>
+</li>
+<li class="sc-fibkcQ ThJEXn">
+  <div class="sc-fibkcQ EKiaAd"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="8" fill="#f5f5f4"/><rect x="18" y="12" width="28" height="40" rx="4" fill="#b45309"/></svg><span class="sc-igySzB cAIPjw" aria-label="Quantity">2</span></div>
+  <div class="sc-fibkcQ cjJwQo"><p class="sc-fibkcQ XrFCUu">Ethiopia Guji Natural</p><p class="sc-fibkcQ xKlTcI">340 g / Whole bean</p></div>
+  <p class="sc-fibkcQ FATLMC">$39.00</p>
+</li>
+    </ul>
+    <div class="sc-CLuvbj QooCja">
+      <div class="sc-bZTDRf HtIjNi">
+        <input id="ReductionsInput0" class="sc-rRcXhT fMhbsZ" name="reductions" type="text" placeholder="Discount code or gift card">
+        <label class="sc-mukNhh LFEkhV" for="ReductionsInput0">Discount code or gift card</label>
+      </div>
+      <button type="button" class="sc-DpZGRO XAJYTo" disabled>Apply</button>
+    </div>
+    <dl class="sc-DBvpzQ onBeLK">
+      <div class="sc-tCwWEv UTeuuW"><dt>Subtotal &middot; 4 items</dt><dd>$108.00</dd></div>
+      <div class="sc-tCwWEv UTeuuW"><dt>Shipping</dt><dd>$6.90</dd></div>
+      <div class="sc-tCwWEv UTeuuW"><dt>Estimated taxes</dt><dd>$11.78</dd></div>
+      <div class="sc-tCwWEv rhbUxj"><dt>Total</dt><dd><abbr class="sc-qwJqve tFcfxO" title="United States dollars">USD</abbr> <strong class="sc-xbnLnt msKICR" data-dh-target="t6">$126.68</strong></dd></div>
+    </dl>
+  </aside>
+</div>
+<div class="sc-KkLsFC XnauVy" role="region" aria-label="Pay">
+  <strong class="sc-KkLsFC nRNRhF">$126.68</strong>
+  <button type="submit" form="checkout-main" class="sc-DgyDcP fBUkSK">Pay now</button>
+</div>
+</div>
+</body>
+</html>

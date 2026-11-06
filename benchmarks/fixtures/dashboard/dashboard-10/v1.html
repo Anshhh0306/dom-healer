@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard | Lanternhall</title>
+<style>
+body{margin:0;font:14px/1.5 "Open Sans",Arial,sans-serif;color:#2d3b45;background:#f5f5f5}
+.lh-global{display:flex;align-items:center;gap:20px;padding:0 24px;height:56px;background:#394b58;color:#fff}
+.lh-brand{font-weight:700;color:#fff;text-decoration:none;font-size:18px}
+.lh-global-nav a{color:#e3e8eb;text-decoration:none;padding:18px 10px}.lh-global-nav a.current{background:#2d3b45;color:#fff}
+.lh-unread{background:#e66135;border-radius:8px;padding:0 6px;font-size:11px}
+.lh-dashboard{max-width:1180px;margin:0 auto;padding:24px}
+.lh-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.lh-stat{background:#fff;border:1px solid #c7cdd1;border-radius:4px;padding:12px}
+.lh-course-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.lh-course-card{background:#fff;border:1px solid #c7cdd1;border-radius:4px;overflow:hidden}
+.lh-course-banner{height:80px}.lh-course-body{padding:12px}
+.lh-course-links a{margin-right:10px}
+.lh-grading-table{width:100%;border-collapse:collapse;background:#fff}.lh-grading-table td,.lh-grading-table th{padding:8px;border-bottom:1px solid #e3e8eb;text-align:left}
+.lh-btn{display:inline-block;padding:6px 12px;border-radius:3px;border:1px solid #c7cdd1;background:#f5f5f5;color:#2d3b45;text-decoration:none}
+.lh-btn-primary{background:#0374b5;border-color:#0374b5;color:#fff}
+.lh-two-col{display:grid;grid-template-columns:3fr 2fr;gap:20px;margin-top:20px}
+.lh-field{display:flex;flex-direction:column;margin-bottom:10px}
+</style>
+</head>
+<body>
+<header class="lh-global">
+  <a class="lh-brand" href="/dashboard">Lanternhall</a>
+  <span class="lh-inst">Westbrook Community College</span>
+  <nav class="lh-global-nav" aria-label="Global">
+    <a href="/dashboard" class="lh-nav-item current" aria-current="page">Dashboard</a>
+    <a href="/courses" class="lh-nav-item">Courses</a>
+    <a href="/calendar" class="lh-nav-item">Calendar</a>
+    <a href="/inbox" class="lh-nav-item">Inbox <span class="lh-unread">3</span></a>
+    <a href="/gradebook" class="lh-nav-item" data-dh-target="t6">Gradebook</a>
+    <a href="/help" class="lh-nav-item">Help</a>
+  </nav>
+  <div class="lh-account"><span class="lh-avatar">AN</span> Dr. Amara Nwosu · <a href="/logout">Log out</a></div>
+</header>
+<main class="lh-dashboard">
+  <div class="lh-page-head"><h1>Instructor dashboard</h1><p class="lh-term">Fall 2026 · Week 10 of 16</p></div>
+  <section class="lh-stats" aria-label="Teaching summary">
+    <div class="lh-stat"><span class="lh-stat-label">Total students</span><strong class="lh-stat-value">262</strong></div>
+    <div class="lh-stat"><span class="lh-stat-label">New enrollments (7 days)</span><strong class="lh-stat-value">7</strong></div>
+    <div class="lh-stat"><span class="lh-stat-label">Drop requests</span><strong class="lh-stat-value">2</strong></div>
+    <div class="lh-stat"><span class="lh-stat-label">Submissions to grade</span><strong class="lh-stat-value">85</strong></div>
+  </section>
+  <section class="lh-courses">
+    <h2>Your courses</h2>
+    <div class="lh-course-grid">
+      <div class="lh-course-card" data-course="BIO-101">
+        <div class="lh-course-banner" style="background:#2f6f5e"></div>
+        <div class="lh-course-body">
+          <h3 class="lh-course-title"><a href="/courses/bio-101">BIO 101 · Introduction to Biology</a></h3>
+          <p class="lh-course-meta">Sections 01–03 · MWF 9:00 AM · Science Hall 204</p>
+          <p class="lh-enrollment"><span class="enrollment-count">142 students</span> · 3 waitlisted</p>
+          <div class="lh-course-links"><a href="/courses/bio-101/gradebook">Gradebook</a><a href="/courses/bio-101/announcements">Announcements</a><a href="/courses/bio-101/discussions">Discussions</a></div>
+        </div>
+      </div>
+      <div class="lh-course-card" data-course="CHEM-210">
+        <div class="lh-course-banner" style="background:#8a4b2f"></div>
+        <div class="lh-course-body">
+          <h3 class="lh-course-title"><a href="/courses/chem-210">CHEM 210 · Organic Chemistry I</a></h3>
+          <p class="lh-course-meta">Section 01 · TTh 11:00 AM · Lab B</p>
+          <p class="lh-enrollment"><span class="enrollment-count" data-dh-target="t2">64 students</span> · 0 waitlisted</p>
+          <div class="lh-course-links"><a href="/courses/chem-210/gradebook">Gradebook</a><a href="/courses/chem-210/announcements">Announcements</a><a href="/courses/chem-210/discussions">Discussions</a></div>
+        </div>
+      </div>
+      <div class="lh-course-card" data-course="BIO-330">
+        <div class="lh-course-banner" style="background:#3d5a98"></div>
+        <div class="lh-course-body">
+          <h3 class="lh-course-title"><a href="/courses/bio-330">BIO 330 · Genetics</a></h3>
+          <p class="lh-course-meta">Section 01 · MW 1:30 PM · Science Hall 112</p>
+          <p class="lh-enrollment"><span class="enrollment-count">38 students</span> · 1 waitlisted</p>
+          <div class="lh-course-links"><a href="/courses/bio-330/gradebook">Gradebook</a><a href="/courses/bio-330/announcements">Announcements</a><a href="/courses/bio-330/discussions">Discussions</a></div>
+        </div>
+      </div>
+      <div class="lh-course-card" data-course="HON-199">
+        <div class="lh-course-banner" style="background:#7a3d84"></div>
+        <div class="lh-course-body">
+          <h3 class="lh-course-title"><a href="/courses/hon-199">HON 199 · Honors Seminar: Science &amp; Society</a></h3>
+          <p class="lh-course-meta">Section 01 · F 2:00 PM · Library 3A</p>
+          <p class="lh-enrollment"><span class="enrollment-count">18 students</span> · 0 waitlisted</p>
+          <div class="lh-course-links"><a href="/courses/hon-199/gradebook">Gradebook</a><a href="/courses/hon-199/announcements">Announcements</a><a href="/courses/hon-199/discussions">Discussions</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="lh-grading">
+    <div class="lh-section-head"><h2>Grading queue</h2><a href="/grading">View all</a></div>
+    <table class="lh-grading-table">
+      <thead><tr><th>Assignment</th><th>Course</th><th>Due</th><th>Submitted</th><th>To grade</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>Lab Report 4: Enzyme Kinetics</td><td>BIO 101</td><td>Oct 30</td><td>131 / 142</td><td class="num">47</td><td><a class="lh-btn lh-btn-sm" href="/courses/bio-101/assignments/4412/grade" data-dh-target="t1">Start grading</a></td></tr>
+        <tr><td>Problem Set 6: Stereochemistry</td><td>CHEM 210</td><td>Nov 2</td><td>58 / 64</td><td class="num">18</td><td><a class="lh-btn lh-btn-sm" href="/courses/chem-210/assignments/5120/grade">Start grading</a></td></tr>
+        <tr><td>Midterm reflection essay</td><td>HON 199</td><td>Oct 31</td><td>17 / 18</td><td class="num">9</td><td><a class="lh-btn lh-btn-sm" href="/courses/hon-199/assignments/6007/grade">Start grading</a></td></tr>
+        <tr><td>Quiz 7: Pedigree analysis (short answer)</td><td>BIO 330</td><td>Nov 3</td><td>36 / 38</td><td class="num">11</td><td><a class="lh-btn lh-btn-sm" href="/courses/bio-330/assignments/5531/grade">Start grading</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="lh-alerts">
+    <div class="lh-section-head"><h2>Students to check in with</h2><a href="/insights/students">See all insights</a></div>
+    <table class="lh-alerts-table">
+      <thead><tr><th>Student</th><th>Course</th><th>Flag</th><th>Last active</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>Marcus Delgado</td><td>BIO 101</td><td><span class="lh-flag lh-flag-missing">3 missing assignments</span></td><td>Oct 27</td><td><a href="/inbox/compose?to=mdelgado" class="lh-btn lh-btn-sm">Message</a></td></tr>
+        <tr><td>Hannah Vu</td><td>CHEM 210</td><td><span class="lh-flag lh-flag-grade">Grade below 60%</span></td><td>Nov 3</td><td><a href="/inbox/compose?to=hvu" class="lh-btn lh-btn-sm">Message</a></td></tr>
+        <tr><td>Tyler Brooks</td><td>BIO 330</td><td><span class="lh-flag lh-flag-inactive">Not active for 9 days</span></td><td>Oct 26</td><td><a href="/inbox/compose?to=tbrooks" class="lh-btn lh-btn-sm">Message</a></td></tr>
+        <tr><td>Aaliyah Grant</td><td>BIO 101</td><td><span class="lh-flag lh-flag-late">2 late submissions</span></td><td>Nov 4</td><td><a href="/inbox/compose?to=agrant" class="lh-btn lh-btn-sm">Message</a></td></tr>
+        <tr><td>Samuel Ortiz</td><td>HON 199</td><td><span class="lh-flag lh-flag-request">Requested an extension</span></td><td>Nov 4</td><td><a href="/inbox/compose?to=sortiz" class="lh-btn lh-btn-sm">Message</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+  <div class="lh-two-col">
+    <section class="lh-announce">
+      <h2>Post an announcement</h2>
+      <form id="announcement-form" class="lh-form" action="/announcements" method="post">
+        <div class="lh-field"><label for="announcement-course">Course</label><select id="announcement-course" name="course_id" data-dh-target="t3"><option value="">Select a course…</option><option value="bio-101">BIO 101 · Introduction to Biology</option><option value="chem-210">CHEM 210 · Organic Chemistry I</option><option value="bio-330">BIO 330 · Genetics</option><option value="hon-199">HON 199 · Honors Seminar: Science &amp; Society</option></select></div>
+        <div class="lh-field"><label for="announcement-title">Title</label><input id="announcement-title" name="title" type="text" maxlength="120" data-dh-target="t4"></div>
+        <div class="lh-field"><label for="announcement-body">Message</label><textarea id="announcement-body" name="body" rows="5"></textarea></div>
+        <label class="lh-check"><input type="checkbox" name="notify_email" checked> Also send as email to students</label>
+        <div class="lh-form-actions"><button type="button" class="lh-btn lh-btn-light">Schedule…</button><button type="submit" class="lh-btn lh-btn-primary" data-dh-target="t5">Post announcement</button></div>
+      </form>
+      <h3>Recent announcements</h3>
+      <ul class="lh-announcement-list">
+        <li><span class="lh-tag">CHEM 210</span> <a href="#">Office hours moved to Wednesday this week</a> <span class="lh-date">Nov 3</span></li>
+        <li><span class="lh-tag">BIO 101</span> <a href="#">Lab 5 safety quiz is now open</a> <span class="lh-date">Nov 2</span></li>
+        <li><span class="lh-tag">HON 199</span> <a href="#">Guest speaker on Friday: Dr. Ilse Brandt</a> <span class="lh-date">Oct 29</span></li>
+      </ul>
+    </section>
+    <section class="lh-upcoming">
+      <h2>Coming up</h2>
+      <ul class="lh-todo">
+        <li><span class="lh-date">Nov 6</span> BIO 101 Lab 5 — enzyme assays</li>
+        <li><span class="lh-date">Nov 9</span> CHEM 210 Exam 2 (in class)</li>
+        <li><span class="lh-date">Nov 11</span> Veterans Day — no classes</li>
+        <li><span class="lh-date">Nov 13</span> BIO 330 Problem set 8 due</li>
+        <li><span class="lh-date">Nov 20</span> Midterm grades due to registrar</li>
+      </ul>
+      <a href="/calendar">Open calendar</a>
+    </section>
+  </div>
+</main>
+<footer class="lh-footer"><a href="/policies/accessibility">Accessibility</a> · <a href="/policies/privacy">Privacy policy</a> · Lanternhall LMS 2026.4 · Westbrook Community College</footer>
+</body>
+</html>

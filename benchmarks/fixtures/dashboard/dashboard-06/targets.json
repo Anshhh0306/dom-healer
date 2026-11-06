@@ -1,0 +1,99 @@
+{
+  "suite": "dashboard-06",
+  "category": "dashboard",
+  "title": "Project workspace task list — Tasklane",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v1 is a dark-sidebar workspace with a <table> task list (one <tbody> per section, native checkboxes). v2 is a Tailwind rewrite: the list becomes an ARIA treegrid of div rows, sections are reordered (Development first) and tasks sorted by due date, completion checkboxes become button[role=checkbox], due dates read 'Thu, Nov 12'. The sidebar gains a Favorites section and an alphabetical Projects list (a hidden mobile drawer repeats it). Project tabs become role=tab buttons with new 'Dashboard'/'Messages' tabs. The assignee filter keeps its id but loses the wrapping label. Member avatars and the activity panel become web components with declarative shadow roots.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Completion checkbox of the task 'Finalize homepage hero copy'",
+      "css": "#task-311-done",
+      "xpath": "//tr[td[normalize-space()='Finalize homepage hero copy']]//input[@type='checkbox']",
+      "mutations": [
+        "tag-change",
+        "id-change",
+        "sibling-reorder",
+        "structure-move",
+        "class-obfuscation",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "'Mobile app v3' project link in the sidebar Projects list",
+      "css": ".project-list li:nth-child(3) a",
+      "xpath": "//ul[@class='project-list']//a[normalize-space()='Mobile app v3']",
+      "mutations": [
+        "sibling-reorder",
+        "class-obfuscation",
+        "wrapper-divs",
+        "attribute-churn",
+        "insertion",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Assignee filter select in the list toolbar",
+      "css": "#filter-assignee",
+      "xpath": "//label[starts-with(normalize-space(),'Assignee')]/select",
+      "mutations": [
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Board' view tab of the project header",
+      "css": "nav.project-tabs a.tab:nth-child(3)",
+      "xpath": "//nav[@class='project-tabs']/a[text()='Board']",
+      "mutations": [
+        "tag-change",
+        "insertion",
+        "class-obfuscation",
+        "attribute-churn"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Due date of the task 'Accessibility audit' (Nov 12)",
+      "css": "tr[data-task-id=\"318\"] td.cell-due time",
+      "xpath": "//td[text()='Accessibility audit']/following-sibling::td[@class='cell-due']/time",
+      "mutations": [
+        "copy-change",
+        "structure-move",
+        "sibling-reorder",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Add task' button at the end of the Development section",
+      "css": "tbody[data-section=\"development\"] .add-task",
+      "xpath": "(//button[@class='add-task'])[2]",
+      "mutations": [
+        "sibling-reorder",
+        "copy-change",
+        "class-obfuscation",
+        "structure-move",
+        "decoy"
+      ]
+    }
+  ]
+}

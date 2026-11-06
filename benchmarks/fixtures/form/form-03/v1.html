@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Information &amp; payment - Copperline Coffee Roasters - Checkout</title>
+<meta name="referrer" content="origin">
+<style>
+  body { margin: 0; font: 14px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; color: #333; }
+  .wrap { display: flex; max-width: 1080px; margin: 0 auto; }
+  .main { flex: 1 1 58%; padding: 56px 66px 0 0; }
+  .sidebar { flex: 1 1 42%; padding: 56px 0 0 44px; background: #fafafa; border-left: 1px solid #e1e1e1; }
+  .field { float: left; width: 100%; padding: .42857em; box-sizing: border-box; }
+  .field--half { width: 50%; } .field--three-eights { width: 37.5%; } .field--quarter { width: 25%; }
+  .field__input { width: 100%; border: 1px solid #d9d9d9; border-radius: 5px; padding: .94em .8em; box-sizing: border-box; }
+  .field__label { display: block; font-size: .857em; color: #737373; }
+  .content-box { border: 1px solid #d9d9d9; border-radius: 5px; }
+  .content-box__row { padding: 1.14em; border-top: 1px solid #d9d9d9; }
+  .btn { background: #8a4b1f; color: #fff; border: 0; border-radius: 5px; padding: 1.4em 1.7em; font-weight: 500; }
+  .visually-hidden { position: absolute !important; clip: rect(0 0 0 0); width: 2px; height: 2px; overflow: hidden; }
+  .payment-due__price { font-size: 1.714em; letter-spacing: -.04em; }
+</style>
+</head>
+<body>
+<a class="skip-to-content" href="#main-header">Skip to content</a>
+<header class="banner" role="banner">
+  <div class="wrap">
+    <a class="logo logo--left" href="https://copperlinecoffee.com"><span class="logo__text heading-1">Copperline Coffee Roasters</span></a>
+  </div>
+</header>
+<aside class="order-summary-toggle-wrapper" role="complementary">
+  <button type="button" class="order-summary-toggle order-summary-toggle--show" aria-expanded="false" aria-controls="order-summary">
+    <span class="order-summary-toggle__inner">
+      <span class="order-summary-toggle__icon-wrapper"><svg class="order-summary-toggle__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></span>
+      <span class="order-summary-toggle__text order-summary-toggle__text--show"><span>Show order summary</span></span>
+      <span class="order-summary-toggle__total-recap total-recap"><span class="total-recap__final-price">$126.68</span></span>
+    </span>
+  </button>
+</aside>
+<div class="content">
+  <div class="wrap">
+    <div class="main">
+      <header class="main__header" role="banner">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb__item breadcrumb__item--completed"><a class="breadcrumb__link" href="https://copperlinecoffee.com/cart">Cart</a><svg class="breadcrumb__chevron-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></li>
+            <li class="breadcrumb__item breadcrumb__item--current" aria-current="step"><span class="breadcrumb__text">Information &amp; payment</span><svg class="breadcrumb__chevron-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></li>
+            <li class="breadcrumb__item breadcrumb__item--blank"><span class="breadcrumb__text">Review</span></li>
+          </ol>
+        </nav>
+      </header>
+      <main class="main__content" role="main">
+        <div class="step" data-step="contact_information">
+          <form class="edit_checkout" id="checkout-form" action="/41820389/checkouts/7d1f2b9c40e5a8f3" accept-charset="UTF-8" method="post" novalidate>
+            <input type="hidden" name="_method" value="patch">
+            <input type="hidden" name="authenticity_token" value="pT3x0aQ+Lw8vJ1Y2mZ5cQe9sVbHk4rN7oD6uW2yF1gA=">
+            <div class="step__sections">
+              <div class="section section--contact-information">
+                <div class="section__header">
+                  <div class="layout-flex layout-flex--wrap">
+                    <h2 class="section__title layout-flex__item layout-flex__item--stretch" id="main-header" tabindex="-1">Contact information</h2>
+                    <p class="layout-flex__item"><span aria-hidden="true">Already have an account?</span> <a href="/account/login?checkout_url=%2F41820389%2Fcheckouts">Log in</a></p>
+                  </div>
+                </div>
+                <div class="section__content">
+                  <div class="fieldset">
+                    <div class="field field--required">
+                      <div class="field__input-wrapper">
+                        <label class="field__label field__label--visible" for="checkout_email">Email</label>
+                        <input placeholder="Email" autocomplete="shipping email" class="field__input" size="30" type="email" name="checkout[email]" id="checkout_email" value="theo.lindqvist@protonmail.com">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="checkbox-wrapper">
+                    <div class="checkbox__input"><input class="input-checkbox" type="checkbox" value="1" name="checkout[buyer_accepts_marketing]" id="checkout_buyer_accepts_marketing"></div>
+                    <label class="checkbox__label" for="checkout_buyer_accepts_marketing">Email me with news and offers</label>
+                  </div>
+                </div>
+              </div>
+              <div class="section section--shipping-address">
+                <div class="section__header"><h2 class="section__title">Shipping address</h2></div>
+                <div class="section__content">
+                  <div class="fieldset">
+                    <div class="address-fields">
+                      <div class="field field--required field--show-floating-label">
+                        <div class="field__input-wrapper field__input-wrapper--select">
+                          <label class="field__label field__label--visible" for="checkout_shipping_address_country">Country/region</label>
+                          <select class="field__input field__input--select" name="checkout[shipping_address][country]" id="checkout_shipping_address_country" autocomplete="shipping country">
+                            <option value="United States" selected>United States</option>
+                            <option value="Canada">Canada</option>
+                          </select>
+                        </div>
+                      </div>
+<div class="field field--half">
+  <div class="field__input-wrapper">
+    <label class="field__label field__label--visible" for="checkout_shipping_address_first_name">First name (optional)</label>
+    <input placeholder="First name (optional)" class="field__input" size="30" type="text" name="checkout[shipping_address][first_name]" id="checkout_shipping_address_first_name" value="Theo" autocomplete="shipping given-name">
+  </div>
+</div>
+<div class="field field--required field--half">
+  <div class="field__input-wrapper">
+    <label class="field__label field__label--visible" for="checkout_shipping_address_last_name">Last name</label>
+    <input placeholder="Last name" class="field__input" size="30" type="text" name="checkout[shipping_address][last_name]" id="checkout_shipping_address_last_name" value="Lindqvist" autocomplete="shipping family-name">
+  </div>
+</div>
+<div class="field">
+  <div class="field__input-wrapper">
+    <label class="field__label field__label--visible" for="checkout_shipping_address_company">Company (optional)</label>
+    <input placeholder="Company (optional)" class="field__input" size="30" type="text" name="checkout[shipping_address][company]" id="checkout_shipping_address_company" autocomplete="shipping organization">
+  </div>
+</div>
+<div class="field field--required">
+  <div class="field__input-wrapper">
+    <label class="field__label field__label--visible" for="checkout_shipping_address_address1">Address</label>
+    <input placeholder="Address" class="field__input" size="30" type="text" name="checkout[shipping_address][address1]" id="checkout_shipping_address_address1" value="4127 Fremont Ave N" autocomplete="shipping address-line1">
+  </div>
+</div>
+<div class="field">
+  <div class="field__input-wrapper">
+    <label class="field__label field__label--visible" for="checkout_shipping_address_address2">Apartment, suite, etc. (optional)</label>
+    <input placeholder="Apartment, suite, etc. (optional)" class="field__input" size="30" type="text" name="checkout[shipping_address][address2]" id="checkout_shipping_address_address2" autocomplete="shipping address-line2">
+  </div>
+</div>
+<div class="field field--required field--three-eights">
+  <div class="field__input-wrapper">
+    <label class="field__label field__label--visible" for="checkout_shipping_address_city">City</label>
+    <input placeholder="City" class="field__input" size="30" type="text" name="checkout[shipping_address][city]" id="checkout_shipping_address_city" value="Seattle" autocomplete="shipping address-level2">
+  </div>
+</div>
+<div class="field field--required field--three-eights field--show-floating-label">
+  <div class="field__input-wrapper field__input-wrapper--select">
+    <label class="field__label field__label--visible" for="checkout_shipping_address_province">State</label>
+    <select class="field__input field__input--select" name="checkout[shipping_address][province]" id="checkout_shipping_address_province" autocomplete="shipping address-level1">
+<option disabled value="">State</option>
+<option value="AL">Alabama</option>
+<option value="AK">Alaska</option>
+<option value="AZ">Arizona</option>
+<option value="AR">Arkansas</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="CT">Connecticut</option>
+<option value="DE">Delaware</option>
+<option value="DC">District of Columbia</option>
+<option value="FL">Florida</option>
+<option value="GA">Georgia</option>
+<option value="HI">Hawaii</option>
+<option value="ID">Idaho</option>
+<option value="IL">Illinois</option>
+<option value="IN">Indiana</option>
+<option value="IA">Iowa</option>
+<option value="KS">Kansas</option>
+<option value="KY">Kentucky</option>
+<option value="LA">Louisiana</option>
+<option value="ME">Maine</option>
+<option value="MD">Maryland</option>
+<option value="MA">Massachusetts</option>
+<option value="MI">Michigan</option>
+<option value="MN">Minnesota</option>
+<option value="MS">Mississippi</option>
+<option value="MO">Missouri</option>
+<option value="MT">Montana</option>
+<option value="NE">Nebraska</option>
+<option value="NV">Nevada</option>
+<option value="NH">New Hampshire</option>
+<option value="NJ">New Jersey</option>
+<option value="NM">New Mexico</option>
+<option value="NY">New York</option>
+<option value="NC">North Carolina</option>
+<option value="ND">North Dakota</option>
+<option value="OH">Ohio</option>
+<option value="OK">Oklahoma</option>
+<option value="OR">Oregon</option>
+<option value="PA">Pennsylvania</option>
+<option value="RI">Rhode Island</option>
+<option value="SC">South Carolina</option>
+<option value="SD">South Dakota</option>
+<option value="TN">Tennessee</option>
+<option value="TX">Texas</option>
+<option value="UT">Utah</option>
+<option value="VT">Vermont</option>
+<option value="VA">Virginia</option>
+<option value="WA" selected>Washington</option>
+<option value="WV">West Virginia</option>
+<option value="WI">Wisconsin</option>
+<option value="WY">Wyoming</option>
+    </select>
+  </div>
+</div>
+<div class="field field--required field--quarter">
+  <div class="field__input-wrapper">
+    <label class="field__label field__label--visible" for="checkout_shipping_address_zip">ZIP code</label>
+    <input placeholder="ZIP code" class="field__input" size="30" type="text" name="checkout[shipping_address][zip]" id="checkout_shipping_address_zip" value="98103" autocomplete="shipping postal-code" inputmode="numeric" data-dh-target="t1">
+  </div>
+</div>
+<div class="field">
+  <div class="field__input-wrapper">
+    <label class="field__label field__label--visible" for="checkout_shipping_address_phone">Phone (optional)</label>
+    <input placeholder="Phone (optional)" class="field__input" size="30" type="tel" name="checkout[shipping_address][phone]" id="checkout_shipping_address_phone" autocomplete="shipping tel">
+  </div>
+</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="section section--shipping-method">
+                <div class="section__header"><h2 class="section__title">Shipping method</h2></div>
+                <div class="section__content">
+                  <div class="content-box">
+<div class="content-box__row">
+  <div class="radio-wrapper">
+    <div class="radio__input"><input class="input-radio" type="radio" value="copperline-standard" name="checkout[shipping_rate][id]" id="checkout_shipping_rate_id_standard" checked></div>
+    <label class="radio__label" for="checkout_shipping_rate_id_standard"><span class="radio__label__primary">Standard (5–7 business days)</span><span class="radio__accessory"><span class="content-box__emphasis">$6.90</span></span></label>
+  </div>
+</div>
+<div class="content-box__row">
+  <div class="radio-wrapper">
+    <div class="radio__input"><input class="input-radio" type="radio" value="copperline-expedited" name="checkout[shipping_rate][id]" id="checkout_shipping_rate_id_expedited"></div>
+    <label class="radio__label" for="checkout_shipping_rate_id_expedited"><span class="radio__label__primary">Expedited (2–3 business days)</span><span class="radio__accessory"><span class="content-box__emphasis">$14.50</span></span></label>
+  </div>
+</div>
+<div class="content-box__row">
+  <div class="radio-wrapper">
+    <div class="radio__input"><input class="input-radio" type="radio" value="copperline-pickup" name="checkout[shipping_rate][id]" id="checkout_shipping_rate_id_pickup"></div>
+    <label class="radio__label" for="checkout_shipping_rate_id_pickup"><span class="radio__label__primary">Pickup at our Portland roastery</span><span class="radio__accessory"><span class="content-box__emphasis">Free</span></span></label>
+  </div>
+</div>
+                  </div>
+                </div>
+              </div>
+              <div class="section section--payment-method">
+                <div class="section__header">
+                  <h2 class="section__title">Payment</h2>
+                  <p class="section__text">All transactions are secure and encrypted.</p>
+                </div>
+                <div class="section__content">
+                  <fieldset class="content-box">
+                    <legend class="visually-hidden">Choose a payment method</legend>
+                    <div class="radio-wrapper content-box__row">
+                      <div class="radio__input"><input class="input-radio" type="radio" value="credit_card" name="checkout[payment_gateway]" id="checkout_payment_gateway_card" checked></div>
+                      <label class="radio__label" for="checkout_payment_gateway_card"><span class="radio__label__primary">Credit card</span>
+                        <span class="radio__label__accessory"><span class="payment-icon payment-icon--visa">Visa</span> <span class="payment-icon payment-icon--master">Mastercard</span> <span class="payment-icon payment-icon--american-express">American Express</span></span></label>
+                    </div>
+                    <div class="radio-wrapper content-box__row content-box__row--secondary card-fields-container" id="payment-gateway-subfields-card">
+                      <div class="fieldset payment-fields" data-credit-card-fields>
+                        <div class="field field--required">
+                          <div class="field__input-wrapper field__input-wrapper--icon-right">
+                            <label class="field__label field__label--visible" for="checkout_credit_card_number">Card number</label>
+                            <input class="field__input field__input--credit-card" id="checkout_credit_card_number" name="checkout[credit_card][number]" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="Card number" data-dh-target="t2">
+                            <div class="field__icon"><svg class="field__icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                          </div>
+                        </div>
+                        <div class="field field--required">
+                          <div class="field__input-wrapper">
+                            <label class="field__label field__label--visible" for="checkout_credit_card_name">Name on card</label>
+                            <input class="field__input" id="checkout_credit_card_name" name="checkout[credit_card][name]" type="text" autocomplete="cc-name" placeholder="Name on card" value="Theo Lindqvist">
+                          </div>
+                        </div>
+                        <div class="field field--required field--half field--expiry">
+                          <div class="field__input-wrapper">
+                            <label class="field__label field__label--visible" for="checkout_credit_card_expiry">Expiration date (MM / YY)</label>
+                            <input class="field__input" id="checkout_credit_card_expiry" name="checkout[credit_card][expiry]" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="Expiration date (MM / YY)" data-dh-target="t3">
+                          </div>
+                        </div>
+                        <div class="field field--required field--half field--cvv">
+                          <div class="field__input-wrapper field__input-wrapper--icon-right">
+                            <label class="field__label field__label--visible" for="checkout_credit_card_verification_value">Security code</label>
+                            <input class="field__input" id="checkout_credit_card_verification_value" name="checkout[credit_card][verification_value]" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="Security code">
+                            <div class="field__icon"><svg class="field__icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="radio-wrapper content-box__row">
+                      <div class="radio__input"><input class="input-radio" type="radio" value="paypal" name="checkout[payment_gateway]" id="checkout_payment_gateway_paypal"></div>
+                      <label class="radio__label" for="checkout_payment_gateway_paypal"><span class="radio__label__primary">PayPal</span></label>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="section section--billing-address">
+                <div class="section__header">
+                  <h2 class="section__title">Billing address</h2>
+                  <p class="section__text">Select the address that matches your card or payment method.</p>
+                </div>
+                <div class="section__content">
+                  <div class="checkbox-wrapper billing-toggle">
+                    <div class="checkbox__input"><input class="input-checkbox" type="checkbox" id="billing_same_as_shipping" name="checkout[billing_same_as_shipping]" value="1" checked data-dh-target="t4"></div>
+                    <label class="checkbox__label" for="billing_same_as_shipping">Same as shipping address</label>
+                  </div>
+                  <div class="billing-address-fields" hidden>
+<div class="field field--required field--half">
+  <div class="field__input-wrapper">
+    <label class="field__label field__label--visible" for="checkout_billing_address_last_name">Last name</label>
+    <input placeholder="Last name" class="field__input" size="30" type="text" name="checkout[billing_address][last_name]" id="checkout_billing_address_last_name" autocomplete="billing family-name">
+  </div>
+</div>
+<div class="field field--required">
+  <div class="field__input-wrapper">
+    <label class="field__label field__label--visible" for="checkout_billing_address_address1">Address</label>
+    <input placeholder="Address" class="field__input" size="30" type="text" name="checkout[billing_address][address1]" id="checkout_billing_address_address1" autocomplete="billing address-line1">
+  </div>
+</div>
+<div class="field field--required field--three-eights">
+  <div class="field__input-wrapper">
+    <label class="field__label field__label--visible" for="checkout_billing_address_city">City</label>
+    <input placeholder="City" class="field__input" size="30" type="text" name="checkout[billing_address][city]" id="checkout_billing_address_city" autocomplete="billing address-level2">
+  </div>
+</div>
+<div class="field field--required field--quarter">
+  <div class="field__input-wrapper">
+    <label class="field__label field__label--visible" for="checkout_billing_address_zip">ZIP code</label>
+    <input placeholder="ZIP code" class="field__input" size="30" type="text" name="checkout[billing_address][zip]" id="checkout_billing_address_zip" autocomplete="billing postal-code">
+  </div>
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="step__footer">
+              <button name="button" type="submit" id="continue_button" class="step__footer__continue-btn btn" aria-busy="false" data-dh-target="t5"><span class="btn__content">Pay now</span></button>
+              <a class="step__footer__previous-link" href="https://copperlinecoffee.com/cart"><svg class="previous-link__icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span class="step__footer__previous-link-content">Return to cart</span></a>
+            </div>
+          </form>
+        </div>
+      </main>
+      <footer class="main__footer" role="contentinfo">
+        <ul class="policy-list">
+<li class="policy-list__item"><a href="/policies/refund-policy">Refund policy</a></li>
+<li class="policy-list__item"><a href="/policies/shipping-policy">Shipping policy</a></li>
+<li class="policy-list__item"><a href="/policies/privacy-policy">Privacy policy</a></li>
+<li class="policy-list__item"><a href="/policies/terms-of-service">Terms of service</a></li>
+        </ul>
+      </footer>
+    </div>
+    <aside class="sidebar" id="order-summary" role="complementary">
+      <div class="sidebar__header"><h2 class="visually-hidden">Order summary</h2></div>
+      <div class="sidebar__content">
+        <div class="order-summary">
+          <div class="order-summary__section order-summary__section--product-list">
+            <table class="product-table">
+              <caption class="visually-hidden">Shopping cart</caption>
+              <thead class="product-table__header"><tr><th scope="col"><span class="visually-hidden">Product image</span></th><th scope="col"><span class="visually-hidden">Description</span></th><th scope="col"><span class="visually-hidden">Quantity</span></th><th scope="col"><span class="visually-hidden">Price</span></th></tr></thead>
+              <tbody>
+<tr class="product">
+  <td class="product__image"><div class="product-thumbnail"><div class="product-thumbnail__wrapper"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="8" fill="#f5f5f4"/><rect x="18" y="12" width="28" height="40" rx="4" fill="#b45309"/></svg></div><span class="product-thumbnail__quantity" aria-hidden="true">2</span></div></td>
+  <th class="product__description" scope="row"><span class="product__description__name order-summary__emphasis">Ethiopia Guji Natural</span><span class="product__description__variant order-summary__small-text">340 g / Whole bean</span></th>
+  <td class="product__quantity"><span class="visually-hidden">2</span></td>
+  <td class="product__price"><span class="order-summary__emphasis">$39.00</span></td>
+</tr>
+<tr class="product">
+  <td class="product__image"><div class="product-thumbnail"><div class="product-thumbnail__wrapper"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="8" fill="#f5f5f4"/><rect x="18" y="12" width="28" height="40" rx="4" fill="#44403c"/></svg></div><span class="product-thumbnail__quantity" aria-hidden="true">1</span></div></td>
+  <th class="product__description" scope="row"><span class="product__description__name order-summary__emphasis">Night Shift Espresso Blend</span><span class="product__description__variant order-summary__small-text">1 kg / Espresso grind</span></th>
+  <td class="product__quantity"><span class="visually-hidden">1</span></td>
+  <td class="product__price"><span class="order-summary__emphasis">$41.00</span></td>
+</tr>
+<tr class="product">
+  <td class="product__image"><div class="product-thumbnail"><div class="product-thumbnail__wrapper"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="8" fill="#f5f5f4"/><rect x="18" y="12" width="28" height="40" rx="4" fill="#d6d3d1"/></svg></div><span class="product-thumbnail__quantity" aria-hidden="true">1</span></div></td>
+  <th class="product__description" scope="row"><span class="product__description__name order-summary__emphasis">Copperline Ceramic Dripper</span><span class="product__description__variant order-summary__small-text">Matte white</span></th>
+  <td class="product__quantity"><span class="visually-hidden">1</span></td>
+  <td class="product__price"><span class="order-summary__emphasis">$28.00</span></td>
+</tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="order-summary__section order-summary__section--discount">
+            <form class="edit_checkout" action="/41820389/checkouts/7d1f2b9c40e5a8f3/discount" method="post">
+              <div class="field">
+                <div class="field__input-btn-wrapper">
+                  <div class="field__input-wrapper">
+                    <label class="field__label" for="checkout_reduction_code">Gift card or discount code</label>
+                    <input placeholder="Gift card or discount code" class="field__input" type="text" name="checkout[reduction_code]" id="checkout_reduction_code">
+                  </div>
+                  <button name="button" type="submit" class="field__input-btn btn btn--disabled" disabled>Apply</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="order-summary__section order-summary__section--total-lines">
+            <table class="total-line-table">
+              <caption class="visually-hidden">Cost summary</caption>
+              <thead><tr><th scope="col"><span class="visually-hidden">Description</span></th><th scope="col"><span class="visually-hidden">Price</span></th></tr></thead>
+              <tbody class="total-line-table__tbody">
+<tr class="total-line total-line--subtotal"><th class="total-line__name" scope="row">Subtotal</th><td class="total-line__price"><span class="order-summary__emphasis">$108.00</span></td></tr>
+<tr class="total-line total-line--shipping"><th class="total-line__name" scope="row">Shipping</th><td class="total-line__price"><span class="order-summary__emphasis">$6.90</span></td></tr>
+<tr class="total-line total-line--taxes"><th class="total-line__name" scope="row">Estimated taxes</th><td class="total-line__price"><span class="order-summary__emphasis">$11.78</span></td></tr>
+              </tbody>
+              <tfoot class="total-line-table__footer">
+                <tr class="total-line">
+                  <th class="total-line__name payment-due-label" scope="row"><span class="payment-due-label__total">Total</span></th>
+                  <td class="total-line__price payment-due"><span class="payment-due__currency">USD</span> <span class="payment-due__price" data-dh-target="t6">$126.68</span></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+</body>
+</html>

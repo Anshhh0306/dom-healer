@@ -17,7 +17,14 @@ from collections.abc import Sequence
 import numpy as np
 
 from dom_healer.fingerprint import TEST_ATTRS, ElementFingerprint
-from dom_healer.text import class_tokens, identifier_tokens, jaccard, lcs_ratio, text_similarity
+from dom_healer.text import (
+    canonical_words,
+    class_tokens,
+    identifier_tokens,
+    jaccard,
+    lcs_ratio,
+    text_similarity,
+)
 
 NAN = math.nan
 
@@ -43,6 +50,7 @@ RAW_FEATURES: tuple[str, ...] = (
     "heading_sim",
     "context_sim",
     "next_context_sim",
+    "container_sim",
     "row_sim",
     "column_sim",
     "form_sim",
@@ -73,6 +81,7 @@ RELATIVE_OF: tuple[str, ...] = (
     "label_sim",
     "heading_sim",
     "context_sim",
+    "container_sim",
     "row_sim",
     "column_sim",
     "testid_eq",
@@ -150,6 +159,15 @@ def _opt_sim(a: str, b: str) -> float:
     return NAN if not a else text_similarity(a, b)
 
 
+def _opt_words(a: str, b: str) -> float:
+    """Order-insensitive canonical-word Jaccard (cheaper than trigrams for long context strings)."""
+    if not a:
+        return NAN
+    if a == b:
+        return 1.0
+    return jaccard(canonical_words(a), canonical_words(b)) if b else 0.0
+
+
 def _opt_jac(a: frozenset, b: frozenset) -> float:
     return NAN if not a else jaccard(a, b)
 
@@ -178,14 +196,15 @@ def pair_features(a: ElementFingerprint, b: ElementFingerprint, retrieval: float
         _opt_sim(da.href, db.href),
         _opt_sim(a.accessible_name, b.accessible_name),
         _opt_sim(a.text, b.text),
-        _opt_sim(a.full_text, b.full_text),
+        _opt_words(a.full_text, b.full_text),
         _opt_sim(a.label, b.label),
         _opt_sim(a.heading, b.heading),
-        _opt_sim(a.context, b.context),
-        _opt_sim(a.next_context, b.next_context),
-        _opt_sim(a.row, b.row),
+        _opt_words(a.context, b.context),
+        _opt_words(a.next_context, b.next_context),
+        _opt_words(a.container, b.container),
+        _opt_words(a.row, b.row),
         _opt_sim(a.column_header, b.column_header),
-        _opt_sim(a.form, b.form),
+        _opt_words(a.form, b.form),
         1.0 if a.landmark == b.landmark else 0.0,
         _opt_jac(da.classes, db.classes),
         _opt_jac(da.class_toks, db.class_toks),

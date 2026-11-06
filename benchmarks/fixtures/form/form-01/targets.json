@@ -1,0 +1,101 @@
+{
+  "suite": "form-01",
+  "category": "form",
+  "title": "Workspace login with SSO providers — Quillstack",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "testid-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 moves the auth card to a Stitches design system (c-xxxxxx hashed classes) with React useId ids (':r3:'). The email/password form now comes before the SSO block; the SSO buttons move into a <qs-sso-providers> declarative shadow root and are reordered (Microsoft, Google, GitHub). 'Remember me' and 'Forgot password?' are swapped into one row under the password. Decoys: a 'Log in' / 'Sign up' tab bar (the 'Log in' tab is a button with the same text as the submit), a hidden sign-up tab panel with its own email/password inputs and a second <qs-sso-providers> (another 'Continue with GitHub'), a 'Trouble logging in?' help box with a 'Forgot your password?' link placed before the form, a honeypot text input and a hidden mobile menu. Copy changes: 'Sign in' -> 'Log in', 'E-mail' -> 'Email address', 'Remember me for 30 days' -> 'Keep me logged in'.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Email input of the login form",
+      "css": "#login-email",
+      "xpath": "//form[@id='login-form']//input[@name='email']",
+      "mutations": [
+        "class-obfuscation",
+        "wrapper-divs",
+        "id-change",
+        "copy-change",
+        "attribute-churn",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Password input of the login form",
+      "css": "form#login-form input[type='password']",
+      "xpath": "//input[@autocomplete='current-password']",
+      "mutations": [
+        "class-obfuscation",
+        "wrapper-divs",
+        "id-change",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "'Remember me' checkbox under the password field",
+      "css": ".form-check > input[name='remember']",
+      "xpath": "//input[@type='checkbox' and @id='remember-me']",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "sibling-reorder",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Forgot password?' link of the login form",
+      "css": "a.link-forgot",
+      "xpath": "//a[normalize-space()='Forgot password?']",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "sibling-reorder",
+        "structure-move",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Sign in with GitHub' SSO button",
+      "css": "[data-testid='sso-github']",
+      "xpath": "//button[contains(., 'Sign in with GitHub')]",
+      "mutations": [
+        "shadow-dom",
+        "testid-change",
+        "copy-change",
+        "sibling-reorder",
+        "structure-move",
+        "decoy",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Primary 'Sign in' submit button of the login form",
+      "css": "#login-form button.btn-primary",
+      "xpath": "//button[@type='submit' and normalize-space()='Sign in']",
+      "mutations": [
+        "class-obfuscation",
+        "testid-change",
+        "copy-change",
+        "decoy"
+      ]
+    }
+  ]
+}

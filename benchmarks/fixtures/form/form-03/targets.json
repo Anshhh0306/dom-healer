@@ -1,0 +1,99 @@
+{
+  "suite": "form-03",
+  "category": "form",
+  "title": "Checkout: shipping address + card payment — Copperline Coffee Roasters",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion",
+    "tag-change"
+  ],
+  "notes": "v1 is a classic hosted checkout (field__input / total-line-table markup, Rails-style checkout[...] names). v2 is a one-page styled-components checkout (sc-xxxxxx classes, short names like postalCode/zone). The card fields move into a <cl-payment-element> declarative shadow root with new ids/placeholders ('MM / YY'); the billing checkbox becomes a 'Same as shipping address' / 'Use a different billing address' radio pair inside the payment block; ZIP code now precedes City/State; the order-summary tables become a list and a <dl>. Decoys: hidden billing fields reusing name=postalCode, an express-checkout wallet row, a mobile order-summary toggle and a sticky mobile pay bar that both repeat the $126.68 total, and a second 'Pay now' button.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "ZIP code input of the shipping address",
+      "css": "#checkout_shipping_address_zip",
+      "xpath": "//input[@name='checkout[shipping_address][zip]']",
+      "mutations": [
+        "class-obfuscation",
+        "wrapper-divs",
+        "id-change",
+        "attribute-churn",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Card number input",
+      "css": "#checkout_credit_card_number",
+      "xpath": "//input[@autocomplete='cc-number']",
+      "mutations": [
+        "shadow-dom",
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Card expiration date (MM / YY) input",
+      "css": ".field--expiry .field__input",
+      "xpath": "//input[@placeholder='Expiration date (MM / YY)']",
+      "mutations": [
+        "shadow-dom",
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Same as shipping address' billing control (checkbox in v1, radio in v2)",
+      "css": "input#billing_same_as_shipping",
+      "xpath": "//div[@class='checkbox-wrapper billing-toggle']//input[@type='checkbox']",
+      "mutations": [
+        "class-obfuscation",
+        "wrapper-divs",
+        "id-change",
+        "attribute-churn",
+        "structure-move",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Pay now' submit button",
+      "css": ".step__footer__continue-btn",
+      "xpath": "//button[normalize-space()='Pay now']",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Order total amount ($126.68) in the order summary",
+      "css": ".total-line-table .payment-due__price",
+      "xpath": "//tfoot//span[contains(@class,'payment-due__price')]",
+      "mutations": [
+        "class-obfuscation",
+        "tag-change",
+        "structure-move",
+        "decoy"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en" class="h-full bg-white">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preferences | Driftwood</title>
+<meta name="description" content="Manage your Driftwood notification, language and account settings.">
+<style>*,::before,::after{box-sizing:border-box;border:0 solid #e5e7eb}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}</style>
+</head>
+<body class="h-full">
+<div id="headlessui-portal-root">
+  <div id="headlessui-dialog-:r1n:" role="dialog" aria-modal="true" aria-labelledby="delete-dialog-title" class="relative z-50" hidden>
+    <div class="fixed inset-0 bg-gray-500/75 transition-opacity" aria-hidden="true"></div>
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <div class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+          <div class="sm:flex sm:items-start">
+            <div class="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:size-10"><svg class="size-6 text-red-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+              <h3 id="delete-dialog-title" class="text-base font-semibold text-gray-900">Delete your Driftwood account?</h3>
+              <div class="mt-2"><p class="text-sm text-gray-500">All 1,284 photos and 37 albums will be permanently removed. This action cannot be undone.</p></div>
+            </div>
+          </div>
+          <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+            <button type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Delete account</button>
+            <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="__next">
+  <div class="relative z-50 lg:hidden" role="dialog" aria-modal="true" aria-label="Navigation" hidden>
+    <div class="fixed inset-0 bg-gray-900/80" aria-hidden="true"></div>
+    <div class="fixed inset-0 flex">
+      <div class="relative mr-16 flex w-full max-w-xs flex-1">
+        <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-2">
+          <div class="flex h-16 shrink-0 items-center"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="14" fill="#7c3aed"/><path d="M6 19c4-3 8-3 12 0s6 1 7-1" stroke="#fff" stroke-width="2" fill="none"/></svg></div>
+          <nav class="flex flex-1 flex-col" aria-label="Mobile"><ul role="list" class="-mx-2 space-y-1">
+<li><a href="/home" class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-400 hover:bg-gray-800 hover:text-white"><svg class="size-6 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Home</a></li>
+<li><a href="/discover" class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-400 hover:bg-gray-800 hover:text-white"><svg class="size-6 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Discover</a></li>
+<li><a href="/following" class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-400 hover:bg-gray-800 hover:text-white"><svg class="size-6 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>Following</a></li>
+<li><a href="/groups" class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-400 hover:bg-gray-800 hover:text-white"><svg class="size-6 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Groups</a></li>
+<li><a href="/uploads" class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-400 hover:bg-gray-800 hover:text-white"><svg class="size-6 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5M12 3v12"/></svg>Your uploads</a></li>
+<li><a href="/stats" class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-400 hover:bg-gray-800 hover:text-white"><svg class="size-6 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Stats</a></li>
+          </ul></nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
+    <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6">
+      <div class="flex h-16 shrink-0 items-center gap-x-3"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="14" fill="#7c3aed"/><path d="M6 19c4-3 8-3 12 0s6 1 7-1" stroke="#fff" stroke-width="2" fill="none"/></svg><span class="text-sm font-semibold text-white">Driftwood</span></div>
+      <nav class="flex flex-1 flex-col" aria-label="App"><ul role="list" class="-mx-2 space-y-1">
+<li><a href="/home" class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-400 hover:bg-gray-800 hover:text-white"><svg class="size-6 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Home</a></li>
+<li><a href="/discover" class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-400 hover:bg-gray-800 hover:text-white"><svg class="size-6 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Discover</a></li>
+<li><a href="/following" class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-400 hover:bg-gray-800 hover:text-white"><svg class="size-6 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>Following</a></li>
+<li><a href="/groups" class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-400 hover:bg-gray-800 hover:text-white"><svg class="size-6 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Groups</a></li>
+<li><a href="/uploads" class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-400 hover:bg-gray-800 hover:text-white"><svg class="size-6 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5M12 3v12"/></svg>Your uploads</a></li>
+<li><a href="/stats" class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-400 hover:bg-gray-800 hover:text-white"><svg class="size-6 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Stats</a></li>
+      </ul></nav>
+    </div>
+  </div>
+  <div class="lg:pl-72">
+    <div class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-6 border-b border-gray-200 bg-white px-4 shadow-sm sm:px-6 lg:px-8">
+      <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden"><span class="sr-only">Open sidebar</span><svg class="size-5" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+      <form class="grid flex-1 grid-cols-1" action="/search" method="get">
+        <input type="search" name="q" aria-label="Search" class="col-start-1 row-start-1 block size-full bg-white pl-8 text-base text-gray-900 outline-none placeholder:text-gray-400 sm:text-sm/6" placeholder="Search photos, people, places">
+        <svg class="pointer-events-none col-start-1 row-start-1 size-5 self-center text-gray-400" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </form>
+      <a href="/notifications" class="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500"><span class="sr-only">View notifications</span><svg class="size-6" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></a>
+      <div class="relative">
+        <button type="button" class="-m-1.5 flex items-center p-1.5" id="user-menu-button" aria-expanded="false" aria-haspopup="true"><span class="sr-only">Open user menu</span><span class="inline-flex size-8 items-center justify-center rounded-full bg-violet-100 text-xs font-medium text-violet-700">EM</span></button>
+        <div class="absolute right-0 z-10 mt-2.5 w-40 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5" role="menu" aria-labelledby="user-menu-button" hidden>
+          <a href="/@elena.marsh" class="block px-3 py-1 text-sm/6 text-gray-900" role="menuitem">Your profile</a>
+          <a href="/settings/billing" class="block px-3 py-1 text-sm/6 text-gray-900" role="menuitem">Plans &amp; billing</a>
+          <a href="/logout" class="block px-3 py-1 text-sm/6 text-gray-900" role="menuitem">Sign out</a>
+        </div>
+      </div>
+    </div>
+    <main>
+      <h1 class="sr-only">Account settings</h1>
+      <header class="border-b border-gray-200">
+        <nav class="flex overflow-x-auto py-4" aria-label="Account settings">
+          <ul role="list" class="flex min-w-full flex-none gap-x-6 px-4 text-sm/6 font-semibold text-gray-500 sm:px-6 lg:px-8">
+<li><a href="/settings/profile" class="hover:text-gray-900">Profile</a></li>
+<li><a href="/settings/preferences" class="text-indigo-600" aria-current="page">Preferences</a></li>
+<li><a href="/settings/security" class="hover:text-gray-900">Security</a></li>
+<li><a href="/settings/billing" class="hover:text-gray-900" data-dh-target="t6">Plans &amp; billing</a></li>
+<li><a href="/settings/privacy" class="hover:text-gray-900">Privacy</a></li>
+<li><a href="/settings/integrations" class="hover:text-gray-900">Integrations</a></li>
+<li><a href="/settings/export" class="hover:text-gray-900">Export</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="rounded-md bg-green-50 p-4 mx-4 mt-6 sm:mx-6 lg:mx-8" role="status"><p class="text-sm font-medium text-green-800">Profile photo updated.</p></div>
+      <form id="preferences" class="divide-y divide-gray-200" action="/api/settings/preferences" method="post">
+        <div class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
+          <div>
+            <h2 class="text-base/7 font-semibold text-gray-900">Language &amp; region</h2>
+            <p class="mt-1 text-sm/6 text-gray-500">Pick the language for menus and emails, and the time zone used for upload dates.</p>
+          </div>
+          <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-6 md:col-span-2">
+            <div class="sm:col-span-3">
+              <label for="locale" class="block text-sm/6 font-medium text-gray-900">Display language</label>
+              <div class="mt-2 grid grid-cols-1">
+                <select id="locale" name="locale" autocomplete="language" class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" data-dh-target="t2">
+<option value="en" selected>English (US)</option>
+<option value="en-GB">English (UK)</option>
+<option value="de">Deutsch</option>
+<option value="es">Español</option>
+<option value="fr">Français</option>
+<option value="it">Italiano</option>
+<option value="ja">日本語</option>
+<option value="ko">한국어</option>
+<option value="nl">Nederlands</option>
+<option value="pt-BR">Português (Brasil)</option>
+<option value="sv">Svenska</option>
+<option value="zh-CN">简体中文</option>
+                </select>
+                <svg class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"/></svg>
+              </div>
+            </div>
+            <div class="sm:col-span-3">
+              <label for="timezone" class="block text-sm/6 font-medium text-gray-900">Time zone</label>
+              <div class="mt-2 grid grid-cols-1">
+                <select id="timezone" name="user[time_zone]" class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" data-dh-target="t3">
+<optgroup label="Americas">
+<option value="Pacific/Honolulu">(GMT-10:00) Hawaii</option>
+<option value="America/Anchorage">(GMT-09:00) Alaska</option>
+<option value="America/Los_Angeles" selected>(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+<option value="America/Phoenix">(GMT-07:00) Arizona</option>
+<option value="America/Denver">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+<option value="America/Chicago">(GMT-06:00) Central Time (US &amp; Canada)</option>
+<option value="America/Mexico_City">(GMT-06:00) Mexico City</option>
+<option value="America/New_York">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+<option value="America/Bogota">(GMT-05:00) Bogota</option>
+<option value="America/Halifax">(GMT-04:00) Atlantic Time (Canada)</option>
+<option value="America/Sao_Paulo">(GMT-03:00) Brasilia</option>
+<option value="America/Argentina/Buenos_Aires">(GMT-03:00) Buenos Aires</option>
+</optgroup>
+<optgroup label="Europe &amp; Africa">
+<option value="Atlantic/Azores">(GMT-01:00) Azores</option>
+<option value="Europe/London">(GMT+00:00) London</option>
+<option value="Europe/Lisbon">(GMT+00:00) Lisbon</option>
+<option value="Europe/Berlin">(GMT+01:00) Berlin</option>
+<option value="Europe/Paris">(GMT+01:00) Paris</option>
+<option value="Europe/Stockholm">(GMT+01:00) Stockholm</option>
+<option value="Africa/Lagos">(GMT+01:00) West Central Africa</option>
+<option value="Europe/Athens">(GMT+02:00) Athens</option>
+<option value="Africa/Cairo">(GMT+02:00) Cairo</option>
+<option value="Europe/Istanbul">(GMT+03:00) Istanbul</option>
+<option value="Africa/Nairobi">(GMT+03:00) Nairobi</option>
+</optgroup>
+<optgroup label="Asia &amp; Pacific">
+<option value="Asia/Dubai">(GMT+04:00) Abu Dhabi</option>
+<option value="Asia/Karachi">(GMT+05:00) Karachi</option>
+<option value="Asia/Kolkata">(GMT+05:30) Mumbai, New Delhi</option>
+<option value="Asia/Bangkok">(GMT+07:00) Bangkok</option>
+<option value="Asia/Singapore">(GMT+08:00) Singapore</option>
+<option value="Asia/Shanghai">(GMT+08:00) Beijing</option>
+<option value="Asia/Tokyo">(GMT+09:00) Tokyo</option>
+<option value="Asia/Seoul">(GMT+09:00) Seoul</option>
+<option value="Australia/Sydney">(GMT+10:00) Sydney</option>
+<option value="Pacific/Auckland">(GMT+12:00) Auckland</option>
+</optgroup>
+                </select>
+                <svg class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"/></svg>
+              </div>
+            </div>
+            <fieldset class="sm:col-span-6">
+              <legend class="text-sm/6 font-semibold text-gray-900">Date format</legend>
+              <div class="mt-3 flex gap-x-6">
+                <label class="flex items-center gap-x-2 text-sm/6 text-gray-900"><input type="radio" name="dateFormat" value="iso" class="size-4 border-gray-300 text-indigo-600"> 2026-11-05</label>
+                <label class="flex items-center gap-x-2 text-sm/6 text-gray-900"><input type="radio" name="dateFormat" value="us" checked class="size-4 border-gray-300 text-indigo-600"> Nov 5, 2026</label>
+                <label class="flex items-center gap-x-2 text-sm/6 text-gray-900"><input type="radio" name="dateFormat" value="eu" class="size-4 border-gray-300 text-indigo-600"> 5 Nov 2026</label>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
+          <div>
+            <h2 class="text-base/7 font-semibold text-gray-900">Notifications</h2>
+            <p class="mt-1 text-sm/6 text-gray-500">We'll always email you about security and billing. Choose what else you want to hear about.</p>
+          </div>
+          <div class="md:col-span-2">
+            <div class="flex justify-end gap-x-8 pr-1 text-xs font-medium uppercase tracking-wide text-gray-500" aria-hidden="true"><span>Push</span><span>Email</span><span>In-app</span></div>
+            <ul role="list" class="divide-y divide-gray-100">
+<li class="flex items-center justify-between gap-x-6 py-5">
+  <div class="min-w-0"><p class="text-sm/6 font-semibold text-gray-900" id="notif-mentions-label">Mentions</p><p class="mt-1 text-xs/5 text-gray-500">When someone @mentions you in a comment or caption.</p></div>
+  <div class="flex shrink-0 items-center gap-x-8">
+    <button type="button" id="headlessui-switch-:r14:" role="switch" aria-checked="true" aria-labelledby="notif-mentions-label notif-mentions-push" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-indigo-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2" data-dh-target="t1"><span class="sr-only" id="notif-mentions-push">Push</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r15:" role="switch" aria-checked="true" aria-labelledby="notif-mentions-label notif-mentions-email" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-indigo-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-mentions-email">Email</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r16:" role="switch" aria-checked="true" aria-labelledby="notif-mentions-label notif-mentions-in-app" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-indigo-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-mentions-in-app">In-app</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+  </div>
+</li>
+<li class="flex items-center justify-between gap-x-6 py-5">
+  <div class="min-w-0"><p class="text-sm/6 font-semibold text-gray-900" id="notif-comments-label">Comments on your photos</p><p class="mt-1 text-xs/5 text-gray-500">When someone comments on a photo you posted.</p></div>
+  <div class="flex shrink-0 items-center gap-x-8">
+    <button type="button" id="headlessui-switch-:r17:" role="switch" aria-checked="true" aria-labelledby="notif-comments-label notif-comments-push" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-indigo-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-comments-push">Push</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r18:" role="switch" aria-checked="true" aria-labelledby="notif-comments-label notif-comments-email" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-indigo-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-comments-email">Email</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r19:" role="switch" aria-checked="true" aria-labelledby="notif-comments-label notif-comments-in-app" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-indigo-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-comments-in-app">In-app</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+  </div>
+</li>
+<li class="flex items-center justify-between gap-x-6 py-5">
+  <div class="min-w-0"><p class="text-sm/6 font-semibold text-gray-900" id="notif-featured-label">Featured on Discover</p><p class="mt-1 text-xs/5 text-gray-500">When one of your photos is picked by our curators.</p></div>
+  <div class="flex shrink-0 items-center gap-x-8">
+    <button type="button" id="headlessui-switch-:r1a:" role="switch" aria-checked="true" aria-labelledby="notif-featured-label notif-featured-push" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-indigo-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-featured-push">Push</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r1b:" role="switch" aria-checked="true" aria-labelledby="notif-featured-label notif-featured-email" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-indigo-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-featured-email">Email</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r1c:" role="switch" aria-checked="true" aria-labelledby="notif-featured-label notif-featured-in-app" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-indigo-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-featured-in-app">In-app</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+  </div>
+</li>
+<li class="flex items-center justify-between gap-x-6 py-5">
+  <div class="min-w-0"><p class="text-sm/6 font-semibold text-gray-900" id="notif-followers-label">New followers</p><p class="mt-1 text-xs/5 text-gray-500">When someone starts following you.</p></div>
+  <div class="flex shrink-0 items-center gap-x-8">
+    <button type="button" id="headlessui-switch-:r1d:" role="switch" aria-checked="true" aria-labelledby="notif-followers-label notif-followers-push" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-indigo-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-followers-push">Push</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r1e:" role="switch" aria-checked="false" aria-labelledby="notif-followers-label notif-followers-email" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-followers-email">Email</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r1f:" role="switch" aria-checked="true" aria-labelledby="notif-followers-label notif-followers-in-app" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-indigo-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-followers-in-app">In-app</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+  </div>
+</li>
+<li class="flex items-center justify-between gap-x-6 py-5">
+  <div class="min-w-0"><p class="text-sm/6 font-semibold text-gray-900" id="notif-favorites-label">Favorites</p><p class="mt-1 text-xs/5 text-gray-500">When someone adds one of your photos to their favorites.</p></div>
+  <div class="flex shrink-0 items-center gap-x-8">
+    <button type="button" id="headlessui-switch-:r20:" role="switch" aria-checked="false" aria-labelledby="notif-favorites-label notif-favorites-push" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-favorites-push">Push</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r21:" role="switch" aria-checked="false" aria-labelledby="notif-favorites-label notif-favorites-email" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-favorites-email">Email</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r22:" role="switch" aria-checked="true" aria-labelledby="notif-favorites-label notif-favorites-in-app" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-indigo-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-favorites-in-app">In-app</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+  </div>
+</li>
+<li class="flex items-center justify-between gap-x-6 py-5">
+  <div class="min-w-0"><p class="text-sm/6 font-semibold text-gray-900" id="notif-digest-label">Weekly digest</p><p class="mt-1 text-xs/5 text-gray-500">Your stats plus the best new photos from people you follow.</p></div>
+  <div class="flex shrink-0 items-center gap-x-8">
+    <button type="button" id="headlessui-switch-:r23:" role="switch" aria-checked="false" aria-labelledby="notif-digest-label notif-digest-push" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-digest-push">Push</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r24:" role="switch" aria-checked="true" aria-labelledby="notif-digest-label notif-digest-email" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-indigo-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-digest-email">Email</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r25:" role="switch" aria-checked="false" aria-labelledby="notif-digest-label notif-digest-in-app" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-digest-in-app">In-app</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+  </div>
+</li>
+<li class="flex items-center justify-between gap-x-6 py-5">
+  <div class="min-w-0"><p class="text-sm/6 font-semibold text-gray-900" id="notif-news-label">Product news &amp; tips</p><p class="mt-1 text-xs/5 text-gray-500">New features, photo challenges and the occasional offer.</p></div>
+  <div class="flex shrink-0 items-center gap-x-8">
+    <button type="button" id="headlessui-switch-:r26:" role="switch" aria-checked="false" aria-labelledby="notif-news-label notif-news-push" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-news-push">Push</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r27:" role="switch" aria-checked="false" aria-labelledby="notif-news-label notif-news-email" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-news-email">Email</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+    <button type="button" id="headlessui-switch-:r28:" role="switch" aria-checked="false" aria-labelledby="notif-news-label notif-news-in-app" class="group relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"><span class="sr-only" id="notif-news-in-app">In-app</span><span aria-hidden="true" class="pointer-events-none inline-block size-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+  </div>
+</li>
+            </ul>
+            <div class="mt-6 sm:max-w-xs">
+              <label for="digestDay" class="block text-sm/6 font-medium text-gray-900">Weekly digest day</label>
+              <div class="mt-2 grid grid-cols-1">
+                <select id="digestDay" name="digestDay" class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+<option value="monday">monday</option>
+<option value="tuesday">tuesday</option>
+<option value="wednesday">wednesday</option>
+<option value="thursday">thursday</option>
+<option value="friday">friday</option>
+<option value="saturday">saturday</option>
+<option value="sunday" selected>sunday</option>
+                </select>
+                <svg class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"/></svg>
+              </div>
+            </div>
+            <div class="mt-8 flex items-center justify-end gap-x-6">
+              <a href="/settings/preferences" class="text-sm/6 font-semibold text-gray-900">Cancel</a>
+              <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" data-dh-target="t5">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 border-t border-gray-200 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
+        <div>
+          <h2 class="text-base/7 font-semibold text-gray-900">Delete account</h2>
+          <p class="mt-1 text-sm/6 text-gray-500">No longer want to use Driftwood? Export your originals first: deleting is permanent.</p>
+        </div>
+        <dw-danger-zone class="md:col-span-2" account="elena.marsh">
+          <template shadowrootmode="open">
+            <style>:host{display:block}.zone{border:1px solid #fecaca;border-radius:12px;background:#fff}.row{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 20px;border-top:1px solid #fee2e2}.row:first-child{border-top:0}.title{margin:0;font:600 14px/1.5 system-ui;color:#111827}.desc{margin:2px 0 0;font:13px/1.5 system-ui;color:#6b7280}.btn{border-radius:6px;padding:8px 12px;font:600 13px system-ui;cursor:pointer;white-space:nowrap}.secondary{background:#fff;border:1px solid #d1d5db;color:#111827}.danger{background:#dc2626;border:0;color:#fff}</style>
+            <div class="zone" part="zone">
+              <div class="row"><div><p class="title">Export your photos</p><p class="desc">A ZIP of every original you've uploaded (4.2 GB).</p></div><a class="btn secondary" href="/settings/export">Request export</a></div>
+              <div class="row"><div><p class="title">Deactivate account</p><p class="desc">Hide your profile and photos until you log in again.</p></div><button type="button" class="btn secondary">Deactivate</button></div>
+              <div class="row"><div><p class="title">Delete account</p><p class="desc">Permanently delete your account, 1,284 photos and 37 albums.</p></div><button type="button" class="btn danger" aria-haspopup="dialog" aria-controls="headlessui-dialog-:r1n:" data-dh-target="t4">Delete account</button></div>
+            </div>
+          </template>
+        </dw-danger-zone>
+      </div>
+    </main>
+    <footer class="border-t border-gray-200 px-4 py-8 sm:px-6 lg:px-8">
+      <ul role="list" class="flex flex-wrap gap-x-6 gap-y-2 text-sm/6 text-gray-500">
+<li><a class="hover:text-gray-900" href="/developers">API</a></li>
+<li><a class="hover:text-gray-900" href="/privacy">Privacy</a></li>
+<li><a class="hover:text-gray-900" href="/terms">Terms</a></li>
+<li><a class="hover:text-gray-900" href="/guidelines">Community guidelines</a></li>
+<li><a class="hover:text-gray-900" href="/help">Help</a></li>
+<li><a class="hover:text-gray-900" href="/blog">Blog</a></li>
+<li><a class="hover:text-gray-900" href="/about">About</a></li>
+      </ul>
+      <p class="mt-4 text-xs/5 text-gray-400">&copy; 2026 Driftwood Photo Co. All rights reserved.</p>
+    </footer>
+  </div>
+  <div class="pointer-events-none fixed inset-x-0 bottom-0 z-40 px-6 pb-6" role="region" aria-label="Unsaved changes">
+    <div class="pointer-events-auto ml-auto flex max-w-xl items-center justify-between gap-x-6 rounded-xl bg-gray-900 px-6 py-3 shadow-lg">
+      <p class="text-sm/6 text-white">You have unsaved changes</p>
+      <div class="flex gap-x-3">
+        <button type="reset" form="preferences" class="rounded-md px-3 py-1.5 text-sm font-semibold text-white hover:bg-white/10">Discard</button>
+        <button type="submit" form="preferences" class="rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold text-white hover:bg-indigo-400">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

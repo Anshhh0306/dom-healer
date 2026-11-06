@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Departures | Halden Airport</title>
+<style>
+body{margin:0;font:16px/1.5 "Frutiger","Segoe UI",Arial,sans-serif;color:#0d1b2a;background:#fff}
+.site-header{background:#0d1b2a}.site-header__inner{display:flex;align-items:center;gap:32px;max-width:1180px;margin:0 auto;padding:12px 24px}
+.primary-nav a{color:#e0e6ed;text-decoration:none;margin-right:22px}.primary-nav a.active{color:#ffd23f;font-weight:700}.lang{margin-left:auto;color:#e0e6ed}
+.flights-page{max-width:1180px;margin:0 auto;padding:24px}
+.board-tabs{display:flex;gap:4px;margin-bottom:16px}.board-tab{padding:10px 22px;background:#e9edf1;color:#0d1b2a;text-decoration:none;font-weight:700}.board-tab.active{background:#ffd23f}
+.flight-search{display:flex;align-items:center;gap:10px}.flight-search input{flex:1;max-width:380px;padding:8px 12px;border:2px solid #0d1b2a}
+.btn-search{padding:8px 18px;background:#0d1b2a;color:#fff;border:0}.board-meta{color:#5c6b7a;font-size:14px}
+.fids{width:100%;border-collapse:collapse;background:#0d1b2a;color:#fff;font-family:"DIN Alternate","Roboto Mono",monospace}
+.fids th{text-align:left;font-size:13px;color:#ffd23f;padding:10px 12px;border-bottom:2px solid #ffd23f}.fids td{padding:10px 12px;border-bottom:1px solid #22344a}
+.airline-logo{vertical-align:middle;margin-right:6px;background:#fff;border-radius:3px}
+.is-boarding .fids-status{color:#3ddc97}.is-delayed .fids-status{color:#ffb347}.is-cancelled .fids-status{color:#ff5a5f}.is-departed{opacity:.55}
+.btn-track{padding:4px 12px;background:transparent;color:#ffd23f;border:1px solid #ffd23f;cursor:pointer}
+.board-more{text-align:center;margin:16px 0}.load-more{padding:10px 24px;border:2px solid #0d1b2a;background:#fff;font-weight:700}
+.info-panels{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}.info-panel{background:#f4f6f8;padding:16px 20px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.site-footer{background:#0d1b2a;color:#c5d0db;padding:24px}.site-footer a{color:#fff;margin-right:16px}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="/"><img src="/static/halden-airport-logo.svg" alt="Halden Airport" width="150" height="36"></a>
+    <nav class="primary-nav" aria-label="Main"><a class="active" href="/flights">Flights</a><a href="/parking">Parking</a><a href="/shops-dining">Shops &amp; dining</a><a href="/getting-here">Getting here</a><a href="/help">Help</a></nav>
+    <a class="lang" href="/no" lang="nb">Norsk</a>
+  </div>
+</header>
+<main class="flights-page">
+  <h1>Departures</h1>
+  <div class="board-tabs"><a href="/flights/departures" class="board-tab active" aria-current="page">Departures</a><a href="/flights/arrivals" class="board-tab" data-dh-target="t4">Arrivals</a></div>
+  <form class="flight-search" role="search" action="/flights/departures">
+    <label for="flight-q">Find a flight</label>
+    <input id="flight-q" name="q" type="search" placeholder="Flight number, airline or destination" data-dh-target="t5">
+    <select name="terminal" aria-label="Terminal"><option>All terminals</option><option>Terminal 1</option><option>Terminal 2</option></select>
+    <button type="submit" class="btn-search">Search</button>
+  </form>
+  <p class="board-meta">Last updated <time datetime="2025-11-03T14:52">14:52</time> &middot; All times are local</p>
+  <table class="fids" id="departures">
+    <thead>
+      <tr><th scope="col">Time</th><th scope="col">Flight</th><th scope="col">Destination</th><th scope="col">Terminal</th><th scope="col">Gate</th><th scope="col">Status</th><th scope="col"><span class="sr-only">Track</span></th></tr>
+    </thead>
+    <tbody>
+      <tr class="fids-row is-departed" data-flight="SK1415">
+        <td class="fids-time">14:30</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/SK.svg" alt="SAS" width="20" height="20"> SK 1415</td>
+        <td class="fids-dest">Copenhagen</td>
+        <td class="fids-terminal">T2</td>
+        <td class="fids-gate">B3</td>
+        <td class="fids-status">Departed 14:38</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="SK1415">Track</button></td>
+      </tr>
+      <tr class="fids-row is-closed" data-flight="FR8812">
+        <td class="fids-time">14:35</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/FR.svg" alt="Ryanair" width="20" height="20"> FR 8812</td>
+        <td class="fids-dest">Barcelona</td>
+        <td class="fids-terminal">T1</td>
+        <td class="fids-gate">A12</td>
+        <td class="fids-status">Gate closed</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="FR8812">Track</button></td>
+      </tr>
+      <tr class="fids-row is-closed" data-flight="LH2471">
+        <td class="fids-time">14:40</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/LH.svg" alt="Lufthansa" width="20" height="20"> LH 2471</td>
+        <td class="fids-dest">Munich</td>
+        <td class="fids-terminal">T2</td>
+        <td class="fids-gate">B9</td>
+        <td class="fids-status">Gate closed</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="LH2471">Track</button></td>
+      </tr>
+      <tr class="fids-row is-boarding" data-flight="U26103">
+        <td class="fids-time">14:45</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/U2.svg" alt="easyJet" width="20" height="20"> U2 6103</td>
+        <td class="fids-dest">Amsterdam</td>
+        <td class="fids-terminal">T1</td>
+        <td class="fids-gate">A4</td>
+        <td class="fids-status">Boarding</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="U26103">Track</button></td>
+      </tr>
+      <tr class="fids-row is-boarding" data-flight="EI3417">
+        <td class="fids-time">14:55</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/EI.svg" alt="Aer Lingus" width="20" height="20"> EI 3417</td>
+        <td class="fids-dest">Lisbon</td>
+        <td class="fids-terminal">T1</td>
+        <td class="fids-gate">A7</td>
+        <td class="fids-status">Boarding</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="EI3417" data-dh-target="t1">Track</button></td>
+      </tr>
+      <tr class="fids-row is-boarding" data-flight="KL1182">
+        <td class="fids-time">15:00</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/KL.svg" alt="KLM" width="20" height="20"> KL 1182</td>
+        <td class="fids-dest">Amsterdam</td>
+        <td class="fids-terminal">T2</td>
+        <td class="fids-gate" data-dh-target="t2">B14</td>
+        <td class="fids-status">Boarding</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="KL1182">Track</button></td>
+      </tr>
+      <tr class="fids-row is-delayed" data-flight="BA0847">
+        <td class="fids-time">15:10</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/BA.svg" alt="British Airways" width="20" height="20"> BA 0847</td>
+        <td class="fids-dest">London Heathrow</td>
+        <td class="fids-terminal">T2</td>
+        <td class="fids-gate">B6</td>
+        <td class="fids-status" data-dh-target="t3">Delayed 16:05</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="BA0847">Track</button></td>
+      </tr>
+      <tr class="fids-row is-gate" data-flight="AF1069">
+        <td class="fids-time">15:15</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/AF.svg" alt="Air France" width="20" height="20"> AF 1069</td>
+        <td class="fids-dest">Paris CDG</td>
+        <td class="fids-terminal">T2</td>
+        <td class="fids-gate">B11</td>
+        <td class="fids-status">Go to gate</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="AF1069">Track</button></td>
+      </tr>
+      <tr class="fids-row is-gate" data-flight="W64410">
+        <td class="fids-time">15:25</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/W6.svg" alt="Wizz Air" width="20" height="20"> W6 4410</td>
+        <td class="fids-dest">Budapest</td>
+        <td class="fids-terminal">T1</td>
+        <td class="fids-gate">A2</td>
+        <td class="fids-status">Go to gate</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="W64410">Track</button></td>
+      </tr>
+      <tr class="fids-row is-ontime" data-flight="AY1352">
+        <td class="fids-time">15:30</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/AY.svg" alt="Finnair" width="20" height="20"> AY 1352</td>
+        <td class="fids-dest">Helsinki</td>
+        <td class="fids-terminal">T2</td>
+        <td class="fids-gate">B8</td>
+        <td class="fids-status">On time</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="AY1352">Track</button></td>
+      </tr>
+      <tr class="fids-row is-ontime" data-flight="IB3726">
+        <td class="fids-time">15:40</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/IB.svg" alt="Iberia" width="20" height="20"> IB 3726</td>
+        <td class="fids-dest">Madrid</td>
+        <td class="fids-terminal">T1</td>
+        <td class="fids-gate">A9</td>
+        <td class="fids-status">On time</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="IB3726">Track</button></td>
+      </tr>
+      <tr class="fids-row is-cancelled" data-flight="TP1347">
+        <td class="fids-time">15:45</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/TP.svg" alt="TAP Air Portugal" width="20" height="20"> TP 1347</td>
+        <td class="fids-dest">Porto</td>
+        <td class="fids-terminal">T1</td>
+        <td class="fids-gate">A5</td>
+        <td class="fids-status">Cancelled</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="TP1347">Track</button></td>
+      </tr>
+      <tr class="fids-row is-ontime" data-flight="LX0459">
+        <td class="fids-time">15:55</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/LX.svg" alt="SWISS" width="20" height="20"> LX 0459</td>
+        <td class="fids-dest">Zurich</td>
+        <td class="fids-terminal">T2</td>
+        <td class="fids-gate">B2</td>
+        <td class="fids-status">On time</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="LX0459">Track</button></td>
+      </tr>
+      <tr class="fids-row is-ontime" data-flight="FI0417">
+        <td class="fids-time">16:05</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/FI.svg" alt="Icelandair" width="20" height="20"> FI 0417</td>
+        <td class="fids-dest">Reykjavík</td>
+        <td class="fids-terminal">T2</td>
+        <td class="fids-gate">B12</td>
+        <td class="fids-status">On time</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="FI0417">Track</button></td>
+      </tr>
+      <tr class="fids-row is-ontime" data-flight="EK0016">
+        <td class="fids-time">16:10</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/EK.svg" alt="Emirates" width="20" height="20"> EK 0016</td>
+        <td class="fids-dest">Dubai</td>
+        <td class="fids-terminal">T2</td>
+        <td class="fids-gate">C21</td>
+        <td class="fids-status">On time</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="EK0016">Track</button></td>
+      </tr>
+      <tr class="fids-row is-ontime" data-flight="FR2933">
+        <td class="fids-time">16:20</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/FR.svg" alt="Ryanair" width="20" height="20"> FR 2933</td>
+        <td class="fids-dest">Kraków</td>
+        <td class="fids-terminal">T1</td>
+        <td class="fids-gate">A14</td>
+        <td class="fids-status">On time</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="FR2933">Track</button></td>
+      </tr>
+      <tr class="fids-row is-delayed" data-flight="SN2584">
+        <td class="fids-time">16:30</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/SN.svg" alt="Brussels Airlines" width="20" height="20"> SN 2584</td>
+        <td class="fids-dest">Brussels</td>
+        <td class="fids-terminal">T2</td>
+        <td class="fids-gate">B5</td>
+        <td class="fids-status">Delayed 17:15</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="SN2584">Track</button></td>
+      </tr>
+      <tr class="fids-row is-ontime" data-flight="DY1307">
+        <td class="fids-time">16:40</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/DY.svg" alt="Norwegian" width="20" height="20"> DY 1307</td>
+        <td class="fids-dest">Oslo</td>
+        <td class="fids-terminal">T1</td>
+        <td class="fids-gate">A3</td>
+        <td class="fids-status">On time</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="DY1307">Track</button></td>
+      </tr>
+      <tr class="fids-row is-ontime" data-flight="OS0458">
+        <td class="fids-time">16:50</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/OS.svg" alt="Austrian" width="20" height="20"> OS 0458</td>
+        <td class="fids-dest">Vienna</td>
+        <td class="fids-terminal">T2</td>
+        <td class="fids-gate">B10</td>
+        <td class="fids-status">On time</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="OS0458">Track</button></td>
+      </tr>
+      <tr class="fids-row is-ontime" data-flight="UA0921">
+        <td class="fids-time">17:05</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/UA.svg" alt="United" width="20" height="20"> UA 0921</td>
+        <td class="fids-dest">Newark</td>
+        <td class="fids-terminal">T2</td>
+        <td class="fids-gate">C24</td>
+        <td class="fids-status">On time</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="UA0921">Track</button></td>
+      </tr>
+      <tr class="fids-row is-ontime" data-flight="U26219">
+        <td class="fids-time">17:15</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/U2.svg" alt="easyJet" width="20" height="20"> U2 6219</td>
+        <td class="fids-dest">Edinburgh</td>
+        <td class="fids-terminal">T1</td>
+        <td class="fids-gate">A6</td>
+        <td class="fids-status">On time</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="U26219">Track</button></td>
+      </tr>
+      <tr class="fids-row is-ontime" data-flight="AZ0207">
+        <td class="fids-time">17:25</td>
+        <td class="fids-flight"><img class="airline-logo" src="/img/airlines/AZ.svg" alt="ITA Airways" width="20" height="20"> AZ 0207</td>
+        <td class="fids-dest">Rome Fiumicino</td>
+        <td class="fids-terminal">T2</td>
+        <td class="fids-gate">B7</td>
+        <td class="fids-status">On time</td>
+        <td class="fids-track"><button type="button" class="btn-track" data-flight="AZ0207">Track</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="board-more"><button type="button" class="load-more" data-dh-target="t6">Show later flights</button></div>
+  <section class="info-panels">
+    <div class="info-panel"><h2>Security wait times</h2><p>Terminal 1: about 8 minutes<br>Terminal 2: about 14 minutes</p></div>
+    <div class="info-panel"><h2>Travelling soon?</h2><p>Check in online and arrive at the airport at least two hours before departure. Liquids up to 100 ml in a clear bag.</p></div>
+  </section>
+</main>
+<footer class="site-footer">
+  <nav aria-label="Footer"><a href="/flights/departures">Departures</a><a href="/flights/arrivals">Arrivals</a><a href="/parking">Parking</a><a href="/accessibility">Accessibility</a><a href="/contact">Contact us</a></nav>
+  <p>&copy; 2025 Halden Lufthavn AS</p>
+</footer>
+</body>
+</html>

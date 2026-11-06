@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fulfilment queue · Packwise</title>
+<style>
+body{margin:0;font:14px/1.5 "Source Sans 3",Arial,sans-serif;color:#22262e;background:#eef0f3}
+.pw-header{display:flex;align-items:center;gap:20px;padding:0 20px;height:54px;background:#1b3a4b;color:#fff}
+.pw-logo{color:#fff;font-weight:700;font-size:18px;text-decoration:none}.pw-site{opacity:.8}
+.pw-nav a{color:#cfe0ea;text-decoration:none;margin-right:14px}.pw-nav a.current{color:#fff;border-bottom:2px solid #f2a541}
+.pw-user{margin-left:auto;font-size:13px;opacity:.85}
+.pw-main{padding:20px 24px}.pw-sub{color:#5b6472;margin-top:0}
+.status-chips{display:flex;gap:8px;list-style:none;padding:0}.chip{display:inline-block;padding:4px 12px;border-radius:16px;background:#fff;border:1px solid #c8ccd2;color:#22262e;text-decoration:none}
+.chip--active{background:#1b3a4b;color:#fff;border-color:#1b3a4b}
+.queue-toolbar{display:flex;align-items:center;gap:12px;margin:12px 0}.queue-bulk{margin-left:auto;display:flex;gap:8px}
+.queue-search{padding:6px 10px;border:1px solid #c8ccd2;border-radius:4px;width:260px}
+.btn{padding:6px 12px;border-radius:4px;border:1px solid transparent;cursor:pointer;font:inherit}
+.btn-primary{background:#f2a541;border-color:#e0922b;color:#1b1b1b;font-weight:600}.btn-secondary{background:#fff;border-color:#c8ccd2}
+.queue-table{width:100%;border-collapse:collapse;background:#fff}.queue-table th{text-align:left;font-size:12px;color:#5b6472;padding:8px 10px;border-bottom:2px solid #d5d9df}
+.queue-table td{padding:8px 10px;border-bottom:1px solid #e3e6ea;vertical-align:top}
+.order-link{font-weight:600}.order-channel,.item-first{display:block;color:#5b6472;font-size:12px}
+.col-actions{white-space:nowrap}.col-actions .btn{margin-left:4px}
+.icon-printer{display:inline-block;width:12px;height:12px;background:currentColor;mask:url(/static/icons/printer.svg) center/contain no-repeat}
+.queue-foot{color:#5b6472;font-size:13px}.pw-footer{padding:16px 24px;color:#5b6472;font-size:12px}
+</style>
+</head>
+<body>
+<header class="pw-header">
+  <a class="pw-logo" href="/">Packwise</a>
+  <span class="pw-site">Leeds DC &middot; Northcote Outdoor Co.</span>
+  <nav class="pw-nav" aria-label="Main"><a href="/home">Home</a><a href="/orders">Orders</a><a class="current" href="/fulfilment" aria-current="page">Fulfilment</a><a href="/inventory">Inventory</a><a href="/returns">Returns</a><a href="/analytics">Analytics</a></nav>
+  <div class="pw-user">Early shift (06:00&ndash;14:00) &middot; Dan Okafor</div>
+</header>
+<main class="pw-main">
+  <div class="pw-titlebar">
+    <h1>Fulfilment queue</h1>
+    <p class="pw-sub">Orders waiting to be picked, packed and shipped from Leeds DC.</p>
+  </div>
+  <ul class="status-chips">
+    <li><a class="chip chip--active" href="?status=unfulfilled" aria-current="page">Unfulfilled (14)</a></li>
+    <li><a class="chip" href="?status=on-hold">On hold (3)</a></li>
+    <li><a class="chip" href="?status=shipped-today">Shipped today (41)</a></li>
+    <li><a class="chip" href="?status=returns">Returns to process (6)</a></li>
+  </ul>
+  <div class="queue-toolbar">
+    <label class="queue-sort">Sort by <select name="sort"><option selected>Order date (oldest first)</option><option>Order date (newest first)</option><option>Destination</option><option>Carrier</option></select></label>
+    <input class="queue-search" type="search" name="q" placeholder="Order #, customer or SKU" aria-label="Search orders">
+    <div class="queue-bulk"><button type="button" class="btn btn-secondary" id="bulk-print" data-dh-target="t5">Print labels for selected</button><button type="button" class="btn btn-primary" id="bulk-ship">Mark selected as shipped</button></div>
+  </div>
+  <table class="queue-table" id="fulfilment-queue">
+    <thead>
+      <tr>
+        <th class="col-select"><input type="checkbox" id="select-all-orders" aria-label="Select all orders"></th>
+        <th>Order</th><th>Placed</th><th>Customer</th><th>Items</th><th>Destination</th><th>Carrier</th><th class="col-actions">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-order="SO-58229">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58229" aria-label="Select order SO-58229"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58229">#SO-58229</a><span class="order-channel">Web store</span></td>
+        <td class="col-placed">31 Oct, 08:14</td>
+        <td class="col-customer">Harriet Mallory</td>
+        <td class="col-items"><span class="item-count">3 items</span><span class="item-first">Trailhead 28L Daypack — Moss</span></td>
+        <td class="col-dest">Harrogate, GB</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58229"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier"><option value="rm48">Royal Mail Tracked 48</option><option value="rm24">Royal Mail Tracked 24</option><option value="dpd" selected>DPD Next Day</option><option value="evri">Evri Standard</option><option value="dhl">DHL Express Worldwide</option><option value="ups">UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label" data-dh-target="t3"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order">Ship</button></td>
+      </tr>
+      <tr data-order="SO-58231">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58231" aria-label="Select order SO-58231"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58231">#SO-58231</a><span class="order-channel">Web store</span></td>
+        <td class="col-placed">31 Oct, 09:02</td>
+        <td class="col-customer">Callum Reid</td>
+        <td class="col-items"><span class="item-count">1 item</span><span class="item-first">Ridgeline Down Jacket — M, Navy</span></td>
+        <td class="col-dest">Inverness, GB</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58231"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier"><option value="rm48" selected>Royal Mail Tracked 48</option><option value="rm24">Royal Mail Tracked 24</option><option value="dpd">DPD Next Day</option><option value="evri">Evri Standard</option><option value="dhl">DHL Express Worldwide</option><option value="ups">UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order">Ship</button></td>
+      </tr>
+      <tr data-order="SO-58232">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58232" aria-label="Select order SO-58232"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58232">#SO-58232</a><span class="order-channel">Marketplace</span></td>
+        <td class="col-placed">31 Oct, 10:47</td>
+        <td class="col-customer">Sanne de Vries</td>
+        <td class="col-items"><span class="item-count">2 items</span><span class="item-first">Fjell 2P Tent — Sand</span></td>
+        <td class="col-dest">Rotterdam, NL</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58232"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier"><option value="rm48">Royal Mail Tracked 48</option><option value="rm24">Royal Mail Tracked 24</option><option value="dpd">DPD Next Day</option><option value="evri">Evri Standard</option><option value="dhl" selected>DHL Express Worldwide</option><option value="ups">UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order">Ship</button></td>
+      </tr>
+      <tr data-order="SO-58233">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58233" aria-label="Select order SO-58233"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58233" data-dh-target="t6">#SO-58233</a><span class="order-channel">Web store</span></td>
+        <td class="col-placed">31 Oct, 11:30</td>
+        <td class="col-customer">Priya Nair</td>
+        <td class="col-items"><span class="item-count">1 item</span><span class="item-first">Merino Base Layer — W, S</span></td>
+        <td class="col-dest">Leicester, GB</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58233"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier"><option value="rm48">Royal Mail Tracked 48</option><option value="rm24">Royal Mail Tracked 24</option><option value="dpd">DPD Next Day</option><option value="evri" selected>Evri Standard</option><option value="dhl">DHL Express Worldwide</option><option value="ups">UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order">Ship</button></td>
+      </tr>
+      <tr data-order="SO-58235">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58235" aria-label="Select order SO-58235"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58235">#SO-58235</a><span class="order-channel">Web store</span></td>
+        <td class="col-placed">31 Oct, 14:22</td>
+        <td class="col-customer">Tomás Ruiz</td>
+        <td class="col-items"><span class="item-count">4 items</span><span class="item-first">Summit Trekking Poles (pair)</span></td>
+        <td class="col-dest">Bilbao, ES</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58235"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier"><option value="rm48">Royal Mail Tracked 48</option><option value="rm24">Royal Mail Tracked 24</option><option value="dpd">DPD Next Day</option><option value="evri">Evri Standard</option><option value="dhl" selected>DHL Express Worldwide</option><option value="ups">UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order">Ship</button></td>
+      </tr>
+      <tr data-order="SO-58237">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58237" aria-label="Select order SO-58237"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58237">#SO-58237</a><span class="order-channel">Web store</span></td>
+        <td class="col-placed">31 Oct, 16:05</td>
+        <td class="col-customer">Eleanor Whitcombe</td>
+        <td class="col-items"><span class="item-count">2 items</span><span class="item-first">Coastal Rain Shell — W, L</span></td>
+        <td class="col-dest">Truro, GB</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58237"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier" data-dh-target="t1"><option value="rm48">Royal Mail Tracked 48</option><option value="rm24" selected>Royal Mail Tracked 24</option><option value="dpd">DPD Next Day</option><option value="evri">Evri Standard</option><option value="dhl">DHL Express Worldwide</option><option value="ups">UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order">Ship</button></td>
+      </tr>
+      <tr data-order="SO-58238">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58238" aria-label="Select order SO-58238"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58238">#SO-58238</a><span class="order-channel">Marketplace</span></td>
+        <td class="col-placed">1 Nov, 07:41</td>
+        <td class="col-customer">Jakub Nowak</td>
+        <td class="col-items"><span class="item-count">1 item</span><span class="item-first">Alpine 45L Pack — Slate</span></td>
+        <td class="col-dest">Kraków, PL</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58238"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier"><option value="rm48">Royal Mail Tracked 48</option><option value="rm24">Royal Mail Tracked 24</option><option value="dpd">DPD Next Day</option><option value="evri">Evri Standard</option><option value="dhl" selected>DHL Express Worldwide</option><option value="ups">UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order">Ship</button></td>
+      </tr>
+      <tr data-order="SO-58240">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58240" aria-label="Select order SO-58240"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58240">#SO-58240</a><span class="order-channel">Web store</span></td>
+        <td class="col-placed">1 Nov, 09:18</td>
+        <td class="col-customer">Fiona Gallagher</td>
+        <td class="col-items"><span class="item-count">2 items</span><span class="item-first">Thermal Flask 750 ml — Forest</span></td>
+        <td class="col-dest">Galway, IE</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58240"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier"><option value="rm48">Royal Mail Tracked 48</option><option value="rm24">Royal Mail Tracked 24</option><option value="dpd" selected>DPD Next Day</option><option value="evri">Evri Standard</option><option value="dhl">DHL Express Worldwide</option><option value="ups">UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order">Ship</button></td>
+      </tr>
+      <tr data-order="SO-58241">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58241" aria-label="Select order SO-58241"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58241">#SO-58241</a><span class="order-channel">Web store</span></td>
+        <td class="col-placed">1 Nov, 12:56</td>
+        <td class="col-customer">Oliver Brennan</td>
+        <td class="col-items"><span class="item-count">5 items</span><span class="item-first">Camp Cook Set — Titanium</span></td>
+        <td class="col-dest">Sheffield, GB</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58241"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier"><option value="rm48">Royal Mail Tracked 48</option><option value="rm24">Royal Mail Tracked 24</option><option value="dpd" selected>DPD Next Day</option><option value="evri">Evri Standard</option><option value="dhl">DHL Express Worldwide</option><option value="ups">UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order" data-dh-target="t2">Ship</button></td>
+      </tr>
+      <tr data-order="SO-58242">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58242" aria-label="Select order SO-58242"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58242">#SO-58242</a><span class="order-channel">Click &amp; collect</span></td>
+        <td class="col-placed">1 Nov, 15:33</td>
+        <td class="col-customer">Amelia Hartley</td>
+        <td class="col-items"><span class="item-count">1 item</span><span class="item-first">Trail Running Shoes — UK 6</span></td>
+        <td class="col-dest">Bath, GB</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58242"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier"><option value="rm48" selected>Royal Mail Tracked 48</option><option value="rm24">Royal Mail Tracked 24</option><option value="dpd">DPD Next Day</option><option value="evri">Evri Standard</option><option value="dhl">DHL Express Worldwide</option><option value="ups">UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order">Ship</button></td>
+      </tr>
+      <tr data-order="SO-58243">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58243" aria-label="Select order SO-58243"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58243">#SO-58243</a><span class="order-channel">Marketplace</span></td>
+        <td class="col-placed">2 Nov, 08:09</td>
+        <td class="col-customer">Lukas Becker</td>
+        <td class="col-items"><span class="item-count">3 items</span><span class="item-first">Insulated Gloves — L</span></td>
+        <td class="col-dest">Munich, DE</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58243"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier"><option value="rm48">Royal Mail Tracked 48</option><option value="rm24">Royal Mail Tracked 24</option><option value="dpd">DPD Next Day</option><option value="evri">Evri Standard</option><option value="dhl">DHL Express Worldwide</option><option value="ups" selected>UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order">Ship</button></td>
+      </tr>
+      <tr data-order="SO-58244">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58244" aria-label="Select order SO-58244"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58244">#SO-58244</a><span class="order-channel">Web store</span></td>
+        <td class="col-placed">2 Nov, 10:15</td>
+        <td class="col-customer">Daan Bakker</td>
+        <td class="col-items"><span class="item-count">1 item</span><span class="item-first">Packable Hammock — Olive</span></td>
+        <td class="col-dest" data-dh-target="t4">Rotterdam, NL</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58244"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier"><option value="rm48">Royal Mail Tracked 48</option><option value="rm24">Royal Mail Tracked 24</option><option value="dpd">DPD Next Day</option><option value="evri">Evri Standard</option><option value="dhl" selected>DHL Express Worldwide</option><option value="ups">UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order">Ship</button></td>
+      </tr>
+      <tr data-order="SO-58245">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58245" aria-label="Select order SO-58245"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58245">#SO-58245</a><span class="order-channel">Web store</span></td>
+        <td class="col-placed">2 Nov, 13:48</td>
+        <td class="col-customer">Grace Thornton</td>
+        <td class="col-items"><span class="item-count">2 items</span><span class="item-first">Wool Beanie — Charcoal</span></td>
+        <td class="col-dest">Cardiff, GB</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58245"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier"><option value="rm48">Royal Mail Tracked 48</option><option value="rm24">Royal Mail Tracked 24</option><option value="dpd">DPD Next Day</option><option value="evri" selected>Evri Standard</option><option value="dhl">DHL Express Worldwide</option><option value="ups">UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order">Ship</button></td>
+      </tr>
+      <tr data-order="SO-58246">
+        <td class="col-select"><input type="checkbox" name="orders" value="SO-58246" aria-label="Select order SO-58246"></td>
+        <td class="col-order"><a class="order-link" href="/orders/SO-58246">#SO-58246</a><span class="order-channel">Web store</span></td>
+        <td class="col-placed">2 Nov, 17:20</td>
+        <td class="col-customer">Rhys Morgan</td>
+        <td class="col-items"><span class="item-count">1 item</span><span class="item-first">Headtorch 400 lm</span></td>
+        <td class="col-dest">Swansea, GB</td>
+        <td class="col-carrier"><pw-carrier-picker order="SO-58246"><template shadowrootmode="open"><style>:host{display:inline-block}select{font:inherit;padding:4px 8px;border:1px solid #c8ccd2;border-radius:4px;background:#fff;min-width:190px}</style><select part="select" name="carrier" aria-label="Carrier"><option value="rm48">Royal Mail Tracked 48</option><option value="rm24" selected>Royal Mail Tracked 24</option><option value="dpd">DPD Next Day</option><option value="evri">Evri Standard</option><option value="dhl">DHL Express Worldwide</option><option value="ups">UPS Standard (EU)</option></select></template></pw-carrier-picker></td>
+        <td class="col-actions"><button type="button" class="btn btn-secondary btn-label" data-qa="print-label"><span class="icon icon-printer" aria-hidden="true"></span> Print label</button><button type="button" class="btn btn-primary btn-ship" data-qa="ship-order">Ship</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="queue-foot">14 orders &middot; cut-off for same-day DPD collection is 15:30 &middot; Royal Mail collection 17:00</p>
+</main>
+<footer class="pw-footer">Packwise WMS 2.8.4 &middot; Support +44 113 496 0123 &middot; <a href="/help">Help</a></footer>
+</body>
+</html>

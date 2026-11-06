@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · Fernhill — Lumetric</title>
+<style>
+.Layout_root__JE7BG{min-height:100vh;background:#fafafb;color:#16181d;font:14px/1.5 "Inter var",system-ui,sans-serif}
+.TopBar_root__MAJnq{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:20px;height:52px;padding:0 16px;background:#fff;box-shadow:0 1px 0 #ececf1}
+.Layout_body__rsp2v{display:grid;grid-template-columns:248px 1fr}
+.SideNav_item__LJVLr{display:flex;align-items:center;gap:10px;padding:6px 10px;border-radius:6px;color:#3b3f4a;text-decoration:none}
+.SideNav_itemActive__4JyCf{background:#f0eeff;color:#4a3bc9}
+.MetricGrid_root__X0vIP{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.KpiCard_root__A1oAv{border-radius:12px;background:#fff;box-shadow:0 0 0 1px #ececf1;padding:14px 16px}
+.KpiCard_value__3FAoE{font-size:26px;font-weight:650;letter-spacing:-.01em}
+.Segmented_root__m16UY{display:inline-flex;padding:2px;border-radius:8px;background:#f1f1f4}
+.Segmented_active__bR7Uv{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.DataTable_table__DE4gy{width:100%;border-collapse:separate;border-spacing:0}
+</style>
+</head>
+<body>
+<div id="__next">
+<div class="Layout_root__JE7BG">
+  <div class="Banner_root__3hNrk" role="region" aria-label="Announcement">
+    <p class="Banner_text__giLQb"><strong>New:</strong> Session replay is now in beta on Growth plans. <a href="/p/fernhill/replay">Try it on your top pages</a></p>
+    <button type="button" class="Banner_close__hkORb" aria-label="Dismiss announcement"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <header class="TopBar_root__MAJnq">
+    <a class="TopBar_brand__rFSZg" href="/p/fernhill/overview"><svg class="TopBar_logo__vGz3s" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span>Lumetric</span></a>
+    <button type="button" class="ProjectSwitcher_trigger__ttrco" aria-haspopup="menu"><span class="ProjectSwitcher_name__FYjvg">Fernhill</span><span class="ProjectSwitcher_env__OjBTy">Production</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    <div class="CommandBar_root__BVQvA"><button type="button" class="CommandBar_trigger__IX3SK"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3"/></svg><span>Search or jump to…</span><kbd>⌘K</kbd></button></div>
+    <div class="TopBar_right__D6oaL">
+      <a class="TopBar_link__whWM0" href="/changelog">What's new</a>
+      <a class="TopBar_link__whWM0" href="https://docs.lumetric.example/">Docs</a>
+      <button type="button" class="IconButton_root__Hvfre" aria-label="Notifications, 3 unread"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="IconButton_dot__1AurB"></span></button>
+      <button type="button" class="Avatar_root__2caVA" aria-label="Open account menu">NK</button>
+    </div>
+  </header>
+  <div class="Layout_body__rsp2v">
+    <nav class="SideNav_root__snZUI" aria-label="Primary">
+      <div class="SideNav_group__SoGyC">
+        <a class="SideNav_item__LJVLr SideNav_itemActive__4JyCf" href="/p/fernhill/overview" aria-current="page"><svg class="SideNav_icon__jhUm2" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg><span class="SideNav_label__Lb2X1">Overview</span></a>
+        <a class="SideNav_item__LJVLr" href="/p/fernhill/dashboards"><svg class="SideNav_icon__jhUm2" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg><span class="SideNav_label__Lb2X1">Dashboards</span></a>
+        <a class="SideNav_item__LJVLr" href="/p/fernhill/events"><svg class="SideNav_icon__jhUm2" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg><span class="SideNav_label__Lb2X1">Events</span></a>
+        <a class="SideNav_item__LJVLr" href="/p/fernhill/funnels"><svg class="SideNav_icon__jhUm2" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18l-7 8v6l-4 2v-8z"/></svg><span class="SideNav_label__Lb2X1">Funnels</span></a>
+        <a class="SideNav_item__LJVLr" href="/p/fernhill/retention"><svg class="SideNav_icon__jhUm2" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2l4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3"/></svg><span class="SideNav_label__Lb2X1">Retention</span></a>
+        <a class="SideNav_item__LJVLr" href="/p/fernhill/journeys"><svg class="SideNav_icon__jhUm2" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span class="SideNav_label__Lb2X1">Journeys</span></a>
+        <a class="SideNav_item__LJVLr" href="/p/fernhill/cohorts"><svg class="SideNav_icon__jhUm2" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg><span class="SideNav_label__Lb2X1">Cohorts</span></a>
+        <a class="SideNav_item__LJVLr" href="/p/fernhill/replay"><svg class="SideNav_icon__jhUm2" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg><span class="SideNav_label__Lb2X1">Session replay</span><span class="Badge_root__xC3IH Badge_beta__OByGl">Beta</span></a>
+      </div>
+      <div class="SideNav_group__SoGyC">
+        <p class="SideNav_heading__hIa5m">Data</p>
+        <a class="SideNav_item__LJVLr" href="/p/fernhill/live"><svg class="SideNav_icon__jhUm2" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span class="SideNav_label__Lb2X1">Live events</span></a>
+        <a class="SideNav_item__LJVLr" href="/p/fernhill/data"><svg class="SideNav_icon__jhUm2" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c4.4 0 8 1.3 8 3v14c0 1.7-3.6 3-8 3s-8-1.3-8-3V5c0-1.7 3.6-3 8-3zM4 5c0 1.7 3.6 3 8 3s8-1.3 8-3M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span class="SideNav_label__Lb2X1">Data management</span></a>
+        <a class="SideNav_item__LJVLr" href="/p/fernhill/integrations"><svg class="SideNav_icon__jhUm2" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0zM12 18v4"/></svg><span class="SideNav_label__Lb2X1">Integrations</span></a>
+      </div>
+      <div class="SideNav_footer__JjQ5C">
+        <div class="Usage_root__2z2Ow"><span class="Usage_label__EA4lZ">8.2M / 10M events</span><progress class="Usage_bar__bb5lS" max="100" value="82">82%</progress></div>
+        <a class="Usage_upgrade__Bwg2P" href="/settings/billing">Upgrade</a>
+      </div>
+    </nav>
+    <main class="Page_root__GNtzM" id="main-content">
+      <div class="PageHeader_root__ERegm">
+        <div class="PageHeader_titles__mWugX">
+          <h1 class="PageHeader_title__U4U5U">Overview</h1>
+          <p class="PageHeader_subtitle__qQN54">All platforms · Updated 4 min ago</p>
+        </div>
+        <div class="PageHeader_toolbar__m1jLn">
+          <div class="Toolbar_group__5O3Mi">
+            <date-range-picker value="last_30_days" compare-enabled>
+              <template shadowrootmode="open">
+                <style>
+:host{display:inline-flex;align-items:center;gap:8px;font:inherit}
+.picker{display:flex;align-items:center;gap:8px}
+.presets{display:inline-flex;padding:2px;border-radius:8px;background:#f1f1f4}
+.preset{border:0;background:none;padding:5px 10px;border-radius:6px;font:inherit;color:#3b3f4a}
+.preset[aria-checked="true"]{background:#fff;color:#16181d;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.range-trigger{display:inline-flex;gap:6px;align-items:center;border:1px solid #e3e3ea;border-radius:8px;background:#fff;padding:5px 10px}
+.compare{display:inline-flex;align-items:center;gap:6px;color:#585d6b}
+.compare input{position:absolute;opacity:0}
+.track{width:28px;height:16px;border-radius:8px;background:#d7d7df;display:inline-block;position:relative}
+</style>
+                <div class="picker" part="base">
+                  <div class="presets" role="radiogroup" aria-label="Date range">
+                    <button type="button" class="preset" role="radio" aria-checked="false" data-value="today">Today</button>
+                    <button type="button" class="preset" role="radio" aria-checked="false" data-value="yesterday">Yesterday</button>
+                    <button type="button" class="preset" role="radio" aria-checked="false" data-value="last_7_days">Last 7 days</button>
+                    <button type="button" class="preset" role="radio" aria-checked="true" data-value="last_30_days" data-dh-target="t1">Last 30 days</button>
+                    <button type="button" class="preset" role="radio" aria-checked="false" data-value="last_90_days">Last 90 days</button>
+                    <button type="button" class="preset" role="radio" aria-checked="false" data-value="last_12_months">Last 12 months</button>
+                  </div>
+                  <button type="button" class="range-trigger" aria-haspopup="dialog"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg><span>Oct 6, 2026 – Nov 4, 2026</span></button>
+                  <label class="compare"><input type="checkbox" role="switch" name="comparePrevious" id="compare-:r3:" data-dh-target="t6"><span class="track"><span class="thumb"></span></span><span class="text">Compare with previous period</span></label>
+                </div>
+              </template>
+            </date-range-picker>
+          </div>
+          <div class="Toolbar_group__5O3Mi">
+            <span class="Tooltip_anchor__u1scB"><button type="button" class="Button_root__gLyaF Button_ghost__cc5Rj"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</button></span>
+            <div class="Menu_root__aQG5B">
+              <button type="button" class="Button_root__gLyaF Button_secondary__EtJKf" aria-haspopup="menu" aria-expanded="false" data-dh-target="t4"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Export<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+              <div class="Menu_panel__yrs2p" role="menu" hidden>
+                <button type="button" role="menuitem" class="Menu_item__3FrAV">Download CSV</button>
+                <button type="button" role="menuitem" class="Menu_item__3FrAV">Download PNG</button>
+                <button type="button" role="menuitem" class="Menu_item__3FrAV">Schedule email report…</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="MobileFilters_sheet__dahuX" hidden>
+        <p class="MobileFilters_title__obALJ">Date range</p>
+        <div class="MobileFilters_options__6Ax93">
+          <button type="button" class="MobileFilters_option__vCg8x">Last 7 days</button>
+          <button type="button" class="MobileFilters_option__vCg8x">Last 30 days</button>
+          <button type="button" class="MobileFilters_option__vCg8x">Last 90 days</button>
+        </div>
+      </div>
+
+      <section class="MetricGrid_root__X0vIP" aria-label="Key metrics">
+          <article class="KpiCard_root__A1oAv" data-metric="new_signups">
+            <header class="KpiCard_header__h24oI"><h3 class="KpiCard_label__G2jMQ">New signups</h3><button type="button" class="KpiCard_info__DOv32" aria-label="About New signups"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 16v-4M12 8h.01"/></svg></button></header>
+            <div class="KpiCard_body__yPVC6"><div class="KpiCard_valueRow__Is67p"><span class="KpiCard_value__3FAoE">3,982</span></div><span class="Delta_root__6g9k6 Delta_up__o0fAm"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>12.1%</span></div>
+            <p class="KpiCard_compare__Z0IGq">Previous 30 days: 3,552</p>
+            <svg class="KpiCard_spark__rnf0X" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,16 9,14 18,15 28,14 37,18 46,16 55,14 65,22 74,18 83,17 92,9 102,19 111,18 120,14" fill="none"/></svg>
+          </article>
+          <article class="KpiCard_root__A1oAv" data-metric="trial_conversion">
+            <header class="KpiCard_header__h24oI"><h3 class="KpiCard_label__G2jMQ">Trial → paid conversion</h3><button type="button" class="KpiCard_info__DOv32" aria-label="About Trial → paid conversion"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 16v-4M12 8h.01"/></svg></button></header>
+            <div class="KpiCard_body__yPVC6"><div class="KpiCard_valueRow__Is67p"><span class="KpiCard_value__3FAoE">4.86%</span></div><span class="Delta_root__6g9k6 Delta_up__o0fAm"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>0.31 pts</span></div>
+            <p class="KpiCard_compare__Z0IGq">Previous 30 days: 4.55%</p>
+            <svg class="KpiCard_spark__rnf0X" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,21 9,19 18,9 28,15 37,21 46,20 55,14 65,17 74,13 83,9 92,14 102,16 111,21 120,15" fill="none"/></svg>
+          </article>
+          <article class="KpiCard_root__A1oAv" data-metric="active_users">
+            <header class="KpiCard_header__h24oI"><h3 class="KpiCard_label__G2jMQ">Active users</h3><button type="button" class="KpiCard_info__DOv32" aria-label="About Active users"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 16v-4M12 8h.01"/></svg></button></header>
+            <div class="KpiCard_body__yPVC6"><div class="KpiCard_valueRow__Is67p"><span class="KpiCard_value__3FAoE" data-dh-target="t2">48,210</span></div><span class="Delta_root__6g9k6 Delta_up__o0fAm"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>6.4%</span></div>
+            <p class="KpiCard_compare__Z0IGq">Previous 30 days: 45,309</p>
+            <svg class="KpiCard_spark__rnf0X" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,14 9,11 18,12 28,15 37,22 46,21 55,21 65,22 74,19 83,17 92,10 102,16 111,16 120,19" fill="none"/></svg>
+          </article>
+          <article class="KpiCard_root__A1oAv" data-metric="session_duration">
+            <header class="KpiCard_header__h24oI"><h3 class="KpiCard_label__G2jMQ">Avg. session duration</h3><button type="button" class="KpiCard_info__DOv32" aria-label="About Avg. session duration"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 16v-4M12 8h.01"/></svg></button></header>
+            <div class="KpiCard_body__yPVC6"><div class="KpiCard_valueRow__Is67p"><span class="KpiCard_value__3FAoE">6m 42s</span></div><span class="Delta_root__6g9k6 Delta_down__8vsPe"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>0.8%</span></div>
+            <p class="KpiCard_compare__Z0IGq">Previous 30 days: 6m 45s</p>
+            <svg class="KpiCard_spark__rnf0X" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,14 9,9 18,13 28,9 37,21 46,22 55,21 65,15 74,15 83,9 92,14 102,13 111,15 120,20" fill="none"/></svg>
+          </article>
+          <article class="KpiCard_root__A1oAv" data-metric="stickiness">
+            <header class="KpiCard_header__h24oI"><h3 class="KpiCard_label__G2jMQ">Stickiness (DAU/MAU)</h3><button type="button" class="KpiCard_info__DOv32" aria-label="About Stickiness (DAU/MAU)"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 16v-4M12 8h.01"/></svg></button></header>
+            <div class="KpiCard_body__yPVC6"><div class="KpiCard_valueRow__Is67p"><span class="KpiCard_value__3FAoE">31.7%</span></div><span class="Delta_root__6g9k6 Delta_up__o0fAm"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>1.2 pts</span></div>
+            <p class="KpiCard_compare__Z0IGq">Previous 30 days: 30.5%</p>
+            <svg class="KpiCard_spark__rnf0X" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,21 9,15 18,19 28,15 37,15 46,18 55,16 65,23 74,15 83,14 92,12 102,18 111,22 120,15" fill="none"/></svg>
+          </article>
+      </section>
+
+      <div class="Grid_twoUp__SeozT">
+        <section class="Card_root__aPSbi" aria-labelledby="sources-title">
+          <header class="Card_header__Dr45K"><h2 class="Card_title__QGS3w" id="sources-title">Traffic sources</h2><a class="Card_link__Ho81e" href="/p/fernhill/acquisition">View report</a></header>
+          <ul class="BarList_root__uP8hk">
+            <li class="BarList_row__ekpLd"><span class="BarList_label__ufGYZ">Organic search</span><meter class="BarList_meter__hqq7g" min="0" max="100" value="38.2">38.2%</meter><span class="BarList_value__WtaBB">38.2%</span></li>
+            <li class="BarList_row__ekpLd"><span class="BarList_label__ufGYZ">Direct</span><meter class="BarList_meter__hqq7g" min="0" max="100" value="24.9">24.9%</meter><span class="BarList_value__WtaBB">24.9%</span></li>
+            <li class="BarList_row__ekpLd"><span class="BarList_label__ufGYZ">Referral</span><meter class="BarList_meter__hqq7g" min="0" max="100" value="14.1">14.1%</meter><span class="BarList_value__WtaBB">14.1%</span></li>
+            <li class="BarList_row__ekpLd"><span class="BarList_label__ufGYZ">Paid social</span><meter class="BarList_meter__hqq7g" min="0" max="100" value="11.7">11.7%</meter><span class="BarList_value__WtaBB">11.7%</span></li>
+            <li class="BarList_row__ekpLd"><span class="BarList_label__ufGYZ">Email</span><meter class="BarList_meter__hqq7g" min="0" max="100" value="6.3">6.3%</meter><span class="BarList_value__WtaBB">6.3%</span></li>
+            <li class="BarList_row__ekpLd"><span class="BarList_label__ufGYZ">Other</span><meter class="BarList_meter__hqq7g" min="0" max="100" value="4.8">4.8%</meter><span class="BarList_value__WtaBB">4.8%</span></li>
+          </ul>
+        </section>
+        <section class="Card_root__aPSbi ChartCard_root__4Lolq" aria-labelledby="chart-:r9:-title">
+          <header class="ChartCard_header__GkfmW">
+            <h2 class="Card_title__QGS3w" id="chart-:r9:-title">Active users</h2>
+            <div class="Segmented_root__m16UY" role="tablist" aria-label="Interval"><button type="button" role="tab" id="users-tab-hour" aria-selected="false" class="Segmented_item__pwmfj">Hour</button><button type="button" role="tab" id="users-tab-day" aria-selected="true" class="Segmented_item__pwmfj Segmented_active__bR7Uv">Day</button><button type="button" role="tab" id="users-tab-week" aria-selected="false" class="Segmented_item__pwmfj" data-dh-target="t3">Week</button><button type="button" role="tab" id="users-tab-month" aria-selected="false" class="Segmented_item__pwmfj">Month</button></div>
+          </header>
+          <div class="ChartCard_plot__o2vay"><svg viewBox="0 0 640 200" preserveAspectRatio="none" role="img" aria-label="Active users per day"><line x1="40" x2="632" y1="12" y2="12"/><line x1="40" x2="632" y1="66" y2="66"/><line x1="40" x2="632" y1="120" y2="120"/><line x1="40" x2="632" y1="174" y2="174"/><path d="M40 98 L60 81 L81 50 L101 85 L122 92 L142 107 L162 76 L183 89 L203 82 L224 47 L244 45 L265 75 L285 95 L305 101 L326 98 L346 48 L367 68 L387 51 L407 69 L428 84 L448 72 L469 90 L489 47 L510 70 L530 70 L550 95 L571 96 L591 90 L612 81 L632 42" fill="none"/><path d="M40 100 L60 88 L81 94 L101 72 L122 123 L142 107 L162 125 L183 110 L203 102 L224 83 L244 97 L265 118 L285 93 L305 126 L326 127 L346 67 L367 73 L387 100 L407 107 L428 94 L448 107 L469 117 L489 89 L510 70 L530 66 L550 126 L571 89 L591 107 L612 113 L632 83" fill="none"/><text x="40" y="194">Oct 6</text><text x="188" y="194">Oct 13</text><text x="336" y="194">Oct 20</text><text x="484" y="194">Oct 27</text><text x="632" y="194">Nov 3</text></svg></div>
+          <ul class="Legend_root__LH2d0">
+            <li class="Legend_item__HTcA1"><span class="Legend_swatch__2Zu2Z"></span><span class="Legend_label__vBIpY">This period</span><span class="Legend_value__bvOrl">48,210</span></li>
+            <li class="Legend_item__HTcA1"><span class="Legend_swatch__2Zu2Z Legend_muted__fPnb3"></span><span class="Legend_label__vBIpY">Previous period</span><span class="Legend_value__bvOrl">45,309</span></li>
+          </ul>
+        </section>
+        <section class="Card_root__aPSbi ChartCard_root__4Lolq" aria-labelledby="chart-:ra:-title">
+          <header class="ChartCard_header__GkfmW">
+            <h2 class="Card_title__QGS3w" id="chart-:ra:-title">Sessions</h2>
+            <div class="Segmented_root__m16UY" role="tablist" aria-label="Interval"><button type="button" role="tab" id="sessions-tab-hour" aria-selected="false" class="Segmented_item__pwmfj">Hour</button><button type="button" role="tab" id="sessions-tab-day" aria-selected="true" class="Segmented_item__pwmfj Segmented_active__bR7Uv">Day</button><button type="button" role="tab" id="sessions-tab-week" aria-selected="false" class="Segmented_item__pwmfj">Week</button><button type="button" role="tab" id="sessions-tab-month" aria-selected="false" class="Segmented_item__pwmfj">Month</button></div>
+          </header>
+          <div class="ChartCard_plot__o2vay"><svg viewBox="0 0 640 200" preserveAspectRatio="none" role="img" aria-label="Sessions per day"><line x1="40" x2="632" y1="12" y2="12"/><line x1="40" x2="632" y1="66" y2="66"/><line x1="40" x2="632" y1="120" y2="120"/><line x1="40" x2="632" y1="174" y2="174"/><path d="M40 125 L60 75 L81 64 L101 72 L122 97 L142 94 L162 84 L183 82 L203 59 L224 99 L244 90 L265 80 L285 113 L305 109 L326 102 L346 89 L367 85 L387 58 L407 113 L428 75 L448 71 L469 103 L489 54 L510 71 L530 49 L550 84 L571 95 L591 95 L612 91 L632 62" fill="none"/><text x="40" y="194">Oct 6</text><text x="188" y="194">Oct 13</text><text x="336" y="194">Oct 20</text><text x="484" y="194">Oct 27</text><text x="632" y="194">Nov 3</text></svg></div>
+        </section>
+      </div>
+
+      <div class="Grid_twoUp__SeozT">
+        <section class="Card_root__aPSbi" aria-labelledby="top-pages-title">
+          <header class="Card_header__Dr45K">
+            <h2 class="Card_title__QGS3w" id="top-pages-title">Top pages</h2>
+            <div class="Card_actions__InWLK">
+              <select class="Select_root__kZeFx" aria-label="Sort top pages by"><option>Unique visitors</option><option selected>Pageviews</option><option>Avg. time on page</option></select>
+              <button type="button" class="Button_root__gLyaF Button_ghost__cc5Rj"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Export</button>
+            </div>
+          </header>
+          <table class="DataTable_table__DE4gy">
+            <thead><tr><th>Page</th><th>Views</th><th>Visitors</th><th>Avg. time</th><th>Bounce rate</th><th>Change</th></tr></thead>
+            <tbody>
+              <tr class="DataTable_row__EfgKy">
+                <td class="DataTable_cell__gaeYm"><div class="PageCell_root__AnZqk"><a class="PageCell_path__T4mgd" href="/p/fernhill/pages/~root">/</a><span class="PageCell_title__Jv106">Home · Fernhill</span></div></td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">38,912</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">21,604</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">1m 12s</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">41.0%</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2 DataTable_pos__idpo7">+4.2%</td>
+              </tr>
+              <tr class="DataTable_row__EfgKy">
+                <td class="DataTable_cell__gaeYm"><div class="PageCell_root__AnZqk"><a class="PageCell_path__T4mgd" href="/p/fernhill/pages/docs~getting-started">/docs/getting-started</a><span class="PageCell_title__Jv106">Getting started · Fernhill Docs</span></div></td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">16,688</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">7,415</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">4m 51s</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">19.7%</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2 DataTable_pos__idpo7">+2.3%</td>
+              </tr>
+              <tr class="DataTable_row__EfgKy">
+                <td class="DataTable_cell__gaeYm"><div class="PageCell_root__AnZqk"><a class="PageCell_path__T4mgd" href="/p/fernhill/pages/pricing" data-dh-target="t5">/pricing</a><span class="PageCell_title__Jv106">Pricing · Fernhill</span></div></td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">14,230</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">9,877</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">2m 03s</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">28.4%</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2 DataTable_pos__idpo7">+18.9%</td>
+              </tr>
+              <tr class="DataTable_row__EfgKy">
+                <td class="DataTable_cell__gaeYm"><div class="PageCell_root__AnZqk"><a class="PageCell_path__T4mgd" href="/p/fernhill/pages/blog~offline-sync-in-v4">/blog/offline-sync-in-v4</a><span class="PageCell_title__Jv106">Offline sync in v4 · Fernhill Blog</span></div></td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">6,311</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">5,902</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">3m 37s</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">62.3%</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2 DataTable_pos__idpo7">+141%</td>
+              </tr>
+              <tr class="DataTable_row__EfgKy">
+                <td class="DataTable_cell__gaeYm"><div class="PageCell_root__AnZqk"><a class="PageCell_path__T4mgd" href="/p/fernhill/pages/signup">/signup</a><span class="PageCell_title__Jv106">Create your account · Fernhill</span></div></td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">5,140</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">4,388</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">0m 58s</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">12.9%</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2 DataTable_pos__idpo7">+9.6%</td>
+              </tr>
+              <tr class="DataTable_row__EfgKy">
+                <td class="DataTable_cell__gaeYm"><div class="PageCell_root__AnZqk"><a class="PageCell_path__T4mgd" href="/p/fernhill/pages/changelog">/changelog</a><span class="PageCell_title__Jv106">Changelog · Fernhill</span></div></td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">4,019</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">3,067</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">1m 46s</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">48.8%</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2 DataTable_neg__RCSeM">−3.1%</td>
+              </tr>
+              <tr class="DataTable_row__EfgKy">
+                <td class="DataTable_cell__gaeYm"><div class="PageCell_root__AnZqk"><a class="PageCell_path__T4mgd" href="/p/fernhill/pages/integrations~webhooks">/integrations/webhooks</a><span class="PageCell_title__Jv106">Webhooks · Fernhill Docs</span></div></td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">2,960</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">2,211</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">2m 22s</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">35.1%</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2 DataTable_pos__idpo7">+0.7%</td>
+              </tr>
+              <tr class="DataTable_row__EfgKy">
+                <td class="DataTable_cell__gaeYm"><div class="PageCell_root__AnZqk"><a class="PageCell_path__T4mgd" href="/p/fernhill/pages/about">/about</a><span class="PageCell_title__Jv106">About us · Fernhill</span></div></td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">1,702</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">1,540</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">0m 49s</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2">57.6%</td>
+                <td class="DataTable_cell__gaeYm DataTable_num__oI0D2 DataTable_neg__RCSeM">−8.4%</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="Card_root__aPSbi" aria-labelledby="events-title">
+          <header class="Card_header__Dr45K"><h2 class="Card_title__QGS3w" id="events-title">Top events</h2></header>
+          <table class="DataTable_table__DE4gy">
+            <tbody>
+              <tr class="DataTable_row__EfgKy"><td class="DataTable_cell__gaeYm"><code>app_opened</code></td><td class="DataTable_cell__gaeYm DataTable_num__oI0D2">1.21M</td><td class="DataTable_cell__gaeYm DataTable_pos__idpo7">+5.0%</td></tr>
+              <tr class="DataTable_row__EfgKy"><td class="DataTable_cell__gaeYm"><code>screen_viewed</code></td><td class="DataTable_cell__gaeYm DataTable_num__oI0D2">984K</td><td class="DataTable_cell__gaeYm DataTable_pos__idpo7">+3.8%</td></tr>
+              <tr class="DataTable_row__EfgKy"><td class="DataTable_cell__gaeYm"><code>sync_completed</code></td><td class="DataTable_cell__gaeYm DataTable_num__oI0D2">412K</td><td class="DataTable_cell__gaeYm DataTable_pos__idpo7">+9.2%</td></tr>
+              <tr class="DataTable_row__EfgKy"><td class="DataTable_cell__gaeYm"><code>note_created</code></td><td class="DataTable_cell__gaeYm DataTable_num__oI0D2">233K</td><td class="DataTable_cell__gaeYm DataTable_pos__idpo7">+6.1%</td></tr>
+              <tr class="DataTable_row__EfgKy"><td class="DataTable_cell__gaeYm"><code>share_link_copied</code></td><td class="DataTable_cell__gaeYm DataTable_num__oI0D2">41.3K</td><td class="DataTable_cell__gaeYm DataTable_pos__idpo7">+22.4%</td></tr>
+              <tr class="DataTable_row__EfgKy"><td class="DataTable_cell__gaeYm"><code>upgrade_clicked</code></td><td class="DataTable_cell__gaeYm DataTable_num__oI0D2">9.8K</td><td class="DataTable_cell__gaeYm DataTable_pos__idpo7">+11.0%</td></tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+  </div>
+  <footer class="Footer_root__A444i">
+    <span>© 2026 Lumetric Labs, Inc.</span>
+    <nav class="Footer_links__EDp9n" aria-label="Legal"><a href="https://status.lumetric.example">Status</a><a href="/legal/privacy">Privacy</a><a href="/legal/terms">Terms</a></nav>
+    <span class="Footer_build__c8eds">v5.0.1</span>
+  </footer>
+</div>
+<help-launcher position="bottom-right">
+  <template shadowrootmode="open">
+    <style>:host{position:fixed;right:20px;bottom:20px} button{width:44px;height:44px;border-radius:50%;border:0;background:#4a3bc9;color:#fff}</style>
+    <button type="button" class="launcher" aria-label="Open help and support"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></button>
+  </template>
+</help-launcher>
+</div>
+</body>
+</html>

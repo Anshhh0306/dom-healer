@@ -1,0 +1,100 @@
+{
+  "suite": "table-09",
+  "category": "table",
+  "title": "Airport departures board with gate/status cells and track buttons",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 replaces the <table> board with an <ol role=list> of CSS-grid rows (emotion classes with dev labels) rendered inside an <hx-flight-board> declarative shadow root, re-sorts flights by estimated departure time (delayed and departed flights move), reorders columns (Status before Gate, gate shown as 'Gate B14'), renames 'Track' to 'Follow' and 'Show later flights' to 'Load more departures' (plus a new 'Show earlier flights' button), inserts a 'Connections' tab between Departures and Arrivals, and adds a 'Flights you follow' panel that repeats the status and gate cells of BA 0847 and KL 1182. The search input keeps id='flight-q'.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Track' button of flight EI 3417 to Lisbon (v2: 'Follow')",
+      "css": "#departures tr[data-flight='EI3417'] .btn-track",
+      "xpath": "//td[contains(.,'EI 3417')]/following-sibling::td/button[.='Track']",
+      "mutations": [
+        "shadow-dom",
+        "copy-change",
+        "tag-change",
+        "class-obfuscation",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Gate cell of flight KL 1182 to Amsterdam (gate B14)",
+      "css": "#departures tbody tr:nth-child(6) td.fids-gate",
+      "xpath": "//tr[@data-flight='KL1182']/td[5]",
+      "mutations": [
+        "shadow-dom",
+        "tag-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "copy-change",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Status cell of flight BA 0847 to London Heathrow ('Delayed 16:05')",
+      "css": "#departures > tbody > tr:nth-child(7) > td:nth-child(6)",
+      "xpath": "//tr[td[2][contains(normalize-space(),'BA 0847')]]/td[@class='fids-status']",
+      "mutations": [
+        "shadow-dom",
+        "tag-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Arrivals' board tab next to 'Departures'",
+      "css": ".board-tabs a[href='/flights/arrivals']",
+      "xpath": "//div[@class='board-tabs']/a[2]",
+      "mutations": [
+        "sibling-reorder",
+        "insertion",
+        "attribute-churn",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Flight search input above the departures board",
+      "css": "#flight-q",
+      "xpath": "//input[@placeholder='Flight number, airline or destination']",
+      "mutations": [
+        "shadow-dom",
+        "copy-change",
+        "class-obfuscation",
+        "wrapper-divs",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Show later flights' button below the departures board (v2: 'Load more departures')",
+      "css": "button.load-more",
+      "xpath": "//button[normalize-space()='Show later flights']",
+      "mutations": [
+        "shadow-dom",
+        "copy-change",
+        "class-obfuscation",
+        "decoy"
+      ]
+    }
+  ]
+}

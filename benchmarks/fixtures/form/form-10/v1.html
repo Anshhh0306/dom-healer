@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asheville, NC Homes for Sale | Hearthway Realty</title>
+  <meta name="description" content="Browse 47 homes for sale in Asheville, NC. Filter by price, bedrooms, bathrooms, property type and amenities.">
+  <style>
+    body{margin:0;font:15px/1.5 "Helvetica Neue",Arial,sans-serif;color:#1f2933;background:#f5f7f8}
+    a{color:#0b6e69}
+    .site-header{background:#fff;border-bottom:1px solid #dde3e6}
+    .site-header__inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:12px 20px}
+    .site-logo{font-weight:700;font-size:22px;color:#0b6e69;text-decoration:none}
+    .main-nav__list{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    .main-nav__link{color:#1f2933;text-decoration:none;font-weight:500}
+    .main-nav__link--active{color:#0b6e69;border-bottom:2px solid #0b6e69}
+    .header-search{margin-left:auto;display:flex}
+    .header-search__input{padding:6px 10px;border:1px solid #c5ced3;border-radius:4px 0 0 4px}
+    .header-search__btn{border:1px solid #c5ced3;border-left:0;background:#fff;border-radius:0 4px 4px 0}
+    .account-links{display:flex;gap:12px}
+    .breadcrumbs{max-width:1240px;margin:0 auto;padding:10px 20px;font-size:13px}
+    .breadcrumbs__list{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+    .page{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:24px;padding:0 20px 40px}
+    .search-filters{background:#fff;border:1px solid #dde3e6;border-radius:6px;padding:16px;align-self:start}
+    .search-filters__title{font-size:17px;margin:0 0 12px}
+    .filter-group{border:0;border-top:1px solid #e8ecee;margin:0;padding:12px 0}
+    .filter-group__legend{font-weight:600;font-size:14px;padding:0}
+    .filter-field{margin-bottom:10px}
+    .filter-field__label{display:block;font-size:13px;color:#52606d;margin-bottom:3px}
+    .filter-input,.filter-select{width:100%;box-sizing:border-box;padding:7px 9px;border:1px solid #c5ced3;border-radius:4px;font-size:14px}
+    .price-range{display:flex;align-items:flex-end;gap:6px}
+    .price-range__sep{padding-bottom:8px;color:#7b8794}
+    .filter-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .check-list{list-style:none;margin:6px 0 0;padding:0}
+    .check-list__item{margin:3px 0}
+    .check{font-size:14px;cursor:pointer}
+    .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;margin-top:6px}
+    .filter-actions{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+    .btn{display:inline-block;padding:9px 14px;border-radius:4px;border:1px solid transparent;font-weight:600;cursor:pointer;text-align:center;text-decoration:none}
+    .btn--primary{background:#0b6e69;color:#fff}
+    .btn--link{background:none;color:#0b6e69;text-decoration:underline}
+    .btn--block{width:100%}
+    .btn--ghost{background:#fff;border-color:#c5ced3;color:#1f2933}
+    .results-summary{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:14px}
+    .results-summary__title{font-size:22px;margin:0}
+    .results-summary__meta{font-size:13px;color:#7b8794;margin:2px 0 0}
+    .sort-control{display:flex;gap:6px;align-items:center;font-size:14px}
+    .listing-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .listing-card{background:#fff;border:1px solid #dde3e6;border-radius:6px;overflow:hidden}
+    .listing-card__photo{height:170px;background:#cbd5d9;position:relative}
+    .listing-card__badge{position:absolute;left:10px;top:10px;background:#fff;font-size:12px;padding:2px 8px;border-radius:10px}
+    .listing-card__save{position:absolute;right:10px;top:10px;background:#fff;border:0;border-radius:50%;width:32px;height:32px}
+    .listing-card__body{padding:12px 14px}
+    .listing-card__price{font-size:20px;font-weight:700;margin:0}
+    .listing-card__facts{display:flex;gap:10px;list-style:none;margin:4px 0;padding:0;font-size:14px}
+    .listing-card__address{font-size:14px;color:#52606d;margin:0}
+    .listing-card__footer{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-top:1px solid #e8ecee;font-size:12px;color:#7b8794}
+    .pagination{display:flex;gap:6px;list-style:none;padding:0;margin:24px 0 0}
+    .pagination__link{display:block;padding:6px 11px;border:1px solid #c5ced3;border-radius:4px;text-decoration:none}
+    .pagination__link--current{background:#0b6e69;color:#fff}
+    .market-snapshot{margin-top:28px;background:#fff;border:1px solid #dde3e6;border-radius:6px;padding:16px}
+    .market-snapshot__stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0}
+    .site-footer{background:#1f2933;color:#cbd2d9;padding:32px 20px;font-size:13px}
+    .site-footer__cols{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .site-footer__heading{color:#fff;font-size:14px}
+    .site-footer__list{list-style:none;margin:0;padding:0}
+    .site-footer__list a{color:#cbd2d9;text-decoration:none}
+    .site-footer__legal{max-width:1240px;margin:20px auto 0;border-top:1px solid #3e4c59;padding-top:14px}
+    .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  </style>
+</head>
+<body class="page-search">
+  <a class="skip-link visually-hidden" href="#results">Skip to results</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-logo" href="/">Hearthway</a>
+      <nav class="main-nav" aria-label="Main">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a class="main-nav__link main-nav__link--active" href="/buy">Buy</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="/rent">Rent</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="/sell">Sell</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="/home-loans">Home loans</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="/agents">Find an agent</a></li>
+        </ul>
+      </nav>
+      <form class="header-search" action="/search" method="get" role="search">
+        <label class="visually-hidden" for="header-q">City, ZIP or address</label>
+        <input class="header-search__input" type="text" id="header-q" name="q" value="Asheville, NC">
+        <button class="header-search__btn" type="submit" aria-label="Search">&#128269;</button>
+      </form>
+      <div class="account-links">
+        <a class="account-links__link" href="/saved">Saved homes</a>
+        <a class="account-links__link" href="/login">Sign in</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol class="breadcrumbs__list">
+      <li class="breadcrumbs__item"><a href="/">Home</a> ›</li>
+      <li class="breadcrumbs__item"><a href="/nc">North Carolina</a> ›</li>
+      <li class="breadcrumbs__item"><a href="/nc/buncombe-county">Buncombe County</a> ›</li>
+      <li class="breadcrumbs__item" aria-current="page">Asheville</li>
+    </ol>
+  </nav>
+
+  <div class="page">
+    <aside class="search-filters" aria-labelledby="filters-title">
+      <h2 class="search-filters__title" id="filters-title">Filter homes</h2>
+      <form id="home-search" class="search-form" action="/nc/asheville/homes" method="get">
+        <input type="hidden" name="location" value="asheville-nc">
+        <input type="hidden" name="status" value="for_sale">
+
+        <div class="filter-field filter-field--keyword">
+          <label class="filter-field__label" for="kw">Keywords</label>
+          <input class="filter-input" type="search" id="kw" name="keywords" placeholder="e.g. mountain view, workshop">
+        </div>
+
+        <fieldset class="filter-group filter-group--price">
+          <legend class="filter-group__legend">Price range</legend>
+          <div class="price-range">
+            <div class="price-range__field filter-field">
+              <label class="filter-field__label" for="price-min">Min price</label>
+              <input class="filter-input filter-input--price" type="text" id="price-min" name="min_price" inputmode="numeric" placeholder="No min" value="300,000" data-dh-target="t1">
+            </div>
+            <span class="price-range__sep" aria-hidden="true">–</span>
+            <div class="price-range__field filter-field">
+              <label class="filter-field__label" for="price-max">Max price</label>
+              <input class="filter-input filter-input--price" type="text" id="price-max" name="max_price" inputmode="numeric" placeholder="No max" value="900,000">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="filter-group filter-group--rooms">
+          <legend class="filter-group__legend">Rooms</legend>
+          <div class="filter-row">
+            <div class="filter-field">
+              <label class="filter-field__label" for="beds">Bedrooms</label>
+              <select class="filter-select" id="beds" name="beds" data-dh-target="t2">
+                <option value="">Any</option>
+                <option value="1" selected>1+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+                <option value="5">5+</option>
+              </select>
+            </div>
+            <div class="filter-field">
+              <label class="filter-field__label" for="baths">Bathrooms</label>
+              <select class="filter-select" id="baths" name="baths">
+                <option value="">Any</option>
+                <option value="1">1+</option>
+                <option value="1.5">1.5+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="filter-group filter-group--type">
+          <legend class="filter-group__legend">Property type</legend>
+          <ul class="property-types check-list">
+            <li class="check-list__item"><label class="check"><input type="checkbox" name="type[]" value="house" checked> House</label></li>
+            <li class="check-list__item"><label class="check"><input type="checkbox" name="type[]" value="condo" checked> Condo</label></li>
+            <li class="check-list__item"><label class="check"><input type="checkbox" name="type[]" value="townhouse" checked data-dh-target="t3"> Townhouse</label></li>
+            <li class="check-list__item"><label class="check"><input type="checkbox" name="type[]" value="multi_family"> Multi-family</label></li>
+            <li class="check-list__item"><label class="check"><input type="checkbox" name="type[]" value="land"> Land</label></li>
+            <li class="check-list__item"><label class="check"><input type="checkbox" name="type[]" value="manufactured"> Manufactured</label></li>
+          </ul>
+        </fieldset>
+
+        <fieldset class="filter-group filter-group--amenities">
+          <legend class="filter-group__legend">Amenities</legend>
+          <div class="amenities check-grid">
+            <label class="check"><input type="checkbox" id="amenity-garage" name="amenities[]" value="garage"> Garage</label>
+            <label class="check"><input type="checkbox" id="amenity-pool" name="amenities[]" value="pool" data-dh-target="t4"> Swimming pool</label>
+            <label class="check"><input type="checkbox" id="amenity-ac" name="amenities[]" value="central_ac"> Central A/C</label>
+            <label class="check"><input type="checkbox" id="amenity-basement" name="amenities[]" value="basement"> Basement</label>
+            <label class="check"><input type="checkbox" id="amenity-fireplace" name="amenities[]" value="fireplace"> Fireplace</label>
+            <label class="check"><input type="checkbox" id="amenity-view" name="amenities[]" value="mountain_view"> Mountain view</label>
+            <label class="check"><input type="checkbox" id="amenity-waterfront" name="amenities[]" value="waterfront"> Waterfront</label>
+            <label class="check"><input type="checkbox" id="amenity-solar" name="amenities[]" value="solar"> Solar panels</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="filter-group filter-group--more">
+          <legend class="filter-group__legend">More</legend>
+          <div class="filter-field">
+            <label class="filter-field__label" for="max-hoa">Max HOA / month</label>
+            <select class="filter-select" id="max-hoa" name="max_hoa">
+              <option value="">No limit</option>
+              <option value="100">$100</option>
+              <option value="250">$250</option>
+              <option value="500">$500</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label class="filter-field__label" for="dom">Days on Hearthway</label>
+            <select class="filter-select" id="dom" name="days_on_market">
+              <option value="">Any</option>
+              <option value="1">New today</option>
+              <option value="7">Last 7 days</option>
+              <option value="30">Last 30 days</option>
+            </select>
+          </div>
+          <label class="check"><input type="checkbox" id="open-house" name="open_house" value="1"> Open houses only</label>
+        </fieldset>
+
+        <div class="filter-actions">
+          <button class="btn btn--primary btn--block" type="submit" data-dh-target="t5">Search homes</button>
+          <button class="btn btn--link" type="reset">Reset filters</button>
+        </div>
+      </form>
+    </aside>
+
+    <main class="results" id="results">
+      <div class="results-summary">
+        <div class="results-summary__text">
+          <h1 class="results-summary__title"><span class="results-count" data-dh-target="t6">47 homes</span> for sale in Asheville, NC</h1>
+          <p class="results-summary__meta">Listings updated 6 minutes ago · Source: Canopy MLS</p>
+        </div>
+        <div class="sort-control">
+          <label for="sort">Sort by</label>
+          <select class="sort-control__select" id="sort" name="sort" form="home-search">
+            <option value="relevance">Recommended</option>
+            <option value="newest">Newest</option>
+            <option value="price_asc">Price (low to high)</option>
+            <option value="price_desc">Price (high to low)</option>
+            <option value="sqft">Square feet</option>
+          </select>
+        </div>
+      </div>
+
+      <ul class="listing-grid">
+        <li class="listing-card">
+          <article class="listing-card__inner">
+            <div class="listing-card__photo">
+              <span class="listing-card__badge">Open house Sat 1–3 pm</span>
+              <button class="listing-card__save" type="button" aria-label="Save 41 Kenilworth Rd">&#9825;</button>
+            </div>
+            <div class="listing-card__body">
+              <p class="listing-card__price">$549,000</p>
+              <ul class="listing-card__facts">
+                <li><b>3</b> bd</li>
+                <li><b>2</b> ba</li>
+                <li><b>1,780</b> sqft</li>
+              </ul>
+              <p class="listing-card__address"><a href="/home/41-kenilworth-rd-asheville-nc-28803">41 Kenilworth Rd, Asheville, NC 28803</a></p>
+            </div>
+            <div class="listing-card__footer"><span>House · Built 1938</span><a href="/home/41-kenilworth-rd-asheville-nc-28803#tour">Request a tour</a></div>
+          </article>
+        </li>
+        <li class="listing-card">
+          <article class="listing-card__inner">
+            <div class="listing-card__photo">
+              <span class="listing-card__badge">New · 2 days</span>
+              <button class="listing-card__save" type="button" aria-label="Save 18 Brookside Commons Dr #4">&#9825;</button>
+            </div>
+            <div class="listing-card__body">
+              <p class="listing-card__price">$389,900</p>
+              <ul class="listing-card__facts">
+                <li><b>2</b> bd</li>
+                <li><b>2.5</b> ba</li>
+                <li><b>1,320</b> sqft</li>
+              </ul>
+              <p class="listing-card__address"><a href="/home/18-brookside-commons-dr-4-asheville-nc-28806">18 Brookside Commons Dr #4, Asheville, NC 28806</a></p>
+            </div>
+            <div class="listing-card__footer"><span>Townhouse · HOA $185/mo</span><a href="/home/18-brookside-commons-dr-4-asheville-nc-28806#tour">Request a tour</a></div>
+          </article>
+        </li>
+        <li class="listing-card">
+          <article class="listing-card__inner">
+            <div class="listing-card__photo">
+              <span class="listing-card__badge">Pool</span>
+              <button class="listing-card__save" type="button" aria-label="Save 207 Lakeshore Dr">&#9825;</button>
+            </div>
+            <div class="listing-card__body">
+              <p class="listing-card__price">$725,000</p>
+              <ul class="listing-card__facts">
+                <li><b>4</b> bd</li>
+                <li><b>3</b> ba</li>
+                <li><b>2,640</b> sqft</li>
+              </ul>
+              <p class="listing-card__address"><a href="/home/207-lakeshore-dr-asheville-nc-28804">207 Lakeshore Dr, Asheville, NC 28804</a></p>
+            </div>
+            <div class="listing-card__footer"><span>House · 0.62 acres</span><a href="/home/207-lakeshore-dr-asheville-nc-28804#tour">Request a tour</a></div>
+          </article>
+        </li>
+        <li class="listing-card">
+          <article class="listing-card__inner">
+            <div class="listing-card__photo">
+              <span class="listing-card__badge">Price cut $10K</span>
+              <button class="listing-card__save" type="button" aria-label="Save 60 N Market St Unit 507">&#9825;</button>
+            </div>
+            <div class="listing-card__body">
+              <p class="listing-card__price">$315,000</p>
+              <ul class="listing-card__facts">
+                <li><b>1</b> bd</li>
+                <li><b>1</b> ba</li>
+                <li><b>812</b> sqft</li>
+              </ul>
+              <p class="listing-card__address"><a href="/home/60-n-market-st-507-asheville-nc-28801">60 N Market St Unit 507, Asheville, NC 28801</a></p>
+            </div>
+            <div class="listing-card__footer"><span>Condo · HOA $310/mo</span><a href="/home/60-n-market-st-507-asheville-nc-28801#tour">Request a tour</a></div>
+          </article>
+        </li>
+        <li class="listing-card">
+          <article class="listing-card__inner">
+            <div class="listing-card__photo">
+              <span class="listing-card__badge">2-car garage</span>
+              <button class="listing-card__save" type="button" aria-label="Save 9 Hollow Creek Ln">&#9825;</button>
+            </div>
+            <div class="listing-card__body">
+              <p class="listing-card__price">$462,500</p>
+              <ul class="listing-card__facts">
+                <li><b>3</b> bd</li>
+                <li><b>2</b> ba</li>
+                <li><b>1,540</b> sqft</li>
+              </ul>
+              <p class="listing-card__address"><a href="/home/9-hollow-creek-ln-asheville-nc-28805">9 Hollow Creek Ln, Asheville, NC 28805</a></p>
+            </div>
+            <div class="listing-card__footer"><span>House · Built 2004</span><a href="/home/9-hollow-creek-ln-asheville-nc-28805#tour">Request a tour</a></div>
+          </article>
+        </li>
+        <li class="listing-card">
+          <article class="listing-card__inner">
+            <div class="listing-card__photo">
+              <span class="listing-card__badge">Mountain view</span>
+              <button class="listing-card__save" type="button" aria-label="Save 15 Ridgecrest Overlook">&#9825;</button>
+            </div>
+            <div class="listing-card__body">
+              <p class="listing-card__price">$899,000</p>
+              <ul class="listing-card__facts">
+                <li><b>4</b> bd</li>
+                <li><b>3.5</b> ba</li>
+                <li><b>3,120</b> sqft</li>
+              </ul>
+              <p class="listing-card__address"><a href="/home/15-ridgecrest-overlook-asheville-nc-28804">15 Ridgecrest Overlook, Asheville, NC 28804</a></p>
+            </div>
+            <div class="listing-card__footer"><span>House · Built 2017</span><a href="/home/15-ridgecrest-overlook-asheville-nc-28804#tour">Request a tour</a></div>
+          </article>
+        </li>
+      </ul>
+
+      <nav aria-label="Results pages">
+        <ul class="pagination">
+          <li><a class="pagination__link pagination__link--current" href="?page=1" aria-current="page">1</a></li>
+          <li><a class="pagination__link" href="?page=2">2</a></li>
+          <li><a class="pagination__link" href="?page=3">3</a></li>
+          <li><a class="pagination__link" href="?page=4">4</a></li>
+          <li><a class="pagination__link" href="?page=2" rel="next">Next ›</a></li>
+        </ul>
+      </nav>
+
+      <section class="market-snapshot" aria-labelledby="market-title">
+        <h2 class="market-snapshot__title" id="market-title">Asheville housing market</h2>
+        <dl class="market-snapshot__stats">
+          <div><dt>Median list price</dt><dd>$498,000</dd></div>
+          <div><dt>Median $/sqft</dt><dd>$318</dd></div>
+          <div><dt>Median days on market</dt><dd>34</dd></div>
+          <div><dt>Homes sold (last 30 days)</dt><dd>212</dd></div>
+        </dl>
+        <p class="market-snapshot__note">Based on Canopy MLS data for Asheville, NC through November 5, 2026.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__cols">
+      <div>
+        <h3 class="site-footer__heading">Hearthway</h3>
+        <ul class="site-footer__list">
+          <li><a href="/about">About us</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/press">Press</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="site-footer__heading">Buy &amp; sell</h3>
+        <ul class="site-footer__list">
+          <li><a href="/mortgage-calculator">Mortgage calculator</a></li>
+          <li><a href="/home-value">What's my home worth?</a></li>
+          <li><a href="/guides/first-time-buyers">First-time buyer guide</a></li>
+          <li><a href="/open-houses">Open houses near me</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="site-footer__heading">Nearby cities</h3>
+        <ul class="site-footer__list">
+          <li><a href="/nc/weaverville/homes">Weaverville homes</a></li>
+          <li><a href="/nc/black-mountain/homes">Black Mountain homes</a></li>
+          <li><a href="/nc/hendersonville/homes">Hendersonville homes</a></li>
+          <li><a href="/nc/candler/homes">Candler homes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="site-footer__heading">Legal</h3>
+        <ul class="site-footer__list">
+          <li><a href="/terms">Terms of use</a></li>
+          <li><a href="/privacy">Privacy policy</a></li>
+          <li><a href="/fair-housing">Fair housing statement</a></li>
+          <li><a href="/accessibility">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <p>Hearthway Realty, Inc. is a licensed real estate broker in North Carolina (Firm #C31877). Equal Housing Opportunity.</p>
+      <p>© 2026 Hearthway Realty, Inc. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -9,11 +9,11 @@ from typing import Any
 from dom_healer.dom import Document, DomHealerError, Element, SelectorError, ensure_document
 from dom_healer.features import feature_matrix
 from dom_healer.fingerprint import ElementFingerprint
-from dom_healer.index import PageIndex
+from dom_healer.index import PageIndex, get_index  # noqa: F401  (re-exported)
 from dom_healer.rankers import Ranker, get_ranker
 from dom_healer.synthesis import SelectorSuggestion, suggest_selectors
 
-DEFAULT_MAX_CANDIDATES = 32
+DEFAULT_MAX_CANDIDATES = 24
 DEFAULT_MIN_CONFIDENCE = 0.5
 
 STATUS_VALID = "valid"  # the original selector still finds the best-matching element
@@ -24,17 +24,6 @@ STATUS_NOT_FOUND = "not_found"  # no candidate element at all
 
 class ElementNotFoundError(DomHealerError, LookupError):
     """The selector used to capture a fingerprint matched nothing."""
-
-
-def get_index(doc: Document) -> PageIndex:
-    """Return the (cached) :class:`PageIndex` of ``doc``.
-
-    The index is built on first use; do not mutate the tree afterwards.
-    """
-    index = doc._index
-    if index is None:
-        index = doc._index = PageIndex(doc)
-    return index
 
 
 def _ms(start: float) -> float:

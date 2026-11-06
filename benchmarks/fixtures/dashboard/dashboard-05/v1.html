@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account overview | Copperleaf Bank</title>
+<style>
+body{margin:0;font:15px/1.5 Georgia,"Times New Roman",serif;color:#1f2a2e;background:#f3f1ec}
+.cb-topbar{display:flex;justify-content:space-between;padding:4px 32px;background:#13343b;color:#cfe3df;font:12px Arial,sans-serif}
+.cb-topbar a{color:#cfe3df;margin-right:14px}
+.cb-header{display:flex;align-items:center;gap:32px;padding:14px 32px;background:#fff;border-bottom:3px solid #b87333;font-family:Arial,sans-serif}
+.cb-logo{font-size:22px;font-weight:700;color:#13343b;text-decoration:none}
+.cb-mainnav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.cb-mainnav a{color:#13343b;text-decoration:none;font-weight:600}.cb-mainnav a.active{border-bottom:2px solid #b87333}
+.cb-main{max-width:1180px;margin:0 auto;padding:24px 32px;font-family:Arial,sans-serif}
+.cb-grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.cb-card{background:#fff;border:1px solid #ddd6c8;border-radius:4px;padding:18px;margin-bottom:20px}
+.account-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eee7da}
+.balance{font-size:20px;font-weight:700}
+.cb-btn{padding:9px 16px;border:1px solid #13343b;border-radius:3px;background:#fff;color:#13343b;font-weight:600}
+.cb-btn-primary{background:#13343b;color:#fff}
+.txn-table{width:100%;border-collapse:collapse}.txn-table td,.txn-table th{padding:8px;border-bottom:1px solid #eee7da;text-align:left}
+.txn-table .amount{text-align:right;font-variant-numeric:tabular-nums}.amount.credit{color:#1e7b4f}
+.budget-bar{height:8px;background:#ece6da;border-radius:4px}.budget-fill{height:8px;background:#b87333;border-radius:4px}
+.cb-footer{padding:24px 32px;background:#13343b;color:#cfe3df;font:12px/1.6 Arial,sans-serif}
+</style>
+</head>
+<body>
+<div class="cb-topbar">
+  <div><a href="/personal">Personal</a><a href="/business">Business</a><a href="/wealth">Wealth management</a></div>
+  <div><a href="/locations">Locations</a><a href="/help">Help &amp; support</a><a href="/es" lang="es">Español</a></div>
+</div>
+<header class="cb-header">
+  <a class="cb-logo" href="/overview">Copperleaf Bank</a>
+  <nav class="cb-mainnav" aria-label="Main">
+    <ul>
+        <li><a href="/overview" class="active" aria-current="page">Overview</a></li>
+        <li><a href="/accounts">Accounts</a></li>
+        <li><a href="/transfers">Payments &amp; transfers</a></li>
+        <li><a href="/cards">Cards</a></li>
+        <li><a href="/budgets">Budgets</a></li>
+        <li><a href="/statements" data-dh-target="t5">Statements &amp; documents</a></li>
+    </ul>
+  </nav>
+  <div class="cb-user">
+    <button type="button" class="icon-button" aria-label="Secure messages (2 unread)"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+    <span class="cb-username">Daniela Ortiz</span>
+    <a href="/logout" class="cb-logout">Log out</a>
+  </div>
+</header>
+<main class="cb-main">
+  <div class="cb-welcome">
+    <h1>Good evening, Daniela</h1>
+    <p class="cb-lastlogin">Last sign-in: Nov 4, 2026 at 8:12 PM from Portland, OR</p>
+  </div>
+  <div class="cb-grid">
+    <div class="cb-col-main">
+      <section class="cb-card accounts-card" aria-labelledby="accounts-heading">
+        <div class="card-head"><h2 id="accounts-heading">Accounts</h2><a href="/accounts/open" class="cb-link">Open an account</a></div>
+        <ul class="account-list">
+          <li class="account-row" data-account="chk-4821">
+            <div class="acct-name"><a href="/accounts/chk-4821">Everyday Checking</a><span class="acct-mask">••4821</span><span class="acct-kind">Checking</span></div>
+            <div class="acct-balance"><span class="balance-label">Available balance</span><span class="balance">$3,214.56</span></div>
+          </li>
+          <li class="account-row" data-account="sav-7730">
+            <div class="acct-name"><a href="/accounts/sav-7730">High-Yield Savings</a><span class="acct-mask">••7730</span><span class="acct-kind">Savings</span></div>
+            <div class="acct-balance"><span class="balance-label">Available balance</span><span class="balance" data-dh-target="t2">$18,940.12</span></div>
+          </li>
+          <li class="account-row" data-account="sav-7731">
+            <div class="acct-name"><a href="/accounts/sav-7731">Vacation Fund</a><span class="acct-mask">••7731</span><span class="acct-kind">Savings</span></div>
+            <div class="acct-balance"><span class="balance-label">Available balance</span><span class="balance">$2,450.00</span></div>
+          </li>
+          <li class="account-row" data-account="cc-0193">
+            <div class="acct-name"><a href="/accounts/cc-0193">Copperleaf Rewards Card</a><span class="acct-mask">••0193</span><span class="acct-kind">Credit card</span></div>
+            <div class="acct-balance"><span class="balance-label">Current balance</span><span class="balance">$1,284.40</span></div>
+          </li>
+          <li class="account-row" data-account="ln-5512">
+            <div class="acct-name"><a href="/accounts/ln-5512">Auto Loan</a><span class="acct-mask">••5512</span><span class="acct-kind">Loan</span></div>
+            <div class="acct-balance"><span class="balance-label">Principal remaining</span><span class="balance">$11,962.77</span></div>
+          </li>
+        </ul>
+        <div class="accounts-total"><span>Total cash</span> <strong>$24,604.68</strong></div>
+      </section>
+      <section class="cb-card quick-actions" aria-label="Quick actions">
+        <button type="button" id="btn-transfer" class="cb-btn cb-btn-primary" data-dh-target="t1">Transfer money</button>
+        <button type="button" class="cb-btn">Pay a bill</button>
+        <button type="button" class="cb-btn">Deposit a check</button>
+        <button type="button" class="cb-btn">Send to a friend</button>
+      </section>
+      <section class="cb-card transactions" aria-labelledby="txn-heading">
+        <div class="card-head">
+          <h2 id="txn-heading">Recent transactions</h2>
+          <div class="txn-filter">
+            <label for="txn-account-filter">Account</label>
+            <select id="txn-account-filter" name="account" data-dh-target="t6">
+              <option value="all" selected>All accounts</option>
+              <option value="chk-4821">Everyday Checking ••4821</option>
+              <option value="sav-7730">High-Yield Savings ••7730</option>
+              <option value="cc-0193">Copperleaf Rewards Card ••0193</option>
+            </select>
+          </div>
+          <a href="/transactions" class="cb-link">See all</a>
+        </div>
+        <table class="txn-table">
+          <thead><tr><th>Date</th><th>Description</th><th>Category</th><th>Account</th><th class="amount">Amount</th></tr></thead>
+          <tbody>
+            <tr><td class="txn-date">Nov 4</td><td class="txn-desc">Juniper Street Grocers</td><td class="txn-cat">Groceries</td><td class="txn-acct">••0193</td><td class="amount">−$86.42</td></tr>
+            <tr><td class="txn-date">Nov 4</td><td class="txn-desc">Northgate Transit</td><td class="txn-cat">Transportation</td><td class="txn-acct">••4821</td><td class="amount">−$2.75</td></tr>
+            <tr><td class="txn-date">Nov 3</td><td class="txn-desc">Sunline Utilities</td><td class="txn-cat">Bills &amp; utilities</td><td class="txn-acct">••4821</td><td class="amount" data-dh-target="t3">−$142.18</td></tr>
+            <tr><td class="txn-date">Nov 3</td><td class="txn-desc">Payroll — Ardent Systems</td><td class="txn-cat">Income</td><td class="txn-acct">••4821</td><td class="amount credit">+$2,840.00</td></tr>
+            <tr><td class="txn-date">Nov 2</td><td class="txn-desc">Pinecone Coffee Roasters</td><td class="txn-cat">Dining out</td><td class="txn-acct">••0193</td><td class="amount">−$6.80</td></tr>
+            <tr><td class="txn-date">Nov 2</td><td class="txn-desc">Transfer to Vacation Fund</td><td class="txn-cat">Transfer</td><td class="txn-acct">••4821</td><td class="amount">−$200.00</td></tr>
+            <tr><td class="txn-date">Nov 1</td><td class="txn-desc">Riverside Apartments</td><td class="txn-cat">Rent</td><td class="txn-acct">••4821</td><td class="amount">−$1,650.00</td></tr>
+            <tr><td class="txn-date">Oct 31</td><td class="txn-desc">Mossgate Pharmacy</td><td class="txn-cat">Health</td><td class="txn-acct">••0193</td><td class="amount">−$23.19</td></tr>
+            <tr><td class="txn-date">Oct 30</td><td class="txn-desc">Streamline Fiber</td><td class="txn-cat">Bills &amp; utilities</td><td class="txn-acct">••4821</td><td class="amount">−$64.99</td></tr>
+            <tr><td class="txn-date">Oct 30</td><td class="txn-desc">Interest payment</td><td class="txn-cat">Income</td><td class="txn-acct">••7730</td><td class="amount credit">+$61.47</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <aside class="cb-col-side">
+      <section class="cb-card budgets" aria-labelledby="budgets-heading">
+        <div class="card-head"><h2 id="budgets-heading">November budgets</h2><a href="/budgets" class="cb-link">Manage</a></div>
+        <ul class="budget-list">
+          <li class="budget" data-category="groceries">
+            <div class="budget-head"><span class="budget-name">Groceries</span><button type="button" class="icon-button budget-edit" aria-label="Edit Groceries budget"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></button></div>
+            <div class="budget-bar" role="progressbar" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100"><div class="budget-fill" style="width:14%"></div></div>
+            <p class="budget-amounts">$86 spent of $600</p>
+          </li>
+          <li class="budget" data-category="dining">
+            <div class="budget-head"><span class="budget-name">Dining out</span><button type="button" class="icon-button budget-edit" aria-label="Edit Dining out budget" data-dh-target="t4"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></button></div>
+            <div class="budget-bar" role="progressbar" aria-valuenow="19" aria-valuemin="0" aria-valuemax="100"><div class="budget-fill" style="width:19%"></div></div>
+            <p class="budget-amounts">$48 spent of $250</p>
+          </li>
+          <li class="budget" data-category="transport">
+            <div class="budget-head"><span class="budget-name">Transportation</span><button type="button" class="icon-button budget-edit" aria-label="Edit Transportation budget"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></button></div>
+            <div class="budget-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"><div class="budget-fill" style="width:2%"></div></div>
+            <p class="budget-amounts">$3 spent of $120</p>
+          </li>
+          <li class="budget" data-category="entertainment">
+            <div class="budget-head"><span class="budget-name">Entertainment</span><button type="button" class="icon-button budget-edit" aria-label="Edit Entertainment budget"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></button></div>
+            <div class="budget-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="budget-fill" style="width:0%"></div></div>
+            <p class="budget-amounts">$0 spent of $100</p>
+          </li>
+          <li class="budget" data-category="shopping">
+            <div class="budget-head"><span class="budget-name">Shopping</span><button type="button" class="icon-button budget-edit" aria-label="Edit Shopping budget"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></button></div>
+            <div class="budget-bar" role="progressbar" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100"><div class="budget-fill" style="width:56%"></div></div>
+            <p class="budget-amounts">$112 spent of $200</p>
+          </li>
+          <li class="budget" data-category="bills">
+            <div class="budget-head"><span class="budget-name">Bills &amp; utilities</span><button type="button" class="icon-button budget-edit" aria-label="Edit Bills &amp; utilities budget"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></button></div>
+            <div class="budget-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"><div class="budget-fill" style="width:65%"></div></div>
+            <p class="budget-amounts">$207 spent of $320</p>
+          </li>
+        </ul>
+      </section>
+      <section class="cb-card upcoming" aria-labelledby="bills-heading">
+        <h2 id="bills-heading">Upcoming bills</h2>
+        <ul class="bill-list">
+          <li class="bill"><span class="bill-name">Rewards Card payment</span><span class="bill-due">Due Nov 18</span><span class="bill-amt">$1,284.40</span></li>
+          <li class="bill"><span class="bill-name">Auto Loan</span><span class="bill-due">Due Nov 20</span><span class="bill-amt">$386.12</span></li>
+          <li class="bill"><span class="bill-name">Streamline Fiber</span><span class="bill-due">Due Nov 30</span><span class="bill-amt">$64.99</span></li>
+          <li class="bill"><span class="bill-name">Sunline Utilities</span><span class="bill-due">Due Dec 3</span><span class="bill-amt">est. $140.00</span></li>
+        </ul>
+        <a href="/transfers/bills" class="cb-link">Manage payees</a>
+      </section>
+      <section class="cb-card promo">
+        <h2>Earn 4.10% APY</h2>
+        <p>Grow your savings with a Copperleaf Certificate of Deposit. 12-month term, $500 minimum.</p>
+        <a href="/cds" class="cb-btn">Learn more</a>
+      </section>
+    </aside>
+  </div>
+</main>
+<footer class="cb-footer">
+  <nav aria-label="Footer"><a href="/privacy">Privacy &amp; security</a> · <a href="/accessibility">Accessibility</a> · <a href="/fees">Fee schedule</a> · <a href="/contact">Contact us</a></nav>
+  <p>Copperleaf Bank, N.A. Deposits insured up to applicable limits. Equal Housing Lender. © 2026 Copperleaf Financial Corp.</p>
+</footer>
+</body>
+</html>

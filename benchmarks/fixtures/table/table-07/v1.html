@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inventory · Ember &amp; Oak · Stockroom</title>
+<style>
+body{margin:0;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#202223;background:#f1f2f4}
+.topbar{display:flex;align-items:center;gap:20px;height:56px;padding:0 16px;background:#1a1a1a;color:#e3e3e3}
+.topbar__logo{color:#fff;font-weight:700;text-decoration:none}.topbar__search{flex:0 1 480px;margin:0 auto;padding:6px 10px;border-radius:8px;border:1px solid #616161;background:#303030;color:#fff}
+.shell{display:grid;grid-template-columns:240px 1fr}.sidenav{padding:12px 8px;background:#ebebeb;min-height:calc(100vh - 56px)}
+.sidenav a{display:block;padding:6px 10px;border-radius:8px;color:#303030;text-decoration:none}.sidenav a.is-active{background:#fff;font-weight:650}.sidenav .sub{padding-left:28px;font-size:13px}
+.content{padding:20px 28px}.content__head{display:flex;justify-content:space-between;align-items:center}
+.button{display:inline-flex;align-items:center;padding:6px 12px;border-radius:8px;border:1px solid #c9cccf;background:#fff;color:#202223;font:inherit;cursor:pointer;text-decoration:none}
+.button--primary{background:#303030;border-color:#303030;color:#fff}.button--plain{border-color:transparent;background:none;color:#005bd3}.button--small{padding:3px 8px;font-size:13px}.button:disabled{opacity:.45}
+.inv-tabs{display:flex;gap:4px;margin:14px 0 0}.inv-tab{padding:6px 12px;border-radius:8px;color:#303030;text-decoration:none}.inv-tab.is-selected{background:#e3e3e3;font-weight:600}
+.inv-filters{display:flex;gap:8px;padding:10px;background:#fff;border-radius:12px 12px 0 0;border-bottom:1px solid #e3e3e3}
+.inv-table{width:100%;border-collapse:collapse;background:#fff}.inv-table th{text-align:left;font-weight:550;font-size:12px;color:#616161;padding:8px 10px;background:#f7f7f7}
+.inv-table td{padding:8px 10px;border-top:1px solid #ebebeb;vertical-align:middle}.inv-thumb{border-radius:6px;border:1px solid #e3e3e3}
+.inv-product-link{font-weight:600;color:#202223}.inv-variant{display:block;color:#616161;font-size:12px}
+.inline-input{width:84px;padding:5px 8px;border:1px solid #8a8a8a;border-radius:8px;font:inherit}.inv-prefix{margin-right:4px;color:#616161}
+.inv-row.is-dirty{background:#fff8db}.stock-badge{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:8px;font-size:12px}
+.stock-badge--low{background:#ffef9d;color:#4f4700}.stock-badge--out{background:#fedad9;color:#8e1f0b}
+.status{padding:2px 8px;border-radius:8px;font-size:12px}.status--active{background:#cdfee1;color:#0c5132}.status--draft{background:#e3e3e3;color:#303030}
+.unsaved-bar{display:flex;align-items:center;gap:12px;margin-top:12px;padding:10px 14px;border-radius:12px;background:#303030;color:#fff}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.app-footer{padding:20px 28px;color:#616161;font-size:12px}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="topbar__logo" href="/admin">Stockroom</a>
+  <span class="topbar__store">Ember &amp; Oak Coffee Roasters</span>
+  <input class="topbar__search" type="search" placeholder="Search products, orders and customers" aria-label="Search admin">
+  <span class="topbar__user">Nadia Prescott</span>
+</header>
+<div class="shell">
+  <nav class="sidenav" aria-label="Admin">
+    <a href="/admin">Home</a>
+    <a href="/admin/orders">Orders <span class="count">12</span></a>
+    <a href="/admin/products">Products</a>
+    <a class="sub" href="/admin/products">All products</a>
+    <a class="sub is-active" href="/admin/products/inventory" aria-current="page">Inventory</a>
+    <a class="sub" href="/admin/collections">Collections</a>
+    <a class="sub" href="/admin/gift-cards">Gift cards</a>
+    <a href="/admin/customers">Customers</a>
+    <a href="/admin/analytics">Analytics</a>
+    <a href="/admin/discounts">Discounts</a>
+    <a href="/admin/settings">Settings</a>
+  </nav>
+  <main class="content">
+    <div class="content__head">
+      <h1>Inventory</h1>
+      <div class="content__actions"><button type="button" class="button">Export</button> <button type="button" class="button">Import</button> <a class="button button--primary" href="/admin/products/new">Add product</a></div>
+    </div>
+    <div class="unsaved-bar" role="status"><span>2 unsaved changes</span><button type="button" class="button button--plain">Discard all</button><button type="button" class="button button--primary">Save all</button></div>
+    <div class="inv-tabs" role="tablist"><a class="inv-tab is-selected" href="?view=all" aria-current="page">All</a><a class="inv-tab" href="?view=low">Low stock (4)</a><a class="inv-tab" href="?view=out">Out of stock (1)</a><a class="inv-tab" href="?view=draft">Drafts (2)</a></div>
+    <div class="inv-filters">
+      <input type="search" class="inv-filter-input" placeholder="Filter products" aria-label="Filter products">
+      <select aria-label="Product type"><option>All product types</option><option>Coffee</option><option>Equipment</option><option>Merchandise</option></select>
+      <select aria-label="Location"><option selected>Bristol roastery</option><option>Leeds warehouse</option></select>
+    </div>
+    <table class="inv-table" id="inventory">
+      <thead>
+        <tr>
+          <th class="inv-col-img"><span class="visually-hidden">Image</span></th>
+          <th>Product</th>
+          <th>SKU</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Status</th>
+          <th class="inv-col-actions"><span class="visually-hidden">Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr data-sku="EO-ETH-YIR-250" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8811-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8811" class="inv-product-link">Ethiopia Yirgacheffe</a><span class="inv-variant">250 g · Whole bean</span></td>
+            <td class="inv-col-sku">EO-ETH-YIR-250</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-ETH-YIR-250" class="inline-input inline-input--price" value="16.50" aria-label="Price for Ethiopia Yirgacheffe 250 g" data-dh-target="t1"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-ETH-YIR-250" class="inline-input inline-input--stock" value="142" aria-label="Stock for Ethiopia Yirgacheffe 250 g"></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+          <tr data-sku="EO-ETH-YIR-1K" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8812-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8812" class="inv-product-link">Ethiopia Yirgacheffe</a><span class="inv-variant">1 kg · Whole bean</span></td>
+            <td class="inv-col-sku">EO-ETH-YIR-1K</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-ETH-YIR-1K" class="inline-input inline-input--price" value="54.00" aria-label="Price for Ethiopia Yirgacheffe 1 kg"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-ETH-YIR-1K" class="inline-input inline-input--stock" value="38" aria-label="Stock for Ethiopia Yirgacheffe 1 kg"></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+          <tr data-sku="EO-COL-HUI-250" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8813-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8813" class="inv-product-link">Colombia Huila Supremo</a><span class="inv-variant">250 g · Whole bean</span></td>
+            <td class="inv-col-sku">EO-COL-HUI-250</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-COL-HUI-250" class="inline-input inline-input--price" value="14.00" aria-label="Price for Colombia Huila Supremo 250 g"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-COL-HUI-250" class="inline-input inline-input--stock" value="96" aria-label="Stock for Colombia Huila Supremo 250 g"></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+          <tr data-sku="EO-COL-HUI-1K" class="inv-row is-dirty">
+            <td class="inv-col-img"><img src="/media/products/8814-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8814" class="inv-product-link">Colombia Huila Supremo</a><span class="inv-variant">1 kg · Whole bean</span></td>
+            <td class="inv-col-sku">EO-COL-HUI-1K</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-COL-HUI-1K" class="inline-input inline-input--price" value="46.00" aria-label="Price for Colombia Huila Supremo 1 kg"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-COL-HUI-1K" class="inline-input inline-input--stock" value="21" aria-label="Stock for Colombia Huila Supremo 1 kg"></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" data-dh-target="t3">Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row">Reset</button></td>
+          </tr>
+          <tr data-sku="EO-KEN-NYE-250" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8817-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8817" class="inv-product-link" data-dh-target="t5">Kenya Nyeri AA</a><span class="inv-variant">250 g · Whole bean</span></td>
+            <td class="inv-col-sku">EO-KEN-NYE-250</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-KEN-NYE-250" class="inline-input inline-input--price" value="18.50" aria-label="Price for Kenya Nyeri AA 250 g"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-KEN-NYE-250" class="inline-input inline-input--stock" value="12" aria-label="Stock for Kenya Nyeri AA 250 g"><span class="stock-badge stock-badge--low">Low stock</span></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+          <tr data-sku="EO-GUA-ANT-250" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8820-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8820" class="inv-product-link">Guatemala Antigua</a><span class="inv-variant">250 g · Whole bean</span></td>
+            <td class="inv-col-sku">EO-GUA-ANT-250</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-GUA-ANT-250" class="inline-input inline-input--price" value="15.00" aria-label="Price for Guatemala Antigua 250 g"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-GUA-ANT-250" class="inline-input inline-input--stock" value="74" aria-label="Stock for Guatemala Antigua 250 g"></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+          <tr data-sku="EO-ESP-BLD-250" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8823-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8823" class="inv-product-link">Ember Espresso Blend</a><span class="inv-variant">250 g · Whole bean</span></td>
+            <td class="inv-col-sku">EO-ESP-BLD-250</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-ESP-BLD-250" class="inline-input inline-input--price" value="13.50" aria-label="Price for Ember Espresso Blend 250 g"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-ESP-BLD-250" class="inline-input inline-input--stock" value="210" aria-label="Stock for Ember Espresso Blend 250 g"></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+          <tr data-sku="EO-ESP-BLD-1K" class="inv-row is-dirty">
+            <td class="inv-col-img"><img src="/media/products/8824-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8824" class="inv-product-link">Ember Espresso Blend</a><span class="inv-variant">1 kg · Whole bean</span></td>
+            <td class="inv-col-sku">EO-ESP-BLD-1K</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-ESP-BLD-1K" class="inline-input inline-input--price" value="44.00" aria-label="Price for Ember Espresso Blend 1 kg"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-ESP-BLD-1K" class="inline-input inline-input--stock" value="58" aria-label="Stock for Ember Espresso Blend 1 kg"></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row">Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" data-dh-target="t6">Reset</button></td>
+          </tr>
+          <tr data-sku="EO-DEC-PER-250" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8826-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8826" class="inv-product-link">Decaf Swiss Water Peru</a><span class="inv-variant">250 g · Whole bean</span></td>
+            <td class="inv-col-sku">EO-DEC-PER-250</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-DEC-PER-250" class="inline-input inline-input--price" value="15.50" aria-label="Price for Decaf Swiss Water Peru 250 g"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-DEC-PER-250" class="inline-input inline-input--stock" value="9" aria-label="Stock for Decaf Swiss Water Peru 250 g"><span class="stock-badge stock-badge--low">Low stock</span></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+          <tr data-sku="EO-CBR-CRS-500" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8829-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8829" class="inv-product-link">Cold Brew Coarse Grind</a><span class="inv-variant">500 g · Coarse</span></td>
+            <td class="inv-col-sku">EO-CBR-CRS-500</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-CBR-CRS-500" class="inline-input inline-input--price" value="19.00" aria-label="Price for Cold Brew Coarse Grind 500 g"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-CBR-CRS-500" class="inline-input inline-input--stock" value="0" aria-label="Stock for Cold Brew Coarse Grind 500 g"><span class="stock-badge stock-badge--out">Out of stock</span></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+          <tr data-sku="EO-GRD-HND-01" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8840-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8840" class="inv-product-link">Hand Grinder</a><span class="inv-variant">Steel burr</span></td>
+            <td class="inv-col-sku">EO-GRD-HND-01</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-GRD-HND-01" class="inline-input inline-input--price" value="89.00" aria-label="Price for Hand Grinder Steel burr"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-GRD-HND-01" class="inline-input inline-input--stock" value="17" aria-label="Stock for Hand Grinder Steel burr" data-dh-target="t2"></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+          <tr data-sku="EO-KTL-GSN-1L" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8841-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8841" class="inv-product-link">Pour-over Kettle 1 L</a><span class="inv-variant">Matte black</span></td>
+            <td class="inv-col-sku">EO-KTL-GSN-1L</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-KTL-GSN-1L" class="inline-input inline-input--price" value="72.00" aria-label="Price for Pour-over Kettle 1 L Matte black"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-KTL-GSN-1L" class="inline-input inline-input--stock" value="6" aria-label="Stock for Pour-over Kettle 1 L Matte black"><span class="stock-badge stock-badge--low">Low stock</span></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+          <tr data-sku="EO-CMX-6CP" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8843-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8843" class="inv-product-link">Chemex 6-cup</a><span class="inv-variant">Glass handle</span></td>
+            <td class="inv-col-sku">EO-CMX-6CP</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-CMX-6CP" class="inline-input inline-input--price" value="49.00" aria-label="Price for Chemex 6-cup Glass handle"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-CMX-6CP" class="inline-input inline-input--stock" value="3" aria-label="Stock for Chemex 6-cup Glass handle"><span class="stock-badge stock-badge--low" data-dh-target="t4">Low stock</span></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+          <tr data-sku="EO-MUG-ENM-RD" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8845-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8845" class="inv-product-link">Enamel Mug 350 ml</a><span class="inv-variant">Ember red</span></td>
+            <td class="inv-col-sku">EO-MUG-ENM-RD</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-MUG-ENM-RD" class="inline-input inline-input--price" value="18.00" aria-label="Price for Enamel Mug 350 ml Ember red"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-MUG-ENM-RD" class="inline-input inline-input--stock" value="64" aria-label="Stock for Enamel Mug 350 ml Ember red"></td>
+            <td class="inv-col-status"><span class="status status--active">Active</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+          <tr data-sku="EO-HOL-BLD-250" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8850-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8850" class="inv-product-link">Seasonal Holiday Blend</a><span class="inv-variant">250 g · Whole bean</span></td>
+            <td class="inv-col-sku">EO-HOL-BLD-250</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-HOL-BLD-250" class="inline-input inline-input--price" value="16.00" aria-label="Price for Seasonal Holiday Blend 250 g"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-HOL-BLD-250" class="inline-input inline-input--stock" value="120" aria-label="Stock for Seasonal Holiday Blend 250 g"></td>
+            <td class="inv-col-status"><span class="status status--draft">Draft</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+          <tr data-sku="EO-GFT-TRIO" class="inv-row">
+            <td class="inv-col-img"><img src="/media/products/8852-thumb.jpg" alt="" width="40" height="40" class="inv-thumb"></td>
+            <td class="inv-col-product"><a href="/admin/products/8852" class="inv-product-link">Gift Box: Tasting Trio</a><span class="inv-variant">3 × 100 g</span></td>
+            <td class="inv-col-sku">EO-GFT-TRIO</td>
+            <td class="inv-col-price"><span class="inv-prefix">$</span><input type="number" step="0.01" min="0" name="price" id="price-EO-GFT-TRIO" class="inline-input inline-input--price" value="34.00" aria-label="Price for Gift Box: Tasting Trio 3 × 100 g"></td>
+            <td class="inv-col-stock"><input type="number" step="1" min="0" name="stock" id="stock-EO-GFT-TRIO" class="inline-input inline-input--stock" value="25" aria-label="Stock for Gift Box: Tasting Trio 3 × 100 g"></td>
+            <td class="inv-col-status"><span class="status status--draft">Draft</span></td>
+            <td class="inv-col-actions"><button type="button" class="button button--small button--primary" data-testid="save-row" disabled>Save</button> <button type="button" class="button button--small button--plain" data-testid="reset-row" disabled>Reset</button></td>
+          </tr>
+      </tbody>
+    </table>
+  </main>
+</div>
+<footer class="app-footer">Stockroom &middot; Learn more about <a href="/help/inventory">managing inventory</a></footer>
+</body>
+</html>

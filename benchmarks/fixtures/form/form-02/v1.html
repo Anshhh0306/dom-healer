@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create an account | Harvest Lane</title>
+<meta name="description" content="Create a Harvest Lane account for same-day grocery delivery from local Texas farms.">
+<style>
+  body { font-family: "Nunito Sans", system-ui, sans-serif; background: #f8f9fa; }
+  .card > legend.card-header { float: none; width: 100%; margin: 0; font-size: 1.1rem; }
+  fieldset.card { padding: 0; }
+  .form-text { font-size: .825rem; }
+  .password-rules li { display: flex; gap: .4rem; align-items: center; }
+  .benefit { display: flex; gap: .75rem; margin-bottom: 1rem; }
+</style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<div class="bg-success text-white text-center small py-2">Free delivery on your first 3 orders over $35 &mdash; use code <strong>FRESH3</strong> at checkout</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#198754"/><path d="M9 20c0-7 5-11 12-11-1 7-5 11-12 11zm0 0 6-6" stroke="#fff" stroke-width="1.6" fill="none"/></svg><span class="fw-bold">Harvest Lane</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <form class="d-flex mx-lg-4 flex-grow-1" role="search" action="/search">
+        <input class="form-control me-2" type="search" name="q" placeholder="Search 12,000+ groceries" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<li class="nav-item"><a class="nav-link" href="/shop">Shop</a></li>
+<li class="nav-item"><a class="nav-link" href="/deals">Weekly deals</a></li>
+<li class="nav-item"><a class="nav-link" href="/recipes">Recipes</a></li>
+<li class="nav-item"><a class="nav-link" href="/delivery">Delivery areas</a></li>
+        <li class="nav-item"><a class="nav-link" href="/login">Sign in</a></li>
+        <li class="nav-item"><a class="nav-link position-relative" href="/cart" aria-label="Cart, 0 items"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg><span class="badge rounded-pill bg-success">0</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<main class="container my-5">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Create account</li>
+    </ol>
+  </nav>
+  <div class="row g-5">
+    <div class="col-lg-8">
+      <h1 class="h2 mb-1">Create your Harvest Lane account</h1>
+      <p class="text-muted mb-4">Groceries from local farms, delivered in as little as two hours. Already have an account? <a href="/login">Sign in</a></p>
+      <div class="alert alert-danger d-flex align-items-center gap-2" role="alert"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><div>Please correct the highlighted field below.</div></div>
+      <form id="registration-form" class="needs-validation" action="/account/register" method="post" novalidate>
+        <input type="hidden" name="_csrf" value="b7f2c9e1-4d3a-4e6b-9f0c-2a8d5e7b1c34">
+        <fieldset id="personal-info" class="card mb-4">
+          <legend class="card-header h5">1. Personal information</legend>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="reg-first-name" class="form-label">First name</label>
+                <input type="text" class="form-control" id="reg-first-name" name="first_name" autocomplete="given-name" value="Marisol" required>
+                <div class="invalid-feedback">Please enter your first name.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="reg-last-name" class="form-label">Last name</label>
+                <input type="text" class="form-control" id="reg-last-name" name="last_name" autocomplete="family-name" value="Okafor" required>
+                <div class="invalid-feedback">Please enter your last name.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="reg-email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="reg-email" name="email" autocomplete="email" placeholder="name@example.com" value="marisol.okafor@fastmail.com" required data-dh-target="t1">
+                <div class="form-text">We'll send your order confirmations here.</div>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="reg-phone" class="form-label">Mobile phone</label>
+                <input type="tel" class="form-control" id="reg-phone" name="phone" autocomplete="tel" placeholder="(555) 555-0123" value="(512) 555-0147">
+                <div class="form-text">For delivery updates by text message.</div>
+              </div>
+              <div class="col-12">
+                <span class="form-label d-block" id="dob-label">Date of birth</span>
+                <div class="row g-2">
+                  <div class="col-5"><select class="form-select" name="dob_month" aria-labelledby="dob-label" aria-label="Month"><option value="">Month</option>
+<option value="01">January</option>
+<option value="02">February</option>
+<option value="03">March</option>
+<option value="04">April</option>
+<option value="05">May</option>
+<option value="06">June</option>
+<option value="07" selected>July</option>
+<option value="08">August</option>
+<option value="09">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+                  </select></div>
+                  <div class="col-3"><input type="text" class="form-control" name="dob_day" inputmode="numeric" maxlength="2" placeholder="DD" aria-label="Day" value="23"></div>
+                  <div class="col-4"><input type="text" class="form-control" name="dob_year" inputmode="numeric" maxlength="4" placeholder="YYYY" aria-label="Year" value="1991"></div>
+                </div>
+                <div class="form-text">You must be 21 or older to order beer and wine.</div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset id="delivery-address" class="card mb-4">
+          <legend class="card-header h5">2. Delivery address</legend>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="reg-address1" class="form-label">Street address</label>
+                <input type="text" class="form-control" id="reg-address1" name="address_line1" autocomplete="address-line1" value="2207 E Cesar Chavez St" required>
+              </div>
+              <div class="col-12">
+                <label for="reg-address2" class="form-label">Apartment, suite, etc. <span class="text-muted">(optional)</span></label>
+                <input type="text" class="form-control" id="reg-address2" name="address_line2" autocomplete="address-line2" value="Apt 3B">
+              </div>
+              <div class="col-md-5">
+                <label for="reg-city" class="form-label">City</label>
+                <input type="text" class="form-control" id="reg-city" name="city" autocomplete="address-level2" value="Austin" required>
+              </div>
+              <div class="col-md-4">
+                <label for="reg-state" class="form-label">State</label>
+                <select class="form-select" id="reg-state" name="state" autocomplete="address-level1" required data-dh-target="t2">
+<option value="">Choose&hellip;</option>
+<option value="AL">Alabama</option>
+<option value="AK">Alaska</option>
+<option value="AZ">Arizona</option>
+<option value="AR">Arkansas</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="CT">Connecticut</option>
+<option value="DE">Delaware</option>
+<option value="DC">District of Columbia</option>
+<option value="FL">Florida</option>
+<option value="GA">Georgia</option>
+<option value="HI">Hawaii</option>
+<option value="ID">Idaho</option>
+<option value="IL">Illinois</option>
+<option value="IN">Indiana</option>
+<option value="IA">Iowa</option>
+<option value="KS">Kansas</option>
+<option value="KY">Kentucky</option>
+<option value="LA">Louisiana</option>
+<option value="ME">Maine</option>
+<option value="MD">Maryland</option>
+<option value="MA">Massachusetts</option>
+<option value="MI">Michigan</option>
+<option value="MN">Minnesota</option>
+<option value="MS">Mississippi</option>
+<option value="MO">Missouri</option>
+<option value="MT">Montana</option>
+<option value="NE">Nebraska</option>
+<option value="NV">Nevada</option>
+<option value="NH">New Hampshire</option>
+<option value="NJ">New Jersey</option>
+<option value="NM">New Mexico</option>
+<option value="NY">New York</option>
+<option value="NC">North Carolina</option>
+<option value="ND">North Dakota</option>
+<option value="OH">Ohio</option>
+<option value="OK">Oklahoma</option>
+<option value="OR">Oregon</option>
+<option value="PA">Pennsylvania</option>
+<option value="RI">Rhode Island</option>
+<option value="SC">South Carolina</option>
+<option value="SD">South Dakota</option>
+<option value="TN">Tennessee</option>
+<option value="TX" selected>Texas</option>
+<option value="UT">Utah</option>
+<option value="VT">Vermont</option>
+<option value="VA">Virginia</option>
+<option value="WA">Washington</option>
+<option value="WV">West Virginia</option>
+<option value="WI">Wisconsin</option>
+<option value="WY">Wyoming</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label for="reg-zip" class="form-label">ZIP code</label>
+                <input type="text" class="form-control" id="reg-zip" name="zip" inputmode="numeric" autocomplete="postal-code" value="78702" required>
+              </div>
+              <div class="col-12">
+                <label for="reg-instructions" class="form-label">Delivery instructions <span class="text-muted">(optional)</span></label>
+                <textarea class="form-control" id="reg-instructions" name="delivery_instructions" rows="2" placeholder="Gate code, where to leave the bags, dogs to watch out for&hellip;"></textarea>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset id="account-security" class="card mb-4">
+          <legend class="card-header h5">3. Create a password</legend>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="reg-password" class="form-label">Password</label>
+                <input type="password" class="form-control is-valid" id="reg-password" name="password" autocomplete="new-password" aria-describedby="password-rules" required>
+              </div>
+              <div class="col-md-6">
+                <label for="reg-password-confirm" class="form-label">Confirm password</label>
+                <input type="password" class="form-control is-invalid" id="reg-password-confirm" name="password_confirmation" autocomplete="new-password" aria-invalid="true" required data-dh-target="t3">
+                <div class="invalid-feedback" data-dh-target="t4">Passwords do not match.</div>
+              </div>
+              <div class="col-12">
+                <ul id="password-rules" class="password-rules list-unstyled small mb-0">
+<li class="text-success"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> At least 8 characters</li>
+<li class="text-success"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> One number</li>
+<li class="text-success"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> One uppercase letter</li>
+<li class="text-muted"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> One symbol (! @ # $ %)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset id="terms-section" class="card mb-4">
+          <legend class="card-header h5">4. Almost done</legend>
+          <div class="card-body">
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="reg-terms" name="terms" value="1" required data-dh-target="t5">
+              <label class="form-check-label" for="reg-terms">I agree to the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a></label>
+              <div class="invalid-feedback">You must accept the terms to create an account.</div>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="reg-marketing" name="marketing_opt_in" value="1" checked>
+              <label class="form-check-label" for="reg-marketing">Email me weekly deals, seasonal recipes and new-farm announcements</label>
+            </div>
+          </div>
+        </fieldset>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-success btn-lg" data-dh-target="t6">Create account</button>
+        </div>
+        <p class="small text-muted mt-3 text-center">By creating an account you confirm that you are at least 18 years old.</p>
+      </form>
+    </div>
+    <div class="col-lg-4">
+      <aside class="card border-0 bg-light">
+        <div class="card-body">
+          <h2 class="h5 mb-3">Why join Harvest Lane?</h2>
+          <div class="benefit"><svg class="text-success flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><h3 class="h6 mb-0">Same-day delivery</h3><p class="small text-muted mb-0">Order by 2 pm for delivery tonight across Greater Austin.</p></div></div>
+          <div class="benefit"><svg class="text-success flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><h3 class="h6 mb-0">Local first</h3><p class="small text-muted mb-0">More than 140 Texas farms, ranches and bakeries in one cart.</p></div></div>
+          <div class="benefit"><svg class="text-success flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><h3 class="h6 mb-0">No surprise fees</h3><p class="small text-muted mb-0">Free delivery on orders over $35 with a Lane+ membership.</p></div></div>
+          <div class="benefit"><svg class="text-success flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><h3 class="h6 mb-0">Easy substitutions</h3><p class="small text-muted mb-0">Approve swaps by text, or tell us to skip the item.</p></div></div>
+          <hr>
+          <h3 class="h6">We deliver to</h3>
+          <ul class="list-inline small">
+            <li class="list-inline-item">Austin</li>
+            <li class="list-inline-item">Round Rock</li>
+            <li class="list-inline-item">Pflugerville</li>
+            <li class="list-inline-item">Cedar Park</li>
+            <li class="list-inline-item">Georgetown</li>
+            <li class="list-inline-item">San Marcos</li>
+            <li class="list-inline-item">Kyle</li>
+            <li class="list-inline-item">Leander</li>
+          </ul>
+          <div class="alert alert-success small mb-0">New members get <strong>$20 off</strong> their first order of $60 or more.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+<footer class="bg-dark text-white-50 py-5 mt-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h2 class="h5 text-white">Harvest Lane</h2>
+        <p class="small">Fresh groceries from more than 140 Texas farms and makers, delivered to your door.</p>
+      </div>
+      <div class="col-6 col-md-2">
+        <h3 class="h6 text-white">Shop</h3>
+        <ul class="list-unstyled small">
+<li class="mb-1"><a class="link-light" href="/shop/produce">Produce</a></li>
+<li class="mb-1"><a class="link-light" href="/shop/dairy">Dairy &amp; eggs</a></li>
+<li class="mb-1"><a class="link-light" href="/shop/meat">Meat &amp; seafood</a></li>
+<li class="mb-1"><a class="link-light" href="/shop/bakery">Bakery</a></li>
+<li class="mb-1"><a class="link-light" href="/shop/pantry">Pantry</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-2">
+        <h3 class="h6 text-white">Company</h3>
+        <ul class="list-unstyled small">
+<li class="mb-1"><a class="link-light" href="/farms">Our farms</a></li>
+<li class="mb-1"><a class="link-light" href="/careers">Careers</a></li>
+<li class="mb-1"><a class="link-light" href="/press">Press</a></li>
+<li class="mb-1"><a class="link-light" href="/sustainability">Sustainability</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-2">
+        <h3 class="h6 text-white">Help</h3>
+        <ul class="list-unstyled small">
+<li class="mb-1"><a class="link-light" href="/help">Help center</a></li>
+<li class="mb-1"><a class="link-light" href="/help/delivery">Delivery &amp; returns</a></li>
+<li class="mb-1"><a class="link-light" href="/contact">Contact us</a></li>
+<li class="mb-1"><a class="link-light" href="/accessibility">Accessibility</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-2">
+        <h3 class="h6 text-white">Get the app</h3>
+        <ul class="list-unstyled small">
+          <li class="mb-1"><a class="link-light" href="https://apps.apple.com/app/harvest-lane/id1488201">App Store</a></li>
+          <li class="mb-1"><a class="link-light" href="https://play.google.com/store/apps/details?id=com.harvestlane">Google Play</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <div class="d-flex flex-wrap justify-content-between small">
+      <span>&copy; 2026 Harvest Lane Market, LLC &middot; Austin, Texas</span>
+      <ul class="list-inline mb-0">
+        <li class="list-inline-item"><a class="link-light" href="/privacy">Privacy</a></li>
+        <li class="list-inline-item"><a class="link-light" href="/terms">Terms</a></li>
+        <li class="list-inline-item"><a class="link-light" href="/privacy/choices">Your privacy choices</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

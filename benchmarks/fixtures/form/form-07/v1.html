@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skyward Air – Tell us about your flight</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  body { margin: 0; font: 16px/1.5 Arial, Helvetica, sans-serif; color: #1e293b; background: #f1f5f9; }
+  .survey-header { background: #0369a1; color: #fff; }
+  .survey-header__inner, .survey-container { max-width: 860px; margin: 0 auto; padding: 16px 24px; }
+  .survey-question { background: #fff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 20px 24px; margin: 0 0 20px; }
+  .question-text { font-size: 18px; font-weight: bold; margin: 0 0 12px; }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .matrix-table th, .matrix-table td { border-bottom: 1px solid #e2e8f0; padding: 8px 4px; text-align: center; }
+  .matrix-label { text-align: left !important; font-weight: normal; }
+  .nps-options { display: flex; gap: 4px; list-style: none; padding: 0; margin: 8px 0; }
+  .nps-option label { display: block; width: 36px; padding: 6px 0; text-align: center; border: 1px solid #94a3b8; }
+  .choice { display: block; margin: 6px 0; }
+  .btn { border: 0; border-radius: 3px; padding: 10px 20px; font-size: 16px; cursor: pointer; }
+  .btn-submit { background: #0369a1; color: #fff; } .btn-prev { background: #e2e8f0; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+</head>
+<body>
+<header class="survey-header">
+  <div class="survey-header__inner">
+    <a class="survey-header__logo" href="https://skywardair.com"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#0369a1"/><path d="M7 18 25 9l-4 14-5-4-3 4v-5z" fill="#e0f2fe"/></svg><span>Skyward Air</span></a>
+    <span class="survey-header__title">Customer feedback</span>
+    <form class="survey-header__lang" action="/s/SW1482/lang" method="get">
+      <label for="survey-lang" class="sr-only">Language</label>
+      <select id="survey-lang" name="lang"><option value="en" selected>English</option><option value="es">Español</option><option value="fr">Français</option></select>
+    </form>
+  </div>
+</header>
+<main class="survey-container">
+  <section class="flight-card" aria-label="Your flight">
+    <p class="flight-card__greeting">Thanks for flying with us, Morgan. This survey takes about 3 minutes.</p>
+    <dl class="flight-card__details">
+      <div class="flight-card__item"><dt>Flight</dt><dd>SW 1482</dd></div>
+      <div class="flight-card__item"><dt>Route</dt><dd>Denver (DEN) &rarr; Portland (PDX)</dd></div>
+      <div class="flight-card__item"><dt>Date</dt><dd>Wed, Oct 14, 2026</dd></div>
+      <div class="flight-card__item"><dt>Seat</dt><dd>14C &middot; Main Cabin</dd></div>
+    </dl>
+  </section>
+  <div class="progress" role="progressbar" aria-valuenow="2" aria-valuemin="1" aria-valuemax="2" aria-label="Survey progress">
+    <div class="progress__bar" style="width: 100%"></div>
+    <span class="progress__label">Page 2 of 2</span>
+  </div>
+  <form id="survey-form" class="survey-form" action="/s/SW1482/responses" method="post">
+    <input type="hidden" name="response_id" value="R_3mX9qL2vT8kP1aZ">
+    <input type="hidden" name="page" value="2">
+    <div class="survey-question" id="q4">
+      <h2 class="question-text"><span class="question-number">4.</span> How satisfied were you with each part of your journey?</h2>
+      <table class="matrix-table">
+        <thead><tr><th scope="col"><span class="sr-only">Journey stage</span></th><th scope="col">Very dissatisfied</th><th scope="col">Dissatisfied</th><th scope="col">Neutral</th><th scope="col">Satisfied</th><th scope="col">Very satisfied</th><th scope="col">Not applicable</th></tr></thead>
+        <tbody>
+<tr class="matrix-row"><th scope="row" class="matrix-label">Booking on skywardair.com</th><td class="matrix-cell"><input type="radio" name="q4_booking" value="1" aria-label="Booking on skywardair.com: Very dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_booking" value="2" aria-label="Booking on skywardair.com: Dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_booking" value="3" aria-label="Booking on skywardair.com: Neutral"></td><td class="matrix-cell"><input type="radio" name="q4_booking" value="4" aria-label="Booking on skywardair.com: Satisfied" checked></td><td class="matrix-cell"><input type="radio" name="q4_booking" value="5" aria-label="Booking on skywardair.com: Very satisfied"></td><td class="matrix-cell"><input type="radio" name="q4_booking" value="na" aria-label="Booking on skywardair.com: Not applicable"></td></tr>
+<tr class="matrix-row"><th scope="row" class="matrix-label">Airport check-in</th><td class="matrix-cell"><input type="radio" name="q4_checkin" value="1" aria-label="Airport check-in: Very dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_checkin" value="2" aria-label="Airport check-in: Dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_checkin" value="3" aria-label="Airport check-in: Neutral"></td><td class="matrix-cell"><input type="radio" name="q4_checkin" value="4" aria-label="Airport check-in: Satisfied"></td><td class="matrix-cell"><input type="radio" name="q4_checkin" value="5" aria-label="Airport check-in: Very satisfied" checked></td><td class="matrix-cell"><input type="radio" name="q4_checkin" value="na" aria-label="Airport check-in: Not applicable"></td></tr>
+<tr class="matrix-row"><th scope="row" class="matrix-label">Security &amp; boarding</th><td class="matrix-cell"><input type="radio" name="q4_boarding" value="1" aria-label="Security &amp; boarding: Very dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_boarding" value="2" aria-label="Security &amp; boarding: Dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_boarding" value="3" aria-label="Security &amp; boarding: Neutral" checked></td><td class="matrix-cell"><input type="radio" name="q4_boarding" value="4" aria-label="Security &amp; boarding: Satisfied"></td><td class="matrix-cell"><input type="radio" name="q4_boarding" value="5" aria-label="Security &amp; boarding: Very satisfied"></td><td class="matrix-cell"><input type="radio" name="q4_boarding" value="na" aria-label="Security &amp; boarding: Not applicable"></td></tr>
+<tr class="matrix-row"><th scope="row" class="matrix-label">Seat comfort</th><td class="matrix-cell"><input type="radio" name="q4_seat" value="1" aria-label="Seat comfort: Very dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_seat" value="2" aria-label="Seat comfort: Dissatisfied" data-dh-target="t1"></td><td class="matrix-cell"><input type="radio" name="q4_seat" value="3" aria-label="Seat comfort: Neutral"></td><td class="matrix-cell"><input type="radio" name="q4_seat" value="4" aria-label="Seat comfort: Satisfied"></td><td class="matrix-cell"><input type="radio" name="q4_seat" value="5" aria-label="Seat comfort: Very satisfied"></td><td class="matrix-cell"><input type="radio" name="q4_seat" value="na" aria-label="Seat comfort: Not applicable"></td></tr>
+<tr class="matrix-row"><th scope="row" class="matrix-label">Cabin cleanliness</th><td class="matrix-cell"><input type="radio" name="q4_clean" value="1" aria-label="Cabin cleanliness: Very dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_clean" value="2" aria-label="Cabin cleanliness: Dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_clean" value="3" aria-label="Cabin cleanliness: Neutral"></td><td class="matrix-cell"><input type="radio" name="q4_clean" value="4" aria-label="Cabin cleanliness: Satisfied"></td><td class="matrix-cell"><input type="radio" name="q4_clean" value="5" aria-label="Cabin cleanliness: Very satisfied"></td><td class="matrix-cell"><input type="radio" name="q4_clean" value="na" aria-label="Cabin cleanliness: Not applicable"></td></tr>
+<tr class="matrix-row"><th scope="row" class="matrix-label">Crew friendliness</th><td class="matrix-cell"><input type="radio" name="q4_crew" value="1" aria-label="Crew friendliness: Very dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_crew" value="2" aria-label="Crew friendliness: Dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_crew" value="3" aria-label="Crew friendliness: Neutral"></td><td class="matrix-cell"><input type="radio" name="q4_crew" value="4" aria-label="Crew friendliness: Satisfied"></td><td class="matrix-cell"><input type="radio" name="q4_crew" value="5" aria-label="Crew friendliness: Very satisfied" checked></td><td class="matrix-cell"><input type="radio" name="q4_crew" value="na" aria-label="Crew friendliness: Not applicable"></td></tr>
+<tr class="matrix-row"><th scope="row" class="matrix-label">Wi-Fi &amp; entertainment</th><td class="matrix-cell"><input type="radio" name="q4_wifi" value="1" aria-label="Wi-Fi &amp; entertainment: Very dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_wifi" value="2" aria-label="Wi-Fi &amp; entertainment: Dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_wifi" value="3" aria-label="Wi-Fi &amp; entertainment: Neutral"></td><td class="matrix-cell"><input type="radio" name="q4_wifi" value="4" aria-label="Wi-Fi &amp; entertainment: Satisfied"></td><td class="matrix-cell"><input type="radio" name="q4_wifi" value="5" aria-label="Wi-Fi &amp; entertainment: Very satisfied"></td><td class="matrix-cell"><input type="radio" name="q4_wifi" value="na" aria-label="Wi-Fi &amp; entertainment: Not applicable" checked></td></tr>
+<tr class="matrix-row"><th scope="row" class="matrix-label">Snacks &amp; beverages</th><td class="matrix-cell"><input type="radio" name="q4_snacks" value="1" aria-label="Snacks &amp; beverages: Very dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_snacks" value="2" aria-label="Snacks &amp; beverages: Dissatisfied"></td><td class="matrix-cell"><input type="radio" name="q4_snacks" value="3" aria-label="Snacks &amp; beverages: Neutral"></td><td class="matrix-cell"><input type="radio" name="q4_snacks" value="4" aria-label="Snacks &amp; beverages: Satisfied"></td><td class="matrix-cell"><input type="radio" name="q4_snacks" value="5" aria-label="Snacks &amp; beverages: Very satisfied"></td><td class="matrix-cell"><input type="radio" name="q4_snacks" value="na" aria-label="Snacks &amp; beverages: Not applicable"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <fieldset class="survey-question nps-question" id="q5">
+      <legend class="question-text" data-dh-target="t5"><span class="question-number">5.</span> How likely are you to recommend Skyward Air to a friend or colleague?</legend>
+      <div class="nps-scale">
+        <span class="nps-anchor nps-anchor--low">Not at all likely</span>
+        <ol class="nps-options">
+<li class="nps-option"><input type="radio" id="nps-0" name="q5_nps" value="0"><label for="nps-0">0</label></li>
+<li class="nps-option"><input type="radio" id="nps-1" name="q5_nps" value="1"><label for="nps-1">1</label></li>
+<li class="nps-option"><input type="radio" id="nps-2" name="q5_nps" value="2"><label for="nps-2">2</label></li>
+<li class="nps-option"><input type="radio" id="nps-3" name="q5_nps" value="3"><label for="nps-3">3</label></li>
+<li class="nps-option"><input type="radio" id="nps-4" name="q5_nps" value="4"><label for="nps-4">4</label></li>
+<li class="nps-option"><input type="radio" id="nps-5" name="q5_nps" value="5"><label for="nps-5">5</label></li>
+<li class="nps-option"><input type="radio" id="nps-6" name="q5_nps" value="6"><label for="nps-6">6</label></li>
+<li class="nps-option"><input type="radio" id="nps-7" name="q5_nps" value="7"><label for="nps-7">7</label></li>
+<li class="nps-option"><input type="radio" id="nps-8" name="q5_nps" value="8"><label for="nps-8">8</label></li>
+<li class="nps-option"><input type="radio" id="nps-9" name="q5_nps" value="9" data-dh-target="t2"><label for="nps-9">9</label></li>
+<li class="nps-option"><input type="radio" id="nps-10" name="q5_nps" value="10"><label for="nps-10">10</label></li>
+        </ol>
+        <span class="nps-anchor nps-anchor--high">Extremely likely</span>
+      </div>
+    </fieldset>
+    <div class="survey-question" id="q6">
+      <label class="question-text" for="q6-text"><span class="question-number">6.</span> What is the main reason for your score?</label>
+      <textarea id="q6-text" name="q6_reason" rows="5" maxlength="2000" placeholder="Optional" data-dh-target="t3"></textarea>
+      <p class="char-count">0 / 2000</p>
+    </div>
+    <fieldset class="survey-question" id="q7">
+      <legend class="question-text"><span class="question-number">7.</span> Did any of these happen on your trip? <span class="question-hint">(Select all that apply)</span></legend>
+<label class="choice"><input type="checkbox" id="q7-delay" name="q7[]" value="delay"> My flight was delayed by more than 30 minutes</label>
+<label class="choice"><input type="checkbox" id="q7-bag" name="q7[]" value="bag" data-dh-target="t6"> My checked bag was delayed or damaged</label>
+<label class="choice"><input type="checkbox" id="q7-rebooked" name="q7[]" value="rebooked"> I was rebooked or moved to a different seat</label>
+<label class="choice"><input type="checkbox" id="q7-assist" name="q7[]" value="assist"> I needed special assistance</label>
+<label class="choice"><input type="checkbox" id="q7-none" name="q7[]" value="none"> None of these</label>
+    </fieldset>
+    <fieldset class="survey-question" id="q8">
+      <legend class="question-text"><span class="question-number">8.</span> May we contact you about your feedback?</legend>
+      <label class="choice"><input type="radio" name="q8_contact" value="yes"> Yes, email me at m.oduya@example.net</label>
+      <label class="choice"><input type="radio" name="q8_contact" value="no" checked> No, thanks</label>
+    </fieldset>
+    <div class="survey-nav">
+      <button type="submit" name="nav" value="back" class="btn btn-prev" formnovalidate>Back</button>
+      <button type="submit" name="nav" value="submit" class="btn btn-submit" data-dh-target="t4">Submit survey</button>
+    </div>
+  </form>
+  <p class="survey-privacy">Your answers are confidential and are only used to improve our service. <a href="https://skywardair.com/privacy">Privacy policy</a></p>
+</main>
+<footer class="survey-footer">
+  <p>Powered by Skyward Listens &middot; &copy; 2026 Skyward Air, Inc.</p>
+  <ul class="survey-footer__links">
+<li><a href="https://skywardair.com">skywardair.com</a></li>
+<li><a href="https://skywardair.com/help">Help</a></li>
+<li><a href="https://skywardair.com/accessibility">Accessibility</a></li>
+<li><a href="/s/SW1482/unsubscribe">Unsubscribe from surveys</a></li>
+  </ul>
+</footer>
+</body>
+</html>

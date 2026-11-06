@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pipeline · Kestrel CRM</title>
+<style>
+body{margin:0;font:13px/1.45 "Inter",system-ui,sans-serif;color:#1f2937;background:#f8fafc}
+</style>
+</head>
+<body>
+<div id="root">
+<div class="css-2crqfmx">
+  <nav class="css-qtjcu6p" aria-label="Primary">
+    <a class="css-usmnu1m" href="/home"><span class="css-q39kryh">Kestrel CRM</span>K</a>
+    <a class="css-3u35ji5" href="/home"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg><span class="css-h0ylubs">Home</span></a>
+    <a class="css-3u35ji5" href="/deals" aria-current="page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v18H3zM14 3h7v18h-7z"/></svg><span class="css-h0ylubs">Deals</span></a>
+    <a class="css-3u35ji5" href="/reports" data-dh-target="t5"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg><span class="css-h0ylubs">Reports</span></a>
+    <a class="css-3u35ji5" href="/inbox"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-6l-2 3h-4l-2-3H2M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/></svg><span class="css-h0ylubs">Inbox</span></a>
+    <a class="css-3u35ji5" href="/contacts"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg><span class="css-h0ylubs">Contacts</span></a>
+    <a class="css-3u35ji5" href="/companies"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg><span class="css-h0ylubs">Companies</span></a>
+    <a class="css-3u35ji5" href="/activities"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg><span class="css-h0ylubs">Activities</span></a>
+    <a class="css-3u35ji5" href="/settings"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span class="css-h0ylubs">Settings</span></a>
+  </nav>
+  <div class="css-2tbl2np">
+    <div class="css-270o6e2">
+      <div class="css-rpt9srm">
+        <h1 class="css-umbod66">Pipeline</h1>
+        <button type="button" class="css-4wvc3bl" aria-haspopup="menu">New business <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      </div>
+      <div class="css-vggdu0a">
+        <button type="button" class="css-lrqfegt" aria-haspopup="menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 6v6l4 2"/></svg> Recently viewed</button>
+        <div class="css-wkh93cq" role="menu" hidden>
+          <a role="menuitem" href="/deals/1024" class="css-l1yiapg">Meridian Hotels — rooftop array</a>
+          <a role="menuitem" href="/deals/1012" class="css-l1yiapg">Ironwood Data Center — phase 1</a>
+          <a role="menuitem" href="/deals/1022" class="css-l1yiapg">Lakeview Medical Plaza — 310 kW</a>
+        </div>
+      </div>
+      <button type="button" class="css-cxj7t6p"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> New deal</button>
+    </div>
+    <section class="css-x3av55r" aria-label="Pipeline summary">
+      <div class="css-ng2peca"><p class="css-83vp6ld">Weighted forecast</p><p class="css-ls5tq9p" data-dh-target="t4">$1,229,710</p><p class="css-az72eem">by stage probability</p></div>
+      <div class="css-ng2peca"><p class="css-83vp6ld">Open pipeline</p><p class="css-ls5tq9p">$2,731,450</p><p class="css-az72eem">26 open deals</p></div>
+      <div class="css-ng2peca"><p class="css-83vp6ld">Win rate · 90d</p><p class="css-ls5tq9p">27%</p><p class="css-az72eem">+3 pts vs. prior</p></div>
+      <div class="css-ng2peca"><p class="css-83vp6ld">Avg. deal age</p><p class="css-ls5tq9p">23 days</p><p class="css-az72eem">median 17 days</p></div>
+    </section>
+    <div class="css-91rvtec">
+      <div class="css-66z1kyp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3"/></svg><input type="search" placeholder="Search pipeline" aria-label="Search pipeline"></div>
+      <div class="css-so66mxf">
+        <button type="button" class="css-6vz2b91" aria-haspopup="listbox" aria-expanded="false" aria-label="Filter by owner" data-dh-target="t6"><span class="css-qiq3u7j"><k-avatar name="Tomasz Nowak" size="18"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Tomasz Nowak">TN</span></template></k-avatar><k-avatar name="Aisha Bello" size="18"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Aisha Bello">AB</span></template></k-avatar><k-avatar name="Rafael Mendes" size="18"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Rafael Mendes">RM</span></template></k-avatar></span><span>Owner: Everyone</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="css-0m8i4bb" role="listbox" aria-label="Owner" hidden>
+          <li role="option" aria-selected="true">Everyone</li>
+          <li role="option" aria-selected="false">Tomasz Nowak</li><li role="option" aria-selected="false">Aisha Bello</li><li role="option" aria-selected="false">Rafael Mendes</li><li role="option" aria-selected="false">Hannah Lindqvist</li><li role="option" aria-selected="false">Owen Gallagher</li>
+        </ul>
+      </div>
+      <button type="button" class="css-6vz2b91" aria-haspopup="listbox">Close: This quarter <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <button type="button" class="css-6vz2b91" aria-haspopup="listbox">Sort: Close date <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="css-5a8wdo8" role="radiogroup" aria-label="Layout">
+        <button type="button" role="radio" aria-checked="true" class="css-w6f3ddx"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v18H3zM14 3h7v18h-7z"/></svg> Board</button>
+        <button type="button" role="radio" aria-checked="false" class="css-w6f3ddx"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> Table</button>
+      </div>
+    </div>
+    <div class="css-4wsok9z" data-rbd-droppable-context-id="1">
+        <section class="css-ckdlfo5" aria-labelledby="col-lead">
+          <header class="css-sz0g6lz">
+            <span class="css-eae6z9e" style="background:#94a3b8"></span>
+            <h3 id="col-lead" class="css-j6objuq">Lead</h3>
+            <span class="css-nah32u7">8</span>
+            <span class="css-mk2sbqi">$412,600</span>
+          </header>
+          <div data-rbd-droppable-id="stage_lead" data-rbd-droppable-context-id="1" class="css-bch05yg">
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1031" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-1" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1031" class="css-dwm1klz">Harbor Point Apartments — carport solar</a></h3>
+                  <span class="css-ulm2vld">$48,000</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Harbor Point Property Group</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Multifamily</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Dec 12</span>
+                  <k-avatar name="Aisha Bello" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Aisha Bello">AB</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1040" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-2" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1040" class="css-dwm1klz">Copper Kettle Brewing — rooftop</a></h3>
+                  <span class="css-ulm2vld">$22,800</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Copper Kettle Brewing Co.</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">SMB</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Dec 20</span>
+                  <k-avatar name="Owen Gallagher" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Owen Gallagher">OG</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1035" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-3" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1035" class="css-dwm1klz">Greyfield Logistics — warehouse roof</a></h3>
+                  <span class="css-ulm2vld">$126,500</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Greyfield Logistics</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Industrial</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Jan 30</span>
+                  <k-avatar name="Rafael Mendes" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Rafael Mendes">RM</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1038" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-4" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1038" class="css-dwm1klz">St. Brigid's School — PV + storage</a></h3>
+                  <span class="css-ulm2vld">$64,200</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> St. Brigid's Parish School</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Education</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Feb 14</span>
+                  <k-avatar name="Hannah Lindqvist" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Hannah Lindqvist">HL</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+          </div>
+          <button type="button" class="css-8u5x6mo"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Add deal</button>
+          <a href="?stage=lead" class="css-cg4dfb0">Show 4 more</a>
+        </section>
+        <section class="css-ckdlfo5" aria-labelledby="col-qualified">
+          <header class="css-sz0g6lz">
+            <span class="css-eae6z9e" style="background:#60a5fa"></span>
+            <h3 id="col-qualified" class="css-j6objuq">Qualified</h3>
+            <span class="css-nah32u7">4</span>
+            <span class="css-mk2sbqi">$530,000</span>
+          </header>
+          <div data-rbd-droppable-id="stage_qualified" data-rbd-droppable-context-id="1" class="css-bch05yg">
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1027" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-5" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1027" class="css-dwm1klz">Northfield Self Storage — 4 sites</a></h3>
+                  <span class="css-ulm2vld">$142,000</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Northfield Storage LLC</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Commercial</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Dec 31</span>
+                  <k-avatar name="Aisha Bello" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Aisha Bello">AB</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1022" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-6" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1022" class="css-dwm1klz">Lakeview Medical Plaza — 310 kW</a></h3>
+                  <span class="css-ulm2vld">$388,000</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Lakeview Medical Partners</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Healthcare</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Jan 15</span>
+                  <k-avatar name="Tomasz Nowak" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Tomasz Nowak">TN</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+          </div>
+          <button type="button" class="css-8u5x6mo"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Add deal</button>
+          <a href="?stage=qualified" class="css-cg4dfb0">Show 2 more</a>
+        </section>
+        <section class="css-ckdlfo5" aria-labelledby="col-demo">
+          <header class="css-sz0g6lz">
+            <span class="css-eae6z9e" style="background:#a78bfa"></span>
+            <h3 id="col-demo" class="css-j6objuq">Demo scheduled</h3>
+            <span class="css-nah32u7">3</span>
+            <span class="css-mk2sbqi">$272,300</span>
+          </header>
+          <div data-rbd-droppable-id="stage_demo" data-rbd-droppable-context-id="1" class="css-bch05yg">
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1029" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-7" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1029" class="css-dwm1klz">Pinecrest Golf Club — clubhouse array</a></h3>
+                  <span class="css-ulm2vld">$57,300</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Pinecrest Golf Club</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Hospitality</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Jan 9</span>
+                  <k-avatar name="Rafael Mendes" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Rafael Mendes">RM</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1033" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-8" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1033" class="css-dwm1klz">Riverbend Credit Union — branch rollout</a></h3>
+                  <span class="css-ulm2vld">$96,000</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Riverbend Credit Union</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Finance</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Feb 27</span>
+                  <k-avatar name="Hannah Lindqvist" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Hannah Lindqvist">HL</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+          </div>
+          <button type="button" class="css-8u5x6mo"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Add deal</button>
+          <a href="?stage=demo" class="css-cg4dfb0">Show 1 more</a>
+        </section>
+        <section class="css-ckdlfo5" aria-labelledby="col-proposal">
+          <header class="css-sz0g6lz">
+            <span class="css-eae6z9e" style="background:#f59e0b"></span>
+            <h3 id="col-proposal" class="css-j6objuq">Proposal</h3>
+            <span class="css-nah32u7">6</span>
+            <span class="css-mk2sbqi">$598,150</span>
+          </header>
+          <div data-rbd-droppable-id="stage_proposal" data-rbd-droppable-context-id="1" class="css-bch05yg">
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1024" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-9" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1024" class="css-dwm1klz" data-dh-target="t1">Meridian Hotels — rooftop array</a></h3>
+                  <span class="css-ulm2vld">$174,500</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Meridian Hospitality Group</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Hospitality</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Dec 5</span>
+                  <k-avatar name="Tomasz Nowak" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Tomasz Nowak">TN</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1018" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-10" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1018" class="css-dwm1klz">Altamont Unified — district bus depot</a></h3>
+                  <span class="css-ulm2vld">$212,000</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Altamont Unified School District</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Public sector</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Dec 18</span>
+                  <k-avatar name="Owen Gallagher" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Owen Gallagher">OG</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1026" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-11" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1026" class="css-dwm1klz">Fairhaven Senior Living — canopy</a></h3>
+                  <span class="css-ulm2vld">$83,750</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Fairhaven Senior Living</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Healthcare</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Dec 22</span>
+                  <k-avatar name="Aisha Bello" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Aisha Bello">AB</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1030" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-12" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1030" class="css-dwm1klz">Delgado Farms — irrigation pumps</a></h3>
+                  <span class="css-ulm2vld">$39,900</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Delgado Family Farms</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Agriculture</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Jan 6</span>
+                  <k-avatar name="Rafael Mendes" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Rafael Mendes">RM</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+          </div>
+          <button type="button" class="css-8u5x6mo"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Add deal</button>
+          <a href="?stage=proposal" class="css-cg4dfb0">Show 2 more</a>
+        </section>
+        <section class="css-ckdlfo5" aria-labelledby="col-negotiation">
+          <header class="css-sz0g6lz">
+            <span class="css-eae6z9e" style="background:#f97316"></span>
+            <h3 id="col-negotiation" class="css-j6objuq">Negotiation</h3>
+            <span class="css-nah32u7" data-dh-target="t3">5</span>
+            <span class="css-mk2sbqi">$918,400</span>
+          </header>
+          <div data-rbd-droppable-id="stage_negotiation" data-rbd-droppable-context-id="1" class="css-bch05yg">
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1047" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-13" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1047" class="css-dwm1klz">Cobalt Ridge Winery — battery backup</a></h3>
+                  <span class="css-ulm2vld">$71,400</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Cobalt Ridge Vineyards</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Agriculture</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Nov 21</span>
+                  <k-avatar name="Hannah Lindqvist" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Hannah Lindqvist">HL</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call" data-dh-target="t2"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1012" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-14" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1012" class="css-dwm1klz">Ironwood Data Center — phase 1</a></h3>
+                  <span class="css-ulm2vld">$460,000</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Ironwood Colocation</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Industrial</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Nov 28</span>
+                  <k-avatar name="Tomasz Nowak" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Tomasz Nowak">TN</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1020" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-15" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1020" class="css-dwm1klz">Bayside Marine Supply — roof + EV</a></h3>
+                  <span class="css-ulm2vld">$44,600</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Bayside Marine Supply</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">SMB</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Nov 30</span>
+                  <k-avatar name="Aisha Bello" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Aisha Bello">AB</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1015" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-16" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1015" class="css-dwm1klz">Westgate Mall — parking canopies</a></h3>
+                  <span class="css-ulm2vld">$298,000</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Westgate Retail REIT</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Retail</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Dec 15</span>
+                  <k-avatar name="Owen Gallagher" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Owen Gallagher">OG</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+          </div>
+          <button type="button" class="css-8u5x6mo"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Add deal</button>
+          <a href="?stage=negotiation" class="css-cg4dfb0">Show 1 more</a>
+        </section>
+        <section class="css-ckdlfo5" aria-labelledby="col-won">
+          <header class="css-sz0g6lz">
+            <span class="css-eae6z9e" style="background:#22c55e"></span>
+            <h3 id="col-won" class="css-j6objuq">Closed won</h3>
+            <span class="css-nah32u7">5</span>
+            <span class="css-mk2sbqi">$672,100</span>
+          </header>
+          <div data-rbd-droppable-id="stage_won" data-rbd-droppable-context-id="1" class="css-bch05yg">
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1009" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-17" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1009" class="css-dwm1klz">Granite Peak Fitness — 2 gyms</a></h3>
+                  <span class="css-ulm2vld">$28,900</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Granite Peak Fitness</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">SMB</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Won Oct 17</span>
+                  <k-avatar name="Owen Gallagher" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Owen Gallagher">OG</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1008" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-18" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1008" class="css-dwm1klz">Oak Hollow Library — rooftop</a></h3>
+                  <span class="css-ulm2vld">$36,200</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> City of Oak Hollow</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Public sector</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Won Oct 22</span>
+                  <k-avatar name="Hannah Lindqvist" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Hannah Lindqvist">HL</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+            <div data-rbd-draggable-context-id="1" data-rbd-draggable-id="deal_1003" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-19" class="css-blxjznn">
+              <article class="css-aoa6unm">
+                <div class="css-sl5atv1">
+                  <h3 class="css-l94qsfl"><a href="/deals/1003" class="css-dwm1klz">Summit Cold Storage — 520 kW</a></h3>
+                  <span class="css-ulm2vld">$512,000</span>
+                </div>
+                <p class="css-x52wxhw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/></svg> Summit Cold Storage</p>
+                <div class="css-p7hsmr0">
+                  <span class="css-9ztkqjo">Industrial</span>
+                  <span class="css-gfgmq2g"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg> Won Oct 29</span>
+                  <k-avatar name="Rafael Mendes" size="20"><template shadowrootmode="open"><span class="avatar" part="avatar" title="Rafael Mendes">RM</span></template></k-avatar>
+                </div>
+                <div class="css-brcfukg" role="toolbar" aria-label="Quick actions">
+                  <button type="button" class="css-hqkchmt" aria-label="Log a call"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Email contact"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+                  <button type="button" class="css-hqkchmt" aria-label="Schedule meeting"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg></button>
+                </div>
+              </article>
+            </div>
+          </div>
+          <button type="button" class="css-8u5x6mo"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Add deal</button>
+          <a href="?stage=won" class="css-cg4dfb0">Show 2 more</a>
+        </section>
+    </div>
+    <div id="rbd-hidden-text-1-hidden-text-1" style="display:none">Press space bar to start a drag.</div>
+  </div>
+  <aside class="css-r33vdmt" aria-label="Forecast" hidden>
+    <h2>Q4 forecast</h2>
+    <div class="css-ng2peca"><p class="css-83vp6ld">Weighted pipeline</p><p class="css-ls5tq9p">$1,229,710</p></div>
+    <div class="css-ng2peca"><p class="css-83vp6ld">Commit</p><p class="css-ls5tq9p">$684,000</p></div>
+  </aside>
+  <nav class="css-c813d5t" aria-label="Mobile" hidden>
+    <a href="/home">Home</a><a href="/deals" aria-current="page">Deals</a><a href="/reports">Reports</a><a href="/inbox">Inbox</a>
+  </nav>
+</div>
+</div>
+</body>
+</html>

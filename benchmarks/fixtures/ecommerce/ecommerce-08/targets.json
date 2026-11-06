@@ -1,0 +1,100 @@
+{
+  "suite": "ecommerce-08",
+  "category": "ecommerce",
+  "title": "Account order history with order cards — home furnishings store",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 renders each order as an <hl-order-card> web component with its own declarative shadow root (header becomes a <dl>, ids and data-order-id disappear) inside a Panda-CSS utility-class page. A newer order (delivered today, with its own 'Track shipment' and 'Return or replace items' actions) is inserted at the top, so positional selectors shift. 'Track package' links become 'Track shipment' buttons, 'Buy it again' becomes 'Buy again', and a new 'Buy again' rail repeats the Linen Duvet Cover Set. The search box and date filter move into the page header with new ids/copy (the backend parameter names partly survive).",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Track package' action of order HL-114-8823901 (arriving Friday)",
+      "css": "#order-HL-114-8823901 a.btn-track",
+      "xpath": "//div[@data-order-id='HL-114-8823901']//a[normalize-space()='Track package']",
+      "mutations": [
+        "shadow-dom",
+        "tag-change",
+        "copy-change",
+        "decoy",
+        "id-change",
+        "attribute-churn"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "'Return or replace items' action of order HL-114-7781234 (table lamp)",
+      "css": "div[data-order-id='HL-114-7781234'] .return-link",
+      "xpath": "(//a[normalize-space()='Return or replace items'])[1]",
+      "mutations": [
+        "shadow-dom",
+        "insertion",
+        "decoy",
+        "sibling-reorder",
+        "attribute-churn",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "'Buy it again' button of the 'Linen Duvet Cover Set, Queen – Oat' item (order HL-113-6650912)",
+      "css": "li[data-item-sku='LDC-Q-OAT'] .buy-again-btn",
+      "xpath": "//a[contains(.,'Linen Duvet Cover Set')]/ancestor::li[1]//button[contains(.,'Buy it again')]",
+      "mutations": [
+        "shadow-dom",
+        "copy-change",
+        "decoy",
+        "attribute-churn",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Order date-range filter dropdown ('past 3 months')",
+      "css": "#time-filter",
+      "xpath": "//select[@name='timeFilter']",
+      "mutations": [
+        "id-change",
+        "copy-change",
+        "structure-move",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Order total ($86.40) in the header of order HL-114-7781234",
+      "css": "#order-HL-114-7781234 .order-total .value",
+      "xpath": "//div[@data-order-id='HL-114-7781234']//div[contains(@class,'order-total')]/span[2]",
+      "mutations": [
+        "shadow-dom",
+        "tag-change",
+        "id-change",
+        "class-obfuscation",
+        "sibling-reorder"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Search all orders' input",
+      "css": "#search-orders-input",
+      "xpath": "//form[@action='/account/orders/search']//input[@type='search']",
+      "mutations": [
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs",
+        "structure-move"
+      ]
+    }
+  ]
+}

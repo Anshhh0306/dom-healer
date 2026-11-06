@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fleet overview · Sparrowgrid</title>
+<style>
+body{margin:0;font:13px/1.45 "Roboto Condensed",Roboto,Arial,sans-serif;color:#1c2b2a;background:#eef3f1}
+.sg-layout{display:flex;min-height:100vh}
+.sg-sidebar{width:220px;background:#173f35;color:#d5e8e1;flex:none;display:flex;flex-direction:column}
+.sg-menu{list-style:none;margin:0;padding:8px}.sg-menu__link{display:flex;gap:8px;padding:8px 10px;color:#d5e8e1;text-decoration:none;border-radius:4px}
+.sg-menu__item--active .sg-menu__link{background:#24604f;color:#fff}
+.sg-content{flex:1;min-width:0}
+.sg-topbar{display:flex;align-items:center;gap:16px;padding:10px 20px;background:#fff;border-bottom:1px solid #d6e2dd}
+.sg-main{padding:18px 20px}
+.sg-summary{display:flex;gap:10px;margin-bottom:16px}
+.sg-chip{display:flex;align-items:baseline;gap:6px;background:#fff;border-radius:6px;padding:8px 12px;border-left:4px solid #9bb}
+.sg-chip--online{border-color:#2f9e6e}.sg-chip--offline{border-color:#c0392b}.sg-chip__count{font-size:20px;font-weight:700}
+.sg-row{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:16px}
+.sg-panel{background:#fff;border-radius:6px;padding:14px;border:1px solid #d6e2dd}
+.sg-device-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.sg-device{border:1px solid #d6e2dd;border-radius:6px;padding:10px}
+.sg-status{font-size:11px;padding:1px 6px;border-radius:3px;background:#e1f3ea}.sg-status--offline{background:#fbe3e0}
+.sg-device__stats{list-style:none;padding:0;margin:8px 0;display:grid;gap:2px}.sg-device__stats .k{color:#5f7a73;margin-right:6px}
+.sg-btn{border:1px solid #24604f;background:#24604f;color:#fff;border-radius:4px;padding:5px 10px}
+.sg-btn--warn{background:#b9770e;border-color:#b9770e}.sg-icon-btn{border:0;background:none;color:#5f7a73}
+</style>
+</head>
+<body>
+<div class="sg-layout">
+  <nav class="sg-sidebar" aria-label="Console">
+    <div class="sg-sidebar__brand"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.6a10 10 0 0 1 14 0M1.4 9a15 15 0 0 1 21.2 0M8.5 16.1a5 5 0 0 1 7 0M12 20h.01"/></svg> Sparrowgrid <span class="sg-sidebar__product">Fleet</span></div>
+    <ul class="sg-menu">
+      <li class="sg-menu__item sg-menu__item--active"><a href="/fleet" class="sg-menu__link" aria-current="page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>Fleet overview</a></li>
+      <li class="sg-menu__item"><a href="/devices" class="sg-menu__link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>Devices</a></li>
+      <li class="sg-menu__item"><a href="/groups" class="sg-menu__link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Groups</a></li>
+      <li class="sg-menu__item"><a href="/firmware" class="sg-menu__link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Firmware</a></li>
+      <li class="sg-menu__item"><a href="/alerts" class="sg-menu__link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg>Alerts <span class="sg-count">5</span></a></li>
+      <li class="sg-menu__item"><a href="/rules" class="sg-menu__link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>Rules &amp; automations</a></li>
+      <li class="sg-menu__item"><a href="/api-keys" class="sg-menu__link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11h14v11H5zM7 11V7a5 5 0 0 1 10 0v4"/></svg>API keys</a></li>
+      <li class="sg-menu__item"><a href="/settings" class="sg-menu__link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Settings</a></li>
+    </ul>
+    <button type="button" class="sg-sidebar__collapse" aria-label="Collapse sidebar"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+  </nav>
+  <div class="sg-content">
+    <header class="sg-topbar">
+      <label class="sg-site"><span class="sg-site__label">Site</span>
+        <select id="site-select" name="site" data-dh-target="t3">
+          <option value="gh-north" selected>Greenhouse North</option>
+          <option value="gh-south">Greenhouse South</option>
+          <option value="orchard-c">Orchard Block C</option>
+          <option value="packhouse">Packhouse</option>
+        </select>
+      </label>
+      <input type="search" class="sg-search" placeholder="Search by device ID, name or tag" aria-label="Search devices">
+      <span class="sg-sync"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 4v6h-6M1 20v-6h6M3.5 9a9 9 0 0 1 14.8-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></svg> Last sync 14:21:07</span>
+      <button type="button" class="sg-avatar" aria-label="Account: Mateo Ruiz">MR</button>
+    </header>
+    <main class="sg-main">
+      <h1 class="sg-title">Fleet overview <small>Greenhollow Farms</small></h1>
+      <section class="sg-summary" aria-label="Fleet status">
+        <div class="sg-chip sg-chip--online"><span class="sg-chip__count">214</span><span class="sg-chip__label">Online</span></div>
+        <div class="sg-chip sg-chip--offline"><span class="sg-chip__count" data-dh-target="t5">9</span><span class="sg-chip__label">Offline</span></div>
+        <div class="sg-chip sg-chip--updating"><span class="sg-chip__count">3</span><span class="sg-chip__label">Updating</span></div>
+        <div class="sg-chip sg-chip--attention"><span class="sg-chip__count">5</span><span class="sg-chip__label">Needs attention</span></div>
+        <div class="sg-chip sg-chip--battery"><span class="sg-chip__count">7</span><span class="sg-chip__label">Low battery</span></div>
+      </section>
+      <div class="sg-row">
+        <section class="sg-panel sg-map-panel">
+          <h2 class="sg-panel__title">Device locations — Greenhouse North</h2>
+          <div class="sg-map" role="img" aria-label="Map of Greenhouse North with device locations">
+            <svg viewBox="0 0 400 220" aria-hidden="true"><rect x="10" y="10" width="380" height="200" rx="6" fill="none"/><line class="sg-map__grid" x1="40" y1="10" x2="40" y2="210"/><line class="sg-map__grid" x1="100" y1="10" x2="100" y2="210"/><line class="sg-map__grid" x1="160" y1="10" x2="160" y2="210"/><line class="sg-map__grid" x1="220" y1="10" x2="220" y2="210"/><line class="sg-map__grid" x1="280" y1="10" x2="280" y2="210"/><line class="sg-map__grid" x1="340" y1="10" x2="340" y2="210"/><line class="sg-map__grid" x1="10" y1="30" x2="390" y2="30"/><line class="sg-map__grid" x1="10" y1="80" x2="390" y2="80"/><line class="sg-map__grid" x1="10" y1="130" x2="390" y2="130"/><line class="sg-map__grid" x1="10" y1="180" x2="390" y2="180"/><circle class="sg-pin sg-pin--online" cx="52" cy="40" r="5"/><circle class="sg-pin sg-pin--online" cx="96" cy="62" r="5"/><circle class="sg-pin sg-pin--online" cx="140" cy="44" r="5"/><circle class="sg-pin sg-pin--online" cx="188" cy="70" r="5"/><circle class="sg-pin sg-pin--offline" cx="230" cy="52" r="5"/><circle class="sg-pin sg-pin--updating" cx="272" cy="86" r="5"/><circle class="sg-pin sg-pin--online" cx="318" cy="60" r="5"/><circle class="sg-pin sg-pin--online" cx="70" cy="130" r="5"/><circle class="sg-pin sg-pin--online" cx="128" cy="150" r="5"/><circle class="sg-pin sg-pin--online" cx="186" cy="140" r="5"/><circle class="sg-pin sg-pin--offline" cx="244" cy="162" r="5"/><circle class="sg-pin sg-pin--online" cx="300" cy="134" r="5"/><circle class="sg-pin sg-pin--online" cx="350" cy="170" r="5"/><circle class="sg-pin sg-pin--online" cx="90" cy="186" r="5"/></svg>
+          </div>
+          <ul class="sg-map__legend"><li class="sg-legend sg-legend--online">Online</li><li class="sg-legend sg-legend--offline">Offline</li><li class="sg-legend sg-legend--updating">Updating</li></ul>
+        </section>
+        <section class="sg-panel sg-rollout">
+          <h2 class="sg-panel__title">Firmware 2.4.0 rollout</h2>
+          <p>Staged rollout to Greenhouse North · 38% complete (81 of 214 devices)</p>
+          <progress class="sg-rollout__bar" value="38" max="100">38%</progress>
+          <dl class="sg-rollout__facts">
+            <div><dt>Started</dt><dd>Nov 3, 09:00</dd></div>
+            <div><dt>Failures</dt><dd>2</dd></div>
+            <div><dt>Next wave</dt><dd>Nov 5, 21:00</dd></div>
+          </dl>
+          <div class="sg-rollout__actions"><button type="button" class="sg-btn sg-btn--warn" id="pause-rollout" data-dh-target="t6">Pause rollout</button><a href="/firmware/2.4.0">Release notes</a></div>
+        </section>
+      </div>
+      <section class="sg-panel sg-devices">
+        <div class="sg-devices__head">
+          <h2 class="sg-panel__title">Devices</h2>
+          <div class="sg-filters">
+            <select name="type" aria-label="Device type"><option selected>All types</option><option>Gateways</option><option>Soil sensors</option><option>Valves</option><option>Climate sensors</option><option>Pump controllers</option></select>
+            <select name="status" aria-label="Status"><option selected>Any status</option><option>Online</option><option>Offline</option><option>Updating</option></select>
+            <label class="sg-check"><input type="checkbox" name="outdated"> Only outdated firmware</label>
+          </div>
+        </div>
+        <div class="sg-device-grid">
+          <div class="sg-device sg-device--online" data-device-id="GW-NORTH-01">
+            <div class="sg-device__head"><span class="sg-status sg-status--online">Online</span><h3 class="sg-device__name">GW-North-01</h3></div>
+            <p class="sg-device__type">LoRaWAN gateway · Bay 1</p>
+            <ul class="sg-device__stats">
+              <li><span class="k">Battery</span><span class="v">Mains</span></li>
+              <li><span class="k">Signal</span><span class="v">−61 dBm</span></li>
+              <li><span class="k">Firmware</span><span class="v">2.3.1</span></li>
+            </ul>
+            <div class="sg-device__actions">
+              <button type="button" class="sg-btn sg-btn--small btn-fw">Update firmware</button>
+              <button type="button" class="sg-icon-btn" aria-label="Reboot GW-North-01" title="Reboot" data-dh-target="t4"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+              <a class="sg-link" href="/devices/GW-NORTH-01">Details</a>
+            </div>
+          </div>
+          <div class="sg-device sg-device--online" data-device-id="SM-A14">
+            <div class="sg-device__head"><span class="sg-status sg-status--online">Online</span><h3 class="sg-device__name">SM-A14</h3></div>
+            <p class="sg-device__type">Soil moisture sensor · Bed A, row 4</p>
+            <ul class="sg-device__stats">
+              <li><span class="k">Battery</span><span class="v">64%</span></li>
+              <li><span class="k">Signal</span><span class="v">−88 dBm</span></li>
+              <li><span class="k">Firmware</span><span class="v">2.3.1</span></li>
+            </ul>
+            <div class="sg-device__actions">
+              <button type="button" class="sg-btn sg-btn--small btn-fw" data-dh-target="t1">Update firmware</button>
+              <button type="button" class="sg-icon-btn" aria-label="Reboot SM-A14" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+              <a class="sg-link" href="/devices/SM-A14">Details</a>
+            </div>
+          </div>
+          <div class="sg-device sg-device--online" data-device-id="SM-A15">
+            <div class="sg-device__head"><span class="sg-status sg-status--online">Online</span><h3 class="sg-device__name">SM-A15</h3></div>
+            <p class="sg-device__type">Soil moisture sensor · Bed A, row 5</p>
+            <ul class="sg-device__stats">
+              <li><span class="k">Battery</span><span class="v">71%</span></li>
+              <li><span class="k">Signal</span><span class="v">−90 dBm</span></li>
+              <li><span class="k">Firmware</span><span class="v">2.4.0</span></li>
+            </ul>
+            <div class="sg-device__actions">
+              <span class="sg-fw-state">Up to date</span>
+              <button type="button" class="sg-icon-btn" aria-label="Reboot SM-A15" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+              <a class="sg-link" href="/devices/SM-A15">Details</a>
+            </div>
+          </div>
+          <div class="sg-device sg-device--online" data-device-id="VALVE-07">
+            <div class="sg-device__head"><span class="sg-status sg-status--online">Online</span><h3 class="sg-device__name">VALVE-07</h3></div>
+            <p class="sg-device__type">Irrigation valve · Zone 3</p>
+            <ul class="sg-device__stats">
+              <li><span class="k">Battery</span><span class="v" data-dh-target="t2">18%</span></li>
+              <li><span class="k">Signal</span><span class="v">−79 dBm</span></li>
+              <li><span class="k">Firmware</span><span class="v">2.3.1</span></li>
+            </ul>
+            <div class="sg-device__actions">
+              <button type="button" class="sg-btn sg-btn--small btn-fw">Update firmware</button>
+              <button type="button" class="sg-icon-btn" aria-label="Reboot VALVE-07" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+              <a class="sg-link" href="/devices/VALVE-07">Details</a>
+            </div>
+          </div>
+          <div class="sg-device sg-device--offline" data-device-id="CL-N2">
+            <div class="sg-device__head"><span class="sg-status sg-status--offline">Offline</span><h3 class="sg-device__name">CL-N2</h3></div>
+            <p class="sg-device__type">Climate sensor · North aisle</p>
+            <ul class="sg-device__stats">
+              <li><span class="k">Battery</span><span class="v">41%</span></li>
+              <li><span class="k">Signal</span><span class="v">—</span></li>
+              <li><span class="k">Firmware</span><span class="v">2.3.0</span></li>
+            </ul>
+            <div class="sg-device__actions">
+              <button type="button" class="sg-btn sg-btn--small btn-fw">Update firmware</button>
+              <button type="button" class="sg-icon-btn" aria-label="Reboot CL-N2" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+              <a class="sg-link" href="/devices/CL-N2">Details</a>
+            </div>
+          </div>
+          <div class="sg-device sg-device--updating" data-device-id="SM-B02">
+            <div class="sg-device__head"><span class="sg-status sg-status--updating">Updating</span><h3 class="sg-device__name">SM-B02</h3></div>
+            <p class="sg-device__type">Soil moisture sensor · Bed B, row 2</p>
+            <ul class="sg-device__stats">
+              <li><span class="k">Battery</span><span class="v">55%</span></li>
+              <li><span class="k">Signal</span><span class="v">−84 dBm</span></li>
+              <li><span class="k">Firmware</span><span class="v">2.3.1 → 2.4.0</span></li>
+            </ul>
+            <div class="sg-device__actions">
+              <span class="sg-fw-state">Installing…</span>
+              <button type="button" class="sg-icon-btn" aria-label="Reboot SM-B02" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+              <a class="sg-link" href="/devices/SM-B02">Details</a>
+            </div>
+          </div>
+          <div class="sg-device sg-device--online" data-device-id="GW-NORTH-02">
+            <div class="sg-device__head"><span class="sg-status sg-status--online">Online</span><h3 class="sg-device__name">GW-North-02</h3></div>
+            <p class="sg-device__type">LoRaWAN gateway · Bay 4</p>
+            <ul class="sg-device__stats">
+              <li><span class="k">Battery</span><span class="v">Mains</span></li>
+              <li><span class="k">Signal</span><span class="v">−58 dBm</span></li>
+              <li><span class="k">Firmware</span><span class="v">2.4.0</span></li>
+            </ul>
+            <div class="sg-device__actions">
+              <span class="sg-fw-state">Up to date</span>
+              <button type="button" class="sg-icon-btn" aria-label="Reboot GW-North-02" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+              <a class="sg-link" href="/devices/GW-NORTH-02">Details</a>
+            </div>
+          </div>
+          <div class="sg-device sg-device--online" data-device-id="VALVE-03">
+            <div class="sg-device__head"><span class="sg-status sg-status--online">Online</span><h3 class="sg-device__name">VALVE-03</h3></div>
+            <p class="sg-device__type">Irrigation valve · Zone 1</p>
+            <ul class="sg-device__stats">
+              <li><span class="k">Battery</span><span class="v">77%</span></li>
+              <li><span class="k">Signal</span><span class="v">−74 dBm</span></li>
+              <li><span class="k">Firmware</span><span class="v">2.4.0</span></li>
+            </ul>
+            <div class="sg-device__actions">
+              <span class="sg-fw-state">Up to date</span>
+              <button type="button" class="sg-icon-btn" aria-label="Reboot VALVE-03" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+              <a class="sg-link" href="/devices/VALVE-03">Details</a>
+            </div>
+          </div>
+          <div class="sg-device sg-device--online" data-device-id="CL-N1">
+            <div class="sg-device__head"><span class="sg-status sg-status--online">Online</span><h3 class="sg-device__name">CL-N1</h3></div>
+            <p class="sg-device__type">Climate sensor · South aisle</p>
+            <ul class="sg-device__stats">
+              <li><span class="k">Battery</span><span class="v">89%</span></li>
+              <li><span class="k">Signal</span><span class="v">−70 dBm</span></li>
+              <li><span class="k">Firmware</span><span class="v">2.3.1</span></li>
+            </ul>
+            <div class="sg-device__actions">
+              <button type="button" class="sg-btn sg-btn--small btn-fw">Update firmware</button>
+              <button type="button" class="sg-icon-btn" aria-label="Reboot CL-N1" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+              <a class="sg-link" href="/devices/CL-N1">Details</a>
+            </div>
+          </div>
+          <div class="sg-device sg-device--online" data-device-id="SM-C11">
+            <div class="sg-device__head"><span class="sg-status sg-status--online">Online</span><h3 class="sg-device__name">SM-C11</h3></div>
+            <p class="sg-device__type">Soil moisture sensor · Bed C, row 11</p>
+            <ul class="sg-device__stats">
+              <li><span class="k">Battery</span><span class="v">18%</span></li>
+              <li><span class="k">Signal</span><span class="v">−92 dBm</span></li>
+              <li><span class="k">Firmware</span><span class="v">2.3.1</span></li>
+            </ul>
+            <div class="sg-device__actions">
+              <button type="button" class="sg-btn sg-btn--small btn-fw">Update firmware</button>
+              <button type="button" class="sg-icon-btn" aria-label="Reboot SM-C11" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+              <a class="sg-link" href="/devices/SM-C11">Details</a>
+            </div>
+          </div>
+          <div class="sg-device sg-device--offline" data-device-id="PUMP-02">
+            <div class="sg-device__head"><span class="sg-status sg-status--offline">Offline</span><h3 class="sg-device__name">PUMP-02</h3></div>
+            <p class="sg-device__type">Pump controller · Pump house</p>
+            <ul class="sg-device__stats">
+              <li><span class="k">Battery</span><span class="v">Mains</span></li>
+              <li><span class="k">Signal</span><span class="v">—</span></li>
+              <li><span class="k">Firmware</span><span class="v">1.9.4</span></li>
+            </ul>
+            <div class="sg-device__actions">
+              <span class="sg-fw-state">Up to date</span>
+              <button type="button" class="sg-icon-btn" aria-label="Reboot PUMP-02" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+              <a class="sg-link" href="/devices/PUMP-02">Details</a>
+            </div>
+          </div>
+          <div class="sg-device sg-device--online" data-device-id="SM-B07">
+            <div class="sg-device__head"><span class="sg-status sg-status--online">Online</span><h3 class="sg-device__name">SM-B07</h3></div>
+            <p class="sg-device__type">Soil moisture sensor · Bed B, row 7</p>
+            <ul class="sg-device__stats">
+              <li><span class="k">Battery</span><span class="v">93%</span></li>
+              <li><span class="k">Signal</span><span class="v">−81 dBm</span></li>
+              <li><span class="k">Firmware</span><span class="v">2.4.0</span></li>
+            </ul>
+            <div class="sg-device__actions">
+              <span class="sg-fw-state">Up to date</span>
+              <button type="button" class="sg-icon-btn" aria-label="Reboot SM-B07" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+              <a class="sg-link" href="/devices/SM-B07">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="sg-pager">Showing 12 of 226 devices · <a href="/devices">View all devices</a></div>
+      </section>
+    </main>
+    <footer class="sg-footer">Sparrowgrid Fleet 3.8 · Greenhollow Farms · <a href="https://docs.sparrowgrid.example">Docs</a> · <a href="https://status.sparrowgrid.example">Status</a></footer>
+  </div>
+</div>
+</body>
+</html>

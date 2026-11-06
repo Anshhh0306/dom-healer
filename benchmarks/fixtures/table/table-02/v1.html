@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invoices · Ledgerly</title>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:.95rem;background:#f5f6f8;color:#212529}
+.app-wrapper{min-height:100vh}
+.sidebar{width:232px;flex:0 0 232px;padding:20px 12px;color:#adb5bd}
+.sidebar-brand{display:block;font-size:1.3rem;font-weight:700;color:#fff;text-decoration:none;padding:0 12px 20px}
+.sidebar .nav-link{color:#ced4da;border-radius:.375rem;padding:.5rem .75rem;display:block;text-decoration:none}
+.sidebar .nav-link.active{background:#0d6efd;color:#fff}
+.sidebar-footer{margin-top:32px;padding:12px;font-size:.8rem;border-top:1px solid #343a40}
+.main-col{flex:1;min-width:0}
+.topbar{display:flex;align-items:center;gap:12px;padding:10px 24px;background:#fff;border-bottom:1px solid #dee2e6}
+.d-flex{display:flex}.justify-content-between{justify-content:space-between}.align-items-center{align-items:center}
+.btn{display:inline-block;font-weight:500;padding:.375rem .75rem;border-radius:.375rem;border:1px solid transparent;text-decoration:none;cursor:pointer}
+.btn-sm{padding:.2rem .5rem;font-size:.82rem}
+.btn-primary{background:#0d6efd;color:#fff}.btn-link{color:#0d6efd;background:none}
+.btn-outline-secondary{border-color:#6c757d;color:#6c757d;background:#fff}.btn-outline-danger{border-color:#dc3545;color:#dc3545;background:#fff}
+.btn:disabled{opacity:.45;pointer-events:none}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:16px 0}
+.kpi-card{background:#fff;border:1px solid #dee2e6;border-radius:.5rem;padding:14px 16px}
+.kpi-label{font-size:.78rem;color:#6c757d;text-transform:uppercase}.kpi-value{font-size:1.4rem;font-weight:600}
+.nav-tabs{display:flex;list-style:none;padding:0;margin:0;border-bottom:1px solid #dee2e6}
+.nav-tabs .nav-link{display:block;padding:.5rem 1rem;border:1px solid transparent;border-radius:.375rem .375rem 0 0;color:#495057;text-decoration:none}
+.nav-tabs .nav-link.active{background:#fff;border-color:#dee2e6 #dee2e6 #fff}
+.card{background:#fff;border:1px solid #dee2e6;border-top:0}
+.table-toolbar{display:flex;gap:8px;padding:12px}
+.form-control,.form-select{padding:.375rem .75rem;border:1px solid #ced4da;border-radius:.375rem}
+.table{width:100%;border-collapse:collapse}.table th,.table td{padding:.6rem .75rem;border-bottom:1px solid #dee2e6;vertical-align:middle}
+.table-hover tbody tr:hover{background:#f8f9fa}.table-light th{background:#f8f9fa;font-size:.8rem;color:#6c757d}
+.text-end{text-align:right}.text-nowrap{white-space:nowrap}.text-muted{color:#6c757d}
+.badge{display:inline-block;padding:.35em .65em;font-size:.75em;font-weight:700;border-radius:.375rem}
+.text-bg-success{background:#198754;color:#fff}.text-bg-danger{background:#dc3545;color:#fff}.text-bg-warning{background:#ffc107;color:#000}
+.text-bg-primary{background:#0d6efd;color:#fff}.text-bg-secondary{background:#6c757d;color:#fff}.text-bg-light{background:#f8f9fa;color:#000}
+.table-summary{display:flex;justify-content:space-between;padding:12px 16px;font-size:.85rem;color:#6c757d}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important}
+.site-footer{padding:20px 24px;font-size:.8rem;color:#6c757d}
+</style>
+</head>
+<body>
+<div class="d-flex app-wrapper">
+  <nav class="sidebar bg-dark" aria-label="Primary">
+    <a class="sidebar-brand" href="/">Ledgerly</a>
+    <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/invoices">Invoices</a></li>
+        <li class="nav-item"><a class="nav-link" href="/quotes">Quotes</a></li>
+        <li class="nav-item"><a class="nav-link" href="/customers">Customers</a></li>
+        <li class="nav-item"><a class="nav-link" href="/products-and-services">Products &amp; services</a></li>
+        <li class="nav-item"><a class="nav-link" href="/payments">Payments</a></li>
+        <li class="nav-item"><a class="nav-link" href="/reports">Reports</a></li>
+        <li class="nav-item"><a class="nav-link" href="/settings">Settings</a></li>
+    </ul>
+    <div class="sidebar-footer">Fernhill Studio Ltd<br><small>Growth plan &middot; USD</small></div>
+  </nav>
+  <div class="main-col">
+    <header class="topbar navbar">
+      <form class="topbar-search" role="search"><input class="form-control" type="search" placeholder="Search invoices, customers, payments" aria-label="Search"></form>
+      <a class="btn btn-link" href="/help">Help</a>
+      <span class="topbar-user">Rosa Whitfield</span>
+    </header>
+    <main class="container-fluid py-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="h3 mb-0">Invoices</h1>
+        <div class="btn-group"><button type="button" class="btn btn-outline-secondary">Import</button> <a href="/invoices/new" class="btn btn-primary">+ New invoice</a></div>
+      </div>
+      <div class="kpis">
+        <div class="kpi-card"><div class="kpi-label">Outstanding</div><div class="kpi-value">$38,355.75</div><div class="text-muted">7 invoices</div></div>
+        <div class="kpi-card"><div class="kpi-label">Overdue</div><div class="kpi-value">$13,330.75</div><div class="text-muted">3 invoices</div></div>
+        <div class="kpi-card"><div class="kpi-label">Paid (last 90 days)</div><div class="kpi-value">$49,145.90</div><div class="text-muted">8 invoices</div></div>
+        <div class="kpi-card"><div class="kpi-label">Avg. days to pay</div><div class="kpi-value">18</div><div class="text-muted">&minus;3 vs. previous period</div></div>
+      </div>
+      <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item"><a class="nav-link active" href="?status=all" aria-current="page">All <span class="badge rounded-pill text-bg-light">18</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="?status=draft">Draft <span class="badge rounded-pill text-bg-light">2</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="?status=outstanding" data-dh-target="t6">Outstanding <span class="badge rounded-pill text-bg-light">7</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="?status=paid">Paid <span class="badge rounded-pill text-bg-light">8</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="?status=void">Void <span class="badge rounded-pill text-bg-light">1</span></a></li>
+      </ul>
+      <div class="card">
+        <div class="table-toolbar">
+          <select class="form-select" aria-label="Date range"><option>Last 90 days</option><option>This year</option><option>All time</option></select>
+          <input class="form-control" type="search" placeholder="Filter by customer" aria-label="Filter by customer">
+          <button type="button" class="btn btn-outline-secondary" disabled>Bulk actions</button>
+        </div>
+        <table class="table table-hover align-middle mb-0" id="invoices-table">
+          <thead class="table-light">
+            <tr>
+              <th scope="col" class="col-check"><input class="form-check-input" type="checkbox" id="select-all" aria-label="Select all invoices"></th>
+              <th scope="col">Invoice</th>
+              <th scope="col">Customer</th>
+              <th scope="col">Issued</th>
+              <th scope="col">Due</th>
+              <th scope="col" class="text-end">Amount</th>
+              <th scope="col">Status</th>
+              <th scope="col" class="text-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+                <tr data-invoice="INV-1048">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1048" aria-label="Select INV-1048"></td>
+                  <td><a href="/invoices/INV-1048" class="invoice-link">INV-1048</a></td>
+                  <td>Juniper Hill Winery</td>
+                  <td>30 Oct 2025</td>
+                  <td>29 Nov 2025</td>
+                  <td class="text-end">$3,180.00</td>
+                  <td><span class="badge text-bg-secondary">Draft</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1048" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1047">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1047" aria-label="Select INV-1047"></td>
+                  <td><a href="/invoices/INV-1047" class="invoice-link">INV-1047</a></td>
+                  <td>Vantage Point Media</td>
+                  <td>28 Oct 2025</td>
+                  <td>27 Nov 2025</td>
+                  <td class="text-end">$7,920.00</td>
+                  <td><span class="badge text-bg-primary">Sent</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1047" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice" data-dh-target="t5">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1046">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1046" aria-label="Select INV-1046"></td>
+                  <td><a href="/invoices/INV-1046" class="invoice-link">INV-1046</a></td>
+                  <td>Riverstone Credit Union</td>
+                  <td>24 Oct 2025</td>
+                  <td>23 Nov 2025</td>
+                  <td class="text-end">$12,600.00</td>
+                  <td><span class="badge text-bg-primary">Sent</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1046" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1045">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1045" aria-label="Select INV-1045"></td>
+                  <td><a href="/invoices/INV-1045" class="invoice-link">INV-1045</a></td>
+                  <td>Summit Peak Outfitters</td>
+                  <td>20 Oct 2025</td>
+                  <td>27 Oct 2025</td>
+                  <td class="text-end">$2,340.75</td>
+                  <td><span class="badge text-bg-danger" data-dh-target="t3">Overdue</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1045" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1044">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1044" aria-label="Select INV-1044"></td>
+                  <td><a href="/invoices/INV-1044" class="invoice-link">INV-1044</a></td>
+                  <td>Orchard Lane Florists</td>
+                  <td>17 Oct 2025</td>
+                  <td>16 Nov 2025</td>
+                  <td class="text-end">$865.40</td>
+                  <td><span class="badge text-bg-success">Paid</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1044" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice" disabled title="Paid or voided invoices can&#39;t be voided">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1043">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1043" aria-label="Select INV-1043" data-dh-target="t1"></td>
+                  <td><a href="/invoices/INV-1043" class="invoice-link">INV-1043</a></td>
+                  <td>Kettle &amp; Crumb Bakery</td>
+                  <td>15 Oct 2025</td>
+                  <td>14 Nov 2025</td>
+                  <td class="text-end">$1,495.00</td>
+                  <td><span class="badge text-bg-warning">Partially paid</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1043" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1042">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1042" aria-label="Select INV-1042"></td>
+                  <td><a href="/invoices/INV-1042" class="invoice-link">INV-1042</a></td>
+                  <td>Bluebird Preschool</td>
+                  <td>13 Oct 2025</td>
+                  <td>12 Nov 2025</td>
+                  <td class="text-end">$2,100.00</td>
+                  <td><span class="badge text-bg-success">Paid</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1042" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice" disabled title="Paid or voided invoices can&#39;t be voided">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1041">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1041" aria-label="Select INV-1041"></td>
+                  <td><a href="/invoices/INV-1041" class="invoice-link">INV-1041</a></td>
+                  <td>Atlas Physiotherapy</td>
+                  <td>9 Oct 2025</td>
+                  <td>8 Nov 2025</td>
+                  <td class="text-end">$3,760.00</td>
+                  <td><span class="badge text-bg-primary">Sent</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1041" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1040">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1040" aria-label="Select INV-1040"></td>
+                  <td><a href="/invoices/INV-1040" class="invoice-link">INV-1040</a></td>
+                  <td>Greenway Landscaping</td>
+                  <td>6 Oct 2025</td>
+                  <td>5 Nov 2025</td>
+                  <td class="text-end">$5,430.00</td>
+                  <td><span class="badge text-bg-secondary">Draft</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1040" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1039">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1039" aria-label="Select INV-1039"></td>
+                  <td><a href="/invoices/INV-1039" class="invoice-link">INV-1039</a></td>
+                  <td>Copperleaf Realty</td>
+                  <td>1 Oct 2025</td>
+                  <td>31 Oct 2025</td>
+                  <td class="text-end">$9,870.00</td>
+                  <td><span class="badge text-bg-danger">Overdue</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1039" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1038">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1038" aria-label="Select INV-1038"></td>
+                  <td><a href="/invoices/INV-1038" class="invoice-link">INV-1038</a></td>
+                  <td>Saffron Table Restaurants</td>
+                  <td>29 Sep 2025</td>
+                  <td>29 Oct 2025</td>
+                  <td class="text-end">$6,215.00</td>
+                  <td><span class="badge text-bg-success">Paid</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1038" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf" data-dh-target="t2"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice" disabled title="Paid or voided invoices can&#39;t be voided">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1037">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1037" aria-label="Select INV-1037"></td>
+                  <td><a href="/invoices/INV-1037" class="invoice-link">INV-1037</a></td>
+                  <td>Lumen Analytics</td>
+                  <td>25 Sep 2025</td>
+                  <td>25 Oct 2025</td>
+                  <td class="text-end">$18,900.00</td>
+                  <td><span class="badge text-bg-success">Paid</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1037" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice" disabled title="Paid or voided invoices can&#39;t be voided">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1036">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1036" aria-label="Select INV-1036"></td>
+                  <td><a href="/invoices/INV-1036" class="invoice-link">INV-1036</a></td>
+                  <td>Tidewater Kayak Co.</td>
+                  <td>22 Sep 2025</td>
+                  <td>7 Oct 2025</td>
+                  <td class="text-end">$1,120.00</td>
+                  <td><span class="badge text-bg-danger">Overdue</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1036" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1035">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1035" aria-label="Select INV-1035"></td>
+                  <td><a href="/invoices/INV-1035" class="invoice-link">INV-1035</a></td>
+                  <td>Morrow &amp; Blake LLP</td>
+                  <td>18 Sep 2025</td>
+                  <td>18 Oct 2025</td>
+                  <td class="text-end">$4,800.00</td>
+                  <td><span class="badge text-bg-light">Void</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1035" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice" disabled title="Paid or voided invoices can&#39;t be voided">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1034">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1034" aria-label="Select INV-1034"></td>
+                  <td><a href="/invoices/INV-1034" class="invoice-link">INV-1034</a></td>
+                  <td>Pinecrest Veterinary</td>
+                  <td>12 Sep 2025</td>
+                  <td>12 Oct 2025</td>
+                  <td class="text-end">$2,975.50</td>
+                  <td><span class="badge text-bg-success">Paid</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1034" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice" disabled title="Paid or voided invoices can&#39;t be voided">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1033">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1033" aria-label="Select INV-1033"></td>
+                  <td><a href="/invoices/INV-1033" class="invoice-link">INV-1033</a></td>
+                  <td>Halcyon Architecture</td>
+                  <td>8 Sep 2025</td>
+                  <td>8 Oct 2025</td>
+                  <td class="text-end" data-dh-target="t4">$12,480.00</td>
+                  <td><span class="badge text-bg-success">Paid</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1033" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice" disabled title="Paid or voided invoices can&#39;t be voided">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1032">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1032" aria-label="Select INV-1032"></td>
+                  <td><a href="/invoices/INV-1032" class="invoice-link">INV-1032</a></td>
+                  <td>Northwind Coffee Roasters</td>
+                  <td>4 Sep 2025</td>
+                  <td>4 Oct 2025</td>
+                  <td class="text-end">$1,360.00</td>
+                  <td><span class="badge text-bg-success">Paid</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1032" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice" disabled title="Paid or voided invoices can&#39;t be voided">Void</button></td>
+                </tr>
+                <tr data-invoice="INV-1031">
+                  <td class="col-check"><input class="form-check-input row-check" type="checkbox" name="selected[]" value="inv_1031" aria-label="Select INV-1031"></td>
+                  <td><a href="/invoices/INV-1031" class="invoice-link">INV-1031</a></td>
+                  <td>Brightline Dental Group</td>
+                  <td>2 Sep 2025</td>
+                  <td>2 Oct 2025</td>
+                  <td class="text-end">$4,250.00</td>
+                  <td><span class="badge text-bg-success">Paid</span></td>
+                  <td class="text-end text-nowrap"><a href="/invoices/INV-1031" class="btn btn-sm btn-link">View</a> <button type="button" class="btn btn-sm btn-outline-secondary btn-download" data-testid="download-pdf"><i class="bi bi-download" aria-hidden="true"></i> Download</button> <button type="button" class="btn btn-sm btn-outline-danger btn-void" data-testid="void-invoice" disabled title="Paid or voided invoices can&#39;t be voided">Void</button></td>
+                </tr>
+          </tbody>
+        </table>
+        <div class="table-summary"><span>18 invoices</span><span>Outstanding balance: <strong>$38,355.75</strong></span></div>
+      </div>
+    </main>
+    <footer class="site-footer">&copy; 2025 Ledgerly Inc. &middot; <a href="/legal/terms">Terms</a> &middot; <a href="/legal/privacy">Privacy</a> &middot; <a href="https://status.ledgerly.example">Status</a></footer>
+  </div>
+</div>
+</body>
+</html>

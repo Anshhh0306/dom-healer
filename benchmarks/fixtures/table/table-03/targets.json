@@ -1,0 +1,103 @@
+{
+  "suite": "table-03",
+  "category": "table",
+  "title": "Stock & crypto watchlist with price columns and alert bells",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 is a styled-components rewrite that renders the whole watchlist inside a <bf-watchlist> declarative shadow root; rows are re-sorted by Change % (desc), columns reordered (Change % before Last price) with a sparkline and Market-cap column inserted, the day-range column dropped, the bell loses its title and gets a generic 'Create price alert' label, the add-symbol form becomes a combobox, the Chg % header link becomes a 'Change %' sort button, and a light-DOM 'Recently viewed' table repeats ETH-USD and TSLA values next to a ticker strip.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Icon-only price-alert (bell) button in the NVDA watchlist row",
+      "css": "#watchlist tr[data-symbol='NVDA'] .wl-alert-btn",
+      "xpath": "//tr[td[1]/strong='NVDA']//button[@title='Set price alert']",
+      "mutations": [
+        "shadow-dom",
+        "class-obfuscation",
+        "attribute-churn",
+        "copy-change",
+        "sibling-reorder",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Last-price cell of the ETH-USD watchlist row ($3,412.58)",
+      "css": "#watchlist tbody tr:nth-child(10) td.col-price",
+      "xpath": "//table[@id='watchlist']//tr[@data-symbol='ETH-USD']/td[2]",
+      "mutations": [
+        "shadow-dom",
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "attribute-churn",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Change-% cell of the TSLA watchlist row (−2.14%)",
+      "css": "#watchlist > tbody > tr:nth-child(6) > td:nth-child(4)",
+      "xpath": "//strong[.='TSLA']/ancestor::tr/td[contains(@class,'col-chg-pct')]",
+      "mutations": [
+        "shadow-dom",
+        "sibling-reorder",
+        "class-obfuscation",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Add symbol' text input of the watchlist",
+      "css": "#add-symbol",
+      "xpath": "//form[contains(@class,'wl-add')]/input[@name='symbol']",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "copy-change",
+        "wrapper-divs",
+        "class-obfuscation",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Buy' quick-trade button in the MSFT watchlist row",
+      "css": "#watchlist tbody tr:nth-child(2) .wl-btn--buy",
+      "xpath": "//tr[@data-symbol='MSFT']//button[normalize-space()='Buy']",
+      "mutations": [
+        "shadow-dom",
+        "sibling-reorder",
+        "class-obfuscation",
+        "attribute-churn",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Sort control in the 'Chg %' column header (v2: 'Change %' button)",
+      "css": "#watchlist th.col-chg-pct a.sort-link",
+      "xpath": "//th/a[normalize-space()='Chg %']",
+      "mutations": [
+        "shadow-dom",
+        "tag-change",
+        "copy-change",
+        "sibling-reorder",
+        "class-obfuscation"
+      ]
+    }
+  ]
+}

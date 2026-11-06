@@ -1,0 +1,100 @@
+{
+  "suite": "dashboard-02",
+  "category": "dashboard",
+  "title": "Admin console — user management (Keyline Admin)",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v1 is a Bootstrap 4 admin template (icon-font nav, users <table>, Bootstrap modal). v2 is a Tailwind UI app shell: the sidebar is regrouped ('Audit log' moves to the top of a new 'Security & compliance' group) and duplicated in a hidden mobile off-canvas drawer; 'Users' becomes 'Members'; the user table becomes a card grid sorted by name with sr-only 'Open options' kebab buttons; status tabs become links in a new order; 'Invite user' becomes a split button 'Invite member' (its menu contains 'Invite users via CSV') with a hidden sticky-header copy; the modal becomes a Headless UI dialog with React ids, Team/Role swapped and a hidden CSV tab that repeats the role select and 'Send invite'. The notification bell is a web component with a declarative shadow root.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Primary 'Invite user' button in the Users page header",
+      "css": ".page-actions button[data-action=\"invite\"]",
+      "xpath": "//button[contains(normalize-space(),'Invite user')]",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "attribute-churn",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Role select inside the invite-user dialog (single-invite form)",
+      "css": "#invite-role",
+      "xpath": "//form[@id='invite-form']//select[@name='role']",
+      "mutations": [
+        "id-change",
+        "attribute-churn",
+        "class-obfuscation",
+        "wrapper-divs",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Icon-only row-actions (kebab) button of user Priya Raman",
+      "css": "#users-table tbody tr:nth-child(3) .btn-icon",
+      "xpath": "//button[@aria-label='More actions for Priya Raman']",
+      "mutations": [
+        "tag-change",
+        "structure-move",
+        "sibling-reorder",
+        "attribute-churn",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Audit log' link in the admin sidebar navigation",
+      "css": ".sidebar-nav a.nav-link[href=\"/admin/audit-log\"]",
+      "xpath": "//nav[@aria-label='Admin']//a[normalize-space()='Audit log']",
+      "mutations": [
+        "class-obfuscation",
+        "sibling-reorder",
+        "attribute-churn",
+        "structure-move",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Invited' status tab above the user list",
+      "css": ".status-tabs li:nth-child(3) > button",
+      "xpath": "//ul[contains(@class,'status-tabs')]//button[starts-with(normalize-space(),'Invited')]",
+      "mutations": [
+        "tag-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "attribute-churn"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Send invite' submit button of the invite-user dialog",
+      "css": "#invite-modal .modal-footer .btn-primary",
+      "xpath": "//div[@id='invite-modal']//button[@type='submit']",
+      "mutations": [
+        "id-change",
+        "class-obfuscation",
+        "wrapper-divs",
+        "sibling-reorder",
+        "decoy"
+      ]
+    }
+  ]
+}

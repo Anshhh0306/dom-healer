@@ -1,0 +1,100 @@
+{
+  "suite": "dashboard-07",
+  "category": "dashboard",
+  "title": "Email-marketing campaign dashboard — Postwick",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v1 is a BEM-styled server-rendered page. v2 is an Angular Material rewrite (mat-card/mat-toolbar/mat-tab-nav-bar markup, _ngcontent attributes, ligature mat-icons): nav links get three wrapper divs, a new order and a new 'Sign-up forms' item (a hidden overflow menu repeats 'Automations'); stat values become divs in a new order with relabelled captions; campaign cards are regrouped (two sending campaigns first, so 'Pause sending' appears twice) and their buttons are MDC buttons with label spans ('Pause' -> 'Pause sending', 'Resume' -> 'Resume sending'). The A/B-test table becomes variant cards inside an <ab-test-panel> Lit element (declarative shadow root) placed above the campaigns, with a renamed winner-metric select.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Pause' button on the 'Black Friday Early Access' campaign card (currently sending)",
+      "css": "[data-campaign-id=\"cmp_8841\"] .pw-btn-pause",
+      "xpath": "//article[.//h3[text()='Black Friday Early Access']]//button[text()='Pause']",
+      "mutations": [
+        "copy-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "attribute-churn",
+        "structure-move",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "'Resume' button on the paused 'Re-engagement: 90-day inactive' campaign card",
+      "css": ".pw-campaign-grid > article:nth-child(4) .pw-btn--primary",
+      "xpath": "//h3[contains(text(),'Re-engagement')]/ancestor::article//button[normalize-space()='Resume']",
+      "mutations": [
+        "copy-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "attribute-churn",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Open rate of variant B in the A/B-test results (44.2%)",
+      "css": ".pw-ab-table tbody tr:nth-child(2) td.open-rate",
+      "xpath": "//table[contains(@class,'pw-ab-table')]//tr[td[1]='B']/td[4]",
+      "mutations": [
+        "shadow-dom",
+        "tag-change",
+        "structure-move",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Pick winner by' select of the A/B-test settings",
+      "css": "#ab-winner-metric",
+      "xpath": "//select[@name='winner_metric']",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Automations' item of the main navigation",
+      "css": ".pw-nav a[href=\"/automations\"]",
+      "xpath": "//nav[@class='pw-nav']/a[3]",
+      "mutations": [
+        "wrapper-divs",
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Value of the 'Avg. open rate' account statistic (41.8%)",
+      "css": ".pw-stats .pw-stat:nth-child(2) .pw-stat__value",
+      "xpath": "//span[text()='Avg. open rate']/following-sibling::strong",
+      "mutations": [
+        "tag-change",
+        "copy-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "wrapper-divs",
+        "decoy"
+      ]
+    }
+  ]
+}

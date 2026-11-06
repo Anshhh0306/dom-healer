@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · Production — Pulsegrid</title>
+<style>
+:root{--pg-bg:#0c0f15;--pg-surface:#151a23;--pg-border:#242c3a;--pg-text:#dfe4ee;--pg-accent:#5b9dff}
+body{margin:0;background:var(--pg-bg);color:var(--pg-text);font:13px/1.5 Inter,system-ui,sans-serif}
+</style>
+</head>
+<body>
+<div id="root">
+<div class="sc-wcAsMR vATOxP">
+  <aside class="sc-lNidLn dPKfUY">
+    <div class="sc-sNhBBA iMPBSN">
+      <a class="sc-MuEucN VjnLcn" href="/overview"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span>Pulsegrid</span></a>
+      <div class="sc-AsjVzn DZYaPH">
+        <span class="sc-SpNQoM YyAiqi" aria-hidden="true"></span>
+        <select class="sc-DuXuYm NkNXrM" name="env" aria-label="Environment" data-dh-target="t4">
+          <option value="production" selected>Production</option>
+          <option value="staging">Staging</option>
+          <option value="dev">Development</option>
+        </select>
+      </div>
+    </div>
+    <nav class="sc-iIQVfK CbUGEt" aria-label="Primary">
+        <a href="/overview" class="sc-nvwAUV onJxzL" aria-current="page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg><span class="sc-gJFxHp CFqTre">Overview</span></a>
+        <a href="/incidents" class="sc-nvwAUV onJxzL" data-dh-target="t5"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg><span class="sc-gJFxHp CFqTre">Incidents</span></a>
+        <a href="/alerts" class="sc-nvwAUV onJxzL"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="sc-gJFxHp CFqTre">Alerts</span><span class="sc-mCktpy ttZtjw">10</span></a>
+        <a href="/services" class="sc-nvwAUV onJxzL"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 2h20v8H2zM2 14h20v8H2zM6 6h.01M6 18h.01"/></svg><span class="sc-gJFxHp CFqTre">Services</span></a>
+        <a href="/logs" class="sc-nvwAUV onJxzL"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17l6-6-6-6M12 19h8"/></svg><span class="sc-gJFxHp CFqTre">Logs</span></a>
+        <a href="/traces" class="sc-nvwAUV onJxzL"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v12M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 9a9 9 0 0 1-9 9"/></svg><span class="sc-gJFxHp CFqTre">Traces</span></a>
+        <a href="/oncall" class="sc-nvwAUV onJxzL"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="sc-gJFxHp CFqTre">On-call</span></a>
+    </nav>
+    <div class="sc-MCGLzh JePOiY"><a href="https://docs.pulsegrid.example">Docs</a><a href="https://status.pulsegrid.example">Status</a></div>
+  </aside>
+  <div class="sc-FNYnAU gAWzqC">
+    <header class="sc-WHOLrY txCTvt">
+      <div class="sc-FgDEKr vidACt"><span>Quillpay</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg><span>Production</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg><strong>Overview</strong></div>
+      <div class="sc-ppfGjm LhoJMq"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3"/></svg><input type="search" placeholder="Search services, hosts, trace IDs" aria-label="Search"></div>
+      <span class="sc-qIPQyl glHpcO">Live · 14:32:08 UTC</span>
+      <button type="button" class="sc-jriWzG EPjgHU" aria-label="Account menu">MO</button>
+    </header>
+    <main class="sc-ZabdTL Prqgmf">
+      <div class="sc-mhwUwE apmrmj">
+        <h1 class="sc-iRIUki LIRQNC">Production overview</h1>
+        <div class="sc-vxTyDP mrUtcw" role="tablist" aria-label="Region">
+          <button type="button" role="tab" aria-selected="true" class="sc-oSinov PaTCKZ">us-east-1</button>
+          <button type="button" role="tab" aria-selected="false" class="sc-oSinov PaTCKZ">eu-west-1</button>
+          <button type="button" role="tab" aria-selected="false" class="sc-oSinov PaTCKZ">ap-southeast-2</button>
+        </div>
+        <button type="button" class="sc-uKWtmo sFLqak" aria-pressed="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 4v6h-6M1 20v-6h6M3.5 9a9 9 0 0 1 14.8-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></svg>Auto-refresh 30s</button>
+      </div>
+      <section class="sc-xYiAlv dJBuFa" role="status" aria-live="polite">
+        <div class="sc-bPrbNu yjJjrv"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01"/></svg></div>
+        <div class="sc-eJUIiU voOPIo">
+          <p class="sc-yCnRxe iONsat"><a href="/incidents/INC-2291">INC-2291</a> Elevated 5xx errors on checkout-api</p>
+          <p class="sc-fdQdMu HTjJqc">SEV-2 · Investigating · open 34 min · Incident commander: Marisol Ortega</p>
+        </div>
+        <div class="sc-AqLCuC PfYmUb">
+          <button type="button" class="sc-uKWtmo sFLqak">Post update</button>
+          <button type="button" class="sc-NWVujb ogEcYl" data-href="https://meet.quillpay.example/inc-2291" data-dh-target="t3">Join war room</button>
+        </div>
+      </section>
+      <div class="sc-XzcLnq IWicdB">
+        <span class="sc-jqZHWK qGbFCD" data-tone="crit">1 down</span>
+        <span class="sc-jqZHWK qGbFCD" data-tone="warn">2 degraded</span>
+        <span class="sc-jqZHWK qGbFCD" data-tone="ok">9 healthy</span>
+        <span class="sc-jqZHWK qGbFCD">Error budget left 61%</span>
+      </div>
+      <div class="sc-aNjfGY uXaElK">
+        <section class="sc-wiwkTK gGHoRK" aria-labelledby="svc-heading">
+          <div class="sc-ncPoiR kEhGiv"><h2 id="svc-heading" class="sc-STLYeU jznJGs">Services</h2><span class="sc-VeIgsC CLcjfp">sorted by status</span></div>
+          <div class="sc-bwZoOB LINczD">
+        <service-tile name="kafka-broker-3" status="down">
+          <template shadowrootmode="open">
+            <style>:host{display:block} .tile{background:var(--pg-surface,#171c26);border-radius:8px;padding:12px;box-shadow:inset 0 0 0 1px #262e3d} .head{display:flex;align-items:center;gap:8px} .dot{width:8px;height:8px;border-radius:50%} .badge{margin-left:auto;font-size:11px;padding:1px 8px;border-radius:999px} .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:10px 0} dd{margin:0;color:#fff}</style>
+            <article class="tile" part="tile">
+              <header class="head"><span class="dot dot--down"></span><h3 class="name">kafka-broker-3</h3><span class="badge badge--down">Down</span></header>
+              <dl class="metrics">
+                <div><dt>p95</dt><dd>—</dd></div>
+                <div><dt>Error rate</dt><dd>—</dd></div>
+                <div><dt>Throughput</dt><dd>0 msg/s</dd></div>
+              </dl>
+              <svg class="spark" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,14 6,20 13,19 19,9 25,24 32,14 38,22 44,16 51,19 57,14 63,10 69,17 76,21 82,17 88,12 95,14 101,9 107,14 114,24 120,23" fill="none"/></svg>
+              <footer class="foot"><span>Broker · 30d 98.40%</span><a href="/services/kafka-broker-3">Open</a></footer>
+            </article>
+          </template>
+        </service-tile>
+        <service-tile name="checkout-api" status="degraded">
+          <template shadowrootmode="open">
+            <style>:host{display:block} .tile{background:var(--pg-surface,#171c26);border-radius:8px;padding:12px;box-shadow:inset 0 0 0 1px #262e3d} .head{display:flex;align-items:center;gap:8px} .dot{width:8px;height:8px;border-radius:50%} .badge{margin-left:auto;font-size:11px;padding:1px 8px;border-radius:999px} .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:10px 0} dd{margin:0;color:#fff}</style>
+            <article class="tile" part="tile">
+              <header class="head"><span class="dot dot--degraded"></span><h3 class="name">checkout-api</h3><span class="badge badge--degraded" data-dh-target="t2">Degraded</span></header>
+              <dl class="metrics">
+                <div><dt>p95</dt><dd>842 ms</dd></div>
+                <div><dt>Error rate</dt><dd>3.8%</dd></div>
+                <div><dt>Throughput</dt><dd>1,240 rps</dd></div>
+              </dl>
+              <svg class="spark" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,14 6,11 13,10 19,14 25,25 32,18 38,18 44,16 51,16 57,12 63,15 69,17 76,15 82,15 88,25 95,10 101,7 107,13 114,23 120,18" fill="none"/></svg>
+              <footer class="foot"><span>Service · 30d 99.71%</span><a href="/services/checkout-api">Open</a></footer>
+            </article>
+          </template>
+        </service-tile>
+        <service-tile name="payments-worker" status="degraded">
+          <template shadowrootmode="open">
+            <style>:host{display:block} .tile{background:var(--pg-surface,#171c26);border-radius:8px;padding:12px;box-shadow:inset 0 0 0 1px #262e3d} .head{display:flex;align-items:center;gap:8px} .dot{width:8px;height:8px;border-radius:50%} .badge{margin-left:auto;font-size:11px;padding:1px 8px;border-radius:999px} .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:10px 0} dd{margin:0;color:#fff}</style>
+            <article class="tile" part="tile">
+              <header class="head"><span class="dot dot--degraded"></span><h3 class="name">payments-worker</h3><span class="badge badge--degraded">Degraded</span></header>
+              <dl class="metrics">
+                <div><dt>p95</dt><dd>1.9 s</dd></div>
+                <div><dt>Error rate</dt><dd>1.2%</dd></div>
+                <div><dt>Throughput</dt><dd>310 jobs/s</dd></div>
+              </dl>
+              <svg class="spark" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,12 6,10 13,12 19,15 25,16 32,15 38,20 44,18 51,15 57,8 63,12 69,18 76,15 82,12 88,14 95,17 101,19 107,20 114,19 120,14" fill="none"/></svg>
+              <footer class="foot"><span>Worker · 30d 99.82%</span><a href="/services/payments-worker">Open</a></footer>
+            </article>
+          </template>
+        </service-tile>
+        <service-tile name="api-gateway" status="healthy">
+          <template shadowrootmode="open">
+            <style>:host{display:block} .tile{background:var(--pg-surface,#171c26);border-radius:8px;padding:12px;box-shadow:inset 0 0 0 1px #262e3d} .head{display:flex;align-items:center;gap:8px} .dot{width:8px;height:8px;border-radius:50%} .badge{margin-left:auto;font-size:11px;padding:1px 8px;border-radius:999px} .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:10px 0} dd{margin:0;color:#fff}</style>
+            <article class="tile" part="tile">
+              <header class="head"><span class="dot dot--healthy"></span><h3 class="name">api-gateway</h3><span class="badge badge--healthy">Healthy</span></header>
+              <dl class="metrics">
+                <div><dt>p95</dt><dd>112 ms</dd></div>
+                <div><dt>Error rate</dt><dd>0.04%</dd></div>
+                <div><dt>Throughput</dt><dd>8,420 rps</dd></div>
+              </dl>
+              <svg class="spark" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,22 6,14 13,15 19,19 25,18 32,17 38,19 44,24 51,11 57,8 63,16 69,20 76,22 82,16 88,16 95,10 101,20 107,21 114,14 120,16" fill="none"/></svg>
+              <footer class="foot"><span>Edge · 30d 99.99%</span><a href="/services/api-gateway">Open</a></footer>
+            </article>
+          </template>
+        </service-tile>
+        <service-tile name="auth-service" status="healthy">
+          <template shadowrootmode="open">
+            <style>:host{display:block} .tile{background:var(--pg-surface,#171c26);border-radius:8px;padding:12px;box-shadow:inset 0 0 0 1px #262e3d} .head{display:flex;align-items:center;gap:8px} .dot{width:8px;height:8px;border-radius:50%} .badge{margin-left:auto;font-size:11px;padding:1px 8px;border-radius:999px} .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:10px 0} dd{margin:0;color:#fff}</style>
+            <article class="tile" part="tile">
+              <header class="head"><span class="dot dot--healthy"></span><h3 class="name">auth-service</h3><span class="badge badge--healthy">Healthy</span></header>
+              <dl class="metrics">
+                <div><dt>p95</dt><dd>64 ms</dd></div>
+                <div><dt>Error rate</dt><dd>0.01%</dd></div>
+                <div><dt>Throughput</dt><dd>2,980 rps</dd></div>
+              </dl>
+              <svg class="spark" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,19 6,11 13,12 19,20 25,20 32,24 38,23 44,24 51,18 57,10 63,18 69,21 76,22 82,21 88,20 95,11 101,14 107,9 114,22 120,22" fill="none"/></svg>
+              <footer class="foot"><span>Service · 30d 100%</span><a href="/services/auth-service">Open</a></footer>
+            </article>
+          </template>
+        </service-tile>
+        <service-tile name="cdn-edge" status="healthy">
+          <template shadowrootmode="open">
+            <style>:host{display:block} .tile{background:var(--pg-surface,#171c26);border-radius:8px;padding:12px;box-shadow:inset 0 0 0 1px #262e3d} .head{display:flex;align-items:center;gap:8px} .dot{width:8px;height:8px;border-radius:50%} .badge{margin-left:auto;font-size:11px;padding:1px 8px;border-radius:999px} .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:10px 0} dd{margin:0;color:#fff}</style>
+            <article class="tile" part="tile">
+              <header class="head"><span class="dot dot--healthy"></span><h3 class="name">cdn-edge</h3><span class="badge badge--healthy">Healthy</span></header>
+              <dl class="metrics">
+                <div><dt>p95</dt><dd>38 ms</dd></div>
+                <div><dt>Error rate</dt><dd>0.02%</dd></div>
+                <div><dt>Throughput</dt><dd>22k rps</dd></div>
+              </dl>
+              <svg class="spark" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,20 6,14 13,17 19,17 25,21 32,16 38,20 44,24 51,16 57,18 63,20 69,13 76,20 82,22 88,14 95,7 101,18 107,10 114,25 120,24" fill="none"/></svg>
+              <footer class="foot"><span>Edge · 30d 99.99%</span><a href="/services/cdn-edge">Open</a></footer>
+            </article>
+          </template>
+        </service-tile>
+        <service-tile name="ml-scoring" status="healthy">
+          <template shadowrootmode="open">
+            <style>:host{display:block} .tile{background:var(--pg-surface,#171c26);border-radius:8px;padding:12px;box-shadow:inset 0 0 0 1px #262e3d} .head{display:flex;align-items:center;gap:8px} .dot{width:8px;height:8px;border-radius:50%} .badge{margin-left:auto;font-size:11px;padding:1px 8px;border-radius:999px} .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:10px 0} dd{margin:0;color:#fff}</style>
+            <article class="tile" part="tile">
+              <header class="head"><span class="dot dot--healthy"></span><h3 class="name">ml-scoring</h3><span class="badge badge--healthy">Healthy</span></header>
+              <dl class="metrics">
+                <div><dt>p95</dt><dd>95 ms</dd></div>
+                <div><dt>Error rate</dt><dd>0.10%</dd></div>
+                <div><dt>Throughput</dt><dd>450 rps</dd></div>
+              </dl>
+              <svg class="spark" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,20 6,9 13,9 19,13 25,22 32,11 38,19 44,13 51,11 57,16 63,15 69,15 76,25 82,14 88,13 95,15 101,9 107,12 114,21 120,19" fill="none"/></svg>
+              <footer class="foot"><span>Service · 30d 99.93%</span><a href="/services/ml-scoring">Open</a></footer>
+            </article>
+          </template>
+        </service-tile>
+        <service-tile name="notifications" status="healthy">
+          <template shadowrootmode="open">
+            <style>:host{display:block} .tile{background:var(--pg-surface,#171c26);border-radius:8px;padding:12px;box-shadow:inset 0 0 0 1px #262e3d} .head{display:flex;align-items:center;gap:8px} .dot{width:8px;height:8px;border-radius:50%} .badge{margin-left:auto;font-size:11px;padding:1px 8px;border-radius:999px} .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:10px 0} dd{margin:0;color:#fff}</style>
+            <article class="tile" part="tile">
+              <header class="head"><span class="dot dot--healthy"></span><h3 class="name">notifications</h3><span class="badge badge--healthy">Healthy</span></header>
+              <dl class="metrics">
+                <div><dt>p95</dt><dd>180 ms</dd></div>
+                <div><dt>Error rate</dt><dd>0.20%</dd></div>
+                <div><dt>Throughput</dt><dd>640 msg/s</dd></div>
+              </dl>
+              <svg class="spark" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,13 6,21 13,14 19,12 25,14 32,20 38,12 44,13 51,15 57,15 63,17 69,24 76,17 82,21 88,18 95,20 101,17 107,12 114,14 120,21" fill="none"/></svg>
+              <footer class="foot"><span>Service · 30d 99.95%</span><a href="/services/notifications">Open</a></footer>
+            </article>
+          </template>
+        </service-tile>
+        <service-tile name="postgres-primary" status="healthy">
+          <template shadowrootmode="open">
+            <style>:host{display:block} .tile{background:var(--pg-surface,#171c26);border-radius:8px;padding:12px;box-shadow:inset 0 0 0 1px #262e3d} .head{display:flex;align-items:center;gap:8px} .dot{width:8px;height:8px;border-radius:50%} .badge{margin-left:auto;font-size:11px;padding:1px 8px;border-radius:999px} .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:10px 0} dd{margin:0;color:#fff}</style>
+            <article class="tile" part="tile">
+              <header class="head"><span class="dot dot--healthy"></span><h3 class="name">postgres-primary</h3><span class="badge badge--healthy">Healthy</span></header>
+              <dl class="metrics">
+                <div><dt>p95</dt><dd>4 ms</dd></div>
+                <div><dt>Error rate</dt><dd>0.00%</dd></div>
+                <div><dt>Throughput</dt><dd>12.8k qps</dd></div>
+              </dl>
+              <svg class="spark" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,13 6,9 13,17 19,9 25,12 32,15 38,21 44,19 51,13 57,7 63,7 69,20 76,13 82,20 88,15 95,20 101,20 107,13 114,21 120,19" fill="none"/></svg>
+              <footer class="foot"><span>Database · 30d 99.99%</span><a href="/services/postgres-primary">Open</a></footer>
+            </article>
+          </template>
+        </service-tile>
+        <service-tile name="postgres-replica-2" status="healthy">
+          <template shadowrootmode="open">
+            <style>:host{display:block} .tile{background:var(--pg-surface,#171c26);border-radius:8px;padding:12px;box-shadow:inset 0 0 0 1px #262e3d} .head{display:flex;align-items:center;gap:8px} .dot{width:8px;height:8px;border-radius:50%} .badge{margin-left:auto;font-size:11px;padding:1px 8px;border-radius:999px} .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:10px 0} dd{margin:0;color:#fff}</style>
+            <article class="tile" part="tile">
+              <header class="head"><span class="dot dot--healthy"></span><h3 class="name">postgres-replica-2</h3><span class="badge badge--healthy">Healthy</span></header>
+              <dl class="metrics">
+                <div><dt>p95</dt><dd>6 ms</dd></div>
+                <div><dt>Error rate</dt><dd>0.00%</dd></div>
+                <div><dt>Throughput</dt><dd>7.1k qps</dd></div>
+              </dl>
+              <svg class="spark" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,25 6,17 13,17 19,20 25,17 32,19 38,18 44,14 51,14 57,17 63,13 69,20 76,21 82,16 88,18 95,17 101,18 107,13 114,19 120,21" fill="none"/></svg>
+              <footer class="foot"><span>Database · 30d 99.98%</span><a href="/services/postgres-replica-2">Open</a></footer>
+            </article>
+          </template>
+        </service-tile>
+        <service-tile name="redis-cache" status="healthy">
+          <template shadowrootmode="open">
+            <style>:host{display:block} .tile{background:var(--pg-surface,#171c26);border-radius:8px;padding:12px;box-shadow:inset 0 0 0 1px #262e3d} .head{display:flex;align-items:center;gap:8px} .dot{width:8px;height:8px;border-radius:50%} .badge{margin-left:auto;font-size:11px;padding:1px 8px;border-radius:999px} .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:10px 0} dd{margin:0;color:#fff}</style>
+            <article class="tile" part="tile">
+              <header class="head"><span class="dot dot--healthy"></span><h3 class="name">redis-cache</h3><span class="badge badge--healthy">Healthy</span></header>
+              <dl class="metrics">
+                <div><dt>p95</dt><dd>0.8 ms</dd></div>
+                <div><dt>Error rate</dt><dd>0.00%</dd></div>
+                <div><dt>Throughput</dt><dd>41k ops/s</dd></div>
+              </dl>
+              <svg class="spark" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,12 6,16 13,15 19,20 25,21 32,13 38,18 44,13 51,19 57,19 63,19 69,16 76,12 82,16 88,23 95,20 101,19 107,19 114,23 120,24" fill="none"/></svg>
+              <footer class="foot"><span>Cache · 30d 100%</span><a href="/services/redis-cache">Open</a></footer>
+            </article>
+          </template>
+        </service-tile>
+        <service-tile name="search-indexer" status="healthy">
+          <template shadowrootmode="open">
+            <style>:host{display:block} .tile{background:var(--pg-surface,#171c26);border-radius:8px;padding:12px;box-shadow:inset 0 0 0 1px #262e3d} .head{display:flex;align-items:center;gap:8px} .dot{width:8px;height:8px;border-radius:50%} .badge{margin-left:auto;font-size:11px;padding:1px 8px;border-radius:999px} .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:10px 0} dd{margin:0;color:#fff}</style>
+            <article class="tile" part="tile">
+              <header class="head"><span class="dot dot--healthy"></span><h3 class="name">search-indexer</h3><span class="badge badge--healthy">Healthy</span></header>
+              <dl class="metrics">
+                <div><dt>p95</dt><dd>220 ms</dd></div>
+                <div><dt>Error rate</dt><dd>0.00%</dd></div>
+                <div><dt>Throughput</dt><dd>95 docs/s</dd></div>
+              </dl>
+              <svg class="spark" viewBox="0 0 120 32" aria-hidden="true"><polyline points="0,18 6,17 13,19 19,19 25,11 32,24 38,14 44,12 51,15 57,18 63,15 69,17 76,13 82,20 88,23 95,17 101,11 107,12 114,14 120,19" fill="none"/></svg>
+              <footer class="foot"><span>Worker · 30d 99.97%</span><a href="/services/search-indexer">Open</a></footer>
+            </article>
+          </template>
+        </service-tile>
+          </div>
+        </section>
+        <section class="sc-wiwkTK gGHoRK" aria-labelledby="alerts-heading">
+          <div class="sc-ncPoiR kEhGiv"><h2 id="alerts-heading" class="sc-STLYeU jznJGs">Firing alerts</h2><span class="sc-nByOic bzwwoM">10</span><a href="/alerts" class="sc-BZncLI ZoEkWu">All alerts</a></div>
+          <ul class="sc-BHodzx ZrilOf">
+            <li class="sc-OwGXGd GRUCFL" data-severity="critical" data-alert="01JC8Z4M2Q">
+              <div class="sc-UzNAcV ucFmod" aria-hidden="true"></div>
+              <div class="sc-ezZcaO OjPGqz">
+                <div class="sc-MRaYhW VwIwOP"><span class="sc-bsrbcT eAfyHS">CRIT</span><h4 class="sc-jZfFND QpPaBB">Error budget burn rate 14× on checkout-api</h4></div>
+                <div class="sc-kCDFno RDdfOI"><a href="/services/checkout-api" class="sc-TexVrA UVhwpB">checkout-api</a><span>12m</span><code>slo_burn_rate_1h &gt; 14</code></div>
+              </div>
+              <div class="sc-XMSjcn uTSIiz" role="group" aria-label="Alert actions">
+                <button type="button" class="sc-gxMwmK yZRydw" title="Acknowledge">Ack</button>
+                <span class="sc-hbdiNu jAybOu"><button type="button" class="sc-hWypUQ hEgkMb" aria-label="Silence for 1h"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.7 21a2 2 0 0 1-3.4 0M18.6 13A17.9 17.9 0 0 1 18 8M6.3 6.3A5.9 5.9 0 0 0 6 8c0 7-3 9-3 9h14M18 8a6 6 0 0 0-9.3-5M1 1l22 22"/></svg></button></span>
+                <button type="button" class="sc-hWypUQ hEgkMb" aria-label="More alert actions"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg></button>
+              </div>
+            </li>
+            <li class="sc-OwGXGd GRUCFL" data-severity="critical" data-alert="01JC8V0X7T">
+              <div class="sc-UzNAcV ucFmod" aria-hidden="true"></div>
+              <div class="sc-ezZcaO OjPGqz">
+                <div class="sc-MRaYhW VwIwOP"><span class="sc-bsrbcT eAfyHS">CRIT</span><h4 class="sc-jZfFND QpPaBB">5xx rate above 2% on checkout-api</h4></div>
+                <div class="sc-kCDFno RDdfOI"><a href="/services/checkout-api" class="sc-TexVrA UVhwpB">checkout-api</a><span>34m</span><code>http_5xx_ratio &gt; 0.02</code></div>
+              </div>
+              <div class="sc-XMSjcn uTSIiz" role="group" aria-label="Alert actions">
+                <button type="button" class="sc-gxMwmK yZRydw" title="Acknowledge">Ack</button>
+                <span class="sc-hbdiNu jAybOu"><button type="button" class="sc-hWypUQ hEgkMb" aria-label="Silence for 1h" data-dh-target="t6"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.7 21a2 2 0 0 1-3.4 0M18.6 13A17.9 17.9 0 0 1 18 8M6.3 6.3A5.9 5.9 0 0 0 6 8c0 7-3 9-3 9h14M18 8a6 6 0 0 0-9.3-5M1 1l22 22"/></svg></button></span>
+                <button type="button" class="sc-hWypUQ hEgkMb" aria-label="More alert actions"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg></button>
+              </div>
+            </li>
+            <li class="sc-OwGXGd GRUCFL" data-severity="critical" data-alert="01JC8R2B9K">
+              <div class="sc-UzNAcV ucFmod" aria-hidden="true"></div>
+              <div class="sc-ezZcaO OjPGqz">
+                <div class="sc-MRaYhW VwIwOP"><span class="sc-bsrbcT eAfyHS">CRIT</span><h4 class="sc-jZfFND QpPaBB">kafka-broker-3 is unreachable</h4></div>
+                <div class="sc-kCDFno RDdfOI"><a href="/services/kafka-broker-3" class="sc-TexVrA UVhwpB">kafka-broker-3</a><span>1h 12m</span><code>up == 0</code></div>
+              </div>
+              <div class="sc-XMSjcn uTSIiz" role="group" aria-label="Alert actions">
+                <button type="button" class="sc-gxMwmK yZRydw" title="Acknowledge">Ack</button>
+                <span class="sc-hbdiNu jAybOu"><button type="button" class="sc-hWypUQ hEgkMb" aria-label="Silence for 1h"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.7 21a2 2 0 0 1-3.4 0M18.6 13A17.9 17.9 0 0 1 18 8M6.3 6.3A5.9 5.9 0 0 0 6 8c0 7-3 9-3 9h14M18 8a6 6 0 0 0-9.3-5M1 1l22 22"/></svg></button></span>
+                <button type="button" class="sc-hWypUQ hEgkMb" aria-label="More alert actions"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg></button>
+              </div>
+            </li>
+            <li class="sc-OwGXGd GRUCFL" data-severity="warning" data-alert="01JC8YB1D4">
+              <div class="sc-UzNAcV ucFmod" aria-hidden="true"></div>
+              <div class="sc-ezZcaO OjPGqz">
+                <div class="sc-MRaYhW VwIwOP"><span class="sc-bsrbcT eAfyHS">WARN</span><h4 class="sc-jZfFND QpPaBB">Replica lag above 30 s on postgres-replica-2</h4></div>
+                <div class="sc-kCDFno RDdfOI"><a href="/services/postgres-replica-2" class="sc-TexVrA UVhwpB">postgres-replica-2</a><span>20m</span><code>pg_replication_lag_s &gt; 30</code></div>
+              </div>
+              <div class="sc-XMSjcn uTSIiz" role="group" aria-label="Alert actions">
+                <button type="button" class="sc-gxMwmK yZRydw" title="Acknowledge">Ack</button>
+                <span class="sc-hbdiNu jAybOu"><button type="button" class="sc-hWypUQ hEgkMb" aria-label="Silence for 1h"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.7 21a2 2 0 0 1-3.4 0M18.6 13A17.9 17.9 0 0 1 18 8M6.3 6.3A5.9 5.9 0 0 0 6 8c0 7-3 9-3 9h14M18 8a6 6 0 0 0-9.3-5M1 1l22 22"/></svg></button></span>
+                <button type="button" class="sc-hWypUQ hEgkMb" aria-label="More alert actions"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg></button>
+              </div>
+            </li>
+            <li class="sc-OwGXGd GRUCFL" data-severity="warning" data-alert="01JC8TQ6HN">
+              <div class="sc-UzNAcV ucFmod" aria-hidden="true"></div>
+              <div class="sc-ezZcaO OjPGqz">
+                <div class="sc-MRaYhW VwIwOP"><span class="sc-bsrbcT eAfyHS">WARN</span><h4 class="sc-jZfFND QpPaBB">Disk usage above 90% on postgres-replica-2</h4></div>
+                <div class="sc-kCDFno RDdfOI"><a href="/services/postgres-replica-2" class="sc-TexVrA UVhwpB">postgres-replica-2</a><span>52m</span><code>disk_used_pct &gt; 90</code></div>
+              </div>
+              <div class="sc-XMSjcn uTSIiz" role="group" aria-label="Alert actions">
+                <button type="button" class="sc-gxMwmK yZRydw" title="Acknowledge" data-dh-target="t1">Ack</button>
+                <span class="sc-hbdiNu jAybOu"><button type="button" class="sc-hWypUQ hEgkMb" aria-label="Silence for 1h"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.7 21a2 2 0 0 1-3.4 0M18.6 13A17.9 17.9 0 0 1 18 8M6.3 6.3A5.9 5.9 0 0 0 6 8c0 7-3 9-3 9h14M18 8a6 6 0 0 0-9.3-5M1 1l22 22"/></svg></button></span>
+                <button type="button" class="sc-hWypUQ hEgkMb" aria-label="More alert actions"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg></button>
+              </div>
+            </li>
+            <li class="sc-OwGXGd GRUCFL" data-severity="warning" data-alert="01JC8NF3WA">
+              <div class="sc-UzNAcV ucFmod" aria-hidden="true"></div>
+              <div class="sc-ezZcaO OjPGqz">
+                <div class="sc-MRaYhW VwIwOP"><span class="sc-bsrbcT eAfyHS">WARN</span><h4 class="sc-jZfFND QpPaBB">p95 latency above 1.5 s on payments-worker</h4></div>
+                <div class="sc-kCDFno RDdfOI"><a href="/services/payments-worker" class="sc-TexVrA UVhwpB">payments-worker</a><span>1h 40m</span><code>latency_p95_s &gt; 1.5</code></div>
+              </div>
+              <div class="sc-XMSjcn uTSIiz" role="group" aria-label="Alert actions">
+                <button type="button" class="sc-gxMwmK yZRydw" title="Acknowledge">Ack</button>
+                <span class="sc-hbdiNu jAybOu"><button type="button" class="sc-hWypUQ hEgkMb" aria-label="Silence for 1h"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.7 21a2 2 0 0 1-3.4 0M18.6 13A17.9 17.9 0 0 1 18 8M6.3 6.3A5.9 5.9 0 0 0 6 8c0 7-3 9-3 9h14M18 8a6 6 0 0 0-9.3-5M1 1l22 22"/></svg></button></span>
+                <button type="button" class="sc-hWypUQ hEgkMb" aria-label="More alert actions"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg></button>
+              </div>
+            </li>
+            <li class="sc-OwGXGd GRUCFL" data-severity="warning" data-alert="01JC8K7PZE">
+              <div class="sc-UzNAcV ucFmod" aria-hidden="true"></div>
+              <div class="sc-ezZcaO OjPGqz">
+                <div class="sc-MRaYhW VwIwOP"><span class="sc-bsrbcT eAfyHS">WARN</span><h4 class="sc-jZfFND QpPaBB">Consumer lag above 50k on orders-events</h4></div>
+                <div class="sc-kCDFno RDdfOI"><a href="/services/kafka-broker-3" class="sc-TexVrA UVhwpB">kafka-broker-3</a><span>2h 03m</span><code>consumer_lag &gt; 50000</code></div>
+              </div>
+              <div class="sc-XMSjcn uTSIiz" role="group" aria-label="Alert actions">
+                <button type="button" class="sc-gxMwmK yZRydw" title="Acknowledge">Ack</button>
+                <span class="sc-hbdiNu jAybOu"><button type="button" class="sc-hWypUQ hEgkMb" aria-label="Silence for 1h"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.7 21a2 2 0 0 1-3.4 0M18.6 13A17.9 17.9 0 0 1 18 8M6.3 6.3A5.9 5.9 0 0 0 6 8c0 7-3 9-3 9h14M18 8a6 6 0 0 0-9.3-5M1 1l22 22"/></svg></button></span>
+                <button type="button" class="sc-hWypUQ hEgkMb" aria-label="More alert actions"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg></button>
+              </div>
+            </li>
+            <li class="sc-OwGXGd GRUCFL" data-severity="warning" data-alert="01JC85C2RM">
+              <div class="sc-UzNAcV ucFmod" aria-hidden="true"></div>
+              <div class="sc-ezZcaO OjPGqz">
+                <div class="sc-MRaYhW VwIwOP"><span class="sc-bsrbcT eAfyHS">WARN</span><h4 class="sc-jZfFND QpPaBB">Memory above 85% on ml-scoring-7d9f</h4></div>
+                <div class="sc-kCDFno RDdfOI"><a href="/services/ml-scoring" class="sc-TexVrA UVhwpB">ml-scoring</a><span>6h</span><code>mem_used_pct &gt; 85</code></div>
+              </div>
+              <div class="sc-XMSjcn uTSIiz" role="group" aria-label="Alert actions">
+                <button type="button" class="sc-gxMwmK yZRydw" title="Acknowledge">Ack</button>
+                <span class="sc-hbdiNu jAybOu"><button type="button" class="sc-hWypUQ hEgkMb" aria-label="Silence for 1h"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.7 21a2 2 0 0 1-3.4 0M18.6 13A17.9 17.9 0 0 1 18 8M6.3 6.3A5.9 5.9 0 0 0 6 8c0 7-3 9-3 9h14M18 8a6 6 0 0 0-9.3-5M1 1l22 22"/></svg></button></span>
+                <button type="button" class="sc-hWypUQ hEgkMb" aria-label="More alert actions"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg></button>
+              </div>
+            </li>
+            <li class="sc-OwGXGd GRUCFL" data-severity="info" data-alert="01JC7ZJ0QS">
+              <div class="sc-UzNAcV ucFmod" aria-hidden="true"></div>
+              <div class="sc-ezZcaO OjPGqz">
+                <div class="sc-MRaYhW VwIwOP"><span class="sc-bsrbcT eAfyHS">INFO</span><h4 class="sc-jZfFND QpPaBB">TLS certificate for api.quillpay.example expires in 14 days</h4></div>
+                <div class="sc-kCDFno RDdfOI"><a href="/services/cdn-edge" class="sc-TexVrA UVhwpB">cdn-edge</a><span>5h</span><code>cert_expiry_days &lt; 15</code></div>
+              </div>
+              <div class="sc-XMSjcn uTSIiz" role="group" aria-label="Alert actions">
+                <button type="button" class="sc-gxMwmK yZRydw" title="Acknowledge">Ack</button>
+                <span class="sc-hbdiNu jAybOu"><button type="button" class="sc-hWypUQ hEgkMb" aria-label="Silence for 1h"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.7 21a2 2 0 0 1-3.4 0M18.6 13A17.9 17.9 0 0 1 18 8M6.3 6.3A5.9 5.9 0 0 0 6 8c0 7-3 9-3 9h14M18 8a6 6 0 0 0-9.3-5M1 1l22 22"/></svg></button></span>
+                <button type="button" class="sc-hWypUQ hEgkMb" aria-label="More alert actions"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg></button>
+              </div>
+            </li>
+            <li class="sc-OwGXGd GRUCFL" data-severity="info" data-alert="01JC7S8D1V">
+              <div class="sc-UzNAcV ucFmod" aria-hidden="true"></div>
+              <div class="sc-ezZcaO OjPGqz">
+                <div class="sc-MRaYhW VwIwOP"><span class="sc-bsrbcT eAfyHS">INFO</span><h4 class="sc-jZfFND QpPaBB">Deploy freeze starts Friday 18:00 UTC</h4></div>
+                <div class="sc-kCDFno RDdfOI"><span>Calendar</span><span>9h</span><code>calendar</code></div>
+              </div>
+              <div class="sc-XMSjcn uTSIiz" role="group" aria-label="Alert actions">
+                <button type="button" class="sc-gxMwmK yZRydw" title="Acknowledge">Ack</button>
+                <span class="sc-hbdiNu jAybOu"><button type="button" class="sc-hWypUQ hEgkMb" aria-label="Silence for 1h"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.7 21a2 2 0 0 1-3.4 0M18.6 13A17.9 17.9 0 0 1 18 8M6.3 6.3A5.9 5.9 0 0 0 6 8c0 7-3 9-3 9h14M18 8a6 6 0 0 0-9.3-5M1 1l22 22"/></svg></button></span>
+                <button type="button" class="sc-hWypUQ hEgkMb" aria-label="More alert actions"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <div class="sc-aNjfGY uXaElK">
+        <section class="sc-wiwkTK gGHoRK" aria-labelledby="deploy-heading">
+          <div class="sc-ncPoiR kEhGiv"><h2 id="deploy-heading" class="sc-STLYeU jznJGs">Deploys today</h2></div>
+          <ol class="sc-hbzwtO TFQdsC">
+            <li class="sc-cOLTxC LGeuFT"><span class="sc-eRmJPD OLzeNI">13:41 UTC</span><strong>checkout-api</strong> <code>v2026.11.05-3</code> <span>Rolled out</span> <span class="sc-uSgYFz dsEPrc">by lucia.ferraro</span></li>
+            <li class="sc-cOLTxC LGeuFT"><span class="sc-eRmJPD OLzeNI">11:02 UTC</span><strong>auth-service</strong> <code>v4.22.0</code> <span>Rolled out</span> <span class="sc-uSgYFz dsEPrc">by kenji.watanabe</span></li>
+            <li class="sc-cOLTxC LGeuFT"><span class="sc-eRmJPD OLzeNI">09:57 UTC</span><strong>ml-scoring</strong> <code>v0.18.4</code> <span>Canary 25%</span> <span class="sc-uSgYFz dsEPrc">by amara.diallo</span></li>
+            <li class="sc-cOLTxC LGeuFT"><span class="sc-eRmJPD OLzeNI">Yesterday</span><strong>notifications</strong> <code>v3.9.1</code> <span>Rolled out</span> <span class="sc-uSgYFz dsEPrc">by jon.eriksen</span></li>
+            <li class="sc-cOLTxC LGeuFT"><span class="sc-eRmJPD OLzeNI">Yesterday</span><strong>search-indexer</strong> <code>v1.40.2</code> <span>Rolled back</span> <span class="sc-uSgYFz dsEPrc">by lucia.ferraro</span></li>
+          </ol>
+        </section>
+        <oncall-card schedule="sre-primary">
+          <template shadowrootmode="open">
+            <style>:host{display:block;background:#151a23;border-radius:8px;padding:12px} h2{font-size:14px;margin:0 0 8px} button{margin-top:8px}</style>
+            <h2>On-call</h2>
+            <ul class="people">
+              <li><span class="role">Primary</span> Marisol Ortega</li>
+              <li><span class="role">Secondary</span> Kenji Watanabe</li>
+              <li><span class="role">Escalation</span> Payments engineering</li>
+            </ul>
+            <button type="button" class="page-btn">Page on-call</button>
+          </template>
+        </oncall-card>
+      </div>
+    </main>
+  </div>
+  <aside class="sc-nlBMzd YQmcvJ" aria-label="Incident INC-2291" hidden>
+    <h2>INC-2291 · Elevated 5xx errors on checkout-api</h2>
+    <p>Timeline, responders and linked alerts.</p>
+    <div class="sc-LxRhEM ZPnDXr"><button type="button" class="sc-NWVujb ogEcYl">Join war room</button><button type="button" class="sc-uKWtmo sFLqak">Resolve</button></div>
+  </aside>
+  <nav class="sc-TIVogI ATBrwc" aria-label="Mobile" hidden>
+        <a href="/overview" class="sc-nvwAUV onJxzL" aria-current="page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg><span class="sc-gJFxHp CFqTre">Overview</span></a>
+        <a href="/incidents" class="sc-nvwAUV onJxzL"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg><span class="sc-gJFxHp CFqTre">Incidents</span></a>
+        <a href="/alerts" class="sc-nvwAUV onJxzL"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="sc-gJFxHp CFqTre">Alerts</span><span class="sc-mCktpy ttZtjw">10</span></a>
+        <a href="/services" class="sc-nvwAUV onJxzL"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 2h20v8H2zM2 14h20v8H2zM6 6h.01M6 18h.01"/></svg><span class="sc-gJFxHp CFqTre">Services</span></a>
+        <a href="/logs" class="sc-nvwAUV onJxzL"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17l6-6-6-6M12 19h8"/></svg><span class="sc-gJFxHp CFqTre">Logs</span></a>
+        <a href="/traces" class="sc-nvwAUV onJxzL"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v12M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 9a9 9 0 0 1-9 9"/></svg><span class="sc-gJFxHp CFqTre">Traces</span></a>
+        <a href="/oncall" class="sc-nvwAUV onJxzL"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="sc-gJFxHp CFqTre">On-call</span></a>
+  </nav>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+{
+  "suite": "table-04",
+  "category": "table",
+  "title": "Order fulfilment queue with carrier selects and ship/print-label actions",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "testid-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v1 renders each row's carrier picker as a <pw-carrier-picker> web component with a declarative shadow root; v2 (emotion CSS-in-JS) flattens it to a light-DOM <select> with regenerated id/name and reworded options, moves the app header into a <pw-app-header> shadow root, splits the queue into 'Ready to ship' / 'Awaiting stock' tbodies sorted by a new 'Ship by' column, reorders Destination/Items, turns 'Print label' into an icon-only button, renames 'Ship' to 'Mark as shipped', moves the bulk buttons into a bulk-action bar, and adds a hidden mobile card list plus a hidden mobile bulk bar that duplicate every action. The table id survives, so positional selectors now hit the wrong order.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Carrier <select> of order SO-58237 (Eleanor Whitcombe, Truro)",
+      "css": "tr[data-order='SO-58237'] pw-carrier-picker select[name='carrier']",
+      "xpath": "//table[@id='fulfilment-queue']/tbody/tr[6]//select",
+      "mutations": [
+        "shadow-dom",
+        "structure-move",
+        "sibling-reorder",
+        "insertion",
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "'Ship' button of order SO-58241 (Oliver Brennan) — v2 label 'Mark as shipped'",
+      "css": "#fulfilment-queue tr[data-order='SO-58241'] [data-qa='ship-order']",
+      "xpath": "//tr[td/a='#SO-58241']//button[normalize-space()='Ship']",
+      "mutations": [
+        "copy-change",
+        "testid-change",
+        "class-obfuscation",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "'Print label' button of order SO-58229 (Harriet Mallory) — icon-only in v2",
+      "css": "#fulfilment-queue tbody tr:first-child button[data-qa='print-label']",
+      "xpath": "(//button[contains(@class,'btn-label')])[1]",
+      "mutations": [
+        "copy-change",
+        "testid-change",
+        "class-obfuscation",
+        "attribute-churn",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Destination cell of order SO-58244 (value 'Rotterdam, NL')",
+      "css": "#fulfilment-queue tbody tr:nth-child(12) td.col-dest",
+      "xpath": "//tr[@data-order='SO-58244']/td[6]",
+      "mutations": [
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "attribute-churn",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Bulk 'Print labels for selected' toolbar button (v2: 'Print labels' in the bulk-action bar)",
+      "css": "#bulk-print",
+      "xpath": "//button[normalize-space()='Print labels for selected']",
+      "mutations": [
+        "id-change",
+        "copy-change",
+        "structure-move",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Order-number link '#SO-58233' (Priya Nair) in the queue table",
+      "css": "a.order-link[href='/orders/SO-58233']",
+      "xpath": "//table[@id='fulfilment-queue']//a[.='#SO-58233']",
+      "mutations": [
+        "class-obfuscation",
+        "attribute-churn",
+        "sibling-reorder"
+      ]
+    }
+  ]
+}

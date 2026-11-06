@@ -1,0 +1,101 @@
+{
+  "suite": "dashboard-03",
+  "category": "dashboard",
+  "title": "Infrastructure monitoring overview — Pulsegrid (DevOps)",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 re-implements the console with styled-components. The horizontal top nav becomes a left sidebar (Incidents moves up; a hidden mobile tab bar repeats the links) and the environment select moves into the sidebar header. Each service tile becomes a <service-tile> web component with its own declarative shadow root, sorted by status (down, degraded, healthy). The incident banner turns into a callout inside the page with a <button> instead of a link; a hidden incident drawer repeats 'Join war room'. Alerts are re-sorted by severity, get ULID ids, two new alerts are inserted, 'Acknowledge' becomes 'Ack' and the silence button is wrapped in a tooltip trigger with a new aria-label. On-call moves into an <oncall-card> shadow root.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Acknowledge' button of the alert 'Disk usage above 90% on postgres-replica-2'",
+      "css": "#alert-7812 .btn-ack",
+      "xpath": "//li[@data-alert-id='7812']//button[text()='Acknowledge']",
+      "mutations": [
+        "id-change",
+        "copy-change",
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Status label ('Degraded') of the checkout-api service tile",
+      "css": ".service-tile[data-service=\"checkout-api\"] .status-label",
+      "xpath": "//div[h3='checkout-api']/span[@class='status-label']",
+      "mutations": [
+        "shadow-dom",
+        "sibling-reorder",
+        "class-obfuscation",
+        "attribute-churn",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "'Join war room' action of the active-incident banner (INC-2291)",
+      "css": ".incident-banner a.btn-join",
+      "xpath": "//a[normalize-space()='Join war room']",
+      "mutations": [
+        "tag-change",
+        "structure-move",
+        "class-obfuscation",
+        "attribute-churn",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Environment switcher select (production/staging/dev)",
+      "css": "select#env-select",
+      "xpath": "//select[@aria-label='Environment']",
+      "mutations": [
+        "id-change",
+        "structure-move",
+        "copy-change",
+        "class-obfuscation",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Incidents' item of the primary navigation",
+      "css": ".topnav-links a[href=\"/incidents\"]",
+      "xpath": "//nav[@class='topnav-links']/a[4]",
+      "mutations": [
+        "structure-move",
+        "sibling-reorder",
+        "class-obfuscation",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Icon-only 'Silence' button of the alert '5xx rate above 2% on checkout-api'",
+      "css": "#alert-7811 .btn-silence",
+      "xpath": "//li[@id='alert-7811']//button[@aria-label='Silence alert']",
+      "mutations": [
+        "id-change",
+        "attribute-churn",
+        "wrapper-divs",
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation"
+      ]
+    }
+  ]
+}

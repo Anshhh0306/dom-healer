@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Greenhollow Farms · Fleet · Sparrowgrid</title>
+<link rel="modulepreload" href="/_app/immutable/entry/start.js">
+<style>
+body{margin:0;font:14px/1.5 'Inter',system-ui,sans-serif;background:#f3f6f5;color:#14211e}
+</style>
+</head>
+<body>
+<div class="app svelte-o5qmmx">
+  <aside class="rail svelte-o5qmmx" aria-label="Console navigation">
+    <a class="logo svelte-o5qmmx" href="/fleet"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.6a10 10 0 0 1 14 0M1.4 9a15 15 0 0 1 21.2 0M8.5 16.1a5 5 0 0 1 7 0M12 20h.01"/></svg><span>Sparrowgrid</span></a>
+    <nav class="menu svelte-wvzyrn">
+        <a href="/fleet" class="item active svelte-wvzyrn" aria-current="page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg><span class="label svelte-wvzyrn">Overview</span></a>
+        <a href="/devices" class="item svelte-wvzyrn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg><span class="label svelte-wvzyrn">Devices</span></a>
+        <a href="/alerts" class="item svelte-wvzyrn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="label svelte-wvzyrn">Alerts</span><b class="count svelte-wvzyrn">5</b></a>
+        <a href="/firmware" class="item svelte-wvzyrn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span class="label svelte-wvzyrn">Firmware</span></a>
+        <a href="/groups" class="item svelte-wvzyrn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span class="label svelte-wvzyrn">Groups</span></a>
+        <a href="/rules" class="item svelte-wvzyrn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg><span class="label svelte-wvzyrn">Automations</span></a>
+        <a href="/api-keys" class="item svelte-wvzyrn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11h14v11H5zM7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="label svelte-wvzyrn">API keys</span></a>
+        <a href="/settings" class="item svelte-wvzyrn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span class="label svelte-wvzyrn">Settings</span></a>
+    </nav>
+  </aside>
+  <div class="main svelte-o5qmmx">
+    <header class="topbar svelte-23pggh">
+      <h1 class="title svelte-23pggh">Greenhollow Farms <span class="sub svelte-23pggh">Fleet</span></h1>
+      <div class="site-picker svelte-23pggh">
+        <label for="site-s1" class="svelte-23pggh">Location</label>
+        <select id="site-s1" name="siteId" class="svelte-23pggh" data-dh-target="t3">
+          <option value="gh-north" selected>Greenhouse North</option>
+          <option value="gh-south">Greenhouse South</option>
+          <option value="orchard-c">Orchard Block C</option>
+          <option value="packhouse">Packhouse</option>
+        </select>
+      </div>
+      <div class="search svelte-23pggh"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3"/></svg><input type="search" placeholder="Find a device…" aria-label="Find a device" class="svelte-23pggh"></div>
+      <span class="sync svelte-23pggh">Synced 14:21</span>
+      <button type="button" class="avatar svelte-23pggh" aria-label="Account menu">MR</button>
+    </header>
+    <div class="status-filters svelte-dbu2do" role="group" aria-label="Filter devices by status">
+      <button type="button" class="chip warn svelte-dbu2do" aria-pressed="false"><span class="num svelte-dbu2do">5</span> Needs attention</button>
+      <button type="button" class="chip off svelte-dbu2do" aria-pressed="false"><span class="num svelte-dbu2do" data-dh-target="t5">9</span> Offline</button>
+      <button type="button" class="chip upd svelte-dbu2do" aria-pressed="false"><span class="num svelte-dbu2do">3</span> Updating</button>
+      <button type="button" class="chip low svelte-dbu2do" aria-pressed="false"><span class="num svelte-dbu2do">7</span> Low battery</button>
+      <button type="button" class="chip on svelte-dbu2do" aria-pressed="false"><span class="num svelte-dbu2do">214</span> Online</button>
+    </div>
+    <div class="overview-grid svelte-o5qmmx">
+      <section class="card rollout svelte-0btdi9" aria-labelledby="rollout-h">
+        <div class="card-head svelte-0btdi9"><h2 id="rollout-h" class="svelte-0btdi9">Firmware rollout · 2.4.0</h2><span class="pill svelte-0btdi9">Wave 2 of 4</span></div>
+        <div class="progress svelte-0btdi9" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"><div class="fill svelte-0btdi9" style="width:38%"></div></div>
+        <p class="svelte-0btdi9">81 of 214 devices updated · 2 failures · next wave Nov 5, 21:00</p>
+        <div class="actions svelte-0btdi9"><a href="/firmware/2.4.0" class="svelte-0btdi9">Release notes</a><button type="button" class="btn danger svelte-0btdi9" data-dh-target="t6">Pause rollout</button></div>
+      </section>
+      <fleet-map site="gh-north" class="svelte-o5qmmx">
+        <template shadowrootmode="open">
+          <style>:host{display:block;border-radius:10px;overflow:hidden;background:#f4f8f6} svg{width:100%;height:auto} line{stroke:#dce7e2} .on{fill:#2f9e6e} .off{fill:#c0392b} .upd{fill:#e0a526}</style>
+          <figure class="map" part="map">
+            <svg viewBox="0 0 400 220" aria-hidden="true"><rect x="10" y="10" width="380" height="200" rx="6" fill="none"/><line x1="40" y1="10" x2="40" y2="210"/><line x1="100" y1="10" x2="100" y2="210"/><line x1="160" y1="10" x2="160" y2="210"/><line x1="220" y1="10" x2="220" y2="210"/><line x1="280" y1="10" x2="280" y2="210"/><line x1="340" y1="10" x2="340" y2="210"/><line x1="10" y1="30" x2="390" y2="30"/><line x1="10" y1="80" x2="390" y2="80"/><line x1="10" y1="130" x2="390" y2="130"/><line x1="10" y1="180" x2="390" y2="180"/><circle class="on" cx="52" cy="40" r="5"/><circle class="on" cx="96" cy="62" r="5"/><circle class="on" cx="140" cy="44" r="5"/><circle class="on" cx="188" cy="70" r="5"/><circle class="off" cx="230" cy="52" r="5"/><circle class="upd" cx="272" cy="86" r="5"/><circle class="on" cx="318" cy="60" r="5"/><circle class="on" cx="70" cy="130" r="5"/><circle class="on" cx="128" cy="150" r="5"/><circle class="on" cx="186" cy="140" r="5"/><circle class="off" cx="244" cy="162" r="5"/><circle class="on" cx="300" cy="134" r="5"/><circle class="on" cx="350" cy="170" r="5"/><circle class="on" cx="90" cy="186" r="5"/></svg>
+            <figcaption>Greenhouse North · 14 devices shown</figcaption>
+          </figure>
+        </template>
+      </fleet-map>
+    </div>
+    <section class="card devices svelte-8xibua" aria-labelledby="devices-h">
+      <div class="card-head svelte-8xibua">
+        <h2 id="devices-h" class="svelte-8xibua">Devices</h2>
+        <span class="hint svelte-8xibua">Needs attention first</span>
+        <select name="type" aria-label="Device type" class="svelte-8xibua"><option selected>All types</option><option>Gateways</option><option>Soil sensors</option><option>Valves</option><option>Climate sensors</option><option>Pump controllers</option></select>
+        <button type="button" role="switch" aria-checked="false" class="switch svelte-8xibua">Outdated firmware only</button>
+      </div>
+      <device-grid page-size="12">
+        <template shadowrootmode="open">
+          <style>:host{display:block} .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}</style>
+          <div class="grid" part="grid">
+              <device-card device-id="VALVE-07" status="online">
+                <template shadowrootmode="open">
+                  <style>:host{display:block} .card{border-radius:10px;padding:12px;background:#fff;box-shadow:0 0 0 1px #dfe8e4} header{display:flex;justify-content:space-between;align-items:center} .status{font-size:11px;border-radius:999px;padding:1px 8px} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:8px 0} .label{display:block;color:#6b827c;font-size:11px} .low{color:#c0392b;font-weight:600} .actions{display:flex;gap:6px;align-items:center}</style>
+                  <article class="card" part="card">
+                    <header><h3 class="name">VALVE-07</h3><span class="status online">Online</span></header>
+                    <p class="meta">Irrigation valve · Zone 3</p>
+                    <div class="stats">
+                      <div class="stat"><span class="label">Battery</span><span class="value low" data-dh-target="t2">18%</span></div>
+                      <div class="stat"><span class="label">Signal</span><span class="value">−79 dBm</span></div>
+                      <div class="stat"><span class="label">Firmware</span><span class="value">2.3.1</span></div>
+                    </div>
+                    <footer class="actions">
+                      <button type="button" class="primary">Update to 2.4.0</button>
+                      <button type="button" class="icon" aria-label="Reboot device" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+                      <a href="/devices/VALVE-07" class="details">Details</a>
+                    </footer>
+                  </article>
+                </template>
+              </device-card>
+              <device-card device-id="SM-C11" status="online">
+                <template shadowrootmode="open">
+                  <style>:host{display:block} .card{border-radius:10px;padding:12px;background:#fff;box-shadow:0 0 0 1px #dfe8e4} header{display:flex;justify-content:space-between;align-items:center} .status{font-size:11px;border-radius:999px;padding:1px 8px} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:8px 0} .label{display:block;color:#6b827c;font-size:11px} .low{color:#c0392b;font-weight:600} .actions{display:flex;gap:6px;align-items:center}</style>
+                  <article class="card" part="card">
+                    <header><h3 class="name">SM-C11</h3><span class="status online">Online</span></header>
+                    <p class="meta">Soil moisture sensor · Bed C, row 11</p>
+                    <div class="stats">
+                      <div class="stat"><span class="label">Battery</span><span class="value low">18%</span></div>
+                      <div class="stat"><span class="label">Signal</span><span class="value">−92 dBm</span></div>
+                      <div class="stat"><span class="label">Firmware</span><span class="value">2.3.1</span></div>
+                    </div>
+                    <footer class="actions">
+                      <button type="button" class="primary">Update to 2.4.0</button>
+                      <button type="button" class="icon" aria-label="Reboot device" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+                      <a href="/devices/SM-C11" class="details">Details</a>
+                    </footer>
+                  </article>
+                </template>
+              </device-card>
+              <device-card device-id="CL-N2" status="offline">
+                <template shadowrootmode="open">
+                  <style>:host{display:block} .card{border-radius:10px;padding:12px;background:#fff;box-shadow:0 0 0 1px #dfe8e4} header{display:flex;justify-content:space-between;align-items:center} .status{font-size:11px;border-radius:999px;padding:1px 8px} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:8px 0} .label{display:block;color:#6b827c;font-size:11px} .low{color:#c0392b;font-weight:600} .actions{display:flex;gap:6px;align-items:center}</style>
+                  <article class="card" part="card">
+                    <header><h3 class="name">CL-N2</h3><span class="status offline">Offline</span></header>
+                    <p class="meta">Climate sensor · North aisle</p>
+                    <div class="stats">
+                      <div class="stat"><span class="label">Battery</span><span class="value">41%</span></div>
+                      <div class="stat"><span class="label">Signal</span><span class="value">—</span></div>
+                      <div class="stat"><span class="label">Firmware</span><span class="value">2.3.0</span></div>
+                    </div>
+                    <footer class="actions">
+                      <button type="button" class="primary">Update to 2.4.0</button>
+                      <button type="button" class="icon" aria-label="Reboot device" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+                      <a href="/devices/CL-N2" class="details">Details</a>
+                    </footer>
+                  </article>
+                </template>
+              </device-card>
+              <device-card device-id="PUMP-02" status="offline">
+                <template shadowrootmode="open">
+                  <style>:host{display:block} .card{border-radius:10px;padding:12px;background:#fff;box-shadow:0 0 0 1px #dfe8e4} header{display:flex;justify-content:space-between;align-items:center} .status{font-size:11px;border-radius:999px;padding:1px 8px} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:8px 0} .label{display:block;color:#6b827c;font-size:11px} .low{color:#c0392b;font-weight:600} .actions{display:flex;gap:6px;align-items:center}</style>
+                  <article class="card" part="card">
+                    <header><h3 class="name">PUMP-02</h3><span class="status offline">Offline</span></header>
+                    <p class="meta">Pump controller · Pump house</p>
+                    <div class="stats">
+                      <div class="stat"><span class="label">Battery</span><span class="value">Mains</span></div>
+                      <div class="stat"><span class="label">Signal</span><span class="value">—</span></div>
+                      <div class="stat"><span class="label">Firmware</span><span class="value">1.9.4</span></div>
+                    </div>
+                    <footer class="actions">
+                      <span class="fw-note">Up to date</span>
+                      <button type="button" class="icon" aria-label="Reboot device" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+                      <a href="/devices/PUMP-02" class="details">Details</a>
+                    </footer>
+                  </article>
+                </template>
+              </device-card>
+              <device-card device-id="SM-B02" status="updating">
+                <template shadowrootmode="open">
+                  <style>:host{display:block} .card{border-radius:10px;padding:12px;background:#fff;box-shadow:0 0 0 1px #dfe8e4} header{display:flex;justify-content:space-between;align-items:center} .status{font-size:11px;border-radius:999px;padding:1px 8px} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:8px 0} .label{display:block;color:#6b827c;font-size:11px} .low{color:#c0392b;font-weight:600} .actions{display:flex;gap:6px;align-items:center}</style>
+                  <article class="card" part="card">
+                    <header><h3 class="name">SM-B02</h3><span class="status updating">Updating</span></header>
+                    <p class="meta">Soil moisture sensor · Bed B, row 2</p>
+                    <div class="stats">
+                      <div class="stat"><span class="label">Battery</span><span class="value">55%</span></div>
+                      <div class="stat"><span class="label">Signal</span><span class="value">−84 dBm</span></div>
+                      <div class="stat"><span class="label">Firmware</span><span class="value">2.3.1 → 2.4.0</span></div>
+                    </div>
+                    <footer class="actions">
+                      <span class="fw-note">Installing 2.4.0…</span>
+                      <button type="button" class="icon" aria-label="Reboot device" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+                      <a href="/devices/SM-B02" class="details">Details</a>
+                    </footer>
+                  </article>
+                </template>
+              </device-card>
+              <device-card device-id="CL-N1" status="online">
+                <template shadowrootmode="open">
+                  <style>:host{display:block} .card{border-radius:10px;padding:12px;background:#fff;box-shadow:0 0 0 1px #dfe8e4} header{display:flex;justify-content:space-between;align-items:center} .status{font-size:11px;border-radius:999px;padding:1px 8px} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:8px 0} .label{display:block;color:#6b827c;font-size:11px} .low{color:#c0392b;font-weight:600} .actions{display:flex;gap:6px;align-items:center}</style>
+                  <article class="card" part="card">
+                    <header><h3 class="name">CL-N1</h3><span class="status online">Online</span></header>
+                    <p class="meta">Climate sensor · South aisle</p>
+                    <div class="stats">
+                      <div class="stat"><span class="label">Battery</span><span class="value">89%</span></div>
+                      <div class="stat"><span class="label">Signal</span><span class="value">−70 dBm</span></div>
+                      <div class="stat"><span class="label">Firmware</span><span class="value">2.3.1</span></div>
+                    </div>
+                    <footer class="actions">
+                      <button type="button" class="primary">Update to 2.4.0</button>
+                      <button type="button" class="icon" aria-label="Reboot device" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+                      <a href="/devices/CL-N1" class="details">Details</a>
+                    </footer>
+                  </article>
+                </template>
+              </device-card>
+              <device-card device-id="GW-NORTH-01" status="online">
+                <template shadowrootmode="open">
+                  <style>:host{display:block} .card{border-radius:10px;padding:12px;background:#fff;box-shadow:0 0 0 1px #dfe8e4} header{display:flex;justify-content:space-between;align-items:center} .status{font-size:11px;border-radius:999px;padding:1px 8px} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:8px 0} .label{display:block;color:#6b827c;font-size:11px} .low{color:#c0392b;font-weight:600} .actions{display:flex;gap:6px;align-items:center}</style>
+                  <article class="card" part="card">
+                    <header><h3 class="name">GW-North-01</h3><span class="status online">Online</span></header>
+                    <p class="meta">LoRaWAN gateway · Bay 1</p>
+                    <div class="stats">
+                      <div class="stat"><span class="label">Battery</span><span class="value">Mains</span></div>
+                      <div class="stat"><span class="label">Signal</span><span class="value">−61 dBm</span></div>
+                      <div class="stat"><span class="label">Firmware</span><span class="value">2.3.1</span></div>
+                    </div>
+                    <footer class="actions">
+                      <button type="button" class="primary">Update to 2.4.0</button>
+                      <button type="button" class="icon" aria-label="Reboot device" title="Reboot" data-dh-target="t4"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+                      <a href="/devices/GW-NORTH-01" class="details">Details</a>
+                    </footer>
+                  </article>
+                </template>
+              </device-card>
+              <device-card device-id="GW-NORTH-02" status="online">
+                <template shadowrootmode="open">
+                  <style>:host{display:block} .card{border-radius:10px;padding:12px;background:#fff;box-shadow:0 0 0 1px #dfe8e4} header{display:flex;justify-content:space-between;align-items:center} .status{font-size:11px;border-radius:999px;padding:1px 8px} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:8px 0} .label{display:block;color:#6b827c;font-size:11px} .low{color:#c0392b;font-weight:600} .actions{display:flex;gap:6px;align-items:center}</style>
+                  <article class="card" part="card">
+                    <header><h3 class="name">GW-North-02</h3><span class="status online">Online</span></header>
+                    <p class="meta">LoRaWAN gateway · Bay 4</p>
+                    <div class="stats">
+                      <div class="stat"><span class="label">Battery</span><span class="value">Mains</span></div>
+                      <div class="stat"><span class="label">Signal</span><span class="value">−58 dBm</span></div>
+                      <div class="stat"><span class="label">Firmware</span><span class="value">2.4.0</span></div>
+                    </div>
+                    <footer class="actions">
+                      <span class="fw-note">Up to date</span>
+                      <button type="button" class="icon" aria-label="Reboot device" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+                      <a href="/devices/GW-NORTH-02" class="details">Details</a>
+                    </footer>
+                  </article>
+                </template>
+              </device-card>
+              <device-card device-id="SM-A14" status="online">
+                <template shadowrootmode="open">
+                  <style>:host{display:block} .card{border-radius:10px;padding:12px;background:#fff;box-shadow:0 0 0 1px #dfe8e4} header{display:flex;justify-content:space-between;align-items:center} .status{font-size:11px;border-radius:999px;padding:1px 8px} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:8px 0} .label{display:block;color:#6b827c;font-size:11px} .low{color:#c0392b;font-weight:600} .actions{display:flex;gap:6px;align-items:center}</style>
+                  <article class="card" part="card">
+                    <header><h3 class="name">SM-A14</h3><span class="status online">Online</span></header>
+                    <p class="meta">Soil moisture sensor · Bed A, row 4</p>
+                    <div class="stats">
+                      <div class="stat"><span class="label">Battery</span><span class="value">64%</span></div>
+                      <div class="stat"><span class="label">Signal</span><span class="value">−88 dBm</span></div>
+                      <div class="stat"><span class="label">Firmware</span><span class="value">2.3.1</span></div>
+                    </div>
+                    <footer class="actions">
+                      <button type="button" class="primary" data-dh-target="t1">Update to 2.4.0</button>
+                      <button type="button" class="icon" aria-label="Reboot device" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+                      <a href="/devices/SM-A14" class="details">Details</a>
+                    </footer>
+                  </article>
+                </template>
+              </device-card>
+              <device-card device-id="SM-A15" status="online">
+                <template shadowrootmode="open">
+                  <style>:host{display:block} .card{border-radius:10px;padding:12px;background:#fff;box-shadow:0 0 0 1px #dfe8e4} header{display:flex;justify-content:space-between;align-items:center} .status{font-size:11px;border-radius:999px;padding:1px 8px} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:8px 0} .label{display:block;color:#6b827c;font-size:11px} .low{color:#c0392b;font-weight:600} .actions{display:flex;gap:6px;align-items:center}</style>
+                  <article class="card" part="card">
+                    <header><h3 class="name">SM-A15</h3><span class="status online">Online</span></header>
+                    <p class="meta">Soil moisture sensor · Bed A, row 5</p>
+                    <div class="stats">
+                      <div class="stat"><span class="label">Battery</span><span class="value">71%</span></div>
+                      <div class="stat"><span class="label">Signal</span><span class="value">−90 dBm</span></div>
+                      <div class="stat"><span class="label">Firmware</span><span class="value">2.4.0</span></div>
+                    </div>
+                    <footer class="actions">
+                      <span class="fw-note">Up to date</span>
+                      <button type="button" class="icon" aria-label="Reboot device" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+                      <a href="/devices/SM-A15" class="details">Details</a>
+                    </footer>
+                  </article>
+                </template>
+              </device-card>
+              <device-card device-id="SM-B07" status="online">
+                <template shadowrootmode="open">
+                  <style>:host{display:block} .card{border-radius:10px;padding:12px;background:#fff;box-shadow:0 0 0 1px #dfe8e4} header{display:flex;justify-content:space-between;align-items:center} .status{font-size:11px;border-radius:999px;padding:1px 8px} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:8px 0} .label{display:block;color:#6b827c;font-size:11px} .low{color:#c0392b;font-weight:600} .actions{display:flex;gap:6px;align-items:center}</style>
+                  <article class="card" part="card">
+                    <header><h3 class="name">SM-B07</h3><span class="status online">Online</span></header>
+                    <p class="meta">Soil moisture sensor · Bed B, row 7</p>
+                    <div class="stats">
+                      <div class="stat"><span class="label">Battery</span><span class="value">93%</span></div>
+                      <div class="stat"><span class="label">Signal</span><span class="value">−81 dBm</span></div>
+                      <div class="stat"><span class="label">Firmware</span><span class="value">2.4.0</span></div>
+                    </div>
+                    <footer class="actions">
+                      <span class="fw-note">Up to date</span>
+                      <button type="button" class="icon" aria-label="Reboot device" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+                      <a href="/devices/SM-B07" class="details">Details</a>
+                    </footer>
+                  </article>
+                </template>
+              </device-card>
+              <device-card device-id="VALVE-03" status="online">
+                <template shadowrootmode="open">
+                  <style>:host{display:block} .card{border-radius:10px;padding:12px;background:#fff;box-shadow:0 0 0 1px #dfe8e4} header{display:flex;justify-content:space-between;align-items:center} .status{font-size:11px;border-radius:999px;padding:1px 8px} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:8px 0} .label{display:block;color:#6b827c;font-size:11px} .low{color:#c0392b;font-weight:600} .actions{display:flex;gap:6px;align-items:center}</style>
+                  <article class="card" part="card">
+                    <header><h3 class="name">VALVE-03</h3><span class="status online">Online</span></header>
+                    <p class="meta">Irrigation valve · Zone 1</p>
+                    <div class="stats">
+                      <div class="stat"><span class="label">Battery</span><span class="value">77%</span></div>
+                      <div class="stat"><span class="label">Signal</span><span class="value">−74 dBm</span></div>
+                      <div class="stat"><span class="label">Firmware</span><span class="value">2.4.0</span></div>
+                    </div>
+                    <footer class="actions">
+                      <span class="fw-note">Up to date</span>
+                      <button type="button" class="icon" aria-label="Reboot device" title="Reboot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 6.6a9 9 0 1 1-12.8 0M12 2v10"/></svg></button>
+                      <a href="/devices/VALVE-03" class="details">Details</a>
+                    </footer>
+                  </article>
+                </template>
+              </device-card>
+          </div>
+          <nav class="pager" aria-label="Device pages"><span>1–12 of 226</span><a href="/devices?page=2">Next</a></nav>
+        </template>
+      </device-grid>
+    </section>
+    <footer class="footer svelte-o5qmmx">Sparrowgrid Fleet 4.0 · <a href="https://docs.sparrowgrid.example">Docs</a> · <a href="https://status.sparrowgrid.example">Status</a></footer>
+  </div>
+</div>
+<dialog class="confirm svelte-0btdi9" aria-labelledby="confirm-h">
+  <h2 id="confirm-h" class="svelte-0btdi9">Pause the 2.4.0 rollout?</h2>
+  <p class="svelte-0btdi9">Devices that already updated keep 2.4.0. The remaining waves are put on hold until you resume.</p>
+  <form method="dialog" class="svelte-0btdi9"><button value="cancel" class="btn svelte-0btdi9">Keep rolling out</button><button value="confirm" class="btn danger svelte-0btdi9">Pause rollout</button></form>
+</dialog>
+</body>
+</html>

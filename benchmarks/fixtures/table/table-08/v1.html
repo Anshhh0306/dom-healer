@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transactions – Everyday Current Account – Lindmoor Bank</title>
+<style>
+body{margin:0;font:15px/1.5 Arial,Helvetica,sans-serif;color:#1d1d1b;background:#f3f1ee}
+.bank-header{display:flex;align-items:center;gap:28px;padding:0 32px;height:64px;background:#00543c;color:#fff}
+.bank-logo{color:#fff;font:700 21px Georgia,serif;text-decoration:none}.bank-nav a{color:#d6efe5;text-decoration:none;margin-right:18px}.bank-nav a.is-active{color:#fff;text-decoration:underline}
+.bank-session{margin-left:auto;font-size:13px}.bank-session a{color:#fff}
+.bank-main{max-width:1100px;margin:0 auto;padding:24px 32px}
+.account-summary{background:#fff;border-radius:6px;padding:20px 24px;border-left:6px solid #00543c}.account-meta{color:#5f5f5f;margin:0}
+.balances{display:flex;gap:48px;margin:12px 0 0}.balances dt{font-size:13px;color:#5f5f5f}.balances dd{margin:0;font-size:24px;font-weight:700}.balances .note{font-size:12px;font-weight:400;color:#5f5f5f}
+.account-tabs{display:flex;gap:4px;margin:20px 0 0;border-bottom:2px solid #00543c}.account-tabs a{padding:8px 16px;color:#00543c;text-decoration:none}.account-tabs a.is-active{background:#00543c;color:#fff}
+.ledger-filters{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:14px 0}.ledger-filters input,.ledger-filters select{padding:6px 8px;border:1px solid #8c8c8c;border-radius:3px}
+.btn{padding:6px 14px;border:1px solid #00543c;background:#00543c;color:#fff;border-radius:3px;cursor:pointer}.btn-link{background:none;border-color:transparent;color:#00543c;text-decoration:underline;padding:2px 4px}
+.download-csv{color:#00543c;font-weight:700}
+.ledger{width:100%;border-collapse:collapse;background:#fff}.ledger caption{text-align:left;padding:8px 0;color:#5f5f5f}
+.ledger th{text-align:left;font-size:13px;padding:10px;border-bottom:2px solid #1d1d1b}.ledger td{padding:10px;border-bottom:1px solid #e3e0dc;vertical-align:top}
+.num{text-align:right;font-variant-numeric:tabular-nums}.txn-ref{display:block;font-size:12px;color:#5f5f5f}.amount-in{color:#00703c}
+.txn-category{padding:3px 6px;border:1px solid #b1b4b6;border-radius:3px;background:#fff}
+.txn-toggle{border:0;background:none;color:#00543c;cursor:pointer}.txn-detail td{background:#f8f7f5}.txn-detail__facts{display:grid;grid-template-columns:160px 1fr;margin:0}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.bank-footer{max-width:1100px;margin:0 auto;padding:16px 32px;font-size:12px;color:#5f5f5f}
+</style>
+</head>
+<body>
+<header class="bank-header">
+  <a class="bank-logo" href="/">Lindmoor Bank</a>
+  <nav class="bank-nav" aria-label="Main"><a class="is-active" href="/accounts">Accounts</a><a href="/payments">Payments &amp; transfers</a><a href="/cards">Cards</a><a href="/savings">Savings</a><a href="/help">Help</a></nav>
+  <div class="bank-session">Last log in 2 Nov 2025, 19:04 &middot; <a href="/logout">Log out</a></div>
+</header>
+<main class="bank-main">
+  <section class="account-summary">
+    <h1>Everyday Current Account</h1>
+    <p class="account-meta">Sort code 20-44-91 &middot; Account number ****4821</p>
+    <dl class="balances"><div><dt>Balance</dt><dd>£3,214.77</dd></div><div><dt>Available to spend</dt><dd>£3,714.77</dd><dd class="note">includes £500.00 arranged overdraft</dd></div></dl>
+  </section>
+  <nav class="account-tabs" aria-label="Account"><a class="is-active" href="/accounts/4821/transactions" aria-current="page">Transactions</a><a href="/accounts/4821/statements">Statements</a><a href="/accounts/4821/standing-orders">Standing orders</a><a href="/accounts/4821/direct-debits">Direct debits</a><a href="/accounts/4821/details">Account details</a></nav>
+  <form class="ledger-filters" role="search" action="/accounts/4821/transactions">
+    <label for="txn-search">Search</label>
+    <input id="txn-search" type="search" name="q" placeholder="Search transactions" data-dh-target="t6">
+    <label>Period <select name="period"><option selected>Last 30 days</option><option>This month</option><option>Last 3 months</option><option>Custom range&hellip;</option></select></label>
+    <label>Category <select name="cat"><option selected>All categories</option><option>Income</option><option>Groceries</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></label>
+    <button type="submit" class="btn">Apply</button>
+    <a class="download-csv" href="/accounts/4821/transactions.csv?period=30d" data-dh-target="t5">Download (CSV)</a>
+    <button type="button" class="btn btn-link">Print</button>
+  </form>
+  <table class="ledger" id="ledger">
+    <caption>Transactions from 16 Oct to 31 Oct 2025</caption>
+    <thead>
+      <tr><th scope="col">Date</th><th scope="col">Description</th><th scope="col">Category</th><th scope="col" class="num">Paid out</th><th scope="col" class="num">Paid in</th><th scope="col" class="num">Balance</th><th scope="col"><span class="visually-hidden">Details</span></th></tr>
+    </thead>
+    <tbody>
+        <tr class="txn" data-txn-id="tx_7735">
+          <td class="txn-date"><time datetime="2025-10-31">31 Oct</time></td>
+          <td class="txn-desc"><strong>Halden Consulting Ltd</strong><span class="txn-ref">SALARY OCT 2025</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for Halden Consulting Ltd"><option selected>Income</option><option>Groceries</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out"></td>
+          <td class="num amount-in">£2,846.12</td>
+          <td class="num balance">£3,214.77</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7735" aria-label="Show details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7735" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>31 Oct 2025, 07:02</dd><dt>Payment type</dt><dd>SALARY OCT 2025</dd><dt>Transaction ID</dt><dd>TX_7735</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7733">
+          <td class="txn-date"><time datetime="2025-10-30">30 Oct</time></td>
+          <td class="txn-desc"><strong>Tesco Stores 3214</strong><span class="txn-ref">Contactless · card ending 4821</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for Tesco Stores 3214"><option>Income</option><option selected>Groceries</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out">£48.37</td>
+          <td class="num amount-in"></td>
+          <td class="num balance">£368.65</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7733" aria-label="Show details" data-dh-target="t1"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7733" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>30 Oct 2025, 18:42</dd><dt>Payment type</dt><dd>Contactless</dd><dt>Transaction ID</dt><dd>TX_7733</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7731">
+          <td class="txn-date"><time datetime="2025-10-30">30 Oct</time></td>
+          <td class="txn-desc"><strong>TfL Travel Charge</strong><span class="txn-ref">Contactless · card ending 4821</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for TfL Travel Charge" data-dh-target="t2"><option>Income</option><option>Groceries</option><option selected>Transport</option><option>Shopping</option><option>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out">£8.90</td>
+          <td class="num amount-in"></td>
+          <td class="num balance">£417.02</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7731" aria-label="Show details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7731" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>30 Oct 2025, 08:12</dd><dt>Payment type</dt><dd>Contactless</dd><dt>Transaction ID</dt><dd>TX_7731</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7728">
+          <td class="txn-date"><time datetime="2025-10-29">29 Oct</time></td>
+          <td class="txn-desc"><strong>Amazon Marketplace</strong><span class="txn-ref">AMZN Mktp UK*2K4L91</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for Amazon Marketplace"><option>Income</option><option>Groceries</option><option>Transport</option><option selected>Shopping</option><option>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out" data-dh-target="t3">£42.99</td>
+          <td class="num amount-in"></td>
+          <td class="num balance">£425.92</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7728" aria-label="Show details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7728" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>29 Oct 2025, 21:15</dd><dt>Payment type</dt><dd>AMZN Mktp UK*2K4L91</dd><dt>Transaction ID</dt><dd>TX_7728</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7726">
+          <td class="txn-date"><time datetime="2025-10-28">28 Oct</time></td>
+          <td class="txn-desc"><strong>Pret A Manger</strong><span class="txn-ref">Contactless · card ending 4821</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for Pret A Manger"><option>Income</option><option>Groceries</option><option>Transport</option><option>Shopping</option><option>Bills</option><option selected>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out">£6.45</td>
+          <td class="num amount-in"></td>
+          <td class="num balance">£468.91</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7726" aria-label="Show details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7726" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>28 Oct 2025, 13:05</dd><dt>Payment type</dt><dd>Contactless</dd><dt>Transaction ID</dt><dd>TX_7726</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7725">
+          <td class="txn-date"><time datetime="2025-10-28">28 Oct</time></td>
+          <td class="txn-desc"><strong>Octopus Energy</strong><span class="txn-ref">Direct debit · A-4F2C19</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for Octopus Energy"><option>Income</option><option>Groceries</option><option>Transport</option><option>Shopping</option><option selected>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out">£96.00</td>
+          <td class="num amount-in"></td>
+          <td class="num balance">£475.36</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7725" aria-label="Show details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7725" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>28 Oct 2025, 06:00</dd><dt>Payment type</dt><dd>Direct debit</dd><dt>Transaction ID</dt><dd>TX_7725</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7719">
+          <td class="txn-date"><time datetime="2025-10-26">26 Oct</time></td>
+          <td class="txn-desc"><strong>Transfer to Lindmoor Saver</strong><span class="txn-ref">To account ••7710</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for Transfer to Lindmoor Saver"><option>Income</option><option>Groceries</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Eating out</option><option>Entertainment</option><option selected>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out">£200.00</td>
+          <td class="num amount-in"></td>
+          <td class="num balance">£571.36</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7719" aria-label="Show details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7719" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>26 Oct 2025, 09:30</dd><dt>Payment type</dt><dd>To account ••7710</dd><dt>Transaction ID</dt><dd>TX_7719</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7712">
+          <td class="txn-date"><time datetime="2025-10-25">25 Oct</time></td>
+          <td class="txn-desc"><strong>Sainsbury&#x27;s</strong><span class="txn-ref">Card payment · card ending 4821</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for Sainsbury&#x27;s"><option>Income</option><option selected>Groceries</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out">£63.12</td>
+          <td class="num amount-in"></td>
+          <td class="num balance">£771.36</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="true" aria-controls="txn-detail-tx_7712" aria-label="Hide details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7712">
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>25 Oct 2025, 17:58</dd><dt>Payment type</dt><dd>Card payment</dd><dt>Transaction ID</dt><dd>TX_7712</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute" data-dh-target="t4">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7709">
+          <td class="txn-date"><time datetime="2025-10-24">24 Oct</time></td>
+          <td class="txn-desc"><strong>ASOS refund</strong><span class="txn-ref">Refund · order 8812-0042</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for ASOS refund"><option>Income</option><option>Groceries</option><option>Transport</option><option selected>Shopping</option><option>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out"></td>
+          <td class="num amount-in">£34.00</td>
+          <td class="num balance">£834.48</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7709" aria-label="Show details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7709" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>24 Oct 2025, 11:20</dd><dt>Payment type</dt><dd>Refund</dd><dt>Transaction ID</dt><dd>TX_7709</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7704">
+          <td class="txn-date"><time datetime="2025-10-23">23 Oct</time></td>
+          <td class="txn-desc"><strong>Shell Petrol Station</strong><span class="txn-ref">Card payment · card ending 4821</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for Shell Petrol Station"><option>Income</option><option>Groceries</option><option selected>Transport</option><option>Shopping</option><option>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out">£71.20</td>
+          <td class="num amount-in"></td>
+          <td class="num balance">£800.48</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7704" aria-label="Show details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7704" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>23 Oct 2025, 19:47</dd><dt>Payment type</dt><dd>Card payment</dd><dt>Transaction ID</dt><dd>TX_7704</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7701">
+          <td class="txn-date"><time datetime="2025-10-22">22 Oct</time></td>
+          <td class="txn-desc"><strong>Thames Water</strong><span class="txn-ref">Direct debit · 9001234567</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for Thames Water"><option>Income</option><option>Groceries</option><option>Transport</option><option>Shopping</option><option selected>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out">£38.50</td>
+          <td class="num amount-in"></td>
+          <td class="num balance">£871.68</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7701" aria-label="Show details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7701" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>22 Oct 2025, 06:00</dd><dt>Payment type</dt><dd>Direct debit</dd><dt>Transaction ID</dt><dd>TX_7701</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7690">
+          <td class="txn-date"><time datetime="2025-10-20">20 Oct</time></td>
+          <td class="txn-desc"><strong>Lambeth Council Tax</strong><span class="txn-ref">Direct debit · 10023491</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for Lambeth Council Tax"><option>Income</option><option>Groceries</option><option>Transport</option><option>Shopping</option><option selected>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out">£152.00</td>
+          <td class="num amount-in"></td>
+          <td class="num balance">£910.18</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7690" aria-label="Show details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7690" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>20 Oct 2025, 06:00</dd><dt>Payment type</dt><dd>Direct debit</dd><dt>Transaction ID</dt><dd>TX_7690</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7688">
+          <td class="txn-date"><time datetime="2025-10-19">19 Oct</time></td>
+          <td class="txn-desc"><strong>PureGym</strong><span class="txn-ref">Direct debit · PG-883210</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for PureGym"><option>Income</option><option>Groceries</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option selected>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out">£24.99</td>
+          <td class="num amount-in"></td>
+          <td class="num balance">£1,062.18</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7688" aria-label="Show details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7688" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>19 Oct 2025, 06:00</dd><dt>Payment type</dt><dd>Direct debit</dd><dt>Transaction ID</dt><dd>TX_7688</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7684">
+          <td class="txn-date"><time datetime="2025-10-18">18 Oct</time></td>
+          <td class="txn-desc"><strong>Tesco Stores 3214</strong><span class="txn-ref">Contactless · card ending 4821</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for Tesco Stores 3214"><option>Income</option><option selected>Groceries</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option>Housing</option><option>General</option></select></td>
+          <td class="num amount-out">£52.80</td>
+          <td class="num amount-in"></td>
+          <td class="num balance">£1,087.17</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7684" aria-label="Show details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7684" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>18 Oct 2025, 16:21</dd><dt>Payment type</dt><dd>Contactless</dd><dt>Transaction ID</dt><dd>TX_7684</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+        <tr class="txn" data-txn-id="tx_7675">
+          <td class="txn-date"><time datetime="2025-10-16">16 Oct</time></td>
+          <td class="txn-desc"><strong>J Okonkwo — Rent</strong><span class="txn-ref">Standing order · NOV RENT</span></td>
+          <td class="txn-cat"><select class="txn-category" name="category" aria-label="Category for J Okonkwo — Rent"><option>Income</option><option>Groceries</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Eating out</option><option>Entertainment</option><option>Transfers</option><option>Health &amp; fitness</option><option selected>Housing</option><option>General</option></select></td>
+          <td class="num amount-out">£1,150.00</td>
+          <td class="num amount-in"></td>
+          <td class="num balance">£1,139.97</td>
+          <td class="txn-expand"><button type="button" class="txn-toggle" aria-expanded="false" aria-controls="txn-detail-tx_7675" aria-label="Show details"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button></td>
+        </tr>
+        <tr class="txn-detail" id="txn-detail-tx_7675" hidden>
+          <td colspan="7"><div class="txn-detail__body"><dl class="txn-detail__facts"><dt>Date and time</dt><dd>16 Oct 2025, 09:00</dd><dt>Payment type</dt><dd>Standing order</dd><dt>Transaction ID</dt><dd>TX_7675</dd></dl><div class="txn-detail__actions"><button type="button" class="btn btn-link btn-note">Add a note</button><button type="button" class="btn btn-link btn-dispute">Dispute this transaction</button></div></div></td>
+        </tr>
+    </tbody>
+  </table>
+  <p class="ledger-note">Pending card payments are not shown until they are processed.</p>
+</main>
+<footer class="bank-footer">Lindmoor Bank plc is authorised by the Prudential Regulation Authority. Registered in England No. 0442118. &copy; 2025</footer>
+</body>
+</html>

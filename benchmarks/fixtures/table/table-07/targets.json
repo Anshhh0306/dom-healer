@@ -1,0 +1,101 @@
+{
+  "suite": "table-07",
+  "category": "table",
+  "title": "Product inventory table with inline price/stock editing and per-row save",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "testid-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 is a Tailwind rewrite: price inputs move into <sr-money-field> and stock inputs into <sr-stepper> web components with declarative shadow roots (ids/names dropped), 'Stock' becomes 'On hand' with new 'Available' and 'Committed' columns, the SKU folds into the product cell, rows are re-sorted by Available, the Low-stock badge moves to the Available column, 'Reset' becomes an icon-only 'Discard changes' button, data-testids and data-sku disappear, and decoys are added: a sticky unsaved-changes bar (Save/Discard), a low-stock alert card linking the same product names first, and a hidden bulk-edit drawer with another Price field and Save button. The table id survives, so the positional Save XPath hits another product's Save.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Inline price input of SKU EO-ETH-YIR-250 (Ethiopia Yirgacheffe, 250 g)",
+      "css": "#price-EO-ETH-YIR-250",
+      "xpath": "//tr[td[3]='EO-ETH-YIR-250']//input[@name='price']",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "attribute-churn",
+        "wrapper-divs",
+        "sibling-reorder",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Inline stock-quantity input of SKU EO-GRD-HND-01 (Hand Grinder) — v2 column 'On hand'",
+      "css": "#inventory tbody tr:nth-child(11) input.inline-input--stock",
+      "xpath": "//input[@name='stock'][ancestor::tr/@data-sku='EO-GRD-HND-01']",
+      "mutations": [
+        "shadow-dom",
+        "copy-change",
+        "attribute-churn",
+        "wrapper-divs",
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Per-row 'Save' button of the edited row EO-COL-HUI-1K (Colombia Huila Supremo, 1 kg)",
+      "css": "tr[data-sku='EO-COL-HUI-1K'] button[data-testid='save-row']",
+      "xpath": "//table[@id='inventory']/tbody/tr[4]/td[last()]/button[1]",
+      "mutations": [
+        "testid-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "attribute-churn",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Low stock' badge in the Chemex 6-cup row (EO-CMX-6CP)",
+      "css": "#inventory tbody tr:nth-child(13) .stock-badge",
+      "xpath": "//tr[@data-sku='EO-CMX-6CP']//span[normalize-space()='Low stock']",
+      "mutations": [
+        "structure-move",
+        "sibling-reorder",
+        "class-obfuscation",
+        "attribute-churn",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Product-name link 'Kenya Nyeri AA' in the inventory table",
+      "css": "a.inv-product-link[href='/admin/products/8817']",
+      "xpath": "//a[normalize-space()='Kenya Nyeri AA']",
+      "mutations": [
+        "attribute-churn",
+        "class-obfuscation",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Per-row 'Reset' (discard edits) button of the edited row EO-ESP-BLD-1K (Ember Espresso Blend, 1 kg)",
+      "css": "#inventory tbody tr:nth-child(8) [data-testid='reset-row']",
+      "xpath": "//tr[td[3]='EO-ESP-BLD-1K']//button[normalize-space()='Reset']",
+      "mutations": [
+        "copy-change",
+        "testid-change",
+        "attribute-churn",
+        "class-obfuscation",
+        "sibling-reorder"
+      ]
+    }
+  ]
+}

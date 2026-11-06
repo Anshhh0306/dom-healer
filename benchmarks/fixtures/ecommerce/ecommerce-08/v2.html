@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orders &amp; returns · Harbor Lane</title>
+</head>
+<body>
+<div id="root">
+<div class="bg_teal.900 c_white fs_xs ta_center py_2">Members save an extra 10% this week · Free shipping on furniture over $499</div>
+<header class="pos_sticky top_0 z_20 bg_white bdr-b_1px_solid bdr-c_stone.200">
+  <div class="d_flex ai_center gap_6 px_8 py_3">
+    <a href="/" class="fs_xl fw_bold ls_tight c_teal.900">harbor lane</a>
+    <form role="search" action="/search" class="flex_1 pos_relative"><input type="search" name="q" aria-label="Search Harbor Lane" placeholder="What are you looking for?" class="w_full rounded_full bg_stone.100 px_5 py_2.5"></form>
+    <a href="/account" class="d_flex ai_center gap_2 fs_sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-8 8a8 8 0 0 1 16 0"/></svg><span>Dana</span></a>
+    <a href="/cart" class="pos_relative p_2" aria-label="Cart (1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 4h2l2.4 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2M9 20h.01M18 20h.01"/></svg></a>
+  </div>
+  <nav aria-label="Shop" class="d_flex gap_6 px_8 pb_3 overflow-x_auto"><a href="/shop/new" class="fs_sm fw_medium c_slate.800 hover:c_teal.700">New</a><a href="/shop/furniture" class="fs_sm fw_medium c_slate.800 hover:c_teal.700">Furniture</a><a href="/shop/bedding" class="fs_sm fw_medium c_slate.800 hover:c_teal.700">Bedding</a><a href="/shop/bath" class="fs_sm fw_medium c_slate.800 hover:c_teal.700">Bath</a><a href="/shop/kitchen" class="fs_sm fw_medium c_slate.800 hover:c_teal.700">Kitchen</a><a href="/shop/decor" class="fs_sm fw_medium c_slate.800 hover:c_teal.700">Decor</a><a href="/shop/lighting" class="fs_sm fw_medium c_slate.800 hover:c_teal.700">Lighting</a><a href="/shop/rugs" class="fs_sm fw_medium c_slate.800 hover:c_teal.700">Rugs</a><a href="/shop/outdoor" class="fs_sm fw_medium c_slate.800 hover:c_teal.700">Outdoor</a><a href="/shop/sale" class="fs_sm fw_medium c_slate.800 hover:c_teal.700">Sale</a></nav>
+</header>
+<main class="maxW_7xl mx_auto px_8 py_8 d_grid gridTemplateColumns_240px_1fr gap_10">
+  <nav aria-label="Account" class="d_flex flex-d_column gap_1 fs_sm"><a href="/account/orders" class="d_block px_3 py_2 rounded_md bg_slate.100" aria-current="page">Orders</a><a href="/account/returns" class="d_block px_3 py_2 rounded_md bg_transparent">Returns</a><a href="/account/addresses" class="d_block px_3 py_2 rounded_md bg_transparent">Addresses</a><a href="/account/wallet" class="d_block px_3 py_2 rounded_md bg_transparent">Wallet</a><a href="/account/harbor-rewards" class="d_block px_3 py_2 rounded_md bg_transparent">Harbor Rewards</a><a href="/account/lists-and-registry" class="d_block px_3 py_2 rounded_md bg_transparent">Lists &amp; registry</a><a href="/account/settings" class="d_block px_3 py_2 rounded_md bg_transparent">Settings</a></nav>
+  <div class="d_flex flex-d_column gap_6">
+    <div class="d_flex flex-wrap_wrap ai_center jc_space-between gap_4">
+      <h1 class="fs_3xl fw_semibold ls_tight">Orders &amp; returns</h1>
+      <div class="d_flex ai_center gap_3">
+        <form action="/account/orders/search" method="get" role="search" class="pos_relative">
+          <span class="pos_absolute left_3 top_2.5 c_stone.400"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 4a7 7 0 1 0 4.2 12.6l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg></span>
+          <input type="search" name="q" id="orders-q" aria-label="Search orders" placeholder="Search orders, items or tracking #" class="rounded_full bdr_1px_solid pl_9 pr_4 py_2 fs_sm w_72" data-dh-target="t6">
+        </form>
+        <div class="d_flex ai_center gap_2">
+          <label for="orders-range" class="fs_sm c_stone.600">Showing</label>
+          <select id="orders-range" name="timeFilter" class="rounded_full bdr_1px_solid px_4 py_2 fs_sm" data-dh-target="t4">
+            <option value="30d">Last 30 days</option>
+            <option value="3m" selected>Last 3 months</option>
+            <option value="2026">2026</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="archived">Archived</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div role="tablist" aria-label="Order views" class="d_flex gap_2 bdr-b_1px_solid bdr-c_stone.200">
+      <a role="tab" aria-selected="true" href="/account/orders" class="px_4 py_2 bdr-b_2px_solid fw_semibold">All orders <span class="fs_xs c_stone.500">5</span></a>
+      <a role="tab" aria-selected="false" href="/account/orders/open" class="px_4 py_2 c_stone.600">In progress</a>
+      <a role="tab" aria-selected="false" href="/account/orders/returns" class="px_4 py_2 c_stone.600">Returns</a>
+      <a role="tab" aria-selected="false" href="/account/orders/cancelled" class="px_4 py_2 c_stone.600">Cancelled</a>
+    </div>
+    <section aria-labelledby="buy-again-h" class="bg_stone.50 rounded_2xl p_5">
+      <div class="d_flex jc_space-between ai_center"><h2 id="buy-again-h" class="fs_lg fw_semibold">Buy again</h2><a href="/account/orders/buy-again" class="fs_sm td_underline">See all</a></div>
+      <ul class="d_flex gap_4 mt_4 overflow-x_auto"><li class="d_flex flex-d_column gap_2 p_3 bg_white rounded_xl min-w_48"><img src="https://images.harborlane.com/catalog/ldc-q-oat.jpg?w=200" alt="" class="w_full aspect_square object_cover rounded_lg"><a href="/p/linen-duvet-cover-set-queen-oat" class="fs_sm fw_medium line-clamp_2">Linen Duvet Cover Set, Queen – Oat</a><span class="fs_sm c_gray.600">$219.00</span><button type="button" class="d_inline-flex jc_center rounded_full bdr_1px_solid px_3 py_1.5 fs_sm fw_semibold">Buy again</button></li><li class="d_flex flex-d_column gap_2 p_3 bg_white rounded_xl min-w_48"><img src="https://images.harborlane.com/catalog/wwt-4-wht.jpg?w=200" alt="" class="w_full aspect_square object_cover rounded_lg"><a href="/p/waffle-weave-bath-towels-set-of-4-white" class="fs_sm fw_medium line-clamp_2">Waffle-Weave Bath Towels, Set of 4 – White</a><span class="fs_sm c_gray.600">$64.00</span><button type="button" class="d_inline-flex jc_center rounded_full bdr_1px_solid px_3 py_1.5 fs_sm fw_semibold">Buy again</button></li><li class="d_flex flex-d_column gap_2 p_3 bg_white rounded_xl min-w_48"><img src="https://images.harborlane.com/catalog/hgs-mug-4.jpg?w=200" alt="" class="w_full aspect_square object_cover rounded_lg"><a href="/p/hand-glazed-stoneware-mugs-set-of-4" class="fs_sm fw_medium line-clamp_2">Hand-Glazed Stoneware Mugs, Set of 4</a><span class="fs_sm c_gray.600">$56.00</span><button type="button" class="d_inline-flex jc_center rounded_full bdr_1px_solid px_3 py_1.5 fs_sm fw_semibold">Buy again</button></li><li class="d_flex flex-d_column gap_2 p_3 bg_white rounded_xl min-w_48"><img src="https://images.harborlane.com/catalog/btc-6-nat.jpg?w=200" alt="" class="w_full aspect_square object_cover rounded_lg"><a href="/p/beeswax-taper-candles-set-of-6" class="fs_sm fw_medium line-clamp_2">Beeswax Taper Candles, Set of 6</a><span class="fs_sm c_gray.600">$24.00</span><button type="button" class="d_inline-flex jc_center rounded_full bdr_1px_solid px_3 py_1.5 fs_sm fw_semibold">Buy again</button></li></ul>
+    </section>
+    <div class="d_flex flex-d_column">
+        <hl-order-card order-id="HL-114-9012775" status="returnable">
+          <template shadowrootmode="open">
+            <style>:host{display:block;margin-bottom:16px}.card{border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)}.meta{display:flex;gap:32px;margin:0}.action{display:inline-flex;align-items:center;gap:6px;border:1px solid #d6cec3;border-radius:999px;padding:8px 14px}.action--primary{background:#1f3a47;color:#fff}</style>
+            <article class="card" aria-label="Order placed November 4, 2026">
+              <header class="card__head">
+                <dl class="meta">
+                  <div class="meta__item"><dt>Order placed</dt><dd>November 4, 2026</dd></div>
+                  <div class="meta__item"><dt>Total</dt><dd>$26.16</dd></div>
+                  <div class="meta__item"><dt>Ship to</dt><dd>Dana W.</dd></div>
+                </dl>
+                <div class="card__ids"><span class="card__number">#HL-114-9012775</span><a href="/orders/HL-114-9012775">Details</a><a href="/orders/HL-114-9012775/invoice.pdf">Invoice</a></div>
+              </header>
+              <div class="card__body">
+                <div class="card__status"><p class="status status--returnable">Delivered today</p><p class="status__note">Delivered by Harbor Lane Local Courier at 11:42 AM.</p></div>
+                <div class="card__grid">
+                  <ul class="items">
+              <li class="item">
+                <img class="item__img" src="https://images.harborlane.com/catalog/btc-6-nat.jpg?w=160" alt="">
+                <div class="item__text"><a class="item__name" href="/p/beeswax-taper-candles-set-of-6">Beeswax Taper Candles, Set of 6</a><span class="item__price">$24.00</span><span class="item__note">Eligible for return until Nov 23, 2026</span></div>
+                <div class="item__actions"><button type="button" class="action action--accent"><svg class="action__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 14 4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3"/></svg>Buy again</button><a class="action" href="/p/beeswax-taper-candles-set-of-6">View item</a></div>
+              </li>
+                  </ul>
+                  <div class="card__actions"><button type="button" class="action action--primary" data-href="/orders/HL-114-9012775/tracking">Track shipment</button><a class="action" href="/orders/HL-114-9012775/returns/new">Return or replace items</a><a class="action" href="/orders/HL-114-9012775/reviews">Review your purchase</a></div>
+                </div>
+              </div>
+            </article>
+          </template>
+        </hl-order-card>
+        <hl-order-card order-id="HL-114-8823901" status="transit">
+          <template shadowrootmode="open">
+            <style>:host{display:block;margin-bottom:16px}.card{border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)}.meta{display:flex;gap:32px;margin:0}.action{display:inline-flex;align-items:center;gap:6px;border:1px solid #d6cec3;border-radius:999px;padding:8px 14px}.action--primary{background:#1f3a47;color:#fff}</style>
+            <article class="card" aria-label="Order placed November 2, 2026">
+              <header class="card__head">
+                <dl class="meta">
+                  <div class="meta__item"><dt>Order placed</dt><dd>November 2, 2026</dd></div>
+                  <div class="meta__item"><dt>Total</dt><dd>$276.79</dd></div>
+                  <div class="meta__item"><dt>Ship to</dt><dd>Dana W.</dd></div>
+                </dl>
+                <div class="card__ids"><span class="card__number">#HL-114-8823901</span><a href="/orders/HL-114-8823901">Details</a><a href="/orders/HL-114-8823901/invoice.pdf">Invoice</a></div>
+              </header>
+              <div class="card__body">
+                <div class="card__status"><p class="status status--transit">Arriving Friday</p><p class="status__note">Shipped via Harbor Freight Ground · Out for delivery Nov 6</p></div>
+                <div class="card__grid">
+                  <ul class="items">
+              <li class="item">
+                <img class="item__img" src="https://images.harborlane.com/catalog/lss-q-fog.jpg?w=160" alt="">
+                <div class="item__text"><a class="item__name" href="/p/stonewashed-linen-sheet-set-queen-fog">Stonewashed Linen Sheet Set, Queen – Fog</a><span class="item__price">$189.00</span></div>
+                <div class="item__actions"><button type="button" class="action action--accent"><svg class="action__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 14 4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3"/></svg>Buy again</button><a class="action" href="/p/stonewashed-linen-sheet-set-queen-fog">View item</a></div>
+              </li>
+              <li class="item">
+                <img class="item__img" src="https://images.harborlane.com/catalog/wwt-4-wht.jpg?w=160" alt="">
+                <div class="item__text"><a class="item__name" href="/p/waffle-weave-bath-towels-set-of-4-white">Waffle-Weave Bath Towels, Set of 4 – White</a><span class="item__price">$64.00</span></div>
+                <div class="item__actions"><button type="button" class="action action--accent"><svg class="action__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 14 4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3"/></svg>Buy again</button><a class="action" href="/p/waffle-weave-bath-towels-set-of-4-white">View item</a></div>
+              </li>
+                  </ul>
+                  <div class="card__actions"><button type="button" class="action action--primary" data-href="/orders/HL-114-8823901/tracking" data-dh-target="t1">Track shipment</button><a class="action" href="/help/orders/HL-114-8823901">Report a problem</a><a class="action" href="/orders/HL-114-8823901/reviews">Review your purchase</a></div>
+                </div>
+              </div>
+            </article>
+          </template>
+        </hl-order-card>
+        <hl-order-card order-id="HL-114-7781234" status="returnable">
+          <template shadowrootmode="open">
+            <style>:host{display:block;margin-bottom:16px}.card{border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)}.meta{display:flex;gap:32px;margin:0}.action{display:inline-flex;align-items:center;gap:6px;border:1px solid #d6cec3;border-radius:999px;padding:8px 14px}.action--primary{background:#1f3a47;color:#fff}</style>
+            <article class="card" aria-label="Order placed October 19, 2026">
+              <header class="card__head">
+                <dl class="meta">
+                  <div class="meta__item"><dt>Order placed</dt><dd>October 19, 2026</dd></div>
+                  <div class="meta__item"><dt>Total</dt><dd data-dh-target="t5">$86.40</dd></div>
+                  <div class="meta__item"><dt>Ship to</dt><dd>Dana W.</dd></div>
+                </dl>
+                <div class="card__ids"><span class="card__number">#HL-114-7781234</span><a href="/orders/HL-114-7781234">Details</a><a href="/orders/HL-114-7781234/invoice.pdf">Invoice</a></div>
+              </header>
+              <div class="card__body">
+                <div class="card__status"><p class="status status--returnable">Delivered October 24</p><p class="status__note">Your package was left near the front door.</p></div>
+                <div class="card__grid">
+                  <ul class="items">
+              <li class="item">
+                <img class="item__img" src="https://images.harborlane.com/catalog/ctl-lin-ivy.jpg?w=160" alt="">
+                <div class="item__text"><a class="item__name" href="/p/ceramic-table-lamp-with-linen-shade">Ceramic Table Lamp with Linen Shade</a><span class="item__price">$79.00</span><span class="item__note">Eligible for return until Nov 23, 2026</span></div>
+                <div class="item__actions"><button type="button" class="action action--accent"><svg class="action__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 14 4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3"/></svg>Buy again</button><a class="action" href="/p/ceramic-table-lamp-with-linen-shade">View item</a></div>
+              </li>
+                  </ul>
+                  <div class="card__actions"><button type="button" class="action action--primary" data-href="/orders/HL-114-7781234/tracking">Track shipment</button><a class="action" href="/orders/HL-114-7781234/returns/new" data-dh-target="t2">Return or replace items</a><a class="action" href="/orders/HL-114-7781234/reviews">Review your purchase</a></div>
+                </div>
+              </div>
+            </article>
+          </template>
+        </hl-order-card>
+        <hl-order-card order-id="HL-113-6650912" status="closed">
+          <template shadowrootmode="open">
+            <style>:host{display:block;margin-bottom:16px}.card{border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)}.meta{display:flex;gap:32px;margin:0}.action{display:inline-flex;align-items:center;gap:6px;border:1px solid #d6cec3;border-radius:999px;padding:8px 14px}.action--primary{background:#1f3a47;color:#fff}</style>
+            <article class="card" aria-label="Order placed September 28, 2026">
+              <header class="card__head">
+                <dl class="meta">
+                  <div class="meta__item"><dt>Order placed</dt><dd>September 28, 2026</dd></div>
+                  <div class="meta__item"><dt>Total</dt><dd>$268.92</dd></div>
+                  <div class="meta__item"><dt>Ship to</dt><dd>Dana W.</dd></div>
+                </dl>
+                <div class="card__ids"><span class="card__number">#HL-113-6650912</span><a href="/orders/HL-113-6650912">Details</a><a href="/orders/HL-113-6650912/invoice.pdf">Invoice</a></div>
+              </header>
+              <div class="card__body">
+                <div class="card__status"><p class="status status--closed">Delivered October 3</p><p class="status__note">Return window closed on November 2, 2026.</p></div>
+                <div class="card__grid">
+                  <ul class="items">
+              <li class="item">
+                <img class="item__img" src="https://images.harborlane.com/catalog/ldc-q-oat.jpg?w=160" alt="">
+                <div class="item__text"><a class="item__name" href="/p/linen-duvet-cover-set-queen-oat">Linen Duvet Cover Set, Queen – Oat</a><span class="item__price">$219.00</span></div>
+                <div class="item__actions"><button type="button" class="action action--accent" data-dh-target="t3"><svg class="action__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 14 4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3"/></svg>Buy again</button><a class="action" href="/p/linen-duvet-cover-set-queen-oat">View item</a></div>
+              </li>
+              <li class="item">
+                <img class="item__img" src="https://images.harborlane.com/catalog/dap-std-2.jpg?w=160" alt="">
+                <div class="item__text"><a class="item__name" href="/p/down-alternative-pillows-standard-set-of-2">Down-Alternative Pillows, Standard (Set of 2)</a><span class="item__price">$29.00</span></div>
+                <div class="item__actions"><button type="button" class="action action--accent"><svg class="action__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 14 4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3"/></svg>Buy again</button><a class="action" href="/p/down-alternative-pillows-standard-set-of-2">View item</a></div>
+              </li>
+                  </ul>
+                  <div class="card__actions"><a class="action" href="/orders/HL-113-6650912/reviews">Review your purchase</a></div>
+                </div>
+              </div>
+            </article>
+          </template>
+        </hl-order-card>
+        <hl-order-card order-id="HL-113-5521847" status="closed">
+          <template shadowrootmode="open">
+            <style>:host{display:block;margin-bottom:16px}.card{border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)}.meta{display:flex;gap:32px;margin:0}.action{display:inline-flex;align-items:center;gap:6px;border:1px solid #d6cec3;border-radius:999px;padding:8px 14px}.action--primary{background:#1f3a47;color:#fff}</style>
+            <article class="card" aria-label="Order placed August 14, 2026">
+              <header class="card__head">
+                <dl class="meta">
+                  <div class="meta__item"><dt>Order placed</dt><dd>August 14, 2026</dd></div>
+                  <div class="meta__item"><dt>Total</dt><dd>$142.17</dd></div>
+                  <div class="meta__item"><dt>Ship to</dt><dd>Dana W.</dd></div>
+                </dl>
+                <div class="card__ids"><span class="card__number">#HL-113-5521847</span><a href="/orders/HL-113-5521847">Details</a><a href="/orders/HL-113-5521847/invoice.pdf">Invoice</a></div>
+              </header>
+              <div class="card__body">
+                <div class="card__status"><p class="status status--closed">Delivered August 19</p><p class="status__note">Return window closed on September 18, 2026.</p></div>
+                <div class="card__grid">
+                  <ul class="items">
+              <li class="item">
+                <img class="item__img" src="https://images.harborlane.com/catalog/aws-brd-l.jpg?w=160" alt="">
+                <div class="item__text"><a class="item__name" href="/p/acacia-wood-serving-board">Acacia Wood Serving Board</a><span class="item__price">$48.00</span></div>
+                <div class="item__actions"><button type="button" class="action action--accent"><svg class="action__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 14 4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3"/></svg>Buy again</button><a class="action" href="/p/acacia-wood-serving-board">View item</a></div>
+              </li>
+              <li class="item">
+                <img class="item__img" src="https://images.harborlane.com/catalog/hgs-mug-4.jpg?w=160" alt="">
+                <div class="item__text"><a class="item__name" href="/p/hand-glazed-stoneware-mugs-set-of-4">Hand-Glazed Stoneware Mugs, Set of 4</a><span class="item__price">$56.00</span></div>
+                <div class="item__actions"><button type="button" class="action action--accent"><svg class="action__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 14 4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3"/></svg>Buy again</button><a class="action" href="/p/hand-glazed-stoneware-mugs-set-of-4">View item</a></div>
+              </li>
+              <li class="item">
+                <img class="item__img" src="https://images.harborlane.com/catalog/lnp-6-sag.jpg?w=160" alt="">
+                <div class="item__text"><a class="item__name" href="/p/linen-napkins-set-of-6-sage">Linen Napkins, Set of 6 – Sage</a><span class="item__price">$26.00</span></div>
+                <div class="item__actions"><button type="button" class="action action--accent"><svg class="action__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 14 4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3"/></svg>Buy again</button><a class="action" href="/p/linen-napkins-set-of-6-sage">View item</a></div>
+              </li>
+                  </ul>
+                  <div class="card__actions"><a class="action" href="/orders/HL-113-5521847/reviews">Review your purchase</a></div>
+                </div>
+              </div>
+            </article>
+          </template>
+        </hl-order-card>
+    </div>
+    <nav aria-label="Pagination" class="d_flex jc_center gap_2"><a aria-current="page" class="px_3 py_1 rounded_md bg_teal.900 c_white">1</a><a href="/account/orders?page=2" class="px_3 py_1 rounded_md">2</a><a href="/account/orders?page=2" class="px_3 py_1 rounded_md" rel="next">Next</a></nav>
+  </div>
+</main>
+<footer class="bg_stone.900 c_stone.200 px_8 py_12">
+  <div class="d_grid gridTemplateColumns_repeat(3,1fr) gap_8">
+    <nav aria-label="Help" class="d_flex flex-d_column gap_2"><a href="/help">Help center</a><a href="/help/delivery">Delivery &amp; assembly</a><a href="/help/returns">Returns</a></nav>
+    <nav aria-label="Company" class="d_flex flex-d_column gap_2"><a href="/about">About</a><a href="/showrooms">Showrooms</a><a href="/design-services">Design services</a><a href="/trade">Trade</a></nav>
+    <form action="/newsletter" method="post" class="d_flex gap_2"><input type="email" name="email" placeholder="Email address" aria-label="Email address" class="flex_1 rounded_full px_4 py_2"><button type="submit" class="rounded_full bg_white c_stone.900 px_4 py_2">Sign up</button></form>
+  </div>
+  <p class="mt_8 fs_xs c_stone.400">© 2026 Harbor Lane Home, Inc. · Privacy · Terms · Accessibility</p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+{
+  "suite": "ecommerce-10",
+  "category": "ecommerce",
+  "title": "Deals & comparison page with flash-deal countdown and coupons — electronics store",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v1 renders the flash-deal countdown inside the <flash-countdown> web component's shadow root; v2 is a MUI v5 (Mui* + emotion css-*) rebuild that renders the countdown in light DOM and inserts a 'Deal of the Day' section with its own role=timer countdown above it. The compare tray moves into <amp-compare-dock>'s shadow root ('Compare now' → 'Compare 2 items'). Deal cards become MUI Grid/Card markup sorted by biggest savings, lose ids/data-sku (coupon ids survive as analytics attributes), 'Compare' becomes 'Add to compare'. Category tabs become role=tab links in a new order, a 'Shop deals by category' block repeats 'Monitors', and a 'Top deals right now' rail repeats the Lumen Book Pro 14 price.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Compare' checkbox of the 'Lumen Book Pro 14 (2026)' deal card (checked)",
+      "css": "#compare-LBP14-512",
+      "xpath": "//article[@data-sku='LBP14-512']//input[@type='checkbox']",
+      "mutations": [
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs",
+        "sibling-reorder",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "'Clip coupon' button of the 'Arcadia Tab 11 Wi-Fi, 128GB' deal",
+      "css": "article[data-sku='ATAB11-128'] .coupon-clip",
+      "xpath": "//button[@data-coupon-id='CPN-7731']",
+      "mutations": [
+        "class-obfuscation",
+        "attribute-churn",
+        "sibling-reorder",
+        "decoy",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Flash-deal countdown timer ('Ends in 02:41:17')",
+      "css": "#flash-countdown",
+      "xpath": "//div[@role='timer']",
+      "mutations": [
+        "shadow-dom",
+        "structure-move",
+        "id-change",
+        "insertion",
+        "decoy",
+        "copy-change"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Compare now' button in the compare tray",
+      "css": "#compare-tray .compare-tray__cta",
+      "xpath": "//button[normalize-space()='Compare now']",
+      "mutations": [
+        "shadow-dom",
+        "copy-change",
+        "id-change",
+        "class-obfuscation",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Monitors' category tab above the deal grid",
+      "css": ".deal-tabs button[data-tab='monitors']",
+      "xpath": "//div[@role='tablist']/button[4]",
+      "mutations": [
+        "tag-change",
+        "sibling-reorder",
+        "decoy",
+        "class-obfuscation",
+        "wrapper-divs",
+        "insertion"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Deal price ($999.99) of the 'Lumen Book Pro 14 (2026)' card",
+      "css": "#deal-LBP14-512 .price-now",
+      "xpath": "//article[@data-sku='LBP14-512']//span[@class='price-now']",
+      "mutations": [
+        "decoy",
+        "id-change",
+        "attribute-churn",
+        "class-obfuscation",
+        "sibling-reorder"
+      ]
+    }
+  ]
+}

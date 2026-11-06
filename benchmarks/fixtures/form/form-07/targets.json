@@ -1,0 +1,100 @@
+{
+  "suite": "form-07",
+  "category": "form",
+  "title": "Post-flight satisfaction survey: Likert grid, NPS 0–10, comments — Skyward Air",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion",
+    "tag-change"
+  ],
+  "notes": "v1 is a classic survey-tool page: a <table> Likert matrix (rows = journey stages, columns Very dissatisfied … Not applicable), an NPS fieldset of 11 radio inputs, numbered questions. v2 is a SvelteKit rewrite with renamed classes plus svelte-xxxxxxx scoping: each Likert row becomes a role=radiogroup card with pill labels, statements are reordered, the scale is reversed (Very satisfied first) and a 'Baggage delivery' row is added; the NPS question becomes a <sw-rating-scale> declarative shadow root with role=radio buttons and its question is a slotted <h2> with reworded copy. Decoys: an inserted 0–10 'choose Skyward Air for your next trip' scale (same component, another '9' button) placed before the NPS question, reordered checkbox tiles, and a site-wide 'Website feedback' widget with its own textarea and 'Submit feedback' button.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Dissatisfied' radio in the 'Seat comfort' row of the satisfaction grid",
+      "css": "table.matrix-table tbody tr:nth-child(4) td:nth-child(3) input",
+      "xpath": "//input[@name='q4_seat' and @value='2']",
+      "mutations": [
+        "class-obfuscation",
+        "tag-change",
+        "sibling-reorder",
+        "wrapper-divs",
+        "attribute-churn",
+        "insertion"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "NPS score '9' option",
+      "css": "#nps-9",
+      "xpath": "//fieldset[@id='q5']//input[@value='9']",
+      "mutations": [
+        "shadow-dom",
+        "tag-change",
+        "id-change",
+        "class-obfuscation",
+        "decoy",
+        "insertion"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Free-text 'reason for your score' textarea",
+      "css": "textarea[name='q6_reason']",
+      "xpath": "//textarea[@id='q6-text']",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Submit survey' button",
+      "css": ".survey-nav .btn-submit",
+      "xpath": "//button[normalize-space()='Submit survey']",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "decoy",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "NPS question text ('How likely are you to recommend Skyward Air…')",
+      "css": "#q5 > legend",
+      "xpath": "//legend[contains(., 'recommend Skyward Air')]",
+      "mutations": [
+        "tag-change",
+        "copy-change",
+        "class-obfuscation",
+        "structure-move",
+        "insertion"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'My checked bag was delayed or damaged' checkbox",
+      "css": "#q7-bag",
+      "xpath": "//label[contains(., 'checked bag')]/input",
+      "mutations": [
+        "class-obfuscation",
+        "attribute-churn",
+        "copy-change",
+        "sibling-reorder",
+        "insertion"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unassigned – Quokka Desk</title>
+<style>
+body{margin:0;font:13px/1.5 "Lato",Arial,sans-serif;color:#2f3941;background:#f8f9f9}
+.qd-topbar{display:flex;align-items:center;gap:14px;height:52px;padding:0 16px;background:#03363d;color:#fff}
+.qd-search input{width:320px;border-radius:4px;border:0;padding:6px 10px}
+.qd-btn{display:inline-block;border-radius:4px;padding:5px 12px;border:1px solid #1f73b7;background:#fff;color:#1f73b7;text-decoration:none}
+.qd-btn-new{background:#1f73b7;color:#fff}
+.qd-body{display:grid;grid-template-columns:230px 1fr 260px;min-height:calc(100vh - 52px)}
+.qd-views{background:#fff;border-right:1px solid #d8dcde;padding:12px}
+.qd-view-list{list-style:none;margin:0;padding:0}.qd-view{display:flex;justify-content:space-between;padding:6px 8px;border-radius:4px;color:#2f3941;text-decoration:none}
+.qd-view.active{background:#e9ebed;font-weight:700}
+.qd-main{padding:16px}
+.qd-tickets{width:100%;border-collapse:collapse;background:#fff}.qd-tickets td,.qd-tickets th{padding:8px;border-bottom:1px solid #e9ebed;text-align:left}
+.qd-sla{font-weight:700;padding:1px 6px;border-radius:3px}.qd-sla-warning{background:#fff0c7}.qd-sla-danger,.qd-sla-breached{background:#fde8e8;color:#cc3340}
+.qd-prio{font-size:11px;text-transform:uppercase}
+.qd-stats dl{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.qd-stats dd{margin:0;font-size:20px;font-weight:700}
+.qd-side{border-left:1px solid #d8dcde;padding:12px;background:#fff}
+</style>
+</head>
+<body>
+<header class="qd-topbar">
+  <a class="qd-logo" href="/agent">Quokka Desk</a>
+  <form class="qd-search" role="search" action="/agent/search"><input type="search" name="q" placeholder="Search tickets, customers, articles" aria-label="Search"></form>
+  <a href="/agent/tickets/new" class="qd-btn qd-btn-new" data-dh-target="t5">+ New ticket</a>
+  <presence-switch agent="tkern">
+    <template shadowrootmode="open">
+      <style>:host{display:inline-flex} .presence{display:inline-flex;align-items:center;gap:6px} .dot{width:8px;height:8px;border-radius:50%;background:#5eae91}</style>
+      <label class="presence"><span class="dot"></span><span class="sr">Status</span>
+        <select id="agent-status" name="status" data-dh-target="t4"><option value="online" selected>Online</option><option value="away">Away</option><option value="offline">Offline</option></select>
+      </label>
+    </template>
+  </presence-switch>
+  <button type="button" class="qd-icon" aria-label="Notifications"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></button>
+  <span class="qd-avatar" title="Tobias Kern">TK</span>
+</header>
+<div class="qd-body">
+  <aside class="qd-views">
+    <h2 class="qd-views-title">Views</h2>
+    <ul class="qd-view-list">
+        <li><a href="/agent/views/unassigned" class="qd-view active">Unassigned <span class="qd-count">14</span></a></li>
+        <li><a href="/agent/views/mine" class="qd-view">My open tickets <span class="qd-count">9</span></a></li>
+        <li><a href="/agent/views/urgent" class="qd-view">Urgent <span class="qd-count">3</span></a></li>
+        <li><a href="/agent/views/pending" class="qd-view" data-dh-target="t3">Waiting on customer <span class="qd-count">22</span></a></li>
+        <li><a href="/agent/views/billing" class="qd-view">Billing <span class="qd-count">11</span></a></li>
+        <li><a href="/agent/views/bugs" class="qd-view">Bugs &amp; defects <span class="qd-count">7</span></a></li>
+        <li><a href="/agent/views/solved" class="qd-view">Recently solved</a></li>
+    </ul>
+    <h2 class="qd-views-title">Team views</h2>
+    <ul class="qd-view-list">
+        <li><a href="/agent/views/tier2" class="qd-view">Tier 2 escalations <span class="qd-count">4</span></a></li>
+        <li><a href="/agent/views/vip" class="qd-view">VIP accounts <span class="qd-count">2</span></a></li>
+        <li><a href="/agent/views/refunds" class="qd-view">Refund requests <span class="qd-count">6</span></a></li>
+    </ul>
+    <a href="/agent/views/manage" class="qd-manage">Manage views</a>
+  </aside>
+  <main class="qd-main">
+    <div class="qd-queue-head">
+      <h1>Unassigned</h1>
+      <span class="qd-muted">14 tickets · sorted by created date</span>
+      <div class="qd-bulk"><button type="button" class="qd-btn" disabled>Assign selected</button><button type="button" class="qd-btn" disabled>Merge</button></div>
+    </div>
+    <section class="qd-stats" aria-label="Team performance">
+      <dl>
+        <div class="qd-stat"><dt>First response time (today)</dt><dd data-dh-target="t6">1h 12m</dd></div>
+        <div class="qd-stat"><dt>SLA compliance (7 days)</dt><dd>94.3%</dd></div>
+        <div class="qd-stat"><dt>Tickets solved today</dt><dd>58</dd></div>
+        <div class="qd-stat"><dt>CSAT (30 days)</dt><dd>4.6 / 5</dd></div>
+      </dl>
+    </section>
+    <table class="qd-tickets">
+      <thead><tr><th><input type="checkbox" aria-label="Select all tickets"></th><th>Subject</th><th>Requester</th><th>Priority</th><th>SLA</th><th>Channel</th><th>Created</th><th></th></tr></thead>
+      <tbody>
+          <tr class="qd-ticket" data-ticket-id="48213">
+            <td><input type="checkbox" aria-label="Select ticket #48213"></td>
+            <td class="qd-subject"><a href="/agent/tickets/48213">Refund not received for order #77120</a> <span class="qd-ticket-id">#48213</span></td>
+            <td class="qd-requester">Grace Okafor</td>
+            <td><span class="qd-prio qd-prio-high">High</span></td>
+            <td><span class="qd-sla qd-sla-warning">0h 42m</span></td>
+            <td class="qd-channel">Email</td>
+            <td class="qd-created">Today 09:14</td>
+            <td class="qd-actions"><button type="button" class="qd-btn qd-btn-claim" data-dh-target="t1">Claim</button></td>
+          </tr>
+          <tr class="qd-ticket" data-ticket-id="48190">
+            <td><input type="checkbox" aria-label="Select ticket #48190"></td>
+            <td class="qd-subject"><a href="/agent/tickets/48190">SSO login loop for entire team</a> <span class="qd-ticket-id">#48190</span></td>
+            <td class="qd-requester">Viktor Lindgren</td>
+            <td><span class="qd-prio qd-prio-urgent">Urgent</span></td>
+            <td><span class="qd-sla qd-sla-danger" data-dh-target="t2">0h 08m</span></td>
+            <td class="qd-channel">Chat</td>
+            <td class="qd-created">Today 08:51</td>
+            <td class="qd-actions"><button type="button" class="qd-btn qd-btn-claim">Claim</button></td>
+          </tr>
+          <tr class="qd-ticket" data-ticket-id="48177">
+            <td><input type="checkbox" aria-label="Select ticket #48177"></td>
+            <td class="qd-subject"><a href="/agent/tickets/48177">Export to CSV times out for large reports</a> <span class="qd-ticket-id">#48177</span></td>
+            <td class="qd-requester">Mei Chen</td>
+            <td><span class="qd-prio qd-prio-normal">Normal</span></td>
+            <td><span class="qd-sla qd-sla-ok">3h 15m</span></td>
+            <td class="qd-channel">Email</td>
+            <td class="qd-created">Today 08:02</td>
+            <td class="qd-actions"><button type="button" class="qd-btn qd-btn-claim">Claim</button></td>
+          </tr>
+          <tr class="qd-ticket" data-ticket-id="48172">
+            <td><input type="checkbox" aria-label="Select ticket #48172"></td>
+            <td class="qd-subject"><a href="/agent/tickets/48172">Can't add a second billing contact</a> <span class="qd-ticket-id">#48172</span></td>
+            <td class="qd-requester">Daniel Osei</td>
+            <td><span class="qd-prio qd-prio-low">Low</span></td>
+            <td><span class="qd-sla qd-sla-ok">6h 40m</span></td>
+            <td class="qd-channel">Web form</td>
+            <td class="qd-created">Today 07:40</td>
+            <td class="qd-actions"><button type="button" class="qd-btn qd-btn-claim">Claim</button></td>
+          </tr>
+          <tr class="qd-ticket" data-ticket-id="48166">
+            <td><input type="checkbox" aria-label="Select ticket #48166"></td>
+            <td class="qd-subject"><a href="/agent/tickets/48166">Webhook deliveries failing with 401</a> <span class="qd-ticket-id">#48166</span></td>
+            <td class="qd-requester">Laura Becker</td>
+            <td><span class="qd-prio qd-prio-high">High</span></td>
+            <td><span class="qd-sla qd-sla-breached">−0h 12m</span></td>
+            <td class="qd-channel">Email</td>
+            <td class="qd-created">Today 07:12</td>
+            <td class="qd-actions"><button type="button" class="qd-btn qd-btn-claim">Claim</button></td>
+          </tr>
+          <tr class="qd-ticket" data-ticket-id="48159">
+            <td><input type="checkbox" aria-label="Select ticket #48159"></td>
+            <td class="qd-subject"><a href="/agent/tickets/48159">Invoice shows wrong VAT number</a> <span class="qd-ticket-id">#48159</span></td>
+            <td class="qd-requester">Tomasz Wiśniewski</td>
+            <td><span class="qd-prio qd-prio-normal">Normal</span></td>
+            <td><span class="qd-sla qd-sla-ok">2h 05m</span></td>
+            <td class="qd-channel">Email</td>
+            <td class="qd-created">Yesterday 18:33</td>
+            <td class="qd-actions"><button type="button" class="qd-btn qd-btn-claim">Claim</button></td>
+          </tr>
+          <tr class="qd-ticket" data-ticket-id="48151">
+            <td><input type="checkbox" aria-label="Select ticket #48151"></td>
+            <td class="qd-subject"><a href="/agent/tickets/48151">Mobile app crashes when uploading photos</a> <span class="qd-ticket-id">#48151</span></td>
+            <td class="qd-requester">Ana Lima</td>
+            <td><span class="qd-prio qd-prio-high">High</span></td>
+            <td><span class="qd-sla qd-sla-warning">1h 20m</span></td>
+            <td class="qd-channel">In-app</td>
+            <td class="qd-created">Yesterday 17:02</td>
+            <td class="qd-actions"><button type="button" class="qd-btn qd-btn-claim">Claim</button></td>
+          </tr>
+          <tr class="qd-ticket" data-ticket-id="48144">
+            <td><input type="checkbox" aria-label="Select ticket #48144"></td>
+            <td class="qd-subject"><a href="/agent/tickets/48144">Request: dark mode for the dashboard</a> <span class="qd-ticket-id">#48144</span></td>
+            <td class="qd-requester">Kofi Mensah</td>
+            <td><span class="qd-prio qd-prio-low">Low</span></td>
+            <td><span class="qd-sla qd-sla-ok">1d 2h</span></td>
+            <td class="qd-channel">Community</td>
+            <td class="qd-created">Yesterday 15:47</td>
+            <td class="qd-actions"><button type="button" class="qd-btn qd-btn-claim">Claim</button></td>
+          </tr>
+          <tr class="qd-ticket" data-ticket-id="48139">
+            <td><input type="checkbox" aria-label="Select ticket #48139"></td>
+            <td class="qd-subject"><a href="/agent/tickets/48139">Password reset email never arrives</a> <span class="qd-ticket-id">#48139</span></td>
+            <td class="qd-requester">Sophie Martin</td>
+            <td><span class="qd-prio qd-prio-normal">Normal</span></td>
+            <td><span class="qd-sla qd-sla-ok">4h 50m</span></td>
+            <td class="qd-channel">Phone</td>
+            <td class="qd-created">Yesterday 14:20</td>
+            <td class="qd-actions"><button type="button" class="qd-btn qd-btn-claim">Claim</button></td>
+          </tr>
+          <tr class="qd-ticket" data-ticket-id="48131">
+            <td><input type="checkbox" aria-label="Select ticket #48131"></td>
+            <td class="qd-subject"><a href="/agent/tickets/48131">Charged twice for annual plan</a> <span class="qd-ticket-id">#48131</span></td>
+            <td class="qd-requester">Ravi Shankar</td>
+            <td><span class="qd-prio qd-prio-urgent">Urgent</span></td>
+            <td><span class="qd-sla qd-sla-warning">0h 31m</span></td>
+            <td class="qd-channel">Phone</td>
+            <td class="qd-created">Yesterday 13:05</td>
+            <td class="qd-actions"><button type="button" class="qd-btn qd-btn-claim">Claim</button></td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="qd-pager">1–10 of 14 · <a href="?page=2">Next page</a></div>
+  </main>
+  <aside class="qd-side">
+    <h2>Agents online</h2>
+    <ul class="qd-agents">
+      <li class="qd-agent"><span class="qd-agent-name">Tobias Kern</span><span class="qd-agent-status qd-online">Online</span><span class="qd-agent-load">9 open</span></li>
+      <li class="qd-agent"><span class="qd-agent-name">Amina Yusuf</span><span class="qd-agent-status qd-online">Online</span><span class="qd-agent-load">12 open</span></li>
+      <li class="qd-agent"><span class="qd-agent-name">Jonas Berg</span><span class="qd-agent-status qd-away">Away</span><span class="qd-agent-load">7 open</span></li>
+      <li class="qd-agent"><span class="qd-agent-name">Lucía Ortega</span><span class="qd-agent-status qd-online">Online</span><span class="qd-agent-load">10 open</span></li>
+      <li class="qd-agent"><span class="qd-agent-name">Ewan MacLeod</span><span class="qd-agent-status qd-online">Online</span><span class="qd-agent-load">5 open</span></li>
+      <li class="qd-agent"><span class="qd-agent-name">Hye-jin Park</span><span class="qd-agent-status qd-away">Away</span><span class="qd-agent-load">8 open</span></li>
+    </ul>
+    <h2>Popular macros</h2>
+    <ul class="qd-macros"><li><a href="/agent/macros/12">Refund — request bank details</a></li><li><a href="/agent/macros/7">SSO troubleshooting checklist</a></li><li><a href="/agent/macros/31">Close — no reply 7 days</a></li></ul>
+  </aside>
+</div>
+<footer class="qd-footer">Quokka Desk · Pinecrest Software support · <a href="/agent/shortcuts">Keyboard shortcuts</a></footer>
+</body>
+</html>

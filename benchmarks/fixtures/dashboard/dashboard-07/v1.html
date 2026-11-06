@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard – Postwick</title>
+<style>
+body{margin:0;font:14px/1.5 "Work Sans",Arial,sans-serif;color:#22223b;background:#f7f5fb}
+.pw-header{display:flex;align-items:center;gap:28px;padding:0 28px;height:60px;background:#22223b;color:#fff}
+.pw-nav__link{color:#c9c6e0;text-decoration:none;padding:20px 4px}.pw-nav__link--active{color:#fff;box-shadow:inset 0 -3px #ff8fab}
+.pw-btn{display:inline-block;padding:7px 14px;border-radius:999px;border:1px solid #4a4e69;background:#fff;color:#22223b;text-decoration:none}
+.pw-btn--primary{background:#ff5d8f;border-color:#ff5d8f;color:#fff}
+.pw-main{max-width:1200px;margin:0 auto;padding:24px}
+.pw-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.pw-stat{background:#fff;border-radius:12px;padding:14px;display:flex;flex-direction:column}
+.pw-stat__value{font-size:24px}
+.pw-campaign-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pw-campaign-card{background:#fff;border-radius:12px;padding:16px;border:1px solid #e6e1f2}
+.pw-badge{font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:999px;background:#eee}
+.pw-badge--sending{background:#d8f3dc}.pw-badge--paused{background:#ffe5d9}
+.pw-progress{height:6px;background:#eee;border-radius:3px}.pw-progress__bar{height:6px;background:#ff5d8f;border-radius:3px}
+.pw-campaign-card__stats{display:flex;gap:16px}.pw-campaign-card__stats dd{margin:0;font-weight:600}
+.pw-ab-table{width:100%;border-collapse:collapse}.pw-ab-table td,.pw-ab-table th{padding:8px;border-bottom:1px solid #e6e1f2;text-align:left}
+</style>
+</head>
+<body>
+<header class="pw-header">
+  <a class="pw-logo" href="/dashboard"><svg class="pw-logo__mark" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>Postwick</a>
+  <nav class="pw-nav">
+    <a href="/dashboard" class="pw-nav__link pw-nav__link--active">Dashboard</a>
+    <a href="/campaigns" class="pw-nav__link">Campaigns</a>
+    <a href="/automations" class="pw-nav__link" data-dh-target="t5">Automations</a>
+    <a href="/audience" class="pw-nav__link">Audience</a>
+    <a href="/templates" class="pw-nav__link">Templates</a>
+    <a href="/reports" class="pw-nav__link">Reports</a>
+  </nav>
+  <div class="pw-header__actions">
+    <a href="/campaigns/new" class="pw-btn pw-btn--primary">Create campaign</a>
+    <button type="button" class="pw-avatar" aria-label="Account: Saltmarsh Outfitters">SO</button>
+  </div>
+</header>
+<main class="pw-main">
+  <div class="pw-page-head">
+    <div><h1>Campaign dashboard</h1><p class="pw-muted">Saltmarsh Outfitters · 84,312 subscribers</p></div>
+    <label class="pw-period">Period <select id="period" name="period"><option>Last 7 days</option><option selected>Last 30 days</option><option>Last 90 days</option></select></label>
+  </div>
+  <section class="pw-stats" aria-label="Account summary">
+    <div class="pw-stat"><span class="pw-stat__label">Subscribers</span><strong class="pw-stat__value">84,312</strong><span class="pw-stat__delta">+1,208 this month</span></div>
+    <div class="pw-stat"><span class="pw-stat__label">Avg. open rate</span><strong class="pw-stat__value" data-dh-target="t6">41.8%</strong><span class="pw-stat__delta">+2.1 pts</span></div>
+    <div class="pw-stat"><span class="pw-stat__label">Avg. click rate</span><strong class="pw-stat__value">3.9%</strong><span class="pw-stat__delta">+0.4 pts</span></div>
+    <div class="pw-stat"><span class="pw-stat__label">Unsubscribe rate</span><strong class="pw-stat__value">0.18%</strong><span class="pw-stat__delta">−0.03 pts</span></div>
+    <div class="pw-stat"><span class="pw-stat__label">Revenue attributed</span><strong class="pw-stat__value">$128,440</strong><span class="pw-stat__delta">last 30 days</span></div>
+  </section>
+  <section class="pw-campaigns">
+    <div class="pw-section-head">
+      <h2>Active &amp; recent campaigns</h2>
+      <div class="pw-filter-tabs" role="tablist">
+        <button type="button" role="tab" aria-selected="true" class="pw-filter-tab pw-filter-tab--active">All</button>
+        <button type="button" role="tab" aria-selected="false" class="pw-filter-tab">Sending</button>
+        <button type="button" role="tab" aria-selected="false" class="pw-filter-tab">Scheduled</button>
+        <button type="button" role="tab" aria-selected="false" class="pw-filter-tab">Sent</button>
+        <button type="button" role="tab" aria-selected="false" class="pw-filter-tab">Drafts</button>
+      </div>
+    </div>
+    <div class="pw-campaign-grid">
+        <article class="pw-campaign-card" data-campaign-id="cmp_8841">
+          <header class="pw-campaign-card__head"><span class="pw-badge pw-badge--sending">Sending</span><h3 class="pw-campaign-card__title">Black Friday Early Access</h3></header>
+          <p class="pw-campaign-card__meta">VIP customers · 22,480 recipients</p>
+          <div class="pw-progress"><div class="pw-progress__bar" style="width:62%"></div></div>
+          <p class="pw-campaign-card__detail">13,938 of 22,480 sent</p>
+          <dl class="pw-campaign-card__stats"><div><dt>Opens</dt><dd>38.2%</dd></div><div><dt>Clicks</dt><dd>5.1%</dd></div><div><dt>Revenue</dt><dd>$41,260</dd></div></dl>
+          <footer class="pw-campaign-card__actions"><button type="button" class="pw-btn pw-btn--secondary pw-btn-pause" data-dh-target="t1">Pause</button><a href="/campaigns/cmp_8841/report" class="pw-link">View report</a></footer>
+        </article>
+        <article class="pw-campaign-card" data-campaign-id="cmp_8835">
+          <header class="pw-campaign-card__head"><span class="pw-badge pw-badge--scheduled">Scheduled</span><h3 class="pw-campaign-card__title">November Newsletter</h3></header>
+          <p class="pw-campaign-card__meta">All subscribers · 84,312 recipients</p>
+          
+          <p class="pw-campaign-card__detail">Sends Nov 7, 9:00 AM PST</p>
+          
+          <footer class="pw-campaign-card__actions"><a href="/campaigns/cmp_8835/edit" class="pw-btn pw-btn--secondary">Edit</a><button type="button" class="pw-btn pw-btn--ghost">Unschedule</button></footer>
+        </article>
+        <article class="pw-campaign-card" data-campaign-id="cmp_8790">
+          <header class="pw-campaign-card__head"><span class="pw-badge pw-badge--sent">Sent</span><h3 class="pw-campaign-card__title">Winter Gear Lookbook</h3></header>
+          <p class="pw-campaign-card__meta">All subscribers · 83,950 recipients</p>
+          
+          <p class="pw-campaign-card__detail">Sent Oct 29, 8:00 AM PST</p>
+          <dl class="pw-campaign-card__stats"><div><dt>Opens</dt><dd>41.8%</dd></div><div><dt>Clicks</dt><dd>4.4%</dd></div><div><dt>Revenue</dt><dd>$22,915</dd></div></dl>
+          <footer class="pw-campaign-card__actions"><a href="/campaigns/cmp_8790/report" class="pw-btn pw-btn--secondary">View report</a><button type="button" class="pw-btn pw-btn--ghost">Duplicate</button></footer>
+        </article>
+        <article class="pw-campaign-card" data-campaign-id="cmp_8762">
+          <header class="pw-campaign-card__head"><span class="pw-badge pw-badge--paused">Paused</span><h3 class="pw-campaign-card__title">Re-engagement: 90-day inactive</h3></header>
+          <p class="pw-campaign-card__meta">Inactive 90+ days · 9,412 recipients</p>
+          <div class="pw-progress"><div class="pw-progress__bar" style="width:35%"></div></div>
+          <p class="pw-campaign-card__detail">Paused Nov 2 · 3,294 of 9,412 sent</p>
+          <dl class="pw-campaign-card__stats"><div><dt>Opens</dt><dd>12.6%</dd></div><div><dt>Clicks</dt><dd>0.9%</dd></div><div><dt>Revenue</dt><dd>$1,180</dd></div></dl>
+          <footer class="pw-campaign-card__actions"><button type="button" class="pw-btn pw-btn--primary" data-dh-target="t2">Resume</button><a href="/campaigns/cmp_8762/edit" class="pw-btn pw-btn--secondary">Edit</a></footer>
+        </article>
+        <article class="pw-campaign-card" data-campaign-id="cmp_8850">
+          <header class="pw-campaign-card__head"><span class="pw-badge pw-badge--draft">Draft</span><h3 class="pw-campaign-card__title">Holiday Gift Guide</h3></header>
+          <p class="pw-campaign-card__meta">Segment not set</p>
+          
+          <p class="pw-campaign-card__detail">Last edited 2 hours ago by Sam Okoro</p>
+          
+          <footer class="pw-campaign-card__actions"><a href="/campaigns/cmp_8850/edit" class="pw-btn pw-btn--primary">Continue editing</a><button type="button" class="pw-btn pw-btn--ghost" aria-label="Delete draft"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6M10 11v6M14 11v6M9 6V4h6v2"/></svg></button></footer>
+        </article>
+        <article class="pw-campaign-card" data-campaign-id="cmp_8853">
+          <header class="pw-campaign-card__head"><span class="pw-badge pw-badge--scheduled">Scheduled</span><h3 class="pw-campaign-card__title">Cyber Monday Preview</h3></header>
+          <p class="pw-campaign-card__meta">Engaged 30 days · 41,077 recipients</p>
+          
+          <p class="pw-campaign-card__detail">Sends Nov 30, 7:00 AM PST</p>
+          
+          <footer class="pw-campaign-card__actions"><a href="/campaigns/cmp_8853/edit" class="pw-btn pw-btn--secondary">Edit</a><button type="button" class="pw-btn pw-btn--ghost">Unschedule</button></footer>
+        </article>
+        <article class="pw-campaign-card" data-campaign-id="cmp_8846">
+          <header class="pw-campaign-card__head"><span class="pw-badge pw-badge--sending">Sending</span><h3 class="pw-campaign-card__title">Loyalty Points Reminder</h3></header>
+          <p class="pw-campaign-card__meta">Members with 500+ points · 6,120 recipients</p>
+          <div class="pw-progress"><div class="pw-progress__bar" style="width:18%"></div></div>
+          <p class="pw-campaign-card__detail">1,102 of 6,120 sent</p>
+          <dl class="pw-campaign-card__stats"><div><dt>Opens</dt><dd>29.4%</dd></div><div><dt>Clicks</dt><dd>3.2%</dd></div><div><dt>Revenue</dt><dd>$2,870</dd></div></dl>
+          <footer class="pw-campaign-card__actions"><button type="button" class="pw-btn pw-btn--secondary pw-btn-pause">Pause</button><a href="/campaigns/cmp_8846/report" class="pw-link">View report</a></footer>
+        </article>
+    </div>
+  </section>
+  <section class="pw-ab-test" id="ab-test-cmp_8841">
+    <div class="pw-section-head"><h2>A/B test: Black Friday Early Access</h2><span class="pw-badge">Testing · 4h 12m left</span></div>
+    <table class="pw-ab-table">
+      <thead><tr><th>Variant</th><th>Subject line</th><th>Recipients</th><th>Open rate</th><th>Click rate</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>Your early access to Black Friday starts now</td><td>2,248</td><td class="open-rate">38.9%</td><td class="click-rate">4.6%</td></tr>
+        <tr class="is-leading"><td>B</td><td>Members only: 30% off before everyone else</td><td>2,249</td><td class="open-rate" data-dh-target="t3">44.2%</td><td class="click-rate">5.8%</td></tr>
+      </tbody>
+    </table>
+    <form class="pw-ab-settings">
+      <label for="ab-winner-metric">Pick winner by</label>
+      <select id="ab-winner-metric" name="winner_metric" data-dh-target="t4"><option value="open_rate" selected>Open rate</option><option value="click_rate">Click rate</option><option value="revenue">Revenue</option></select>
+      <label for="ab-duration">Test duration</label>
+      <select id="ab-duration" name="duration"><option>4 hours</option><option selected>8 hours</option><option>24 hours</option></select>
+      <button type="button" class="pw-btn pw-btn--secondary">Send winner now</button>
+    </form>
+  </section>
+  <section class="pw-deliverability">
+    <h2>Deliverability</h2>
+    <ul class="pw-health">
+      <li><span>Sender reputation</span><strong>98 / 100</strong></li>
+      <li><span>Bounce rate</span><strong>0.6%</strong></li>
+      <li><span>Spam complaints</span><strong>0.02%</strong></li>
+      <li><span>DMARC alignment</span><strong>Pass</strong></li>
+    </ul>
+  </section>
+</main>
+<footer class="pw-footer">Postwick · <a href="/help">Help center</a> · <a href="/legal/anti-spam">Anti-spam policy</a> · © 2026 Postwick Labs</footer>
+</body>
+</html>

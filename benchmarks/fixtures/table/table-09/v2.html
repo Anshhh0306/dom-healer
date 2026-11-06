@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flights – Departures – Halden Airport</title>
+<style>
+body{margin:0;font-family:Inter,Arial,sans-serif;background:#f8fafc}
+</style>
+</head>
+<body>
+<header class="css-0spdoek-SiteHeader">
+  <a class="css-fmjlo29-Logo" href="/en"><img src="https://cdn.haldenairport.example/brand/logo-2025.svg" alt="Halden Airport" width="132" height="32"></a>
+  <nav class="css-uamun26-MainNav" aria-label="Main"><a href="/en/flights" aria-current="page">Flights</a><a href="/en/getting-here">Getting here</a><a href="/en/parking">Parking</a><a href="/en/shopping-and-dining">Shops &amp; dining</a><a href="/en/help">Help</a></nav>
+  <button type="button" class="css-tpcof3n-LangSwitch" aria-haspopup="listbox">EN<svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button>
+</header>
+<div class="css-1jhfqcl-Alert" role="alert"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z" clip-rule="evenodd"/></svg><p>Strong winds this afternoon: some departures may be delayed. Please check with your airline before travelling.</p></div>
+<main class="css-318yvol-Page">
+  <div class="css-2i39eoq-PageHead">
+    <h1 class="css-danq0fw-Title">Flights</h1>
+    <nav class="css-m7e0ijb-BoardTabs" aria-label="Flight boards"><a href="/en/flights/departures" aria-current="page" class="css-qd5zv6h-BoardTab"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.105 2.288a.75.75 0 0 0-.826.95l1.414 4.926A1.5 1.5 0 0 0 5.135 9.25h6.115a.75.75 0 0 1 0 1.5H5.135a1.5 1.5 0 0 0-1.442 1.086l-1.414 4.926a.75.75 0 0 0 .826.95 28.897 28.897 0 0 0 15.293-7.155.75.75 0 0 0 0-1.114A28.897 28.897 0 0 0 3.105 2.288Z" clip-rule="evenodd"/></svg>Departures</a><a href="/en/flights/connections" class="css-qd5zv6h-BoardTab">Connections</a><a href="/en/flights/arrivals" class="css-qd5zv6h-BoardTab" data-dh-target="t4">Arrivals</a></nav>
+  </div>
+  <section class="css-lt2nlyp-Saved" aria-labelledby="saved-h">
+    <h2 id="saved-h" class="css-r7c9sdo-SectionTitle">Flights you follow</h2>
+    <div class="css-292b6gn-SavedGrid"><article class="css-2bml6yk-SavedCard"><div class="css-4ffrdtr-SavedFlight"><strong>KL 1182</strong> to Amsterdam &middot; 15:00</div><div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-3hsc9o4-Pill-boarding">Boarding</span></div><div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> B14</div><a href="/en/flights/kl1182" class="css-ss16ovr-SavedLink">Details</a></article><article class="css-2bml6yk-SavedCard"><div class="css-4ffrdtr-SavedFlight"><strong>BA 0847</strong> to London Heathrow &middot; 15:10</div><div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-do09rvs-Pill-delayed">Delayed 16:05</span></div><div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> B6</div><a href="/en/flights/ba0847" class="css-ss16ovr-SavedLink">Details</a></article></div>
+  </section>
+  <hx-flight-board direction="departures" airport="HLD">
+    <template shadowrootmode="open">
+      <style>:host{display:block;font:15px/1.4 Inter,sans-serif;color:#0f172a}ol{list-style:none;margin:0;padding:0}li{display:grid;grid-template-columns:70px 1.4fr 1.6fr 1.3fr 90px 60px 130px;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #e2e8f0}</style>
+      <div class="css-uo8um4x-BoardToolbar">
+        <label class="css-m8qp8za-Search"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd"/></svg><input id="flight-q" type="search" placeholder="Search by flight, airline or city" aria-label="Search departures" autocomplete="off" data-dh-target="t5"></label>
+        <div role="radiogroup" aria-label="Terminal" class="css-qohjt2r-Segmented"><button type="button" role="radio" aria-checked="true">All</button><button type="button" role="radio" aria-checked="false">T1</button><button type="button" role="radio" aria-checked="false">T2</button></div>
+        <span class="css-7jrd107-Updated">Updated 14:52</span>
+      </div>
+      <button type="button" class="css-vbl8sxt-LoadEarlier">Show earlier flights</button>
+      <div class="css-zmutqb9-BoardHead" aria-hidden="true"><span>Time</span><span>Flight</span><span>Destination</span><span>Status</span><span>Gate</span><span>Terminal</span><span></span></div>
+      <ol class="css-h7conll-FlightList" role="list" aria-label="Departures">
+        <li class="css-fjor455-FlightRow" data-status="closed">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T14:35">14:35</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/fr.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">FR 8812</span><span class="css-c4guizj-Airline">Ryanair</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Barcelona</span><span class="css-os79g5d-Iata">BCN</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-ai3j7kz-Pill-closed">Gate closed</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> A12</div>
+          <div class="css-bya1xk4-Terminal">T1</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow FR 8812"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="departed">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T14:30">14:30</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/sk.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">SK 1415</span><span class="css-c4guizj-Airline">SAS</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Copenhagen</span><span class="css-os79g5d-Iata">CPH</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-z7oqnyw-Pill-departed">Departed 14:38</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> B3</div>
+          <div class="css-bya1xk4-Terminal">T2</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow SK 1415"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="closed">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T14:40">14:40</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/lh.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">LH 2471</span><span class="css-c4guizj-Airline">Lufthansa</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Munich</span><span class="css-os79g5d-Iata">MUC</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-ai3j7kz-Pill-closed">Gate closed</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> B9</div>
+          <div class="css-bya1xk4-Terminal">T2</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow LH 2471"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="boarding">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T14:45">14:45</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/u2.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">U2 6103</span><span class="css-c4guizj-Airline">easyJet</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Amsterdam</span><span class="css-os79g5d-Iata">AMS</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-3hsc9o4-Pill-boarding">Boarding</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> A4</div>
+          <div class="css-bya1xk4-Terminal">T1</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow U2 6103"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="boarding">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T14:55">14:55</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/ei.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">EI 3417</span><span class="css-c4guizj-Airline">Aer Lingus</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Lisbon</span><span class="css-os79g5d-Iata">LIS</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-3hsc9o4-Pill-boarding">Boarding</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> A7</div>
+          <div class="css-bya1xk4-Terminal">T1</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow EI 3417" data-dh-target="t1"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="boarding">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T15:00">15:00</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/kl.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">KL 1182</span><span class="css-c4guizj-Airline">KLM</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Amsterdam</span><span class="css-os79g5d-Iata">AMS</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-3hsc9o4-Pill-boarding">Boarding</span></div>
+          <div class="css-6ce9rif-GateCell" data-dh-target="t2"><span class="css-cp1hxh9-Label">Gate</span> B14</div>
+          <div class="css-bya1xk4-Terminal">T2</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="true" aria-label="Unfollow KL 1182"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Following</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="gate">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T15:15">15:15</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/af.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">AF 1069</span><span class="css-c4guizj-Airline">Air France</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Paris CDG</span><span class="css-os79g5d-Iata">CDG</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-of5o90x-Pill-gate">Go to gate</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> B11</div>
+          <div class="css-bya1xk4-Terminal">T2</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow AF 1069"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="gate">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T15:25">15:25</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/w6.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">W6 4410</span><span class="css-c4guizj-Airline">Wizz Air</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Budapest</span><span class="css-os79g5d-Iata">BUD</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-of5o90x-Pill-gate">Go to gate</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> A2</div>
+          <div class="css-bya1xk4-Terminal">T1</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow W6 4410"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="ontime">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T15:30">15:30</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/ay.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">AY 1352</span><span class="css-c4guizj-Airline">Finnair</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Helsinki</span><span class="css-os79g5d-Iata">HEL</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-wh20scm-Pill-ontime">On time</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> B8</div>
+          <div class="css-bya1xk4-Terminal">T2</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow AY 1352"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="ontime">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T15:40">15:40</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/ib.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">IB 3726</span><span class="css-c4guizj-Airline">Iberia</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Madrid</span><span class="css-os79g5d-Iata">MAD</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-wh20scm-Pill-ontime">On time</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> A9</div>
+          <div class="css-bya1xk4-Terminal">T1</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow IB 3726"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="cancelled">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T15:45">15:45</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/tp.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">TP 1347</span><span class="css-c4guizj-Airline">TAP Air Portugal</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Porto</span><span class="css-os79g5d-Iata">OPO</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-e42i547-Pill-cancelled">Cancelled</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> A5</div>
+          <div class="css-bya1xk4-Terminal">T1</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow TP 1347"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="ontime">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T15:55">15:55</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/lx.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">LX 0459</span><span class="css-c4guizj-Airline">SWISS</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Zurich</span><span class="css-os79g5d-Iata">ZRH</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-wh20scm-Pill-ontime">On time</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> B2</div>
+          <div class="css-bya1xk4-Terminal">T2</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow LX 0459"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="delayed">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T15:10">15:10</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/ba.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">BA 0847</span><span class="css-c4guizj-Airline">British Airways</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">London Heathrow</span><span class="css-os79g5d-Iata">LHR</span></div>
+          <div class="css-ta0ci2v-StatusCell" data-dh-target="t3"><span class="css-x840l04-Pill css-do09rvs-Pill-delayed">Delayed 16:05</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> B6</div>
+          <div class="css-bya1xk4-Terminal">T2</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="true" aria-label="Unfollow BA 0847"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Following</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="ontime">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T16:05">16:05</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/fi.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">FI 0417</span><span class="css-c4guizj-Airline">Icelandair</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Reykjavík</span><span class="css-os79g5d-Iata">KEF</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-wh20scm-Pill-ontime">On time</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> B12</div>
+          <div class="css-bya1xk4-Terminal">T2</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow FI 0417"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="ontime">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T16:10">16:10</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/ek.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">EK 0016</span><span class="css-c4guizj-Airline">Emirates</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Dubai</span><span class="css-os79g5d-Iata">DXB</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-wh20scm-Pill-ontime">On time</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> C21</div>
+          <div class="css-bya1xk4-Terminal">T2</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow EK 0016"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="ontime">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T16:20">16:20</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/fr.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">FR 2933</span><span class="css-c4guizj-Airline">Ryanair</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Kraków</span><span class="css-os79g5d-Iata">KRK</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-wh20scm-Pill-ontime">On time</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> A14</div>
+          <div class="css-bya1xk4-Terminal">T1</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow FR 2933"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="ontime">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T16:40">16:40</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/dy.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">DY 1307</span><span class="css-c4guizj-Airline">Norwegian</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Oslo</span><span class="css-os79g5d-Iata">OSL</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-wh20scm-Pill-ontime">On time</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> A3</div>
+          <div class="css-bya1xk4-Terminal">T1</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow DY 1307"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="ontime">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T16:50">16:50</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/os.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">OS 0458</span><span class="css-c4guizj-Airline">Austrian</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Vienna</span><span class="css-os79g5d-Iata">VIE</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-wh20scm-Pill-ontime">On time</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> B10</div>
+          <div class="css-bya1xk4-Terminal">T2</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow OS 0458"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="ontime">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T17:05">17:05</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/ua.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">UA 0921</span><span class="css-c4guizj-Airline">United</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Newark</span><span class="css-os79g5d-Iata">EWR</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-wh20scm-Pill-ontime">On time</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> C24</div>
+          <div class="css-bya1xk4-Terminal">T2</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow UA 0921"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="delayed">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T16:30">16:30</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/sn.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">SN 2584</span><span class="css-c4guizj-Airline">Brussels Airlines</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Brussels</span><span class="css-os79g5d-Iata">BRU</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-do09rvs-Pill-delayed">Delayed 17:15</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> B5</div>
+          <div class="css-bya1xk4-Terminal">T2</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow SN 2584"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="ontime">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T17:15">17:15</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/u2.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">U2 6219</span><span class="css-c4guizj-Airline">easyJet</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Edinburgh</span><span class="css-os79g5d-Iata">EDI</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-wh20scm-Pill-ontime">On time</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> A6</div>
+          <div class="css-bya1xk4-Terminal">T1</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow U2 6219"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+        <li class="css-fjor455-FlightRow" data-status="ontime">
+          <div class="css-i0uos0d-Time"><time datetime="2025-11-03T17:25">17:25</time></div>
+          <div class="css-ug1768t-Flight"><img src="https://cdn.haldenairport.example/airlines/az.png" alt="" width="24" height="24"><div><span class="css-xufmj3s-FlightNo">AZ 0207</span><span class="css-c4guizj-Airline">ITA Airways</span></div></div>
+          <div class="css-ikcy4o8-Destination"><span class="css-cdw1t1r-City">Rome Fiumicino</span><span class="css-os79g5d-Iata">FCO</span></div>
+          <div class="css-ta0ci2v-StatusCell"><span class="css-x840l04-Pill css-wh20scm-Pill-ontime">On time</span></div>
+          <div class="css-6ce9rif-GateCell"><span class="css-cp1hxh9-Label">Gate</span> B7</div>
+          <div class="css-bya1xk4-Terminal">T2</div>
+          <div class="css-txxpwxz-Actions"><button type="button" class="css-zu323zp-FollowButton" aria-pressed="false" aria-label="Follow AZ 0207"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg>Follow</button></div>
+        </li>
+      </ol>
+      <button type="button" class="css-azuscgb-LoadMore" data-dh-target="t6">Load more departures</button>
+    </template>
+  </hx-flight-board>
+  <section class="css-4edvugz-InfoGrid"><div class="css-j215dne-InfoCard"><h2>Security queues</h2><p>T1 &middot; 8 min &nbsp; T2 &middot; 14 min</p></div><div class="css-j215dne-InfoCard"><h2>Before you fly</h2><p>Arrive two hours before departure. Liquids up to 100 ml in a clear bag.</p></div></section>
+</main>
+<footer class="css-dezxdj2-Footer">
+  <nav aria-label="Quick links"><a href="/en/flights/arrivals">Arrivals</a><a href="/en/flights/departures">Departures</a><a href="/en/parking">Parking</a><a href="/en/accessibility">Accessibility</a><a href="/en/contact">Contact</a></nav>
+  <p>&copy; 2025 Halden Lufthavn AS</p>
+</footer>
+</body>
+</html>

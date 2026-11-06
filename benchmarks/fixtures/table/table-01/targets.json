@@ -1,0 +1,100 @@
+{
+  "suite": "table-01",
+  "category": "table",
+  "title": "People directory — HR employee table",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "testid-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 is a Tailwind UI rewrite: BEM classes replaced by utilities, the left filter sidebar becomes a filter bar, the app header moves into a <kestrel-app-bar> declarative shadow root (with a global search decoy), rows are re-sorted by start date (newest first), columns are reordered and a Manager column is inserted, an aria-hidden sticky clone of the header row precedes the real table, a hidden mobile filter drawer duplicates the search box, the Edit button becomes a link with sr-only row name, row menus lose aria-label/testids, ids regenerate.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Sort toggle in the 'Start date' column header of the people table (the redesign labels the column 'Started')",
+      "css": "#employee-table th[data-sort-key='startDate'] > button.sort-btn",
+      "xpath": "//table[@id='employee-table']/thead/tr/th[5]/button",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "attribute-churn",
+        "sibling-reorder",
+        "insertion",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Search box above the people table that filters it by name, email or job title",
+      "css": "#employee-search",
+      "xpath": "//input[@placeholder='Search by name, email or title']",
+      "mutations": [
+        "id-change",
+        "copy-change",
+        "class-obfuscation",
+        "wrapper-divs",
+        "structure-move",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "'Edit' row action of employee Marcus Coleman",
+      "css": "#employee-table tbody tr:nth-child(4) button[data-testid='edit-employee']",
+      "xpath": "//tr[.//a[normalize-space()='Marcus Coleman']]//button[normalize-space()='Edit']",
+      "mutations": [
+        "tag-change",
+        "testid-change",
+        "sibling-reorder",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Department cell of Camille Delacroix's row (value 'Marketing')",
+      "css": "#employee-table > tbody > tr:nth-child(7) > td:nth-child(3)",
+      "xpath": "//table[@id='employee-table']/tbody/tr[7]/td[3]",
+      "mutations": [
+        "sibling-reorder",
+        "insertion",
+        "id-change",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Pagination link to page 3 below the people table",
+      "css": "nav.pagination > a:nth-of-type(4)",
+      "xpath": "//nav[@aria-label='Pagination']/a[normalize-space()='3']",
+      "mutations": [
+        "class-obfuscation",
+        "attribute-churn",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Icon-only overflow ('More actions' / options) menu button in Hiroshi Fujimoto's row",
+      "css": "tr[data-employee-id='E1176'] .row-menu-trigger",
+      "xpath": "(//button[@aria-label='More actions'])[20]",
+      "mutations": [
+        "attribute-churn",
+        "copy-change",
+        "id-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "decoy"
+      ]
+    }
+  ]
+}

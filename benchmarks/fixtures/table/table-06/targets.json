@@ -1,0 +1,91 @@
+{
+  "suite": "table-06",
+  "category": "table",
+  "title": "Football league standings with zones and form guide",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "copy-change",
+    "attribute-churn",
+    "insertion"
+  ],
+  "notes": "v2 swaps semantic classes for atomic (StyleX-like) classes, moves Pts next to P, renames GD to '+/−' and appends a 'Next' fixture column (so the form guide is no longer the last cell), inserts aria-hidden zone separator rows, reorders the competition tabs and the view toggle (Overall/Form/Home/Away), changes club URLs, and adds a 'Your club' summary table in a <tl-my-club> shadow root plus club links in the top-scorers table and footer. The table keeps id='league-table', so positional selectors resolve to wrong cells.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Points cell of Stonebridge Rangers in the league table (value '18')",
+      "css": "#league-table tbody tr:nth-child(9) td.pts",
+      "xpath": "//table[@id='league-table']/tbody/tr[9]/td[10]",
+      "mutations": [
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Team link 'Bayview Celtic' inside the league table",
+      "css": "#league-table a[href='/teams/bayview-celtic']",
+      "xpath": "//table[@id='league-table']//a[normalize-space()='Bayview Celtic']",
+      "mutations": [
+        "attribute-churn",
+        "class-obfuscation",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Form-guide cell (last five results) of Ashford Athletic",
+      "css": "#league-table > tbody > tr:nth-child(2) > td.form",
+      "xpath": "//a[.='Ashford Athletic']/ancestor::tr/td[last()]",
+      "mutations": [
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "attribute-churn"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'GD' (goal difference) column header of the league table (v2 shows '+/−')",
+      "css": "#league-table thead th.gd",
+      "xpath": "//thead/tr/th[abbr[@title='Goal difference']]",
+      "mutations": [
+        "copy-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Championship' league tab above the table",
+      "css": ".league-tabs a[href='/football/tables/championship']",
+      "xpath": "//nav[contains(@class,'league-tabs')]/a[2]",
+      "mutations": [
+        "sibling-reorder",
+        "attribute-churn",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Away' view toggle of the league table",
+      "css": ".view-toggle button[data-view='away']",
+      "xpath": "//div[@aria-label='Table view']/button[3]",
+      "mutations": [
+        "sibling-reorder",
+        "insertion",
+        "attribute-churn",
+        "class-obfuscation",
+        "wrapper-divs"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create an account — Harvest Lane</title>
+<meta name="description" content="Sign up for same-day grocery delivery from local Texas farms.">
+<meta name="next-head-count" content="4">
+</head>
+<body class="__className_3a0388 __variable_9f5e1c">
+<div class="PromoBar_root__8PxiD" role="region" aria-label="New member offer">
+  <p class="PromoBar_text__Lwh8V"><strong>$20 off</strong> your first order of $60+ &mdash; we'll email you the code.</p>
+  <form class="PromoBar_form__NcVzU" action="/api/promo-code" method="post">
+    <label class="VisuallyHidden_root__bsDSt" for="promo-email">Email</label>
+    <input id="promo-email" class="PromoBar_input__Ha9o1" type="email" name="email" placeholder="you@example.com" autocomplete="email">
+    <button type="submit" class="PromoBar_button__D7WEX">Get my code</button>
+  </form>
+  <button type="button" class="PromoBar_close__hsX1P" aria-label="Dismiss offer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+</div>
+<header class="SiteHeader_root__UTrSL">
+  <div class="SiteHeader_inner__1Fkfy">
+    <a class="SiteHeader_logo__EjHyn" href="/" aria-label="Harvest Lane home"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#198754"/><path d="M9 20c0-7 5-11 12-11-1 7-5 11-12 11zm0 0 6-6" stroke="#fff" stroke-width="1.6" fill="none"/></svg><span class="SiteHeader_wordmark__YPiTt">Harvest Lane</span></a>
+    <form class="SearchBox_root__21zH8" role="search" action="/search">
+      <span class="SearchBox_icon__oMWql"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+      <input class="SearchBox_input__awN26" type="search" name="q" placeholder="Search groceries, recipes and farms" aria-label="Search">
+    </form>
+    <nav class="SiteHeader_nav__MuvcV" aria-label="Main">
+      <ul class="SiteHeader_navList__fridF">
+<li class="SiteHeader_navItem__CcZkv"><a class="SiteHeader_navLink__ZDMrT" href="/deals">Weekly deals</a></li>
+<li class="SiteHeader_navItem__CcZkv"><a class="SiteHeader_navLink__ZDMrT" href="/shop">Shop</a></li>
+<li class="SiteHeader_navItem__CcZkv"><a class="SiteHeader_navLink__ZDMrT" href="/delivery">Delivery areas</a></li>
+<li class="SiteHeader_navItem__CcZkv"><a class="SiteHeader_navLink__ZDMrT" href="/recipes">Recipes</a></li>
+      </ul>
+    </nav>
+    <a class="SiteHeader_account__zPYWf" href="/login"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Sign in</span></a>
+    <a class="SiteHeader_cart__A2iiI" href="/cart" aria-label="Cart, 0 items"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg><span class="SiteHeader_cartCount__hTzVL">0</span></a>
+  </div>
+</header>
+<main class="RegisterPage_main__L0d96">
+  <nav aria-label="Breadcrumb" class="Breadcrumbs_root__XqFqn">
+    <ol class="Breadcrumbs_list__4YCAn">
+      <li class="Breadcrumbs_item__1TwO7"><a href="/">Home</a></li>
+      <li class="Breadcrumbs_item__1TwO7" aria-current="page">Create account</li>
+    </ol>
+  </nav>
+  <div class="RegisterPage_layout__h4EKT">
+    <section class="RegisterPage_card__KdHBj" aria-labelledby="register-title">
+      <header class="RegisterPage_header__umbp4">
+        <p class="RegisterPage_eyebrow__Y1wJI">Join 48,000 Texas households</p>
+        <h1 id="register-title" class="Heading_h1__RDSOR">Create an account</h1>
+        <p class="RegisterPage_lede__kQZZD">Already shopping with us? <a class="TextLink_root__9RVHa" href="/login">Sign in</a></p>
+      </header>
+      <div class="ErrorSummary_root__B3OjP" role="alert" tabindex="-1">
+        <h2 class="ErrorSummary_title__e1czB">There's a problem with 1 field</h2>
+        <ul class="ErrorSummary_list__nBJ0T"><li><a href="#:r6:">Re-enter your password so both entries match</a></li></ul>
+      </div>
+      <form class="RegisterForm_form__ltEs4" action="/api/account" method="post" novalidate>
+        <input type="hidden" name="csrfToken" value="1f6d0c9a7e3b45d2a8c1e0f9b4d7a2c6">
+        <section class="RegisterForm_section__XwzYa" aria-labelledby="sec-login">
+          <div class="RegisterForm_sectionHeader__r1Q8L"><span class="RegisterForm_stepBadge__p1bB5">1</span><h2 id="sec-login" class="RegisterForm_sectionTitle__I77ZL">Your login</h2></div>
+          <div class="Field_root__mp6eB">
+            <label class="Field_label__HF0w0" for=":r1:">Email address</label>
+            <div class="Field_control__BinET">
+              <input id=":r1:" class="TextInput_input__o6Dyq" type="email" name="email" autocomplete="email" placeholder="you@example.com" value="marisol.okafor@fastmail.com" aria-describedby=":r1:-hint" required data-dh-target="t1">
+            </div>
+            <p id=":r1:-hint" class="Field_hint__Vl1Oe">Order confirmations and receipts go here.</p>
+          </div>
+          <div class="RegisterForm_row__ZvlAV">
+            <div class="Field_root__mp6eB">
+              <label class="Field_label__HF0w0" for=":r5:">Password</label>
+              <div class="Field_control__BinET">
+                <input id=":r5:" class="TextInput_input__o6Dyq TextInput_valid__xnzK7" type="password" name="password" autocomplete="new-password" aria-describedby=":r5:-rules" required>
+                <button type="button" class="TextInput_reveal__V5t0J" aria-label="Show password"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+              </div>
+              <hl-password-rules id=":r5:-rules" for=":r5:">
+                <template shadowrootmode="open">
+                  <style>:host{display:block;margin-top:8px;font:13px/1.4 system-ui}.meter{display:flex;gap:4px}.bar{flex:1;height:4px;border-radius:2px;background:#e5e7eb}.bar.on{background:#15803d}.rules{list-style:none;margin:8px 0 0;padding:0;columns:2}.ok{color:#15803d}.todo{color:#6b7280}</style>
+                  <div class="meter" part="meter" aria-hidden="true"><span class="bar on"></span><span class="bar on"></span><span class="bar on"></span><span class="bar"></span></div>
+                  <p class="strength" part="label">Strength: good</p>
+                  <ul class="rules">
+                    <li class="ok">8+ characters</li>
+                    <li class="ok">A number</li>
+                    <li class="ok">An uppercase letter</li>
+                    <li class="todo">A symbol</li>
+                  </ul>
+                </template>
+              </hl-password-rules>
+            </div>
+            <div class="Field_root__mp6eB Field_invalid__wsdTX">
+              <label class="Field_label__HF0w0" for=":r6:">Re-enter password</label>
+              <div class="Field_control__BinET">
+                <input id=":r6:" class="TextInput_input__o6Dyq TextInput_invalid__vA02F" type="password" name="confirmPassword" autocomplete="new-password" aria-invalid="true" aria-describedby=":r6:-error" required data-dh-target="t3">
+                <button type="button" class="TextInput_reveal__V5t0J" aria-label="Show password"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+              </div>
+              <div id=":r6:-error" class="Field_error__EYNiR" data-dh-target="t4">Passwords don't match</div>
+            </div>
+          </div>
+        </section>
+        <section class="RegisterForm_section__XwzYa" aria-labelledby="sec-about">
+          <div class="RegisterForm_sectionHeader__r1Q8L"><span class="RegisterForm_stepBadge__p1bB5">2</span><h2 id="sec-about" class="RegisterForm_sectionTitle__I77ZL">About you</h2></div>
+          <div class="RegisterForm_row__ZvlAV">
+            <div class="Field_root__mp6eB">
+              <label class="Field_label__HF0w0" for=":r2:">First name</label>
+              <div class="Field_control__BinET"><input id=":r2:" class="TextInput_input__o6Dyq" type="text" name="firstName" autocomplete="given-name" value="Marisol" required></div>
+            </div>
+            <div class="Field_root__mp6eB">
+              <label class="Field_label__HF0w0" for=":r3:">Last name</label>
+              <div class="Field_control__BinET"><input id=":r3:" class="TextInput_input__o6Dyq" type="text" name="lastName" autocomplete="family-name" value="Okafor" required></div>
+            </div>
+          </div>
+          <div class="RegisterForm_row__ZvlAV">
+            <div class="Field_root__mp6eB">
+              <label class="Field_label__HF0w0" for=":r4:">Mobile number</label>
+              <div class="Field_control__BinET"><span class="TextInput_prefix__0nWrq">+1</span><input id=":r4:" class="TextInput_input__o6Dyq" type="tel" name="phone" autocomplete="tel-national" value="512 555 0147"></div>
+              <p class="Field_hint__Vl1Oe">We text you when your shopper is on the way.</p>
+            </div>
+            <div class="Field_root__mp6eB">
+              <label class="Field_label__HF0w0" for=":r7:">Date of birth</label>
+              <div class="Field_control__BinET"><input id=":r7:" class="TextInput_input__o6Dyq" type="text" name="dateOfBirth" inputmode="numeric" placeholder="MM/DD/YYYY" value="07/23/1991"></div>
+              <p class="Field_hint__Vl1Oe">21+ to add beer and wine to your cart.</p>
+            </div>
+          </div>
+        </section>
+        <section class="RegisterForm_section__XwzYa" aria-labelledby="sec-address">
+          <div class="RegisterForm_sectionHeader__r1Q8L"><span class="RegisterForm_stepBadge__p1bB5">3</span><h2 id="sec-address" class="RegisterForm_sectionTitle__I77ZL">Where should we deliver?</h2></div>
+          <div class="Field_root__mp6eB">
+            <label class="Field_label__HF0w0" for=":r8:">Street address</label>
+            <div class="Field_control__BinET"><input id=":r8:" class="TextInput_input__o6Dyq" type="text" name="address.line1" autocomplete="address-line1" value="2207 E Cesar Chavez St" role="combobox" aria-autocomplete="list" aria-expanded="false" required></div>
+          </div>
+          <div class="Field_root__mp6eB">
+            <label class="Field_label__HF0w0" for=":r9:">Apt, suite or unit <span class="Field_optional__JiiqD">Optional</span></label>
+            <div class="Field_control__BinET"><input id=":r9:" class="TextInput_input__o6Dyq" type="text" name="address.line2" autocomplete="address-line2" value="Apt 3B"></div>
+          </div>
+          <div class="RegisterForm_row3__nQ2WZ">
+            <div class="Field_root__mp6eB">
+              <label class="Field_label__HF0w0" for=":ra:">ZIP code</label>
+              <div class="Field_control__BinET"><input id=":ra:" class="TextInput_input__o6Dyq" type="text" name="address.postalCode" inputmode="numeric" autocomplete="postal-code" value="78702" required></div>
+            </div>
+            <div class="Field_root__mp6eB">
+              <label class="Field_label__HF0w0" for=":rb:">City</label>
+              <div class="Field_control__BinET"><input id=":rb:" class="TextInput_input__o6Dyq" type="text" name="address.city" autocomplete="address-level2" value="Austin" required></div>
+            </div>
+            <div class="Field_root__mp6eB">
+              <label class="Field_label__HF0w0" for=":rc:">State</label>
+              <div class="Select_root__Rgugj">
+                <select id=":rc:" class="Select_select__wQMvT" name="address.state" autocomplete="address-level1" required data-dh-target="t2">
+<option value="" disabled>Select a state</option>
+<option value="AL">Alabama</option>
+<option value="AK">Alaska</option>
+<option value="AZ">Arizona</option>
+<option value="AR">Arkansas</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="CT">Connecticut</option>
+<option value="DE">Delaware</option>
+<option value="DC">District of Columbia</option>
+<option value="FL">Florida</option>
+<option value="GA">Georgia</option>
+<option value="HI">Hawaii</option>
+<option value="ID">Idaho</option>
+<option value="IL">Illinois</option>
+<option value="IN">Indiana</option>
+<option value="IA">Iowa</option>
+<option value="KS">Kansas</option>
+<option value="KY">Kentucky</option>
+<option value="LA">Louisiana</option>
+<option value="ME">Maine</option>
+<option value="MD">Maryland</option>
+<option value="MA">Massachusetts</option>
+<option value="MI">Michigan</option>
+<option value="MN">Minnesota</option>
+<option value="MS">Mississippi</option>
+<option value="MO">Missouri</option>
+<option value="MT">Montana</option>
+<option value="NE">Nebraska</option>
+<option value="NV">Nevada</option>
+<option value="NH">New Hampshire</option>
+<option value="NJ">New Jersey</option>
+<option value="NM">New Mexico</option>
+<option value="NY">New York</option>
+<option value="NC">North Carolina</option>
+<option value="ND">North Dakota</option>
+<option value="OH">Ohio</option>
+<option value="OK">Oklahoma</option>
+<option value="OR">Oregon</option>
+<option value="PA">Pennsylvania</option>
+<option value="RI">Rhode Island</option>
+<option value="SC">South Carolina</option>
+<option value="SD">South Dakota</option>
+<option value="TN">Tennessee</option>
+<option value="TX" selected>Texas</option>
+<option value="UT">Utah</option>
+<option value="VT">Vermont</option>
+<option value="VA">Virginia</option>
+<option value="WA">Washington</option>
+<option value="WV">West Virginia</option>
+<option value="WI">Wisconsin</option>
+<option value="WY">Wyoming</option>
+                </select>
+                <span class="Select_chevron__r5M4m"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+              </div>
+            </div>
+          </div>
+          <div class="Field_root__mp6eB">
+            <label class="Field_label__HF0w0" for=":rd:">Notes for your shopper <span class="Field_optional__JiiqD">Optional</span></label>
+            <div class="Field_control__BinET"><textarea id=":rd:" class="TextArea_input__opVao" name="address.instructions" rows="3" placeholder="Gate code, where to leave the bags&hellip;"></textarea></div>
+          </div>
+        </section>
+        <section class="RegisterForm_section__XwzYa" aria-labelledby="sec-prefs">
+          <div class="RegisterForm_sectionHeader__r1Q8L"><span class="RegisterForm_stepBadge__p1bB5">4</span><h2 id="sec-prefs" class="RegisterForm_sectionTitle__I77ZL">Preferences</h2></div>
+          <div class="Checkbox_root__z92AA">
+            <input id=":re:" class="Checkbox_input__rpydM" type="checkbox" name="marketingOptIn" value="true" checked>
+            <label class="Checkbox_label__6Wuqw" for=":re:">Send me weekly deals and seasonal recipes</label>
+          </div>
+          <div class="Checkbox_root__z92AA">
+            <input id=":rf:" class="Checkbox_input__rpydM" type="checkbox" name="acceptTerms" value="true" required data-dh-target="t5">
+            <label class="Checkbox_label__6Wuqw" for=":rf:">I agree to the Harvest Lane <a class="TextLink_root__9RVHa" href="/terms">Terms of Service</a> and <a class="TextLink_root__9RVHa" href="/privacy">Privacy Notice</a></label>
+          </div>
+        </section>
+        <div class="RegisterForm_actions__SBW5M">
+          <button type="submit" class="Button_root__jG0dl Button_primary__i54CE Button_block__L19k5" data-dh-target="t6">Create account</button>
+          <p class="RegisterForm_fineprint__1FH82">You must be 18 or older to create an account.</p>
+        </div>
+      </form>
+    </section>
+    <aside class="RegisterPage_aside__k16vl" aria-label="Member benefits">
+      <h2 class="RegisterPage_asideTitle__MFib1">Why shoppers love Harvest Lane</h2>
+      <ul class="Benefits_list__NEGmg">
+        <li class="Benefits_item__SHgrQ"><svg class="Benefits_icon__2jB30" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><h3 class="Benefits_title__LhxRM">Easy substitutions</h3><p class="Benefits_text__540Qt">Approve swaps by text, or tell us to skip the item.</p></div></li>
+        <li class="Benefits_item__SHgrQ"><svg class="Benefits_icon__2jB30" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><h3 class="Benefits_title__LhxRM">No surprise fees</h3><p class="Benefits_text__540Qt">Free delivery on orders over $35 with a Lane+ membership.</p></div></li>
+        <li class="Benefits_item__SHgrQ"><svg class="Benefits_icon__2jB30" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><h3 class="Benefits_title__LhxRM">Local first</h3><p class="Benefits_text__540Qt">More than 140 Texas farms, ranches and bakeries in one cart.</p></div></li>
+        <li class="Benefits_item__SHgrQ"><svg class="Benefits_icon__2jB30" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><h3 class="Benefits_title__LhxRM">Same-day delivery</h3><p class="Benefits_text__540Qt">Order by 2 pm for delivery tonight across Greater Austin.</p></div></li>
+      </ul>
+      <h3 class="RegisterPage_asideSubtitle__xP8Xa">Delivering across Central Texas</h3>
+      <p class="RegisterPage_areas__s0J02">Austin, Cedar Park, Georgetown, Kyle, Leander, Pflugerville, Round Rock, San Marcos</p>
+    </aside>
+  </div>
+</main>
+<div class="StickyCta_root__y3MOb" role="region" aria-label="Create account">
+  <p class="StickyCta_text__Gfyi2">Free delivery on your first 3 orders</p>
+  <button type="button" class="Button_root__jG0dl Button_primary__i54CE">Create account</button>
+</div>
+<footer class="SiteFooter_root__1531A">
+  <div class="SiteFooter_grid__EHfDm">
+    <div class="SiteFooter_col__bKwzD">
+      <h2 class="SiteFooter_heading__Jolle">Help</h2>
+      <ul class="SiteFooter_list__4isz8">
+<li class="SiteFooter_item__xKtm4"><a class="SiteFooter_link__tKD7i" href="/help">Help center</a></li>
+<li class="SiteFooter_item__xKtm4"><a class="SiteFooter_link__tKD7i" href="/help/delivery">Delivery &amp; returns</a></li>
+<li class="SiteFooter_item__xKtm4"><a class="SiteFooter_link__tKD7i" href="/contact">Contact us</a></li>
+<li class="SiteFooter_item__xKtm4"><a class="SiteFooter_link__tKD7i" href="/accessibility">Accessibility</a></li>
+      </ul>
+    </div>
+    <div class="SiteFooter_col__bKwzD">
+      <h2 class="SiteFooter_heading__Jolle">Shop</h2>
+      <ul class="SiteFooter_list__4isz8">
+<li class="SiteFooter_item__xKtm4"><a class="SiteFooter_link__tKD7i" href="/shop/produce">Produce</a></li>
+<li class="SiteFooter_item__xKtm4"><a class="SiteFooter_link__tKD7i" href="/shop/dairy">Dairy &amp; eggs</a></li>
+<li class="SiteFooter_item__xKtm4"><a class="SiteFooter_link__tKD7i" href="/shop/meat">Meat &amp; seafood</a></li>
+<li class="SiteFooter_item__xKtm4"><a class="SiteFooter_link__tKD7i" href="/shop/bakery">Bakery</a></li>
+<li class="SiteFooter_item__xKtm4"><a class="SiteFooter_link__tKD7i" href="/shop/pantry">Pantry</a></li>
+      </ul>
+    </div>
+    <div class="SiteFooter_col__bKwzD">
+      <h2 class="SiteFooter_heading__Jolle">Company</h2>
+      <ul class="SiteFooter_list__4isz8">
+<li class="SiteFooter_item__xKtm4"><a class="SiteFooter_link__tKD7i" href="/farms">Our farms</a></li>
+<li class="SiteFooter_item__xKtm4"><a class="SiteFooter_link__tKD7i" href="/careers">Careers</a></li>
+<li class="SiteFooter_item__xKtm4"><a class="SiteFooter_link__tKD7i" href="/press">Press</a></li>
+<li class="SiteFooter_item__xKtm4"><a class="SiteFooter_link__tKD7i" href="/sustainability">Sustainability</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="SiteFooter_legal__hdqKC">
+    <p>&copy; 2026 Harvest Lane Market, LLC</p>
+    <a class="SiteFooter_link__tKD7i" href="/privacy">Privacy</a>
+    <a class="SiteFooter_link__tKD7i" href="/terms">Terms</a>
+    <a class="SiteFooter_link__tKD7i" href="/privacy/choices">Your privacy choices</a>
+  </div>
+</footer>
+<div aria-live="polite" aria-atomic="true" class="VisuallyHidden_root__bsDSt">Passwords don't match</div>
+</body>
+</html>

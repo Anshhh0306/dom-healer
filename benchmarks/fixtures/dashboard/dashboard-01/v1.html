@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · Fernhill — Lumetric</title>
+<style>
+:root{--brand:#5b4bdb;--ink:#1d2433;--muted:#6b7385;--line:#e6e8ef;--up:#12805c;--down:#c2412d}
+*{box-sizing:border-box}
+body{margin:0;font:14px/1.45 Inter,system-ui,sans-serif;color:var(--ink);background:#f6f7fb}
+.app-header{display:flex;align-items:center;gap:16px;height:56px;padding:0 20px;background:#fff;border-bottom:1px solid var(--line)}
+.global-search{flex:1;max-width:420px;display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:8px;padding:0 10px}
+.global-search input{border:0;flex:1;height:34px;outline:none}
+.app-body{display:flex;min-height:calc(100vh - 56px)}
+.sidebar{width:232px;flex:none;border-right:1px solid var(--line);background:#fff;padding:12px}
+.nav-list{list-style:none;margin:0;padding:0}
+.nav-item{display:flex;align-items:center;gap:10px;padding:7px 12px;border-radius:6px;color:var(--ink);text-decoration:none}
+.nav-item.active{background:#efedff;color:var(--brand);font-weight:600}
+.nav-section{margin:18px 12px 6px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.content{flex:1;padding:24px 32px}
+.page-header{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:20px}
+.page-actions{display:flex;align-items:center;gap:12px}
+.date-range{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+.preset-btn{border:0;background:none;padding:7px 12px;cursor:pointer}
+.preset-btn.is-selected{background:var(--brand);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:6px;border-radius:8px;padding:7px 12px;border:1px solid var(--line);background:#fff}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px}
+.kpi-card,.panel{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px}
+.kpi-value{font-size:28px;font-weight:600}
+.kpi-delta.up{color:var(--up)}.kpi-delta.down{color:var(--down)}
+.panel-grid{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:16px}
+.panel-header{display:flex;justify-content:space-between;align-items:center}
+.tab{border:0;background:none;padding:6px 10px;border-radius:6px}
+.tab.is-active{background:#efedff;color:var(--brand)}
+.chart svg{width:100%;height:200px}.chart line{stroke:#eef0f4}.chart .series-current{stroke:var(--brand);stroke-width:2}
+.chart .series-previous{stroke:#b9bfcc;stroke-dasharray:4 3}
+.bar-track{display:block;height:6px;background:#eef0f4;border-radius:3px}.bar-fill{display:block;height:6px;background:var(--brand);border-radius:3px}
+.top-pages{width:100%;border-collapse:collapse}.top-pages td,.top-pages th{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
+.app-footer{display:flex;gap:16px;padding:16px 32px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="app-shell">
+  <header class="app-header">
+    <a class="brand" href="/p/fernhill/overview" aria-label="Lumetric home"><svg class="brand-mark" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span class="brand-name">Lumetric</span></a>
+    <div class="project-switcher">
+      <button class="project-switcher-btn" type="button" aria-haspopup="listbox"><span class="project-dot"></span>Fernhill — Production<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <form class="global-search" role="search" action="/search">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3"/></svg><input type="search" name="q" placeholder="Search events, reports, cohorts…" aria-label="Search Lumetric"><kbd>⌘K</kbd>
+    </form>
+    <nav class="header-links" aria-label="Resources">
+      <a href="https://docs.lumetric.example/">Docs</a>
+      <a href="/changelog">What's new</a>
+    </nav>
+    <button class="icon-btn" type="button" aria-label="Notifications"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="badge">3</span></button>
+    <button class="avatar-btn" type="button" aria-label="Account menu"><span class="avatar">NK</span></button>
+  </header>
+  <div class="app-body">
+    <aside class="sidebar">
+      <nav class="sidebar-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a class="nav-item active" href="/p/fernhill/overview" aria-current="page"><svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg><span class="nav-label">Overview</span></a></li>
+          <li><a class="nav-item" href="/p/fernhill/events"><svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg><span class="nav-label">Events</span></a></li>
+          <li><a class="nav-item" href="/p/fernhill/funnels"><svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18l-7 8v6l-4 2v-8z"/></svg><span class="nav-label">Funnels</span></a></li>
+          <li><a class="nav-item" href="/p/fernhill/retention"><svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2l4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3"/></svg><span class="nav-label">Retention</span></a></li>
+          <li><a class="nav-item" href="/p/fernhill/paths"><svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span class="nav-label">User paths</span></a></li>
+          <li><a class="nav-item" href="/p/fernhill/cohorts"><svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg><span class="nav-label">Cohorts</span></a></li>
+          <li><a class="nav-item" href="/p/fernhill/dashboards"><svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg><span class="nav-label">Dashboards</span></a></li>
+        </ul>
+        <h4 class="nav-section">Data</h4>
+        <ul class="nav-list">
+          <li><a class="nav-item" href="/p/fernhill/live"><svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span class="nav-label">Live events</span></a></li>
+          <li><a class="nav-item" href="/p/fernhill/data-management"><svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c4.4 0 8 1.3 8 3v14c0 1.7-3.6 3-8 3s-8-1.3-8-3V5c0-1.7 3.6-3 8-3zM4 5c0 1.7 3.6 3 8 3s8-1.3 8-3M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span class="nav-label">Data management</span></a></li>
+          <li><a class="nav-item" href="/p/fernhill/integrations"><svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0zM12 18v4"/></svg><span class="nav-label">Integrations</span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="usage">
+          <div class="usage-label">Growth plan · events this month</div>
+          <div class="usage-bar"><div class="usage-fill" style="width:82%"></div></div>
+          <div class="usage-meta">8.2M of 10M</div>
+        </div>
+        <a class="upgrade-link" href="/settings/billing">Upgrade plan</a>
+      </div>
+    </aside>
+    <main class="content" id="main">
+      <div class="page-header">
+        <div class="page-heading">
+          <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/p/fernhill">Fernhill</a><span class="sep">/</span><span>Overview</span></nav>
+          <h1 class="page-title">Overview</h1>
+          <p class="page-subtitle">All platforms · Data updated 4 minutes ago</p>
+        </div>
+        <div class="page-actions">
+          <div class="date-range" role="group" aria-label="Date range">
+            <button type="button" class="preset-btn" data-range="today">Today</button>
+            <button type="button" class="preset-btn" data-range="7d">7D</button>
+            <button type="button" class="preset-btn is-selected" data-range="30d" aria-pressed="true" data-dh-target="t1">30D</button>
+            <button type="button" class="preset-btn" data-range="90d">90D</button>
+            <button type="button" class="preset-btn preset-custom" data-range="custom"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg>Oct 6 – Nov 4, 2026</button>
+          </div>
+          <label class="compare-toggle"><input type="checkbox" id="compare-prev" name="compare" data-dh-target="t6"> Compare to previous period</label>
+          <button type="button" class="btn btn-secondary" id="share-btn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</button>
+          <button type="button" class="btn btn-secondary" id="export-btn" data-dh-target="t4"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Export</button>
+        </div>
+      </div>
+
+      <section class="kpi-grid" aria-label="Key metrics">
+        <div class="kpi-card" id="kpi-active-users" data-testid="kpi-active-users">
+          <div class="kpi-label">Active users</div>
+          <div class="kpi-main"><span class="kpi-value" data-dh-target="t2">48,210</span><span class="kpi-delta up">+6.4%</span></div>
+          <div class="kpi-foot">vs. 45,309 in previous 30 days</div>
+        </div>
+        <div class="kpi-card" id="kpi-new-signups" data-testid="kpi-new-signups">
+          <div class="kpi-label">New signups</div>
+          <div class="kpi-main"><span class="kpi-value">3,982</span><span class="kpi-delta up">+12.1%</span></div>
+          <div class="kpi-foot">vs. 3,552 in previous 30 days</div>
+        </div>
+        <div class="kpi-card" id="kpi-session-duration" data-testid="kpi-session-duration">
+          <div class="kpi-label">Avg. session duration</div>
+          <div class="kpi-main"><span class="kpi-value">6m 42s</span><span class="kpi-delta down">−0.8%</span></div>
+          <div class="kpi-foot">vs. 6m 45s in previous 30 days</div>
+        </div>
+        <div class="kpi-card" id="kpi-trial-conversion" data-testid="kpi-trial-conversion">
+          <div class="kpi-label">Trial → paid conversion</div>
+          <div class="kpi-main"><span class="kpi-value">4.86%</span><span class="kpi-delta up">+0.31 pts</span></div>
+          <div class="kpi-foot">vs. 4.55% in previous 30 days</div>
+        </div>
+      </section>
+
+      <div class="panel-grid">
+        <section class="panel chart-panel" id="panel-active-users">
+          <header class="panel-header">
+            <h2 class="panel-title">Active users over time</h2>
+            <div class="tabs" role="tablist" aria-label="Granularity">
+              <button type="button" role="tab" class="tab is-active" aria-selected="true">Daily</button>
+              <button type="button" role="tab" class="tab" aria-selected="false" data-dh-target="t3">Weekly</button>
+              <button type="button" role="tab" class="tab" aria-selected="false">Monthly</button>
+            </div>
+          </header>
+          <div class="chart"><svg viewBox="0 0 640 200" preserveAspectRatio="none" role="img" aria-label="Daily active users, Oct 6 to Nov 4"><line x1="40" x2="632" y1="12" y2="12"/><line x1="40" x2="632" y1="66" y2="66"/><line x1="40" x2="632" y1="120" y2="120"/><line x1="40" x2="632" y1="174" y2="174"/><polyline class="series-current" points="40,98 60,81 81,50 101,85 122,92 142,107 162,76 183,89 203,82 224,47 244,45 265,75 285,95 305,101 326,98 346,48 367,68 387,51 407,69 428,84 448,72 469,90 489,47 510,70 530,70 550,95 571,96 591,90 612,81 632,42" fill="none"/><polyline class="series-previous" points="40,100 60,88 81,94 101,72 122,123 142,107 162,125 183,110 203,102 224,83 244,97 265,118 285,93 305,126 326,127 346,67 367,73 387,100 407,107 428,94 448,107 469,117 489,89 510,70 530,66 550,126 571,89 591,107 612,113 632,83" fill="none"/><text x="40" y="194">Oct 6</text><text x="188" y="194">Oct 13</text><text x="336" y="194">Oct 20</text><text x="484" y="194">Oct 27</text><text x="632" y="194">Nov 3</text></svg></div>
+          <ul class="chart-legend">
+            <li><span class="swatch swatch-current"></span>This period <span class="legend-value">48,210</span></li>
+            <li><span class="swatch swatch-previous"></span>Previous period <span class="legend-value">45,309</span></li>
+          </ul>
+        </section>
+        <section class="panel" id="panel-sources">
+          <header class="panel-header"><h2 class="panel-title">Traffic sources</h2><a class="panel-link" href="/p/fernhill/acquisition">View all</a></header>
+          <ul class="bar-list">
+          <li class="bar-row"><span class="bar-name">Organic search</span><span class="bar-track"><span class="bar-fill" style="width:38.2%"></span></span><span class="bar-value">38.2%</span></li>
+          <li class="bar-row"><span class="bar-name">Direct</span><span class="bar-track"><span class="bar-fill" style="width:24.9%"></span></span><span class="bar-value">24.9%</span></li>
+          <li class="bar-row"><span class="bar-name">Referral</span><span class="bar-track"><span class="bar-fill" style="width:14.1%"></span></span><span class="bar-value">14.1%</span></li>
+          <li class="bar-row"><span class="bar-name">Paid social</span><span class="bar-track"><span class="bar-fill" style="width:11.7%"></span></span><span class="bar-value">11.7%</span></li>
+          <li class="bar-row"><span class="bar-name">Email</span><span class="bar-track"><span class="bar-fill" style="width:6.3%"></span></span><span class="bar-value">6.3%</span></li>
+          <li class="bar-row"><span class="bar-name">Other</span><span class="bar-track"><span class="bar-fill" style="width:4.8%"></span></span><span class="bar-value">4.8%</span></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="panel-grid">
+        <section class="panel" id="panel-top-pages">
+          <header class="panel-header"><h2 class="panel-title">Top pages</h2><span class="panel-meta">By unique visitors</span></header>
+          <table class="top-pages">
+            <thead><tr><th>Page</th><th>Visitors</th><th>Views</th><th>Avg. time</th><th>Bounce</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="page"><a href="/p/fernhill/pages?path=%2F">/</a></td>
+              <td class="num">21,604</td><td class="num">38,912</td><td class="num">1m 12s</td><td class="num">41.0%</td>
+            </tr>
+            <tr>
+              <td class="page"><a href="/p/fernhill/pages?path=%2Fpricing" data-dh-target="t5">/pricing</a></td>
+              <td class="num">9,877</td><td class="num">14,230</td><td class="num">2m 03s</td><td class="num">28.4%</td>
+            </tr>
+            <tr>
+              <td class="page"><a href="/p/fernhill/pages?path=%2Fdocs%2Fgetting-started">/docs/getting-started</a></td>
+              <td class="num">7,415</td><td class="num">16,688</td><td class="num">4m 51s</td><td class="num">19.7%</td>
+            </tr>
+            <tr>
+              <td class="page"><a href="/p/fernhill/pages?path=%2Fblog%2Foffline-sync-in-v4">/blog/offline-sync-in-v4</a></td>
+              <td class="num">5,902</td><td class="num">6,311</td><td class="num">3m 37s</td><td class="num">62.3%</td>
+            </tr>
+            <tr>
+              <td class="page"><a href="/p/fernhill/pages?path=%2Fsignup">/signup</a></td>
+              <td class="num">4,388</td><td class="num">5,140</td><td class="num">0m 58s</td><td class="num">12.9%</td>
+            </tr>
+            <tr>
+              <td class="page"><a href="/p/fernhill/pages?path=%2Fchangelog">/changelog</a></td>
+              <td class="num">3,067</td><td class="num">4,019</td><td class="num">1m 46s</td><td class="num">48.8%</td>
+            </tr>
+            <tr>
+              <td class="page"><a href="/p/fernhill/pages?path=%2Fintegrations%2Fwebhooks">/integrations/webhooks</a></td>
+              <td class="num">2,211</td><td class="num">2,960</td><td class="num">2m 22s</td><td class="num">35.1%</td>
+            </tr>
+            <tr>
+              <td class="page"><a href="/p/fernhill/pages?path=%2Fabout">/about</a></td>
+              <td class="num">1,540</td><td class="num">1,702</td><td class="num">0m 49s</td><td class="num">57.6%</td>
+            </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="panel" id="panel-events">
+          <header class="panel-header"><h2 class="panel-title">Top events</h2><a class="panel-link" href="/p/fernhill/events">All events</a></header>
+          <ol class="event-list">
+          <li class="event-row"><code class="event-name">app_opened</code><span class="event-count">1.21M</span><span class="kpi-delta up">+5.0%</span></li>
+          <li class="event-row"><code class="event-name">screen_viewed</code><span class="event-count">984K</span><span class="kpi-delta up">+3.8%</span></li>
+          <li class="event-row"><code class="event-name">sync_completed</code><span class="event-count">412K</span><span class="kpi-delta up">+9.2%</span></li>
+          <li class="event-row"><code class="event-name">note_created</code><span class="event-count">233K</span><span class="kpi-delta up">+6.1%</span></li>
+          <li class="event-row"><code class="event-name">share_link_copied</code><span class="event-count">41.3K</span><span class="kpi-delta up">+22.4%</span></li>
+          <li class="event-row"><code class="event-name">upgrade_clicked</code><span class="event-count">9.8K</span><span class="kpi-delta up">+11.0%</span></li>
+          </ol>
+        </section>
+      </div>
+    </main>
+  </div>
+  <footer class="app-footer">
+    <span>© 2026 Lumetric Labs, Inc.</span>
+    <a href="https://status.lumetric.example">Status</a>
+    <a href="/legal/privacy">Privacy</a>
+    <a href="/legal/terms">Terms</a>
+    <span class="build">v4.18.2</span>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dairy &amp; Eggs – GreenBasket grocery delivery</title>
+<style>
+body{margin:0;font:15px/1.45 "Rubik",system-ui,sans-serif;color:#1e2a22;background:#f7faf7}
+.gb-header__inner{display:flex;align-items:center;gap:20px;padding:12px 24px;background:#fff;border-bottom:1px solid #dfe8e1}
+.gb-layout{display:grid;grid-template-columns:220px 1fr 360px;gap:24px}
+.aisle-nav__list{list-style:none;padding:0}.aisle-nav__item.is-active a{font-weight:700;color:#1d7a3e}
+.shelf__items{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;list-style:none;padding:0}
+.product-tile{background:#fff;border-radius:10px;padding:10px}.unit-price{display:block;font-size:12px;color:#5b6b60}
+.add-btn{width:100%;border:1px solid #1d7a3e;color:#1d7a3e;border-radius:999px;background:#fff}
+.mini-cart{position:sticky;top:0;height:100vh;background:#fff;border-left:1px solid #dfe8e1;padding:16px}
+.btn-checkout{display:block;background:#1d7a3e;color:#fff;text-align:center;padding:12px;border-radius:999px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body class="page-aisle">
+<header class="gb-header">
+  <div class="gb-header__inner">
+    <a class="gb-header__logo" href="/"><svg class="gb-header__leaf" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15M5 19l7-7"/></svg><span>GreenBasket</span></a>
+    <button type="button" class="delivery-slot"><svg class="delivery-slot__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h11v9H3zM14 9h4l3 3v3h-7zM7 18a2 2 0 1 0 0-.01M17 18a2 2 0 1 0 0-.01"/></svg><span class="delivery-slot__label">Delivery · Today 4–5 PM</span><span class="delivery-slot__address">11 Pine St, Apt 2</span></button>
+    <form class="gb-search" role="search" action="/search"><label class="visually-hidden" for="gb-search-input">Search products</label><input id="gb-search-input" type="search" name="q" placeholder="Search 30,000+ products"><button type="submit" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 4a7 7 0 1 0 4.2 12.6l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg></button></form>
+    <a class="gb-header__account" href="/account">Hi, Priya</a>
+    <button type="button" class="cart-toggle" aria-controls="mini-cart" aria-expanded="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 4h2l2.4 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2M9 20h.01M18 20h.01"/></svg><span class="cart-toggle__count">6</span><span class="cart-toggle__total">$31.44</span></button>
+  </div>
+</header>
+<div class="gb-layout">
+  <nav class="aisle-nav" aria-label="Aisles">
+    <h2 class="aisle-nav__title">Shop aisles</h2>
+    <ul class="aisle-nav__list">
+      <li class="aisle-nav__item"><a class="aisle-nav__link" href="/aisle/produce">Produce</a></li>
+      <li class="aisle-nav__item is-active"><a class="aisle-nav__link" href="/aisle/dairy-and-eggs" aria-current="page">Dairy &amp; Eggs</a></li>
+      <li class="aisle-nav__item"><a class="aisle-nav__link" href="/aisle/meat-and-seafood">Meat &amp; Seafood</a></li>
+      <li class="aisle-nav__item"><a class="aisle-nav__link" href="/aisle/bakery" data-dh-target="t6">Bakery</a></li>
+      <li class="aisle-nav__item"><a class="aisle-nav__link" href="/aisle/deli">Deli</a></li>
+      <li class="aisle-nav__item"><a class="aisle-nav__link" href="/aisle/pantry">Pantry</a></li>
+      <li class="aisle-nav__item"><a class="aisle-nav__link" href="/aisle/frozen">Frozen</a></li>
+      <li class="aisle-nav__item"><a class="aisle-nav__link" href="/aisle/snacks">Snacks</a></li>
+      <li class="aisle-nav__item"><a class="aisle-nav__link" href="/aisle/beverages">Beverages</a></li>
+      <li class="aisle-nav__item"><a class="aisle-nav__link" href="/aisle/household">Household</a></li>
+      <li class="aisle-nav__item"><a class="aisle-nav__link" href="/aisle/baby">Baby</a></li>
+      <li class="aisle-nav__item"><a class="aisle-nav__link" href="/aisle/pets">Pets</a></li>
+    </ul>
+    <div class="aisle-nav__promo"><p>New customers: <strong>$0 delivery fee</strong> on your first 3 orders.</p></div>
+  </nav>
+  <main class="aisle" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <span aria-current="page">Dairy &amp; Eggs</span></nav>
+    <div class="aisle__header"><h1 class="aisle__title">Dairy &amp; Eggs</h1><p class="aisle__count">128 items</p></div>
+    <ul class="subaisle-chips"><li><a class="chip chip--active" href="/aisle/dairy-eggs">All</a></li><li><a class="chip" href="/aisle/dairy-eggs/milk">Milk</a></li><li><a class="chip" href="/aisle/dairy-eggs/yogurt">Yogurt</a></li><li><a class="chip" href="/aisle/dairy-eggs/eggs">Eggs</a></li><li><a class="chip" href="/aisle/dairy-eggs/cheese">Cheese</a></li><li><a class="chip" href="/aisle/dairy-eggs/butter-and-cream">Butter &amp; Cream</a></li><li><a class="chip" href="/aisle/dairy-eggs/plant-based">Plant-based</a></li></ul>
+    <div class="aisle__deal"><p><strong>Deal:</strong> Buy 2 Greek yogurts, save $1.00</p></div>
+
+      <section class="shelf" id="shelf-milk" aria-labelledby="shelf-milk-title">
+        <div class="shelf__header"><h2 class="shelf__title" id="shelf-milk-title">Milk</h2><a class="shelf__see-all" href="/aisle/dairy-eggs/milk">See all</a></div>
+        <ul class="shelf__items">
+        <li class="product-tile" id="tile-70014" data-sku="70014" data-testid="product-tile-70014">
+          <div class="product-tile__image"><img src="/img/products/70014_300.jpg" alt="Organic Whole Milk, 1 gal" width="150" height="150" loading="lazy"><span class="badge badge--organic">Organic</span></div>
+          <div class="tile-price"><span class="price">$6.49</span><span class="unit-price">$0.05/fl oz</span></div>
+          <h3 class="tile-name">Organic Whole Milk</h3>
+          <p class="tile-size">1 gal</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn" data-dh-target="t1">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-70022" data-sku="70022" data-testid="product-tile-70022">
+          <div class="product-tile__image"><img src="/img/products/70022_300.jpg" alt="2% Reduced Fat Milk, 1 gal" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$4.29</span><span class="unit-price">$0.03/fl oz</span></div>
+          <h3 class="tile-name">2% Reduced Fat Milk</h3>
+          <p class="tile-size">1 gal</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-70031" data-sku="70031" data-testid="product-tile-70031">
+          <div class="product-tile__image"><img src="/img/products/70031_300.jpg" alt="Lactose-Free Whole Milk, 52 fl oz" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$4.79</span><span class="unit-price">$0.09/fl oz</span></div>
+          <h3 class="tile-name">Lactose-Free Whole Milk</h3>
+          <p class="tile-size">52 fl oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-70045" data-sku="70045" data-testid="product-tile-70045">
+          <div class="product-tile__image"><img src="/img/products/70045_300.jpg" alt="Oat Milk Barista Edition, 32 fl oz" width="150" height="150" loading="lazy"><span class="badge badge--plant-based">Plant-based</span></div>
+          <div class="tile-price"><span class="price">$4.99</span><span class="unit-price">$0.16/fl oz</span></div>
+          <h3 class="tile-name">Oat Milk Barista Edition</h3>
+          <p class="tile-size">32 fl oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-70052" data-sku="70052" data-testid="product-tile-70052">
+          <div class="product-tile__image"><img src="/img/products/70052_300.jpg" alt="Unsweetened Almond Milk, 64 fl oz" width="150" height="150" loading="lazy"><span class="badge badge--plant-based">Plant-based</span></div>
+          <div class="tile-price"><span class="price">$3.49</span><span class="unit-price">$0.05/fl oz</span></div>
+          <h3 class="tile-name">Unsweetened Almond Milk</h3>
+          <p class="tile-size">64 fl oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-70068" data-sku="70068" data-testid="product-tile-70068">
+          <div class="product-tile__image"><img src="/img/products/70068_300.jpg" alt="Chocolate Whole Milk, 1/2 gal" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$3.29</span><span class="unit-price">$0.05/fl oz</span></div>
+          <h3 class="tile-name">Chocolate Whole Milk</h3>
+          <p class="tile-size">1/2 gal</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf" id="shelf-yogurt" aria-labelledby="shelf-yogurt-title">
+        <div class="shelf__header"><h2 class="shelf__title" id="shelf-yogurt-title">Yogurt</h2><a class="shelf__see-all" href="/aisle/dairy-eggs/yogurt">See all</a></div>
+        <ul class="shelf__items">
+        <li class="product-tile" id="tile-51200" data-sku="51200" data-testid="product-tile-51200">
+          <div class="product-tile__image"><img src="/img/products/51200_300.jpg" alt="Greek Yogurt Plain, 32 oz" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$5.99</span><span class="unit-price">$0.19/oz</span></div>
+          <h3 class="tile-name">Greek Yogurt Plain</h3>
+          <p class="tile-size">32 oz</p>
+          <div class="tile-actions"><div class="stepper"><button type="button" class="stepper__dec" aria-label="Decrease quantity"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg></button><span class="stepper__count" aria-live="polite">1 in cart</span><button type="button" class="stepper__inc" aria-label="Increase quantity" data-dh-target="t2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></button></div></div>
+        </li>
+        <li class="product-tile" id="tile-51214" data-sku="51214" data-testid="product-tile-51214">
+          <div class="product-tile__image"><img src="/img/products/51214_300.jpg" alt="Vanilla Bean Whole Milk Yogurt, 32 oz" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$4.49</span><span class="unit-price">$0.14/oz</span></div>
+          <h3 class="tile-name">Vanilla Bean Whole Milk Yogurt</h3>
+          <p class="tile-size">32 oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-51227" data-sku="51227" data-testid="product-tile-51227">
+          <div class="product-tile__image"><img src="/img/products/51227_300.jpg" alt="Strawberry Greek Yogurt Cups, 4 × 5.3 oz" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$5.29</span><span class="unit-price">$0.25/oz</span></div>
+          <h3 class="tile-name">Strawberry Greek Yogurt Cups</h3>
+          <p class="tile-size">4 × 5.3 oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-51239" data-sku="51239" data-testid="product-tile-51239">
+          <div class="product-tile__image"><img src="/img/products/51239_300.jpg" alt="Icelandic Skyr Plain, 5.3 oz" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$1.99</span><span class="unit-price">$0.38/oz</span></div>
+          <h3 class="tile-name">Icelandic Skyr Plain</h3>
+          <p class="tile-size">5.3 oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-51246" data-sku="51246" data-testid="product-tile-51246">
+          <div class="product-tile__image"><img src="/img/products/51246_300.jpg" alt="Coconut Yogurt Alternative, 16 oz" width="150" height="150" loading="lazy"><span class="badge badge--plant-based">Plant-based</span></div>
+          <div class="tile-price"><span class="price">$5.49</span><span class="unit-price">$0.34/oz</span></div>
+          <h3 class="tile-name">Coconut Yogurt Alternative</h3>
+          <p class="tile-size">16 oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-51251" data-sku="51251" data-testid="product-tile-51251">
+          <div class="product-tile__image"><img src="/img/products/51251_300.jpg" alt="Plain Kefir, 32 fl oz" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$4.29</span><span class="unit-price">$0.13/fl oz</span></div>
+          <h3 class="tile-name">Plain Kefir</h3>
+          <p class="tile-size">32 fl oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf" id="shelf-eggs" aria-labelledby="shelf-eggs-title">
+        <div class="shelf__header"><h2 class="shelf__title" id="shelf-eggs-title">Eggs</h2><a class="shelf__see-all" href="/aisle/dairy-eggs/eggs">See all</a></div>
+        <ul class="shelf__items">
+        <li class="product-tile" id="tile-60311" data-sku="60311" data-testid="product-tile-60311">
+          <div class="product-tile__image"><img src="/img/products/60311_300.jpg" alt="Large Brown Eggs, 12 ct" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$4.49</span><span class="unit-price" data-dh-target="t3">$0.37/ct</span></div>
+          <h3 class="tile-name">Large Brown Eggs</h3>
+          <p class="tile-size">12 ct</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-60318" data-sku="60318" data-testid="product-tile-60318">
+          <div class="product-tile__image"><img src="/img/products/60318_300.jpg" alt="Large White Eggs, 18 ct" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$5.29</span><span class="unit-price">$0.29/ct</span></div>
+          <h3 class="tile-name">Large White Eggs</h3>
+          <p class="tile-size">18 ct</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-60325" data-sku="60325" data-testid="product-tile-60325">
+          <div class="product-tile__image"><img src="/img/products/60325_300.jpg" alt="Pasture-Raised Large Eggs, 12 ct" width="150" height="150" loading="lazy"><span class="badge badge--pasture-raised">Pasture-raised</span></div>
+          <div class="tile-price"><span class="price">$7.99</span><span class="unit-price">$0.67/ct</span></div>
+          <h3 class="tile-name">Pasture-Raised Large Eggs</h3>
+          <p class="tile-size">12 ct</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-60332" data-sku="60332" data-testid="product-tile-60332">
+          <div class="product-tile__image"><img src="/img/products/60332_300.jpg" alt="Organic Free-Range Eggs, 12 ct" width="150" height="150" loading="lazy"><span class="badge badge--organic">Organic</span></div>
+          <div class="tile-price"><span class="price">$6.49</span><span class="unit-price">$0.54/ct</span></div>
+          <h3 class="tile-name">Organic Free-Range Eggs</h3>
+          <p class="tile-size">12 ct</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-60347" data-sku="60347" data-testid="product-tile-60347">
+          <div class="product-tile__image"><img src="/img/products/60347_300.jpg" alt="Liquid Egg Whites, 16 oz" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$3.99</span><span class="unit-price">$0.25/oz</span></div>
+          <h3 class="tile-name">Liquid Egg Whites</h3>
+          <p class="tile-size">16 oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        </ul>
+      </section>
+      <section class="shelf" id="shelf-cheese" aria-labelledby="shelf-cheese-title">
+        <div class="shelf__header"><h2 class="shelf__title" id="shelf-cheese-title">Cheese</h2><a class="shelf__see-all" href="/aisle/dairy-eggs/cheese">See all</a></div>
+        <ul class="shelf__items">
+        <li class="product-tile" id="tile-64410" data-sku="64410" data-testid="product-tile-64410">
+          <div class="product-tile__image"><img src="/img/products/64410_300.jpg" alt="Sharp Cheddar Block, 8 oz" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$3.99</span><span class="unit-price">$0.50/oz</span></div>
+          <h3 class="tile-name">Sharp Cheddar Block</h3>
+          <p class="tile-size">8 oz</p>
+          <div class="tile-actions"><div class="stepper"><button type="button" class="stepper__dec" aria-label="Decrease quantity"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg></button><span class="stepper__count" aria-live="polite">1 in cart</span><button type="button" class="stepper__inc" aria-label="Increase quantity"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></button></div></div>
+        </li>
+        <li class="product-tile" id="tile-64428" data-sku="64428" data-testid="product-tile-64428">
+          <div class="product-tile__image"><img src="/img/products/64428_300.jpg" alt="Fresh Mozzarella Ball, 8 oz" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$4.49</span><span class="unit-price">$0.56/oz</span></div>
+          <h3 class="tile-name">Fresh Mozzarella Ball</h3>
+          <p class="tile-size">8 oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-64433" data-sku="64433" data-testid="product-tile-64433">
+          <div class="product-tile__image"><img src="/img/products/64433_300.jpg" alt="Grated Parmesan, 5 oz" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$4.99</span><span class="unit-price">$1.00/oz</span></div>
+          <h3 class="tile-name">Grated Parmesan</h3>
+          <p class="tile-size">5 oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-64447" data-sku="64447" data-testid="product-tile-64447">
+          <div class="product-tile__image"><img src="/img/products/64447_300.jpg" alt="Double Cream Brie, 7 oz" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$6.99</span><span class="unit-price">$1.00/oz</span></div>
+          <h3 class="tile-name">Double Cream Brie</h3>
+          <p class="tile-size">7 oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-64451" data-sku="64451" data-testid="product-tile-64451">
+          <div class="product-tile__image"><img src="/img/products/64451_300.jpg" alt="Crumbled Feta, 6 oz" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$3.79</span><span class="unit-price">$0.63/oz</span></div>
+          <h3 class="tile-name">Crumbled Feta</h3>
+          <p class="tile-size">6 oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        <li class="product-tile" id="tile-64466" data-sku="64466" data-testid="product-tile-64466">
+          <div class="product-tile__image"><img src="/img/products/64466_300.jpg" alt="Sliced Swiss, 8 oz" width="150" height="150" loading="lazy"></div>
+          <div class="tile-price"><span class="price">$4.29</span><span class="unit-price">$0.54/oz</span></div>
+          <h3 class="tile-name">Sliced Swiss</h3>
+          <p class="tile-size">8 oz</p>
+          <div class="tile-actions"><button type="button" class="add-btn" data-testid="add-to-cart-btn">Add</button></div>
+        </li>
+        </ul>
+      </section>
+  </main>
+  <aside id="mini-cart" class="mini-cart is-open" role="dialog" aria-modal="false" aria-labelledby="mini-cart-title">
+    <div class="mini-cart__header"><h2 class="mini-cart__title" id="mini-cart-title">Your cart (6)</h2><button type="button" class="mini-cart__close" aria-label="Close cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="mini-cart__progress"><p>Add <strong>$3.56</strong> to get free delivery</p><div class="progress"><span class="progress__fill" style="width:90%"></span></div></div>
+    <ul class="mini-cart__items">
+        <li class="mini-cart__item">
+          <img class="mini-cart__img" src="/img/products/11020_120.jpg" alt="" width="48" height="48">
+          <div class="mini-cart__info"><p class="mini-cart__name">Honeycrisp Apples</p><p class="mini-cart__size">3 lb bag</p><p class="mini-cart__price">$6.99</p></div>
+          <div class="stepper stepper--small"><button type="button" class="stepper__dec" aria-label="Decrease quantity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg></button><span class="stepper__count">1</span><button type="button" class="stepper__inc" aria-label="Increase quantity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></button></div>
+          <button type="button" class="remove-btn" title="Remove" aria-label="Remove"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13"/></svg></button>
+        </li>
+        <li class="mini-cart__item">
+          <img class="mini-cart__img" src="/img/products/51200_120.jpg" alt="" width="48" height="48">
+          <div class="mini-cart__info"><p class="mini-cart__name">Greek Yogurt Plain</p><p class="mini-cart__size">32 oz</p><p class="mini-cart__price">$5.99</p></div>
+          <div class="stepper stepper--small"><button type="button" class="stepper__dec" aria-label="Decrease quantity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg></button><span class="stepper__count">1</span><button type="button" class="stepper__inc" aria-label="Increase quantity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></button></div>
+          <button type="button" class="remove-btn" title="Remove" aria-label="Remove"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13"/></svg></button>
+        </li>
+        <li class="mini-cart__item">
+          <img class="mini-cart__img" src="/img/products/64410_120.jpg" alt="" width="48" height="48">
+          <div class="mini-cart__info"><p class="mini-cart__name">Sharp Cheddar Block</p><p class="mini-cart__size">8 oz</p><p class="mini-cart__price">$3.99</p></div>
+          <div class="stepper stepper--small"><button type="button" class="stepper__dec" aria-label="Decrease quantity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg></button><span class="stepper__count">1</span><button type="button" class="stepper__inc" aria-label="Increase quantity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></button></div>
+          <button type="button" class="remove-btn" title="Remove" aria-label="Remove" data-dh-target="t5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13"/></svg></button>
+        </li>
+        <li class="mini-cart__item">
+          <img class="mini-cart__img" src="/img/products/80115_120.jpg" alt="" width="48" height="48">
+          <div class="mini-cart__info"><p class="mini-cart__name">Sourdough Boule</p><p class="mini-cart__size">24 oz</p><p class="mini-cart__price">$6.49</p></div>
+          <div class="stepper stepper--small"><button type="button" class="stepper__dec" aria-label="Decrease quantity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg></button><span class="stepper__count">1</span><button type="button" class="stepper__inc" aria-label="Increase quantity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></button></div>
+          <button type="button" class="remove-btn" title="Remove" aria-label="Remove"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13"/></svg></button>
+        </li>
+        <li class="mini-cart__item">
+          <img class="mini-cart__img" src="/img/products/12007_120.jpg" alt="" width="48" height="48">
+          <div class="mini-cart__info"><p class="mini-cart__name">Organic Baby Spinach</p><p class="mini-cart__size">5 oz</p><p class="mini-cart__price">$7.98</p></div>
+          <div class="stepper stepper--small"><button type="button" class="stepper__dec" aria-label="Decrease quantity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg></button><span class="stepper__count">2</span><button type="button" class="stepper__inc" aria-label="Increase quantity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></button></div>
+          <button type="button" class="remove-btn" title="Remove" aria-label="Remove"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13"/></svg></button>
+        </li>
+    </ul>
+    <div class="mini-cart__footer">
+      <dl class="mini-cart__totals"><dt>Subtotal</dt><dd>$31.44</dd></dl>
+      <p class="mini-cart__note">Delivery and service fees are calculated at checkout.</p>
+      <a class="btn-checkout" href="/checkout" data-testid="mini-cart-checkout" data-dh-target="t4">Checkout</a>
+      <a class="mini-cart__view" href="/cart">View full cart</a>
+    </div>
+  </aside>
+</div>
+<footer class="gb-footer">
+  <div class="gb-footer__cols">
+    <div><h2>GreenBasket</h2><ul><li><a href="/about">About us</a></li><li><a href="/careers">Careers</a></li><li><a href="/sustainability">Sustainability</a></li><li><a href="/press">Press</a></li></ul></div>
+    <div><h2>Help</h2><ul><li><a href="/help/delivery">Delivery areas &amp; times</a></li><li><a href="/help/substitutions">Substitutions</a></li><li><a href="/help/refunds">Refunds</a></li><li><a href="/help/contact">Contact us</a></li></ul></div>
+    <div><h2>More ways to shop</h2><ul><li><a href="/pickup">Store pickup</a></li><li><a href="/plus">GreenBasket+</a></li><li><a href="/gift-cards">Gift cards</a></li><li><a href="/snap">SNAP/EBT</a></li></ul></div>
+  </div>
+  <p class="gb-footer__legal">© 2026 GreenBasket Inc. · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · Prices may differ from in-store.</p>
+</footer>
+</body>
+</html>

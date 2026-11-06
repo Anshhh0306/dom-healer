@@ -44,6 +44,7 @@ HEURISTIC_WEIGHTS: dict[str, float] = {
     "heading_sim": 2.0,
     "context_sim": 2.0,
     "next_context_sim": 1.0,
+    "container_sim": 2.0,
     "row_sim": 3.0,
     "column_sim": 2.0,
     "form_sim": 1.0,
@@ -195,6 +196,8 @@ class SklearnRanker:
 
     def score(self, X: np.ndarray) -> np.ndarray:
         X = np.asarray(X, dtype=float)
+        if X.shape[0] == 0:
+            return np.zeros(0)
         X = np.where(np.isnan(X), self.fill_value, X)
         proba = self.estimator.predict_proba(X)
         return proba[:, list(self.estimator.classes_).index(1)] if proba.shape[1] > 1 else proba[:, 0]
@@ -210,13 +213,16 @@ def load_default_model() -> LinearRanker | None:
 
 
 def get_ranker(spec: str | Ranker | None = None) -> Ranker:
-    """Resolve a ranker from a name (``"heuristic"``, ``"linear"``, ``"auto"``), a JSON path, or an instance."""
-    if spec is None or spec == "auto":
-        model = load_default_model()
-        return model if model is not None else HeuristicRanker()
+    """Resolve a ranker from a name, a JSON model path, or an instance.
+
+    ``"auto"`` (the default) and ``"heuristic"`` give the hand-weighted
+    :class:`HeuristicRanker`, which was the most accurate ranker in the
+    cross-validated benchmark; ``"linear"`` gives the bundled logistic-regression
+    model trained on all benchmark suites.
+    """
+    if spec is None or spec in ("auto", "heuristic"):
+        return HeuristicRanker()
     if isinstance(spec, str):
-        if spec == "heuristic":
-            return HeuristicRanker()
         if spec == "linear":
             model = load_default_model()
             if model is None:

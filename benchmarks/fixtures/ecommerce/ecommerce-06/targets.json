@@ -1,0 +1,101 @@
+{
+  "suite": "ecommerce-06",
+  "category": "ecommerce",
+  "title": "Category landing with mega-menu, promo banners and product carousels — fashion store",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 is a headless (Vite + CSS modules) rebuild. The primary navigation and mega-menus move into <ml-mega-nav>'s shadow root with a 'Featured' column first, re-ordered Clothing links and new URLs; a hidden mobile drawer and the Men menu also contain 'Knitwear' links. The hero CTA now reads 'Discover the edit' while a new 'Party Edit' module reuses 'Shop the edit'. Bestsellers now precedes New In and also features the Wool-Blend Wrap Coat at the same price; carousel arrows are relabelled 'Next slide'. The bag icon link becomes a drawer-toggle button, and the newsletter form moves to the footer (a hidden popup adds another email field).",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Knitwear' link in the Women → Clothing column of the mega-menu",
+      "css": "#mega-women .mega-col:first-child a[href='/women/clothing/knitwear']",
+      "xpath": "//li[@id='nav-women']//div[@class='mega-col'][1]//a[normalize-space()='Knitwear']",
+      "mutations": [
+        "shadow-dom",
+        "sibling-reorder",
+        "decoy",
+        "attribute-churn",
+        "class-obfuscation",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Hero call-to-action link of 'The Autumn Edit'",
+      "css": ".hero .hero__cta",
+      "xpath": "//a[normalize-space()='Shop the edit']",
+      "mutations": [
+        "copy-change",
+        "decoy",
+        "class-obfuscation",
+        "wrapper-divs",
+        "insertion"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "'Next' arrow button of the New In carousel",
+      "css": "#carousel-new-in .carousel__next",
+      "xpath": "//section[@aria-labelledby='new-in-heading']//button[@aria-label='Next']",
+      "mutations": [
+        "attribute-churn",
+        "copy-change",
+        "id-change",
+        "sibling-reorder",
+        "decoy",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Price ($248.00) of the 'Wool-Blend Wrap Coat' tile in the New In carousel",
+      "css": "#carousel-new-in li:nth-child(2) .price",
+      "xpath": "//h3[normalize-space()='Wool-Blend Wrap Coat']/following-sibling::p/span[@class='price']",
+      "mutations": [
+        "decoy",
+        "sibling-reorder",
+        "tag-change",
+        "class-obfuscation",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Email input of the newsletter sign-up form",
+      "css": "#newsletter-email",
+      "xpath": "//form[@id='newsletter-form']//input[@type='email']",
+      "mutations": [
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "structure-move",
+        "decoy",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Shopping bag icon in the header (shows 2 items)",
+      "css": "a.header__icon--bag",
+      "xpath": "//a[@aria-label='Bag, 2 items']",
+      "mutations": [
+        "tag-change",
+        "attribute-churn",
+        "copy-change",
+        "class-obfuscation"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "suite": "table-05",
+  "category": "table",
+  "title": "Server inventory data grid (table migrated to an ARIA div grid)",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 replaces the <table> with a vanilla-extract styled ARIA grid (role=grid/row/gridcell/columnheader divs) rendered inside an <fd-server-grid> declarative shadow root; rows are grouped by region (group rows inserted) and sorted by name, columns are reordered and renamed (Hostname->Name, IP address->Private IP, OS->Image) with a Public IP column inserted, Reboot becomes Restart, the console button loses its title, row ids/values are replaced by opaque data-rowid hashes, and a hidden column-visibility menu plus a light-DOM 'Needs attention' list repeat column names, statuses and Restart actions.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Reboot' action of server db-pg-primary-02.ams3 (v2: 'Restart')",
+      "css": ".inv-table tbody tr:nth-child(5) button.act-reboot",
+      "xpath": "//tr[td[2]='db-pg-primary-02.ams3']//button[normalize-space()='Reboot']",
+      "mutations": [
+        "tag-change",
+        "shadow-dom",
+        "copy-change",
+        "class-obfuscation",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Status cell of server cache-redis-03.fra1 (value 'Degraded')",
+      "css": "tr#srv-0412 td.col-status",
+      "xpath": "//tr[@id='srv-0412']/td[3]",
+      "mutations": [
+        "tag-change",
+        "shadow-dom",
+        "sibling-reorder",
+        "id-change",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "IP-address cell of server web-edge-11.lon1 (10.40.3.21; v2 column 'Private IP')",
+      "css": ".inv-table > tbody > tr:nth-child(10) > td:nth-child(6)",
+      "xpath": "//a[.='web-edge-11.lon1']/../../td[6]",
+      "mutations": [
+        "tag-change",
+        "shadow-dom",
+        "sibling-reorder",
+        "insertion",
+        "copy-change",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Row-selection checkbox of server prod-api-07.fra1",
+      "css": "input[type='checkbox'][value='srv-0188']",
+      "xpath": "//tbody/tr[3]/td[1]/input",
+      "mutations": [
+        "tag-change",
+        "shadow-dom",
+        "sibling-reorder",
+        "attribute-churn",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Uptime' column header of the server grid",
+      "css": ".inv-table thead th:nth-child(9)",
+      "xpath": "//th[normalize-space()='Uptime']",
+      "mutations": [
+        "tag-change",
+        "shadow-dom",
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Icon-only 'Open web console' button of server k8s-worker-14.sfo2",
+      "css": "tr[data-host='k8s-worker-14.sfo2'] .act-console",
+      "xpath": "(//table[contains(@class,'inv-table')]//button[@title='Open web console'])[9]",
+      "mutations": [
+        "tag-change",
+        "shadow-dom",
+        "attribute-churn",
+        "copy-change",
+        "sibling-reorder",
+        "class-obfuscation"
+      ]
+    }
+  ]
+}

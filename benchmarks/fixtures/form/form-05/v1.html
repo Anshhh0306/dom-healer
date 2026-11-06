@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preferences · Settings · Driftwood</title>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="Wq7T2mKz9rVb4Xc1LpN8sYd3Hf6Jg0Ae5uOiBkRtMn">
+<style>
+  body { margin: 0; font: 14px/1.5 "Source Sans 3", system-ui, sans-serif; color: #1c1917; background: #fafaf9; }
+  .app-header { background: #fff; border-bottom: 1px solid #e7e5e4; }
+  .app-header__inner { display: flex; align-items: center; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 10px 24px; }
+  .settings-layout { display: grid; grid-template-columns: 220px 1fr; gap: 40px; max-width: 1200px; margin: 32px auto; padding: 0 24px; }
+  .settings-nav__list { list-style: none; padding: 0; }
+  .settings-nav__item--active .settings-nav__link { font-weight: 700; color: #7c3aed; }
+  .settings-section { background: #fff; border: 1px solid #e7e5e4; border-radius: 8px; padding: 24px; margin-bottom: 24px; }
+  .settings-section--danger { border-color: #fca5a5; }
+  .notify-matrix { width: 100%; border-collapse: collapse; }
+  .notify-matrix th, .notify-matrix td { padding: 10px 8px; border-bottom: 1px solid #f5f5f4; text-align: left; }
+  .switch { position: relative; display: inline-block; width: 36px; height: 20px; }
+  .switch__input { opacity: 0; width: 0; height: 0; }
+  .switch__slider { position: absolute; inset: 0; background: #d6d3d1; border-radius: 20px; }
+  .switch__input:checked + .switch__slider { background: #7c3aed; }
+  .button { display: inline-block; border-radius: 6px; padding: 8px 14px; font-weight: 600; border: 1px solid transparent; }
+  .button--primary { background: #7c3aed; color: #fff; }
+  .button--danger { background: #dc2626; color: #fff; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+</head>
+<body>
+<header class="app-header">
+  <div class="app-header__inner">
+    <a class="app-header__logo" href="/"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="14" fill="#7c3aed"/><path d="M6 19c4-3 8-3 12 0s6 1 7-1" stroke="#fff" stroke-width="2" fill="none"/></svg><span class="app-header__wordmark">Driftwood</span></a>
+    <form class="app-search" action="/search" role="search">
+      <label class="visually-hidden" for="q">Search photos</label>
+      <input id="q" class="app-search__input" type="search" name="q" placeholder="Search photos, people or places">
+    </form>
+    <nav class="app-header__nav" aria-label="Primary">
+      <a class="app-header__link" href="/discover">Discover</a>
+      <a class="app-header__link" href="/following">Following</a>
+      <a class="app-header__link" href="/groups">Groups</a>
+    </nav>
+    <a class="button button--primary button--small" href="/upload">Upload</a>
+    <a class="app-header__icon" href="/notifications" aria-label="Notifications (3 unread)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="app-header__badge">3</span></a>
+    <details class="user-menu">
+      <summary class="user-menu__toggle"><span class="avatar avatar--small">EM</span><span class="visually-hidden">Account menu</span></summary>
+      <ul class="user-menu__list">
+        <li><a href="/@elena.marsh">Your profile</a></li>
+        <li><a href="/settings/profile">Settings</a></li>
+        <li><a href="/logout" data-method="delete" rel="nofollow">Log out</a></li>
+      </ul>
+    </details>
+  </div>
+</header>
+<div class="settings-layout">
+  <aside class="settings-sidebar">
+    <h2 class="settings-sidebar__title">Settings</h2>
+    <nav class="settings-nav" aria-label="Settings">
+      <ul class="settings-nav__list">
+<li class="settings-nav__item"><a class="settings-nav__link" href="/settings/profile">Profile</a></li>
+<li class="settings-nav__item"><a class="settings-nav__link" href="/settings/security">Password &amp; security</a></li>
+<li class="settings-nav__item settings-nav__item--active"><a class="settings-nav__link" href="/settings/preferences" aria-current="page">Preferences</a></li>
+<li class="settings-nav__item"><a class="settings-nav__link" href="/settings/privacy">Privacy</a></li>
+<li class="settings-nav__item"><a class="settings-nav__link" href="/settings/billing" data-dh-target="t6">Billing &amp; plan</a></li>
+<li class="settings-nav__item"><a class="settings-nav__link" href="/settings/apps">Connected apps</a></li>
+<li class="settings-nav__item"><a class="settings-nav__link" href="/settings/export">Export data</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="settings-main">
+    <div class="flash flash--notice" role="status">Your profile photo was updated.</div>
+    <h1 class="settings-main__title">Preferences</h1>
+    <form id="preferences-form" class="settings-form edit_user" action="/settings/preferences" method="post" accept-charset="UTF-8">
+      <input type="hidden" name="_method" value="patch">
+      <input type="hidden" name="authenticity_token" value="Wq7T2mKz9rVb4Xc1LpN8sYd3Hf6Jg0Ae5uOiBkRtMn">
+      <section class="settings-section" id="notifications">
+        <h2 class="settings-section__title">Notifications</h2>
+        <p class="settings-section__description">Choose how you hear about activity on your photos.</p>
+        <table class="notify-matrix">
+          <thead><tr><th scope="col">Activity</th><th scope="col">Email</th><th scope="col">Push</th></tr></thead>
+          <tbody>
+<tr class="notify-matrix__row"><th scope="row" class="notify-matrix__event">Comments on your photos<span class="notify-matrix__help">When someone comments on a photo you posted.</span></th><td><input type="hidden" name="notify[comments][email]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[comments][email]" id="notify-comments-email" checked><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Email</span></label></td><td><input type="hidden" name="notify[comments][push]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[comments][push]" id="notify-comments-push" checked><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Push</span></label></td></tr>
+<tr class="notify-matrix__row"><th scope="row" class="notify-matrix__event">New followers<span class="notify-matrix__help">When someone starts following you.</span></th><td><input type="hidden" name="notify[followers][email]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[followers][email]" id="notify-followers-email"><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Email</span></label></td><td><input type="hidden" name="notify[followers][push]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[followers][push]" id="notify-followers-push" checked><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Push</span></label></td></tr>
+<tr class="notify-matrix__row"><th scope="row" class="notify-matrix__event">Mentions<span class="notify-matrix__help">When someone @mentions you in a comment or caption.</span></th><td><input type="hidden" name="notify[mentions][email]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[mentions][email]" id="notify-mentions-email" checked><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Email</span></label></td><td><input type="hidden" name="notify[mentions][push]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[mentions][push]" id="notify-mentions-push" checked data-dh-target="t1"><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Push</span></label></td></tr>
+<tr class="notify-matrix__row"><th scope="row" class="notify-matrix__event">Favorites<span class="notify-matrix__help">When someone adds one of your photos to their favorites.</span></th><td><input type="hidden" name="notify[favorites][email]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[favorites][email]" id="notify-favorites-email"><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Email</span></label></td><td><input type="hidden" name="notify[favorites][push]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[favorites][push]" id="notify-favorites-push"><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Push</span></label></td></tr>
+<tr class="notify-matrix__row"><th scope="row" class="notify-matrix__event">Featured on Discover<span class="notify-matrix__help">When one of your photos is picked by our curators.</span></th><td><input type="hidden" name="notify[featured][email]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[featured][email]" id="notify-featured-email" checked><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Email</span></label></td><td><input type="hidden" name="notify[featured][push]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[featured][push]" id="notify-featured-push" checked><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Push</span></label></td></tr>
+<tr class="notify-matrix__row"><th scope="row" class="notify-matrix__event">Weekly digest<span class="notify-matrix__help">Your stats plus the best new photos from people you follow.</span></th><td><input type="hidden" name="notify[digest][email]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[digest][email]" id="notify-digest-email" checked><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Email</span></label></td><td><input type="hidden" name="notify[digest][push]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[digest][push]" id="notify-digest-push"><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Push</span></label></td></tr>
+<tr class="notify-matrix__row"><th scope="row" class="notify-matrix__event">Product news &amp; tips<span class="notify-matrix__help">New features, photo challenges and the occasional offer.</span></th><td><input type="hidden" name="notify[news][email]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[news][email]" id="notify-news-email"><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Email</span></label></td><td><input type="hidden" name="notify[news][push]" value="0"><label class="switch"><input type="checkbox" class="switch__input" value="1" name="notify[news][push]" id="notify-news-push"><span class="switch__slider" aria-hidden="true"></span><span class="visually-hidden">Push</span></label></td></tr>
+          </tbody>
+        </table>
+        <div class="settings-field">
+          <label class="settings-field__label" for="user_digest_day">Send my weekly digest on</label>
+          <select id="user_digest_day" class="settings-field__select" name="user[digest_day]">
+<option value="monday">monday</option>
+<option value="tuesday">tuesday</option>
+<option value="wednesday">wednesday</option>
+<option value="thursday">thursday</option>
+<option value="friday">friday</option>
+<option value="saturday">saturday</option>
+<option value="sunday" selected>sunday</option>
+          </select>
+        </div>
+      </section>
+      <section class="settings-section" id="language-region">
+        <h2 class="settings-section__title">Language &amp; region</h2>
+        <div class="settings-field">
+          <label class="settings-field__label" for="pref-language">Language</label>
+          <select id="pref-language" class="settings-field__select" name="user[locale]" data-dh-target="t2">
+<option value="en" selected>English (US)</option>
+<option value="en-GB">English (UK)</option>
+<option value="de">Deutsch</option>
+<option value="es">Español</option>
+<option value="fr">Français</option>
+<option value="it">Italiano</option>
+<option value="ja">日本語</option>
+<option value="ko">한국어</option>
+<option value="nl">Nederlands</option>
+<option value="pt-BR">Português (Brasil)</option>
+<option value="sv">Svenska</option>
+<option value="zh-CN">简体中文</option>
+          </select>
+          <p class="settings-field__hint">Used for menus, emails and notifications.</p>
+        </div>
+        <div class="settings-field">
+          <label class="settings-field__label" for="pref-timezone">Time zone</label>
+          <select id="pref-timezone" class="settings-field__select timezone-select" name="user[time_zone]" data-dh-target="t3">
+<option value="Pacific/Honolulu">(GMT-10:00) Hawaii</option>
+<option value="America/Anchorage">(GMT-09:00) Alaska</option>
+<option value="America/Los_Angeles" selected>(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+<option value="America/Phoenix">(GMT-07:00) Arizona</option>
+<option value="America/Denver">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+<option value="America/Chicago">(GMT-06:00) Central Time (US &amp; Canada)</option>
+<option value="America/Mexico_City">(GMT-06:00) Mexico City</option>
+<option value="America/New_York">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+<option value="America/Bogota">(GMT-05:00) Bogota</option>
+<option value="America/Halifax">(GMT-04:00) Atlantic Time (Canada)</option>
+<option value="America/Sao_Paulo">(GMT-03:00) Brasilia</option>
+<option value="America/Argentina/Buenos_Aires">(GMT-03:00) Buenos Aires</option>
+<option value="Atlantic/Azores">(GMT-01:00) Azores</option>
+<option value="Europe/London">(GMT+00:00) London</option>
+<option value="Europe/Lisbon">(GMT+00:00) Lisbon</option>
+<option value="Europe/Berlin">(GMT+01:00) Berlin</option>
+<option value="Europe/Paris">(GMT+01:00) Paris</option>
+<option value="Europe/Stockholm">(GMT+01:00) Stockholm</option>
+<option value="Africa/Lagos">(GMT+01:00) West Central Africa</option>
+<option value="Europe/Athens">(GMT+02:00) Athens</option>
+<option value="Africa/Cairo">(GMT+02:00) Cairo</option>
+<option value="Europe/Istanbul">(GMT+03:00) Istanbul</option>
+<option value="Africa/Nairobi">(GMT+03:00) Nairobi</option>
+<option value="Asia/Dubai">(GMT+04:00) Abu Dhabi</option>
+<option value="Asia/Karachi">(GMT+05:00) Karachi</option>
+<option value="Asia/Kolkata">(GMT+05:30) Mumbai, New Delhi</option>
+<option value="Asia/Bangkok">(GMT+07:00) Bangkok</option>
+<option value="Asia/Singapore">(GMT+08:00) Singapore</option>
+<option value="Asia/Shanghai">(GMT+08:00) Beijing</option>
+<option value="Asia/Tokyo">(GMT+09:00) Tokyo</option>
+<option value="Asia/Seoul">(GMT+09:00) Seoul</option>
+<option value="Australia/Sydney">(GMT+10:00) Sydney</option>
+<option value="Pacific/Auckland">(GMT+12:00) Auckland</option>
+          </select>
+          <p class="settings-field__hint">Upload dates and digest emails use this time zone.</p>
+        </div>
+        <fieldset class="settings-field">
+          <legend class="settings-field__label">Date format</legend>
+          <label class="radio"><input type="radio" name="user[date_format]" value="us" checked> 11/05/2026</label>
+          <label class="radio"><input type="radio" name="user[date_format]" value="eu"> 05/11/2026</label>
+          <label class="radio"><input type="radio" name="user[date_format]" value="iso"> 2026-11-05</label>
+        </fieldset>
+        <div class="settings-field settings-field--checkbox">
+          <input type="hidden" name="user[clock_24h]" value="0">
+          <input type="checkbox" id="user_clock_24h" name="user[clock_24h]" value="1">
+          <label for="user_clock_24h">Use 24-hour time</label>
+        </div>
+      </section>
+      <div class="settings-actions">
+        <button type="submit" class="button button--primary" data-dh-target="t5">Save preferences</button>
+        <a class="button button--link" href="/settings/preferences">Cancel</a>
+      </div>
+    </form>
+    <section class="settings-section settings-section--danger" id="danger-zone">
+      <h2 class="settings-section__title">Danger zone</h2>
+      <div class="danger-row">
+        <div class="danger-row__text"><h3 class="danger-row__title">Export your photos</h3><p>Download a ZIP of every original you've uploaded (4.2 GB).</p></div>
+        <a class="button button--secondary" href="/settings/export">Request export</a>
+      </div>
+      <div class="danger-row">
+        <div class="danger-row__text"><h3 class="danger-row__title">Deactivate account</h3><p>Hide your profile and photos until you log in again.</p></div>
+        <button type="button" class="button button--secondary" data-confirm="Deactivate your account?">Deactivate</button>
+      </div>
+      <div class="danger-row">
+        <div class="danger-row__text"><h3 class="danger-row__title">Delete account</h3><p>Permanently delete your account, 1,284 photos and 37 albums. This cannot be undone.</p></div>
+        <form class="button_to" action="/account" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="authenticity_token" value="Wq7T2mKz9rVb4Xc1LpN8sYd3Hf6Jg0Ae5uOiBkRtMn">
+          <button type="submit" class="button button--danger" id="delete-account-btn" data-confirm="Are you sure? This permanently deletes your account." data-dh-target="t4">Delete account</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</div>
+<footer class="app-footer">
+  <ul class="app-footer__links">
+<li class="app-footer__item"><a class="app-footer__link" href="/about">About</a></li>
+<li class="app-footer__item"><a class="app-footer__link" href="/blog">Blog</a></li>
+<li class="app-footer__item"><a class="app-footer__link" href="/help">Help</a></li>
+<li class="app-footer__item"><a class="app-footer__link" href="/guidelines">Community guidelines</a></li>
+<li class="app-footer__item"><a class="app-footer__link" href="/terms">Terms</a></li>
+<li class="app-footer__item"><a class="app-footer__link" href="/privacy">Privacy</a></li>
+<li class="app-footer__item"><a class="app-footer__link" href="/developers">API</a></li>
+  </ul>
+  <p class="app-footer__copy">&copy; 2026 Driftwood Photo Co.</p>
+</footer>
+</body>
+</html>

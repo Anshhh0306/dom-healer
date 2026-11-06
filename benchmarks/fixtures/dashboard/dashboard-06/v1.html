@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website relaunch – List – Tasklane</title>
+<style>
+body{margin:0;font:14px/1.45 "Helvetica Neue",Helvetica,Arial,sans-serif;color:#1e1f21;background:#fff}
+.tl-app{display:flex;min-height:100vh}
+.tl-sidebar{width:240px;background:#2e2e30;color:#f5f4f3;padding:12px 8px;flex:none}
+.tl-nav-link,.project-link{display:flex;align-items:center;gap:8px;padding:5px 10px;border-radius:6px;color:#f5f4f3;text-decoration:none}
+.project-link.active{background:#4a4a4d}
+.project-list{list-style:none;margin:0;padding:0}
+.dot{width:8px;height:8px;border-radius:2px;display:inline-block}
+.tl-main{flex:1;min-width:0}
+.tl-topbar{display:flex;align-items:center;gap:12px;height:48px;padding:0 20px;border-bottom:1px solid #e8e8e8}
+.project-header{padding:14px 24px 0;border-bottom:1px solid #e8e8e8}
+.project-tabs{display:flex;gap:18px}.project-tabs .tab{padding:10px 0;color:#6d6e6f;text-decoration:none}
+.project-tabs .tab.active{color:#1e1f21;box-shadow:inset 0 -2px #1e1f21}
+.list-toolbar{display:flex;justify-content:space-between;padding:10px 24px}
+.task-list{width:100%;border-collapse:collapse}
+.task-list td,.task-list th{padding:6px 10px;border-bottom:1px solid #edeae9;text-align:left}
+.section-row th{font-size:15px;padding-top:18px}
+.avatar{display:inline-flex;width:24px;height:24px;border-radius:50%;background:#aaa;color:#fff;font-size:11px;align-items:center;justify-content:center}
+.tag-high{background:#ffd5d5}.tag-medium{background:#ffeec2}.tag-low{background:#d8f1e6}
+.add-task{border:0;background:none;color:#6d6e6f;padding:4px 0}
+.tl-activity{width:280px;border-left:1px solid #e8e8e8;padding:16px}
+</style>
+</head>
+<body>
+<div class="tl-app">
+  <aside class="tl-sidebar">
+    <div class="ws-switcher"><button type="button" class="ws-button" aria-haspopup="menu"><span class="ws-logo">OS</span>Orchard Studio <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+    <nav class="tl-nav" aria-label="Workspace">
+      <a href="/home" class="tl-nav-link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg>Home</a>
+      <a href="/my-tasks" class="tl-nav-link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>My tasks</a>
+      <a href="/inbox" class="tl-nav-link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-6l-2 3h-4l-2-3H2M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/></svg>Inbox <span class="tl-badge">5</span></a>
+      <a href="/calendar" class="tl-nav-link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg>Calendar</a>
+      <a href="/reporting" class="tl-nav-link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>Reporting</a>
+    </nav>
+    <div class="tl-section">
+      <div class="tl-section-head"><span>Projects</span><button type="button" class="tl-icon-btn" aria-label="New project"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div>
+      <ul class="project-list">
+          <li><a href="/projects/website-relaunch" class="project-link active"><span class="dot" style="background:#e8743b"></span>Website relaunch</a></li>
+          <li><a href="/projects/q4-brand-campaign" class="project-link"><span class="dot" style="background:#4f7cff"></span>Q4 brand campaign</a></li>
+          <li><a href="/projects/mobile-app-v3" class="project-link" data-dh-target="t2"><span class="dot" style="background:#18a0c9"></span>Mobile app v3</a></li>
+          <li><a href="/projects/customer-research-q4" class="project-link"><span class="dot" style="background:#9b59b6"></span>Customer research — Q4</a></li>
+          <li><a href="/projects/brand-refresh-2027" class="project-link"><span class="dot" style="background:#e84393"></span>Brand refresh 2027</a></li>
+          <li><a href="/projects/hiring-senior-designer" class="project-link"><span class="dot" style="background:#27ae60"></span>Hiring: Senior designer</a></li>
+      </ul>
+    </div>
+    <div class="tl-section">
+      <div class="tl-section-head"><span>Teams</span></div>
+      <ul class="team-list">
+        <li><a href="/teams/design" class="tl-nav-link">Design</a></li>
+        <li><a href="/teams/engineering" class="tl-nav-link">Engineering</a></li>
+        <li><a href="/teams/marketing" class="tl-nav-link">Marketing</a></li>
+      </ul>
+    </div>
+    <div class="tl-sidebar-footer"><button type="button" class="invite-btn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM20 8v6M23 11h-6"/></svg>Invite teammates</button><p class="trial">Business trial · 12 days left</p></div>
+  </aside>
+  <div class="tl-main">
+    <header class="tl-topbar">
+      <input type="search" class="tl-search" placeholder="Search tasks, projects and people" aria-label="Search">
+      <button type="button" class="btn btn-create"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Create</button>
+      <button type="button" class="tl-icon-btn" aria-label="Help"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></button>
+      <span class="avatar avatar-me" title="Lena Fischer">LF</span>
+    </header>
+    <div class="project-header">
+      <div class="project-title-row">
+        <span class="project-icon" style="background:#e8743b"></span>
+        <h1>Website relaunch</h1>
+        <button type="button" class="tl-icon-btn" aria-label="Add to favorites"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></button>
+        <span class="status-pill on-track">On track</span>
+        <div class="project-members">
+          <span class="avatar" title="Lena Fischer">LF</span><span class="avatar" title="Marcus Obi">MO</span><span class="avatar" title="Sofia Varga">SV</span><span class="avatar" title="Jonah Pierce">JP</span><span class="avatar" title="Ines Duarte">ID</span>
+          <button type="button" class="btn btn-share">Share</button>
+        </div>
+      </div>
+      <nav class="project-tabs">
+          <a href="/projects/website-relaunch/overview" class="tab">Overview</a>
+          <a href="/projects/website-relaunch/list" class="tab active" aria-current="page">List</a>
+          <a href="/projects/website-relaunch/board" class="tab" data-dh-target="t4">Board</a>
+          <a href="/projects/website-relaunch/timeline" class="tab">Timeline</a>
+          <a href="/projects/website-relaunch/calendar" class="tab">Calendar</a>
+          <a href="/projects/website-relaunch/files" class="tab">Files</a>
+      </nav>
+    </div>
+    <div class="tl-content">
+      <div class="tl-list">
+        <div class="list-toolbar">
+          <button type="button" class="btn btn-primary btn-new-task"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Add task</button>
+          <div class="filters">
+            <label class="filter">Assignee
+              <select id="filter-assignee" name="assignee" data-dh-target="t3">
+                <option value="any" selected>Anyone</option><option value="me">Me</option>
+                <option value="lf">Lena Fischer</option><option value="mo">Marcus Obi</option><option value="sv">Sofia Varga</option><option value="jp">Jonah Pierce</option><option value="id">Ines Duarte</option>
+                <option value="none">Unassigned</option>
+              </select>
+            </label>
+            <label class="filter">Due
+              <select id="filter-due" name="due"><option selected>Any time</option><option>Overdue</option><option>This week</option><option>Next week</option></select>
+            </label>
+            <label class="filter chk"><input type="checkbox" id="show-completed" name="show_completed"> Show completed</label>
+            <label class="filter">Sort
+              <select id="sort-by" name="sort"><option selected>Due date</option><option>Priority</option><option>Assignee</option><option>Created</option></select>
+            </label>
+          </div>
+        </div>
+        <table class="task-list">
+          <thead><tr><th></th><th>Task name</th><th>Assignee</th><th>Due date</th><th>Priority</th><th></th></tr></thead>
+        <tbody class="task-section" data-section="design">
+          <tr class="section-row"><th colspan="6" scope="rowgroup"><button type="button" class="section-toggle" aria-expanded="true" aria-label="Collapse Design"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>Design <span class="section-count">4</span></th></tr>
+          <tr class="task-row" data-task-id="311">
+            <td class="cell-check"><input type="checkbox" id="task-311-done" aria-label="Mark complete" data-dh-target="t1"></td>
+            <td class="cell-title">Finalize homepage hero copy</td>
+            <td class="cell-assignee"><span class="avatar" title="Lena Fischer">LF</span><span class="assignee-name">Lena Fischer</span></td>
+            <td class="cell-due"><time datetime="2026-11-06">Nov 6</time></td>
+            <td class="cell-priority"><span class="tag tag-high">High</span></td>
+            <td class="cell-comments"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 4</td>
+          </tr>
+          <tr class="task-row" data-task-id="312">
+            <td class="cell-check"><input type="checkbox" id="task-312-done" aria-label="Mark complete"></td>
+            <td class="cell-title">Export icon set for new nav</td>
+            <td class="cell-assignee"><span class="avatar" title="Sofia Varga">SV</span><span class="assignee-name">Sofia Varga</span></td>
+            <td class="cell-due"><time datetime="2026-11-09">Nov 9</time></td>
+            <td class="cell-priority"><span class="tag tag-medium">Medium</span></td>
+            <td class="cell-comments"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 1</td>
+          </tr>
+          <tr class="task-row" data-task-id="313">
+            <td class="cell-check"><input type="checkbox" id="task-313-done" aria-label="Mark complete"></td>
+            <td class="cell-title">Review pricing page mockups</td>
+            <td class="cell-assignee"><span class="avatar" title="Marcus Obi">MO</span><span class="assignee-name">Marcus Obi</span></td>
+            <td class="cell-due"><time datetime="2026-11-10">Nov 10</time></td>
+            <td class="cell-priority"><span class="tag tag-medium">Medium</span></td>
+            <td class="cell-comments"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 6</td>
+          </tr>
+          <tr class="task-row" data-task-id="314">
+            <td class="cell-check"><input type="checkbox" id="task-314-done" aria-label="Mark complete"></td>
+            <td class="cell-title">Update brand color tokens</td>
+            <td class="cell-assignee"><span class="avatar" title="Sofia Varga">SV</span><span class="assignee-name">Sofia Varga</span></td>
+            <td class="cell-due"><time datetime="2026-11-13">Nov 13</time></td>
+            <td class="cell-priority"><span class="tag tag-low">Low</span></td>
+            <td class="cell-comments"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 0</td>
+          </tr>
+          <tr class="add-row"><td colspan="6"><button type="button" class="add-task">Add task…</button></td></tr>
+        </tbody>
+        <tbody class="task-section" data-section="development">
+          <tr class="section-row"><th colspan="6" scope="rowgroup"><button type="button" class="section-toggle" aria-expanded="true" aria-label="Collapse Development"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>Development <span class="section-count">4</span></th></tr>
+          <tr class="task-row" data-task-id="315">
+            <td class="cell-check"><input type="checkbox" id="task-315-done" aria-label="Mark complete"></td>
+            <td class="cell-title">Implement responsive header</td>
+            <td class="cell-assignee"><span class="avatar" title="Jonah Pierce">JP</span><span class="assignee-name">Jonah Pierce</span></td>
+            <td class="cell-due"><time datetime="2026-11-07">Nov 7</time></td>
+            <td class="cell-priority"><span class="tag tag-high">High</span></td>
+            <td class="cell-comments"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 3</td>
+          </tr>
+          <tr class="task-row" data-task-id="316">
+            <td class="cell-check"><input type="checkbox" id="task-316-done" aria-label="Mark complete"></td>
+            <td class="cell-title">Migrate blog to new CMS</td>
+            <td class="cell-assignee"><span class="avatar" title="Ines Duarte">ID</span><span class="assignee-name">Ines Duarte</span></td>
+            <td class="cell-due"><time datetime="2026-11-17">Nov 17</time></td>
+            <td class="cell-priority"><span class="tag tag-medium">Medium</span></td>
+            <td class="cell-comments"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 2</td>
+          </tr>
+          <tr class="task-row" data-task-id="317">
+            <td class="cell-check"><input type="checkbox" id="task-317-done" aria-label="Mark complete"></td>
+            <td class="cell-title">Set up staging CDN</td>
+            <td class="cell-assignee"><span class="avatar" title="Jonah Pierce">JP</span><span class="assignee-name">Jonah Pierce</span></td>
+            <td class="cell-due"><time datetime="2026-11-05">Nov 5</time></td>
+            <td class="cell-priority"><span class="tag tag-high">High</span></td>
+            <td class="cell-comments"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 5</td>
+          </tr>
+          <tr class="task-row" data-task-id="320">
+            <td class="cell-check"><input type="checkbox" id="task-320-done" aria-label="Mark complete"></td>
+            <td class="cell-title">Add structured data to product pages</td>
+            <td class="cell-assignee"><span class="avatar" title="Ines Duarte">ID</span><span class="assignee-name">Ines Duarte</span></td>
+            <td class="cell-due"><time datetime="2026-11-19">Nov 19</time></td>
+            <td class="cell-priority"><span class="tag tag-low">Low</span></td>
+            <td class="cell-comments"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 0</td>
+          </tr>
+          <tr class="add-row"><td colspan="6"><button type="button" class="add-task" data-dh-target="t6">Add task…</button></td></tr>
+        </tbody>
+        <tbody class="task-section" data-section="qa">
+          <tr class="section-row"><th colspan="6" scope="rowgroup"><button type="button" class="section-toggle" aria-expanded="true" aria-label="Collapse QA &amp; launch"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>QA &amp; launch <span class="section-count">4</span></th></tr>
+          <tr class="task-row" data-task-id="318">
+            <td class="cell-check"><input type="checkbox" id="task-318-done" aria-label="Mark complete"></td>
+            <td class="cell-title">Accessibility audit</td>
+            <td class="cell-assignee"><span class="avatar" title="Marcus Obi">MO</span><span class="assignee-name">Marcus Obi</span></td>
+            <td class="cell-due"><time datetime="2026-11-12" data-dh-target="t5">Nov 12</time></td>
+            <td class="cell-priority"><span class="tag tag-high">High</span></td>
+            <td class="cell-comments"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 2</td>
+          </tr>
+          <tr class="task-row" data-task-id="319">
+            <td class="cell-check"><input type="checkbox" id="task-319-done" aria-label="Mark complete"></td>
+            <td class="cell-title">QA regression pass</td>
+            <td class="cell-assignee"><span class="avatar" title="Lena Fischer">LF</span><span class="assignee-name">Lena Fischer</span></td>
+            <td class="cell-due"><time datetime="2026-11-12">Nov 12</time></td>
+            <td class="cell-priority"><span class="tag tag-medium">Medium</span></td>
+            <td class="cell-comments"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 0</td>
+          </tr>
+          <tr class="task-row" data-task-id="321">
+            <td class="cell-check"><input type="checkbox" id="task-321-done" aria-label="Mark complete"></td>
+            <td class="cell-title">Launch announcement email</td>
+            <td class="cell-assignee"><span class="avatar" title="Sofia Varga">SV</span><span class="assignee-name">Sofia Varga</span></td>
+            <td class="cell-due"><time datetime="2026-11-20">Nov 20</time></td>
+            <td class="cell-priority"><span class="tag tag-medium">Medium</span></td>
+            <td class="cell-comments"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 1</td>
+          </tr>
+          <tr class="task-row" data-task-id="322">
+            <td class="cell-check"><input type="checkbox" id="task-322-done" aria-label="Mark complete"></td>
+            <td class="cell-title">Redirect map for legacy URLs</td>
+            <td class="cell-assignee"><span class="avatar" title="Jonah Pierce">JP</span><span class="assignee-name">Jonah Pierce</span></td>
+            <td class="cell-due"><time datetime="2026-11-16">Nov 16</time></td>
+            <td class="cell-priority"><span class="tag tag-high">High</span></td>
+            <td class="cell-comments"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 7</td>
+          </tr>
+          <tr class="add-row"><td colspan="6"><button type="button" class="add-task">Add task…</button></td></tr>
+        </tbody>
+        </table>
+      </div>
+      <aside class="tl-activity" aria-labelledby="activity-heading">
+        <h2 id="activity-heading">Project activity</h2>
+        <ul class="activity-list">
+          <li class="activity-item"><strong>Marcus Obi</strong> commented on <a href="#">Review pricing page mockups</a><span class="when">12 min ago</span></li>
+          <li class="activity-item"><strong>Jonah Pierce</strong> completed <a href="#">Purge legacy CSS bundles</a><span class="when">1 h ago</span></li>
+          <li class="activity-item"><strong>Sofia Varga</strong> attached a file to <a href="#">Export icon set for new nav</a><span class="when">3 h ago</span></li>
+          <li class="activity-item"><strong>Lena Fischer</strong> changed the due date of <a href="#">Finalize homepage hero copy</a><span class="when">Yesterday</span></li>
+          <li class="activity-item"><strong>Ines Duarte</strong> was assigned <a href="#">Migrate blog to new CMS</a><span class="when">Yesterday</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</div>
+</body>
+</html>

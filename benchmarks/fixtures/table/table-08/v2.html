@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Everyday Current Account | Lindmoor</title>
+<style>
+.masthead[data-v-7c1e2a4b]{display:flex;align-items:center;gap:24px;height:68px;padding:0 32px;background:#fff;border-bottom:1px solid #e3e8e5}.statement[data-v-7c1e2a4b]{width:100%;border-collapse:separate;border-spacing:0}.money[data-v-7c1e2a4b]{text-align:right;font-variant-numeric:tabular-nums}.u-sr[data-v-7c1e2a4b]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+</style>
+</head>
+<body>
+<header class="masthead" data-v-7c1e2a4b>
+  <a class="masthead__brand" href="/" data-v-7c1e2a4b><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#0b5d44"/></svg>Lindmoor</a>
+  <nav class="masthead__nav" aria-label="Main" data-v-7c1e2a4b><a href="/home" data-v-7c1e2a4b>Home</a><a href="/payments" data-v-7c1e2a4b>Payments</a><a href="/cards" data-v-7c1e2a4b>Cards</a><a href="/savings" data-v-7c1e2a4b>Savings</a><a href="/help" data-v-7c1e2a4b>Help</a></nav>
+  <button type="button" class="masthead__profile" aria-haspopup="menu" data-v-7c1e2a4b>Maya Thompson<svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button>
+</header>
+<main class="page" data-v-7c1e2a4b>
+  <section class="hero-card" data-v-7c1e2a4b>
+    <div data-v-7c1e2a4b><p class="hero-card__eyebrow" data-v-7c1e2a4b>Everyday Current Account &middot; 20-44-91 &middot; ****4821</p><p class="hero-card__balance" data-v-7c1e2a4b>£3,214.77</p><p class="hero-card__sub" data-v-7c1e2a4b>£3,714.77 available including £500.00 overdraft</p></div>
+    <div class="hero-card__actions" data-v-7c1e2a4b><a href="/payments/new" class="pill-btn" data-v-7c1e2a4b>Pay someone</a><a href="/transfers/new" class="pill-btn" data-v-7c1e2a4b>Move money</a></div>
+  </section>
+  <nav class="tabs" role="tablist" aria-label="Account" data-v-7c1e2a4b><a role="tab" aria-selected="true" href="/a/4821" data-v-7c1e2a4b>Transactions</a><a role="tab" aria-selected="false" href="/a/4821/statements" data-v-7c1e2a4b>Statements</a><a role="tab" aria-selected="false" href="/a/4821/regular-payments" data-v-7c1e2a4b>Regular payments</a><a role="tab" aria-selected="false" href="/a/4821/details" data-v-7c1e2a4b>Details</a></nav>
+  <section class="pending" aria-labelledby="pending-h" data-v-7c1e2a4b>
+    <h2 id="pending-h" class="pending__title" data-v-7c1e2a4b>Pending</h2>
+    <table class="pending__table" data-v-7c1e2a4b>
+      <tbody data-v-7c1e2a4b>
+        <tr data-v-7c1e2a4b><td data-v-7c1e2a4b>Uber *Trip</td><td data-v-7c1e2a4b>Transport</td><td class="money" data-v-7c1e2a4b>£14.20</td></tr>
+        <tr data-v-7c1e2a4b><td data-v-7c1e2a4b>TfL Travel Charge</td><td data-v-7c1e2a4b>Transport</td><td class="money" data-v-7c1e2a4b>£2.80</td></tr>
+        <tr data-v-7c1e2a4b><td data-v-7c1e2a4b>Costa Coffee</td><td data-v-7c1e2a4b>Eating out</td><td class="money" data-v-7c1e2a4b>£3.85</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <lb-ledger-toolbar account="4821">
+    <template shadowrootmode="open">
+      <style>:host{display:block;margin:16px 0}.bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px;border:1px solid #d9e2dc;border-radius:12px;background:#fff}.search{display:flex;align-items:center;gap:6px;flex:1 1 320px;padding:0 10px;border:1px solid #9aa6a0;border-radius:8px}.search input{border:0;outline:0;width:100%;padding:8px 0;font:inherit}.export{margin-left:auto;font-weight:700;color:#0b5d44}.more{position:absolute}</style>
+      <div class="bar" role="search">
+        <label class="search"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd"/></svg><input type="search" id="q-gkyj" placeholder="Search payee, reference or amount" aria-label="Search transactions" data-dh-target="t6"></label>
+        <select aria-label="Period"><option selected>Last 30 days</option><option>This month</option><option>Last 3 months</option></select>
+        <button class="filters" type="button"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2.628 1.601C5.028 1.206 7.49 1 10 1s4.973.206 7.372.601a.75.75 0 0 1 .628.74v2.288a2.25 2.25 0 0 1-.659 1.59l-4.682 4.683a2.25 2.25 0 0 0-.659 1.59v3.037c0 .684-.31 1.33-.844 1.757l-1.937 1.55A.75.75 0 0 1 8 18.25v-5.757a2.25 2.25 0 0 0-.659-1.591L2.659 6.22A2.25 2.25 0 0 1 2 4.629V2.34a.75.75 0 0 1 .628-.74Z" clip-rule="evenodd"/></svg>Filters</button>
+        <a class="export" href="/api/v2/accounts/4821/transactions/export?period=30d&amp;format=csv" download data-dh-target="t5">Export CSV</a>
+        <button class="more-btn" type="button" aria-haspopup="menu" aria-label="More export options"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm5.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd"/></svg></button>
+        <div class="more" role="menu" hidden><a role="menuitem" href="/api/v2/accounts/4821/transactions/export?period=30d&amp;format=csv" download>Export CSV</a><a role="menuitem" href="/api/v2/accounts/4821/transactions/export?period=30d&amp;format=pdf" download>Export PDF</a><a role="menuitem" href="/api/v2/accounts/4821/transactions/export?period=30d&amp;format=ofx" download>Export OFX (Quicken)</a></div>
+      </div>
+    </template>
+  </lb-ledger-toolbar>
+  <table class="statement" data-v-7c1e2a4b>
+    <caption class="u-sr" data-v-7c1e2a4b>Transactions, last 30 days</caption>
+    <thead data-v-7c1e2a4b>
+      <tr data-v-7c1e2a4b><th scope="col" data-v-7c1e2a4b><span class="u-sr" data-v-7c1e2a4b>Details</span></th><th scope="col" data-v-7c1e2a4b>Payee</th><th scope="col" data-v-7c1e2a4b>Category</th><th scope="col" class="money" data-v-7c1e2a4b>Money in</th><th scope="col" class="money" data-v-7c1e2a4b>Money out</th><th scope="col" class="money" data-v-7c1e2a4b>Balance</th></tr>
+    </thead>
+      <tbody class="statement-group" data-v-7c1e2a4b><tr class="statement-day" data-v-7c1e2a4b><th colspan="6" scope="rowgroup" data-v-7c1e2a4b><time datetime="2025-10-31">Friday 31 October</time><span class="statement-day__net" data-v-7c1e2a4b>+£2,846.12</span></th></tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-szj23v" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>Halden Consulting Ltd</p><span class="payee__ref" data-v-7c1e2a4b>SALARY OCT 2025</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-szj23v" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries">Groceries</option><option value="transport">Transport</option><option value="shopping">Shopping</option><option value="bills">Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income" selected>Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b>+£2,846.12</td>
+          <td class="money money--out" data-v-7c1e2a4b></td>
+          <td class="money" data-v-7c1e2a4b>£3,214.77</td>
+        </tr>
+        <tr class="statement-panel" id="p-szj23v" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>31 Oct 2025 at 07:02</dd><dt>How</dt><dd>SALARY OCT 2025</dd><dt>Reference</dt><dd>TX_7735</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+      </tbody>
+      <tbody class="statement-group" data-v-7c1e2a4b><tr class="statement-day" data-v-7c1e2a4b><th colspan="6" scope="rowgroup" data-v-7c1e2a4b><time datetime="2025-10-30">Thursday 30 October</time><span class="statement-day__net" data-v-7c1e2a4b>−£57.27</span></th></tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-1o3ajs" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>TfL Travel Charge</p><span class="payee__ref" data-v-7c1e2a4b>Contactless · card ending 4821</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-1o3ajs" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b data-dh-target="t2"><optgroup label="Spending"><option value="groceries">Groceries</option><option value="transport" selected>Transport</option><option value="shopping">Shopping</option><option value="bills">Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b></td>
+          <td class="money money--out" data-v-7c1e2a4b>£8.90</td>
+          <td class="money" data-v-7c1e2a4b>£417.02</td>
+        </tr>
+        <tr class="statement-panel" id="p-1o3ajs" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>30 Oct 2025 at 08:12</dd><dt>How</dt><dd>Contactless</dd><dt>Reference</dt><dd>TX_7731</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-t7e48n" data-v-7c1e2a4b data-dh-target="t1"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>Tesco Stores 3214</p><span class="payee__ref" data-v-7c1e2a4b>Contactless · card ending 4821</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-t7e48n" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries" selected>Groceries</option><option value="transport">Transport</option><option value="shopping">Shopping</option><option value="bills">Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b></td>
+          <td class="money money--out" data-v-7c1e2a4b>£48.37</td>
+          <td class="money" data-v-7c1e2a4b>£368.65</td>
+        </tr>
+        <tr class="statement-panel" id="p-t7e48n" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>30 Oct 2025 at 18:42</dd><dt>How</dt><dd>Contactless</dd><dt>Reference</dt><dd>TX_7733</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+      </tbody>
+      <tbody class="statement-group" data-v-7c1e2a4b><tr class="statement-day" data-v-7c1e2a4b><th colspan="6" scope="rowgroup" data-v-7c1e2a4b><time datetime="2025-10-29">Wednesday 29 October</time><span class="statement-day__net" data-v-7c1e2a4b>−£42.99</span></th></tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-g9qg8i" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>Amazon Marketplace</p><span class="payee__ref" data-v-7c1e2a4b>AMZN Mktp UK*2K4L91</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-g9qg8i" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries">Groceries</option><option value="transport">Transport</option><option value="shopping" selected>Shopping</option><option value="bills">Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b></td>
+          <td class="money money--out" data-v-7c1e2a4b data-dh-target="t3">£42.99</td>
+          <td class="money" data-v-7c1e2a4b>£425.92</td>
+        </tr>
+        <tr class="statement-panel" id="p-g9qg8i" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>29 Oct 2025 at 21:15</dd><dt>How</dt><dd>AMZN Mktp UK*2K4L91</dd><dt>Reference</dt><dd>TX_7728</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+      </tbody>
+      <tbody class="statement-group" data-v-7c1e2a4b><tr class="statement-day" data-v-7c1e2a4b><th colspan="6" scope="rowgroup" data-v-7c1e2a4b><time datetime="2025-10-28">Tuesday 28 October</time><span class="statement-day__net" data-v-7c1e2a4b>−£102.45</span></th></tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-ypya90" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>Octopus Energy</p><span class="payee__ref" data-v-7c1e2a4b>Direct debit · A-4F2C19</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-ypya90" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries">Groceries</option><option value="transport">Transport</option><option value="shopping">Shopping</option><option value="bills" selected>Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b></td>
+          <td class="money money--out" data-v-7c1e2a4b>£96.00</td>
+          <td class="money" data-v-7c1e2a4b>£475.36</td>
+        </tr>
+        <tr class="statement-panel" id="p-ypya90" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>28 Oct 2025 at 06:00</dd><dt>How</dt><dd>Direct debit</dd><dt>Reference</dt><dd>TX_7725</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-610kyp" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>Pret A Manger</p><span class="payee__ref" data-v-7c1e2a4b>Contactless · card ending 4821</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-610kyp" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries">Groceries</option><option value="transport">Transport</option><option value="shopping">Shopping</option><option value="bills">Bills</option><option value="eating-out" selected>Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b></td>
+          <td class="money money--out" data-v-7c1e2a4b>£6.45</td>
+          <td class="money" data-v-7c1e2a4b>£468.91</td>
+        </tr>
+        <tr class="statement-panel" id="p-610kyp" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>28 Oct 2025 at 13:05</dd><dt>How</dt><dd>Contactless</dd><dt>Reference</dt><dd>TX_7726</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+      </tbody>
+      <tbody class="statement-group" data-v-7c1e2a4b><tr class="statement-day" data-v-7c1e2a4b><th colspan="6" scope="rowgroup" data-v-7c1e2a4b><time datetime="2025-10-26">Sunday 26 October</time><span class="statement-day__net" data-v-7c1e2a4b>−£200.00</span></th></tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-76sxn4" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>Transfer to Lindmoor Saver</p><span class="payee__ref" data-v-7c1e2a4b>To account ••7710</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-76sxn4" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries">Groceries</option><option value="transport">Transport</option><option value="shopping">Shopping</option><option value="bills">Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers" selected>Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b></td>
+          <td class="money money--out" data-v-7c1e2a4b>£200.00</td>
+          <td class="money" data-v-7c1e2a4b>£571.36</td>
+        </tr>
+        <tr class="statement-panel" id="p-76sxn4" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>26 Oct 2025 at 09:30</dd><dt>How</dt><dd>To account ••7710</dd><dt>Reference</dt><dd>TX_7719</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+      </tbody>
+      <tbody class="statement-group" data-v-7c1e2a4b><tr class="statement-day" data-v-7c1e2a4b><th colspan="6" scope="rowgroup" data-v-7c1e2a4b><time datetime="2025-10-25">Saturday 25 October</time><span class="statement-day__net" data-v-7c1e2a4b>−£63.12</span></th></tr>
+        <tr class="statement-row statement-row--open" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="true" aria-controls="p-ybkau4" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>Sainsbury&#x27;s</p><span class="payee__ref" data-v-7c1e2a4b>Card payment · card ending 4821</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-ybkau4" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries" selected>Groceries</option><option value="transport">Transport</option><option value="shopping">Shopping</option><option value="bills">Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b></td>
+          <td class="money money--out" data-v-7c1e2a4b>£63.12</td>
+          <td class="money" data-v-7c1e2a4b>£771.36</td>
+        </tr>
+        <tr class="statement-panel" id="p-ybkau4" data-v-7c1e2a4b>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>25 Oct 2025 at 17:58</dd><dt>How</dt><dd>Card payment</dd><dt>Reference</dt><dd>TX_7712</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b data-dh-target="t4">Report a problem</button></div></div></td>
+        </tr>
+      </tbody>
+      <tbody class="statement-group" data-v-7c1e2a4b><tr class="statement-day" data-v-7c1e2a4b><th colspan="6" scope="rowgroup" data-v-7c1e2a4b><time datetime="2025-10-24">Friday 24 October</time><span class="statement-day__net" data-v-7c1e2a4b>+£34.00</span></th></tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-lmk9ys" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>ASOS refund</p><span class="payee__ref" data-v-7c1e2a4b>Refund · order 8812-0042</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-lmk9ys" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries">Groceries</option><option value="transport">Transport</option><option value="shopping" selected>Shopping</option><option value="bills">Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b>+£34.00</td>
+          <td class="money money--out" data-v-7c1e2a4b></td>
+          <td class="money" data-v-7c1e2a4b>£834.48</td>
+        </tr>
+        <tr class="statement-panel" id="p-lmk9ys" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>24 Oct 2025 at 11:20</dd><dt>How</dt><dd>Refund</dd><dt>Reference</dt><dd>TX_7709</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+      </tbody>
+      <tbody class="statement-group" data-v-7c1e2a4b><tr class="statement-day" data-v-7c1e2a4b><th colspan="6" scope="rowgroup" data-v-7c1e2a4b><time datetime="2025-10-23">Thursday 23 October</time><span class="statement-day__net" data-v-7c1e2a4b>−£71.20</span></th></tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-024ens" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>Shell Petrol Station</p><span class="payee__ref" data-v-7c1e2a4b>Card payment · card ending 4821</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-024ens" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries">Groceries</option><option value="transport" selected>Transport</option><option value="shopping">Shopping</option><option value="bills">Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b></td>
+          <td class="money money--out" data-v-7c1e2a4b>£71.20</td>
+          <td class="money" data-v-7c1e2a4b>£800.48</td>
+        </tr>
+        <tr class="statement-panel" id="p-024ens" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>23 Oct 2025 at 19:47</dd><dt>How</dt><dd>Card payment</dd><dt>Reference</dt><dd>TX_7704</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+      </tbody>
+      <tbody class="statement-group" data-v-7c1e2a4b><tr class="statement-day" data-v-7c1e2a4b><th colspan="6" scope="rowgroup" data-v-7c1e2a4b><time datetime="2025-10-22">Wednesday 22 October</time><span class="statement-day__net" data-v-7c1e2a4b>−£38.50</span></th></tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-axojst" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>Thames Water</p><span class="payee__ref" data-v-7c1e2a4b>Direct debit · 9001234567</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-axojst" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries">Groceries</option><option value="transport">Transport</option><option value="shopping">Shopping</option><option value="bills" selected>Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b></td>
+          <td class="money money--out" data-v-7c1e2a4b>£38.50</td>
+          <td class="money" data-v-7c1e2a4b>£871.68</td>
+        </tr>
+        <tr class="statement-panel" id="p-axojst" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>22 Oct 2025 at 06:00</dd><dt>How</dt><dd>Direct debit</dd><dt>Reference</dt><dd>TX_7701</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+      </tbody>
+      <tbody class="statement-group" data-v-7c1e2a4b><tr class="statement-day" data-v-7c1e2a4b><th colspan="6" scope="rowgroup" data-v-7c1e2a4b><time datetime="2025-10-20">Monday 20 October</time><span class="statement-day__net" data-v-7c1e2a4b>−£152.00</span></th></tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-2uxalf" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>Lambeth Council Tax</p><span class="payee__ref" data-v-7c1e2a4b>Direct debit · 10023491</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-2uxalf" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries">Groceries</option><option value="transport">Transport</option><option value="shopping">Shopping</option><option value="bills" selected>Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b></td>
+          <td class="money money--out" data-v-7c1e2a4b>£152.00</td>
+          <td class="money" data-v-7c1e2a4b>£910.18</td>
+        </tr>
+        <tr class="statement-panel" id="p-2uxalf" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>20 Oct 2025 at 06:00</dd><dt>How</dt><dd>Direct debit</dd><dt>Reference</dt><dd>TX_7690</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+      </tbody>
+      <tbody class="statement-group" data-v-7c1e2a4b><tr class="statement-day" data-v-7c1e2a4b><th colspan="6" scope="rowgroup" data-v-7c1e2a4b><time datetime="2025-10-19">Sunday 19 October</time><span class="statement-day__net" data-v-7c1e2a4b>−£24.99</span></th></tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-ki39y8" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>PureGym</p><span class="payee__ref" data-v-7c1e2a4b>Direct debit · PG-883210</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-ki39y8" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries">Groceries</option><option value="transport">Transport</option><option value="shopping">Shopping</option><option value="bills">Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness" selected>Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b></td>
+          <td class="money money--out" data-v-7c1e2a4b>£24.99</td>
+          <td class="money" data-v-7c1e2a4b>£1,062.18</td>
+        </tr>
+        <tr class="statement-panel" id="p-ki39y8" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>19 Oct 2025 at 06:00</dd><dt>How</dt><dd>Direct debit</dd><dt>Reference</dt><dd>TX_7688</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+      </tbody>
+      <tbody class="statement-group" data-v-7c1e2a4b><tr class="statement-day" data-v-7c1e2a4b><th colspan="6" scope="rowgroup" data-v-7c1e2a4b><time datetime="2025-10-18">Saturday 18 October</time><span class="statement-day__net" data-v-7c1e2a4b>−£52.80</span></th></tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-j475tw" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>Tesco Stores 3214</p><span class="payee__ref" data-v-7c1e2a4b>Contactless · card ending 4821</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-j475tw" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries" selected>Groceries</option><option value="transport">Transport</option><option value="shopping">Shopping</option><option value="bills">Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing">Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b></td>
+          <td class="money money--out" data-v-7c1e2a4b>£52.80</td>
+          <td class="money" data-v-7c1e2a4b>£1,087.17</td>
+        </tr>
+        <tr class="statement-panel" id="p-j475tw" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>18 Oct 2025 at 16:21</dd><dt>How</dt><dd>Contactless</dd><dt>Reference</dt><dd>TX_7684</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+      </tbody>
+      <tbody class="statement-group" data-v-7c1e2a4b><tr class="statement-day" data-v-7c1e2a4b><th colspan="6" scope="rowgroup" data-v-7c1e2a4b><time datetime="2025-10-16">Thursday 16 October</time><span class="statement-day__net" data-v-7c1e2a4b>−£1,150.00</span></th></tr>
+        <tr class="statement-row" data-v-7c1e2a4b>
+          <td class="statement-row__toggle" data-v-7c1e2a4b><button type="button" class="disclosure" aria-expanded="false" aria-controls="p-v77h8p" data-v-7c1e2a4b><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg><span class="u-sr" data-v-7c1e2a4b>Toggle details</span></button></td>
+          <td class="statement-row__payee" data-v-7c1e2a4b><p class="payee__name" data-v-7c1e2a4b>J Okonkwo — Rent</p><span class="payee__ref" data-v-7c1e2a4b>Standing order · NOV RENT</span></td>
+          <td data-v-7c1e2a4b><select id="cat-p-v77h8p" class="category-picker" name="category" aria-label="Category" data-v-7c1e2a4b><optgroup label="Spending"><option value="groceries">Groceries</option><option value="transport">Transport</option><option value="shopping">Shopping</option><option value="bills">Bills</option><option value="eating-out">Eating out</option><option value="entertainment">Entertainment</option><option value="health--fitness">Health &amp; fitness</option><option value="housing" selected>Housing</option><option value="general">General</option></optgroup><optgroup label="Money in &amp; transfers"><option value="income">Income</option><option value="transfers">Transfers</option></optgroup></select></td>
+          <td class="money money--in" data-v-7c1e2a4b></td>
+          <td class="money money--out" data-v-7c1e2a4b>£1,150.00</td>
+          <td class="money" data-v-7c1e2a4b>£1,139.97</td>
+        </tr>
+        <tr class="statement-panel" id="p-v77h8p" data-v-7c1e2a4b hidden>
+          <td colspan="6" data-v-7c1e2a4b><div class="panel" data-v-7c1e2a4b><dl class="panel__facts" data-v-7c1e2a4b><dt>When</dt><dd>16 Oct 2025 at 09:00</dd><dt>How</dt><dd>Standing order</dd><dt>Reference</dt><dd>TX_7675</dd></dl><div class="panel__actions" data-v-7c1e2a4b><button type="button" class="ghost-btn" data-v-7c1e2a4b>Add note</button><button type="button" class="ghost-btn" data-v-7c1e2a4b>Split payment</button><button type="button" class="ghost-btn ghost-btn--warn" data-v-7c1e2a4b>Report a problem</button></div></div></td>
+        </tr>
+      </tbody>
+  </table>
+</main>
+<footer class="legal" data-v-7c1e2a4b>Lindmoor Bank plc. Authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority. &copy; 2025</footer>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Shopping Cart – Hearthstone Kitchen Supply</title>
+<style>
+body{margin:0;font:16px/1.5 Georgia,"Times New Roman",serif;color:#2b2622;background:#fbf8f4}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.cart-layout{display:grid;grid-template-columns:1fr 360px;gap:40px}
+.cart-items{width:100%;border-collapse:collapse}.cart-items th{text-align:left;border-bottom:1px solid #ddd2c4}
+.qty-stepper{display:inline-flex;border:1px solid #c9bba8;border-radius:4px}.qty-input{width:48px;text-align:center}
+.order-summary{background:#fff;border:1px solid #e8dfd3;padding:24px;border-radius:8px}
+.summary{display:grid;grid-template-columns:1fr auto;gap:8px}.summary-total{font-weight:700;font-size:20px}
+.checkout-btn{display:block;background:#8c2f1b;color:#fff;text-align:center;padding:14px;border-radius:4px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body class="template-cart">
+<div class="announcement"><p>Free shipping on orders $99+ · Lifetime warranty on cast iron</p></div>
+<header class="site-header">
+  <div class="site-header__main container">
+    <a class="site-header__logo" href="/">Hearthstone <span class="site-header__logo-sub">Kitchen Supply</span></a>
+    <nav class="site-nav" aria-label="Main navigation"><ul class="site-nav__list"><li class="site-nav__item"><a class="site-nav__link" href="/collections/cookware">Cookware</a></li><li class="site-nav__item"><a class="site-nav__link" href="/collections/bakeware">Bakeware</a></li><li class="site-nav__item"><a class="site-nav__link" href="/collections/cutlery">Cutlery</a></li><li class="site-nav__item"><a class="site-nav__link" href="/collections/tools-and-gadgets">Tools &amp; Gadgets</a></li><li class="site-nav__item"><a class="site-nav__link" href="/collections/tabletop">Tabletop</a></li><li class="site-nav__item"><a class="site-nav__link" href="/collections/pantry">Pantry</a></li><li class="site-nav__item"><a class="site-nav__link" href="/collections/sale">Sale</a></li></ul></nav>
+    <div class="site-header__actions">
+      <a class="site-header__icon" href="/search" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 4a7 7 0 1 0 4.2 12.6l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg></a>
+      <a class="site-header__icon" href="/account/login">Sign in</a>
+      <a class="site-header__icon site-header__cart is-active" href="/cart" aria-label="Cart, 5 items"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 4h2l2.4 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2M9 20h.01M18 20h.01"/></svg><span class="cart-bubble">5</span></a>
+    </div>
+  </div>
+</header>
+<main id="main" class="cart-page container">
+  <div class="cart-page__header">
+    <h1 class="cart-page__title">Your cart</h1>
+    <a class="cart-page__continue" href="/collections/all">Continue shopping</a>
+  </div>
+  <div class="free-shipping-meter" role="status">
+    <p class="free-shipping-meter__text"><svg class="free-shipping-meter__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h11v9H3zM14 9h4l3 3v3h-7zM7 18a2 2 0 1 0 0-.01M17 18a2 2 0 1 0 0-.01"/></svg> You've unlocked <strong>free standard shipping</strong>!</p>
+    <div class="free-shipping-meter__bar"><span class="free-shipping-meter__fill" style="width:100%"></span></div>
+  </div>
+  <div class="cart-layout">
+    <form class="cart-form" id="cart-form" action="/cart" method="post">
+      <table class="cart-items" id="cart">
+        <caption class="visually-hidden">Items in your cart</caption>
+        <thead><tr><th scope="col">Product</th><th scope="col">Price</th><th scope="col">Quantity</th><th scope="col">Total</th></tr></thead>
+        <tbody>
+          <tr class="cart-item" id="cart-row-1" data-line-id="41823117">
+            <td class="cart-item__product">
+              <div class="cart-item__media"><img src="/cdn/shop/files/hk-do55-cer_160x160.jpg" alt="Enameled Cast-Iron Dutch Oven, 5.5 qt" width="80" height="80"></div>
+              <div class="cart-item__details">
+                <a class="cart-item__name" href="/products/enameled-cast-iron-dutch-oven-5-5-qt">Enameled Cast-Iron Dutch Oven, 5.5 qt</a>
+                <dl class="cart-item__options"><dt>Color:</dt><dd>Cerise</dd></dl>
+                <p class="cart-item__sku">SKU HK-DO55-CER</p>
+                <p class="cart-item__stock">In stock — ships in 1–2 business days</p>
+                <div class="cart-item__actions"><a class="remove-link" href="/cart/change?line=1&amp;quantity=0">Remove</a> <span aria-hidden="true">|</span> <a class="save-link" href="/cart/save?line=1">Save for later</a></div>
+              </div>
+            </td>
+            <td class="cart-item__price">$179.95</td>
+            <td class="cart-item__qty">
+              <div class="qty-stepper">
+                <button type="button" class="qty-minus" aria-label="Decrease quantity for Enameled Cast-Iron Dutch Oven, 5.5 qt">−</button>
+                <input class="qty-input" type="number" name="updates[]" id="updates_41823117" value="1" min="0" aria-label="Quantity for Enameled Cast-Iron Dutch Oven, 5.5 qt">
+                <button type="button" class="qty-plus" aria-label="Increase quantity for Enameled Cast-Iron Dutch Oven, 5.5 qt" data-dh-target="t2">+</button>
+              </div>
+            </td>
+            <td class="cart-item__total">$179.95</td>
+          </tr>
+          <tr class="cart-item" id="cart-row-2" data-line-id="41823118">
+            <td class="cart-item__product">
+              <div class="cart-item__media"><img src="/cdn/shop/files/hk-sk26_160x160.jpg" alt="Pre-Seasoned Cast-Iron Skillet, 26 cm" width="80" height="80"></div>
+              <div class="cart-item__details">
+                <a class="cart-item__name" href="/products/pre-seasoned-cast-iron-skillet-26-cm">Pre-Seasoned Cast-Iron Skillet, 26 cm</a>
+                <dl class="cart-item__options"><dt>Size:</dt><dd>26 cm</dd></dl>
+                <p class="cart-item__sku">SKU HK-SK26</p>
+                <p class="cart-item__stock">In stock — ships in 1–2 business days</p>
+                <div class="cart-item__actions"><a class="remove-link" href="/cart/change?line=2&amp;quantity=0">Remove</a> <span aria-hidden="true">|</span> <a class="save-link" href="/cart/save?line=2">Save for later</a></div>
+              </div>
+            </td>
+            <td class="cart-item__price">$44.95</td>
+            <td class="cart-item__qty">
+              <div class="qty-stepper">
+                <button type="button" class="qty-minus" aria-label="Decrease quantity for Pre-Seasoned Cast-Iron Skillet, 26 cm">−</button>
+                <input class="qty-input" type="number" name="updates[]" id="updates_41823118" value="2" min="0" aria-label="Quantity for Pre-Seasoned Cast-Iron Skillet, 26 cm" data-dh-target="t1">
+                <button type="button" class="qty-plus" aria-label="Increase quantity for Pre-Seasoned Cast-Iron Skillet, 26 cm">+</button>
+              </div>
+            </td>
+            <td class="cart-item__total">$89.90</td>
+          </tr>
+          <tr class="cart-item" id="cart-row-3" data-line-id="41823119">
+            <td class="cart-item__product">
+              <div class="cart-item__media"><img src="/cdn/shop/files/hk-bb3_160x160.jpg" alt="Bamboo Cutting Board Set (3-Piece)" width="80" height="80"></div>
+              <div class="cart-item__details">
+                <a class="cart-item__name" href="/products/bamboo-cutting-board-set-3-piece">Bamboo Cutting Board Set (3-Piece)</a>
+                <dl class="cart-item__options"><dt>Finish:</dt><dd>Natural</dd></dl>
+                <p class="cart-item__sku">SKU HK-BB3</p>
+                <p class="cart-item__stock">Only 4 left</p>
+                <div class="cart-item__actions"><a class="remove-link" href="/cart/change?line=3&amp;quantity=0" data-dh-target="t3">Remove</a> <span aria-hidden="true">|</span> <a class="save-link" href="/cart/save?line=3">Save for later</a></div>
+              </div>
+            </td>
+            <td class="cart-item__price">$39.00</td>
+            <td class="cart-item__qty">
+              <div class="qty-stepper">
+                <button type="button" class="qty-minus" aria-label="Decrease quantity for Bamboo Cutting Board Set (3-Piece)">−</button>
+                <input class="qty-input" type="number" name="updates[]" id="updates_41823119" value="1" min="0" aria-label="Quantity for Bamboo Cutting Board Set (3-Piece)">
+                <button type="button" class="qty-plus" aria-label="Increase quantity for Bamboo Cutting Board Set (3-Piece)">+</button>
+              </div>
+            </td>
+            <td class="cart-item__total">$39.00</td>
+          </tr>
+          <tr class="cart-item" id="cart-row-4" data-line-id="41823120">
+            <td class="cart-item__product">
+              <div class="cart-item__media"><img src="/cdn/shop/files/hk-ck20_160x160.jpg" alt="Carbon-Steel Chef Knife, 20 cm" width="80" height="80"></div>
+              <div class="cart-item__details">
+                <a class="cart-item__name" href="/products/carbon-steel-chef-knife-20-cm">Carbon-Steel Chef Knife, 20 cm</a>
+                <dl class="cart-item__options"><dt>Handle:</dt><dd>Walnut</dd></dl>
+                <p class="cart-item__sku">SKU HK-CK20</p>
+                <p class="cart-item__stock">In stock — ships in 1–2 business days</p>
+                <div class="cart-item__actions"><a class="remove-link" href="/cart/change?line=4&amp;quantity=0">Remove</a> <span aria-hidden="true">|</span> <a class="save-link" href="/cart/save?line=4">Save for later</a></div>
+              </div>
+            </td>
+            <td class="cart-item__price">$129.00</td>
+            <td class="cart-item__qty">
+              <div class="qty-stepper">
+                <button type="button" class="qty-minus" aria-label="Decrease quantity for Carbon-Steel Chef Knife, 20 cm">−</button>
+                <input class="qty-input" type="number" name="updates[]" id="updates_41823120" value="1" min="0" aria-label="Quantity for Carbon-Steel Chef Knife, 20 cm">
+                <button type="button" class="qty-plus" aria-label="Increase quantity for Carbon-Steel Chef Knife, 20 cm">+</button>
+              </div>
+            </td>
+            <td class="cart-item__total">$129.00</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="cart-extras">
+        <div class="cart-extras__gift"><input type="checkbox" id="gift-order" name="attributes[gift]" value="yes"><label for="gift-order">This order is a gift — hide prices on the packing slip</label></div>
+        <div class="cart-extras__note"><label for="cart-note">Order note</label><textarea id="cart-note" name="note" rows="3" placeholder="Anything we should know about your order?"></textarea></div>
+        <button type="submit" class="btn btn--link cart-form__update" name="update">Update cart</button>
+      </div>
+    </form>
+    <aside class="order-summary" aria-labelledby="summary-title">
+      <h2 class="order-summary__title" id="summary-title">Order summary</h2>
+      <form class="promo-form" action="/discount" method="post">
+        <label class="promo-form__label" for="promo-code">Promo code</label>
+        <input id="promo-code" class="promo-form__input" type="text" name="discount" placeholder="Enter promo code" autocomplete="off" data-dh-target="t4">
+        <button type="submit" class="btn btn--outline promo-form__apply" data-dh-target="t5">Apply</button>
+      </form>
+      <dl class="summary">
+        <dt>Subtotal (5 items)</dt><dd>$437.85</dd>
+        <dt>Shipping</dt><dd>Free</dd>
+        <dt>Estimated tax</dt><dd>Calculated at checkout</dd>
+        <dt class="summary__total-label">Estimated total</dt><dd class="summary-total" data-dh-target="t6">$437.85</dd>
+      </dl>
+      <a class="btn btn--primary btn--block checkout-btn" href="/checkout">Checkout</a>
+      <p class="order-summary__or">or check out with</p>
+      <div class="express-checkout"><button type="button" class="express-btn express-btn--wallet">Pay with Wallet</button><button type="button" class="express-btn express-btn--later">Pay in 4</button></div>
+      <ul class="payment-icons" aria-label="Payment methods we accept"><li>Visa</li><li>Mastercard</li><li>American Express</li><li>Discover</li></ul>
+      <p class="order-summary__guarantee"><svg class="order-summary__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg> 90-day returns · Lifetime warranty on cast iron</p>
+    </aside>
+  </div>
+  <section class="recommendations" aria-labelledby="recs-title">
+    <h2 class="recommendations__title" id="recs-title">Complete your kitchen</h2>
+    <ul class="recommendations__list"><li class="rec"><img class="rec__img" src="/cdn/shop/files/cast-iron-handle-sleeve_240x240.jpg" alt="Cast-Iron Handle Sleeve" width="120" height="120"><a class="rec__name" href="/products/cast-iron-handle-sleeve">Cast-Iron Handle Sleeve</a><span class="rec__price">$12.00</span><button type="button" class="btn btn--small rec__add">Add</button></li><li class="rec"><img class="rec__img" src="/cdn/shop/files/chainmail-scrubber_240x240.jpg" alt="Chainmail Scrubber" width="120" height="120"><a class="rec__name" href="/products/chainmail-scrubber">Chainmail Scrubber</a><span class="rec__price">$18.00</span><button type="button" class="btn btn--small rec__add">Add</button></li><li class="rec"><img class="rec__img" src="/cdn/shop/files/seasoning-oil-8-oz_240x240.jpg" alt="Seasoning Oil, 8 oz" width="120" height="120"><a class="rec__name" href="/products/seasoning-oil-8-oz">Seasoning Oil, 8 oz</a><span class="rec__price">$14.00</span><button type="button" class="btn btn--small rec__add">Add</button></li><li class="rec"><img class="rec__img" src="/cdn/shop/files/walnut-knife-block_240x240.jpg" alt="Walnut Knife Block" width="120" height="120"><a class="rec__name" href="/products/walnut-knife-block">Walnut Knife Block</a><span class="rec__price">$79.00</span><button type="button" class="btn btn--small rec__add">Add</button></li></ul>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__grid container">
+    <div class="site-footer__col"><h2>Customer care</h2><ul><li><a href="/pages/contact">Contact us</a></li><li><a href="/pages/shipping">Shipping</a></li><li><a href="/pages/returns">Returns</a></li><li><a href="/pages/warranty">Warranty</a></li><li><a href="/pages/care-guides">Care guides</a></li></ul></div>
+    <div class="site-footer__col"><h2>About</h2><ul><li><a href="/pages/our-story">Our story</a></li><li><a href="/pages/foundry">The foundry</a></li><li><a href="/blogs/recipes">Recipes</a></li><li><a href="/pages/wholesale">Wholesale</a></li></ul></div>
+    <div class="site-footer__col"><h2>Visit</h2><p>412 Foundry Row, Asheville, NC 28801</p><p>Mon–Sat 10am–6pm</p><p><a href="tel:+18005550142">1-800-555-0142</a></p></div>
+  </div>
+  <p class="site-footer__legal">© 2026 Hearthstone Kitchen Supply · <a href="/policies/privacy-policy">Privacy policy</a> · <a href="/policies/terms-of-service">Terms of service</a></p>
+</footer>
+</body>
+</html>

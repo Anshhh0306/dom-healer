@@ -1,0 +1,103 @@
+{
+  "suite": "ecommerce-07",
+  "category": "ecommerce",
+  "title": "Grocery delivery aisle with quantity steppers and mini-cart drawer",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "testid-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 switches to atomic (StyleX-like) class names. The left aisle list becomes a horizontal department tab bar with merged/renamed departments ('Bakery' → 'Bakery & Bread') plus a hidden 'All departments' drawer repeating the links. Shelves are renamed and re-ordered (Eggs first), tiles lose ids/data-sku and are re-ordered (per-SKU data-testids collapse to a generic 'ItemCard'); 'Add' becomes 'Add to cart'; stepper buttons get product-specific labels. A 'Your usuals' rail repeats Organic Whole Milk, and a new 'Large White Eggs, 12 ct' tile has the same unit price as the brown eggs. The mini-cart moves into <gb-cart-drawer>'s shadow root with lines newest-first, icon-only remove buttons labelled per product and a 'Go to checkout' button.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Add' button on the 'Organic Whole Milk, 1 gal' tile",
+      "css": "[data-testid='product-tile-70014'] [data-testid='add-to-cart-btn']",
+      "xpath": "//li[.//h3[normalize-space()='Organic Whole Milk']]//button[normalize-space()='Add']",
+      "mutations": [
+        "copy-change",
+        "testid-change",
+        "decoy",
+        "class-obfuscation",
+        "attribute-churn",
+        "wrapper-divs",
+        "sibling-reorder"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Increase-quantity (+) button on the 'Greek Yogurt Plain, 32 oz' tile (already in cart)",
+      "css": "#tile-51200 .stepper__inc",
+      "xpath": "//li[@data-sku='51200']//button[@aria-label='Increase quantity']",
+      "mutations": [
+        "attribute-churn",
+        "id-change",
+        "class-obfuscation",
+        "sibling-reorder",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Unit price label ($0.37/ct) of the 'Large Brown Eggs, 12 ct' tile",
+      "css": "#tile-60311 .unit-price",
+      "xpath": "//h3[normalize-space()='Large Brown Eggs']/preceding-sibling::div[@class='tile-price']/span[@class='unit-price']",
+      "mutations": [
+        "decoy",
+        "id-change",
+        "class-obfuscation",
+        "sibling-reorder",
+        "insertion"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Checkout' button in the mini-cart drawer",
+      "css": "#mini-cart .btn-checkout",
+      "xpath": "//aside[@id='mini-cart']//a[normalize-space()='Checkout']",
+      "mutations": [
+        "shadow-dom",
+        "tag-change",
+        "copy-change",
+        "class-obfuscation",
+        "id-change",
+        "testid-change"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Remove (trash) icon button of the 'Sharp Cheddar Block, 8 oz' line in the mini-cart",
+      "css": "#mini-cart li:nth-child(3) .remove-btn",
+      "xpath": "(//aside[@id='mini-cart']//button[@title='Remove'])[3]",
+      "mutations": [
+        "shadow-dom",
+        "sibling-reorder",
+        "attribute-churn",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Bakery' link in the aisle navigation",
+      "css": ".aisle-nav li:nth-child(4) > a",
+      "xpath": "//nav[@aria-label='Aisles']//a[normalize-space()='Bakery']",
+      "mutations": [
+        "copy-change",
+        "structure-move",
+        "sibling-reorder",
+        "decoy",
+        "class-obfuscation",
+        "attribute-churn"
+      ]
+    }
+  ]
+}

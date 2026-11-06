@@ -1,0 +1,106 @@
+{
+  "suite": "form-04",
+  "category": "form",
+  "title": "Job application: résumé upload, links, cover letter and EEO questions — Meridian Robotics",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion",
+    "tag-change"
+  ],
+  "notes": "v1 is a classic hosted job board (job description + application form with Rails-style job_application[...] names, attach-or-paste résumé widget, native EEO selects, input[type=submit]). v2 moves to an applicant-tracking UI with emotion css-xxxxxxx classes and generated ids: the description sits on another tab, the résumé upload moves to the top inside an <ats-file-upload> declarative shadow root, links are grouped in a fieldset (urls[LinkedIn]), the cover letter becomes name=comments, the EEO selects become combobox buttons that all read 'Select…' (Race added, Disability now before Veteran) and the submit becomes a <button>. Decoys: a job-alert email form in the sidebar before the application, a second <ats-file-upload> for work samples and a hidden review dialog with another 'Submit application' button.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Résumé/CV file input",
+      "css": "#resume_file",
+      "xpath": "//input[@type='file' and @name='job_application[resume]']",
+      "mutations": [
+        "shadow-dom",
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "sibling-reorder",
+        "structure-move",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "LinkedIn profile URL input",
+      "css": "#job_application_answers_attributes_0_text_value",
+      "xpath": "//label[contains(., 'LinkedIn Profile')]/following-sibling::input[@type='text']",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs",
+        "sibling-reorder"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Cover letter textarea",
+      "css": "textarea#cover_letter_text",
+      "xpath": "//textarea[@name='job_application[cover_letter_text]']",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "wrapper-divs",
+        "sibling-reorder"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Veteran status EEO dropdown (native select in v1, combobox button in v2)",
+      "css": "select#job_application_veteran_status",
+      "xpath": "//label[text()='Veteran Status']/following-sibling::select",
+      "mutations": [
+        "tag-change",
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Submit Application' button",
+      "css": "#submit_app",
+      "xpath": "//input[@type='submit' and @value='Submit Application']",
+      "mutations": [
+        "tag-change",
+        "copy-change",
+        "id-change",
+        "decoy",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Email input of the application form",
+      "css": "#email",
+      "xpath": "//label[@for='email']/following-sibling::input",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "wrapper-divs",
+        "decoy"
+      ]
+    }
+  ]
+}

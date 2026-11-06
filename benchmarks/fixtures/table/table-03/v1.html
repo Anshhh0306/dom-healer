@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My watchlist — Bluefin Invest</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0f17;--panel:#121826;--line:#1f2937;--txt:#e5e7eb;--mut:#8b95a7;--up:#16c784;--down:#ea3943;--acc:#3b82f6}
+body{margin:0;background:var(--bg);color:var(--txt);font:13px/1.4 "IBM Plex Sans",system-ui,sans-serif}
+.topbar{display:flex;align-items:center;gap:28px;padding:0 20px;height:52px;border-bottom:1px solid var(--line)}
+.brand{font-weight:700;font-size:17px;color:#fff;text-decoration:none}.brand-tag{color:var(--acc);margin-left:4px}
+.topnav a{color:var(--mut);text-decoration:none;margin-right:18px}.topnav a.active{color:#fff}
+.account-summary{margin-left:auto;text-align:right}.account-summary .label{display:block;color:var(--mut);font-size:11px}
+.market-strip{display:flex;gap:24px;padding:8px 20px;border-bottom:1px solid var(--line);font-size:12px}
+.wl-page{display:grid;grid-template-columns:1fr 300px;gap:20px;padding:20px}
+.wl-panel,.side-card{background:var(--panel);border:1px solid var(--line);border-radius:8px}
+.wl-header{display:flex;align-items:center;gap:16px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.wl-title{font-size:16px;margin:0}.wl-tab{background:none;border:0;color:var(--mut);padding:6px 10px}.wl-tab.is-active{color:#fff;border-bottom:2px solid var(--acc)}
+.wl-add{margin-left:auto;display:flex;gap:6px}.wl-add__input{background:#0b0f17;border:1px solid var(--line);color:var(--txt);padding:6px 10px;border-radius:6px;width:200px}
+.wl-table{width:100%;border-collapse:collapse}.wl-table th{color:var(--mut);font-weight:500;text-align:left;padding:8px 12px;border-bottom:1px solid var(--line)}
+.wl-table td{padding:9px 12px;border-bottom:1px solid var(--line)}.num{text-align:right;font-variant-numeric:tabular-nums}
+.is-up{color:var(--up)}.is-down{color:var(--down)}.ticker{display:block}.company{color:var(--mut);font-size:11px}
+.range-track{display:inline-block;position:relative;width:60px;height:3px;margin:0 6px;background:#374151;vertical-align:middle}.range-pos{position:absolute;top:-2px;width:3px;height:7px;background:#fff}
+.wl-btn{border:0;border-radius:4px;padding:4px 10px;font-weight:600;color:#fff;cursor:pointer}.wl-btn--buy{background:#15803d}.wl-btn--sell{background:#b91c1c;margin-left:4px}
+.wl-icon-btn{background:none;border:0;color:var(--mut);padding:4px;cursor:pointer}
+.side-card h2{font-size:13px;margin:0;padding:12px 14px;border-bottom:1px solid var(--line)}
+.mover-list,.news-list{list-style:none;margin:0;padding:6px 14px}.mover-list li,.news-list li{padding:6px 0;border-bottom:1px solid var(--line)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.site-footer{padding:16px 20px;color:var(--mut);font-size:11px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/">Bluefin<span class="brand-tag">Invest</span></a>
+  <nav class="topnav" aria-label="Main"><a href="/markets">Markets</a><a class="active" href="/watchlists" aria-current="page">Watchlists</a><a href="/portfolio">Portfolio</a><a href="/orders">Orders</a><a href="/news">News</a></nav>
+  <div class="account-summary"><span class="label">Buying power</span><span class="value">$24,318.62</span></div>
+</header>
+<div class="market-strip" aria-label="Market overview">
+  <span>S&amp;P 500 <b>6,842.15</b> <span class="is-up">+0.42%</span></span>
+  <span>Nasdaq <b>23,104.88</b> <span class="is-up">+0.71%</span></span>
+  <span>Dow <b>47,281.04</b> <span class="is-down">−0.12%</span></span>
+  <span>EUR/USD <b>1.0842</b> <span class="is-down">−0.05%</span></span>
+  <span>Gold <b>$4,011.30</b> <span class="is-up">+0.33%</span></span>
+</div>
+<main class="wl-page">
+  <section class="wl-panel" aria-labelledby="wl-title">
+    <div class="wl-header">
+      <h1 id="wl-title" class="wl-title">My watchlist</h1>
+      <div class="wl-tabs" role="tablist">
+        <button type="button" role="tab" aria-selected="true" class="wl-tab is-active">My watchlist</button>
+        <button type="button" role="tab" aria-selected="false" class="wl-tab">Tech</button>
+        <button type="button" role="tab" aria-selected="false" class="wl-tab">Crypto</button>
+        <button type="button" role="tab" aria-selected="false" class="wl-tab">Dividends</button>
+      </div>
+      <form class="wl-add" action="/watchlists/8812/symbols" method="post"><input id="add-symbol" class="wl-add__input" name="symbol" placeholder="Add symbol, e.g. AAPL" autocomplete="off" data-dh-target="t4"><button type="submit" class="wl-add__btn wl-btn">Add</button></form>
+    </div>
+    <table class="wl-table" id="watchlist">
+      <thead>
+        <tr>
+          <th class="col-symbol">Symbol</th>
+          <th class="col-price num">Last</th>
+          <th class="col-chg num">Change</th>
+          <th class="col-chg-pct num sortable"><a href="?sort=chg_pct" class="sort-link" data-dh-target="t6">Chg %</a></th>
+          <th class="col-vol num">Volume</th>
+          <th class="col-range">Day range</th>
+          <th class="col-actions"><span class="sr-only">Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr data-symbol="AAPL" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">AAPL</strong><span class="company">Apple Inc.</span></td>
+            <td class="col-price num">$229.87</td>
+            <td class="col-chg num is-up">+1.42</td>
+            <td class="col-chg-pct num is-up">+0.62%</td>
+            <td class="col-vol num">48.21M</td>
+            <td class="col-range"><span class="range-lo">227.10</span><span class="range-track"><span class="range-pos" style="left:83%"></span></span><span class="range-hi">230.44</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for AAPL"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove AAPL from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr data-symbol="MSFT" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">MSFT</strong><span class="company">Microsoft Corp.</span></td>
+            <td class="col-price num">$512.30</td>
+            <td class="col-chg num is-down">−3.18</td>
+            <td class="col-chg-pct num is-down">−0.62%</td>
+            <td class="col-vol num">19.87M</td>
+            <td class="col-range"><span class="range-lo">509.75</span><span class="range-track"><span class="range-pos" style="left:35%"></span></span><span class="range-hi">517.02</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy" data-dh-target="t5">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for MSFT"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove MSFT from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr data-symbol="NVDA" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">NVDA</strong><span class="company">NVIDIA Corp.</span></td>
+            <td class="col-price num">$186.52</td>
+            <td class="col-chg num is-up">+4.91</td>
+            <td class="col-chg-pct num is-up">+2.70%</td>
+            <td class="col-vol num">212.4M</td>
+            <td class="col-range"><span class="range-lo">181.20</span><span class="range-track"><span class="range-pos" style="left:79%"></span></span><span class="range-hi">187.95</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for NVDA" data-dh-target="t1"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove NVDA from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr data-symbol="AMZN" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">AMZN</strong><span class="company">Amazon.com Inc.</span></td>
+            <td class="col-price num">$221.04</td>
+            <td class="col-chg num is-up">+0.87</td>
+            <td class="col-chg-pct num is-up">+0.40%</td>
+            <td class="col-vol num">36.02M</td>
+            <td class="col-range"><span class="range-lo">218.66</span><span class="range-track"><span class="range-pos" style="left:65%"></span></span><span class="range-hi">222.31</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for AMZN"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove AMZN from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr data-symbol="GOOGL" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">GOOGL</strong><span class="company">Alphabet Inc. Class A</span></td>
+            <td class="col-price num">$246.15</td>
+            <td class="col-chg num is-down">−1.02</td>
+            <td class="col-chg-pct num is-down">−0.41%</td>
+            <td class="col-vol num">28.77M</td>
+            <td class="col-range"><span class="range-lo">244.80</span><span class="range-track"><span class="range-pos" style="left:31%"></span></span><span class="range-hi">249.12</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for GOOGL"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove GOOGL from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr data-symbol="TSLA" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">TSLA</strong><span class="company">Tesla Inc.</span></td>
+            <td class="col-price num">$428.66</td>
+            <td class="col-chg num is-down">−9.37</td>
+            <td class="col-chg-pct num is-down" data-dh-target="t3">−2.14%</td>
+            <td class="col-vol num">96.15M</td>
+            <td class="col-range"><span class="range-lo">424.10</span><span class="range-track"><span class="range-pos" style="left:26%"></span></span><span class="range-hi">441.90</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for TSLA"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove TSLA from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr data-symbol="META" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">META</strong><span class="company">Meta Platforms Inc.</span></td>
+            <td class="col-price num">$736.20</td>
+            <td class="col-chg num is-up">+6.14</td>
+            <td class="col-chg-pct num is-up">+0.84%</td>
+            <td class="col-vol num">11.48M</td>
+            <td class="col-range"><span class="range-lo">727.35</span><span class="range-track"><span class="range-pos" style="left:77%"></span></span><span class="range-hi">738.80</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for META"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove META from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr data-symbol="ASML" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">ASML</strong><span class="company">ASML Holding N.V. ADR</span></td>
+            <td class="col-price num">$1,012.40</td>
+            <td class="col-chg num is-up">+18.25</td>
+            <td class="col-chg-pct num is-up">+1.84%</td>
+            <td class="col-vol num">1.32M</td>
+            <td class="col-range"><span class="range-lo">992.05</span><span class="range-track"><span class="range-pos" style="left:86%"></span></span><span class="range-hi">1,015.70</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for ASML"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove ASML from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr data-symbol="BTC-USD" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">BTC-USD</strong><span class="company">Bitcoin</span></td>
+            <td class="col-price num">$104,212.00</td>
+            <td class="col-chg num is-up">+1,844.10</td>
+            <td class="col-chg-pct num is-up">+1.80%</td>
+            <td class="col-vol num">38.6B</td>
+            <td class="col-range"><span class="range-lo">101,950.00</span><span class="range-track"><span class="range-pos" style="left:77%"></span></span><span class="range-hi">104,880.00</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for BTC-USD"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove BTC-USD from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr data-symbol="ETH-USD" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">ETH-USD</strong><span class="company">Ethereum</span></td>
+            <td class="col-price num" data-dh-target="t2">$3,412.58</td>
+            <td class="col-chg num is-down">−61.22</td>
+            <td class="col-chg-pct num is-down">−1.76%</td>
+            <td class="col-vol num">19.2B</td>
+            <td class="col-range"><span class="range-lo">3,388.10</span><span class="range-track"><span class="range-pos" style="left:21%"></span></span><span class="range-hi">3,502.44</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for ETH-USD"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove ETH-USD from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr data-symbol="SOL-USD" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">SOL-USD</strong><span class="company">Solana</span></td>
+            <td class="col-price num">$184.33</td>
+            <td class="col-chg num is-up">+7.95</td>
+            <td class="col-chg-pct num is-up">+4.51%</td>
+            <td class="col-vol num">5.41B</td>
+            <td class="col-range"><span class="range-lo">175.02</span><span class="range-track"><span class="range-pos" style="left:78%"></span></span><span class="range-hi">186.90</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for SOL-USD"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove SOL-USD from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr data-symbol="JPM" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">JPM</strong><span class="company">JPMorgan Chase &amp; Co.</span></td>
+            <td class="col-price num">$302.11</td>
+            <td class="col-chg num is-up">+0.65</td>
+            <td class="col-chg-pct num is-up">+0.22%</td>
+            <td class="col-vol num">7.94M</td>
+            <td class="col-range"><span class="range-lo">299.84</span><span class="range-track"><span class="range-pos" style="left:66%"></span></span><span class="range-hi">303.30</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for JPM"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove JPM from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr data-symbol="KO" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">KO</strong><span class="company">Coca-Cola Co.</span></td>
+            <td class="col-price num">$69.48</td>
+            <td class="col-chg num is-down">−0.21</td>
+            <td class="col-chg-pct num is-down">−0.30%</td>
+            <td class="col-vol num">12.66M</td>
+            <td class="col-range"><span class="range-lo">69.11</span><span class="range-track"><span class="range-pos" style="left:43%"></span></span><span class="range-hi">69.97</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for KO"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove KO from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+          <tr data-symbol="NVO" class="wl-row">
+            <td class="col-symbol"><strong class="ticker">NVO</strong><span class="company">Novo Nordisk A/S ADR</span></td>
+            <td class="col-price num">$54.73</td>
+            <td class="col-chg num is-down">−1.88</td>
+            <td class="col-chg-pct num is-down">−3.32%</td>
+            <td class="col-vol num">22.31M</td>
+            <td class="col-range"><span class="range-lo">54.20</span><span class="range-track"><span class="range-pos" style="left:20%"></span></span><span class="range-hi">56.88</span></td>
+            <td class="col-actions"><button type="button" class="wl-btn wl-btn--buy">Buy</button><button type="button" class="wl-btn wl-btn--sell">Sell</button><button type="button" class="wl-icon-btn wl-alert-btn" title="Set price alert" aria-label="Set price alert for NVO"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 8a6 6 0 1 1 12 0c0 1.887.454 3.665 1.257 5.234a.75.75 0 0 1-.515 1.076 32.91 32.91 0 0 1-3.256.508 3.5 3.5 0 0 1-6.972 0 32.903 32.903 0 0 1-3.256-.508.75.75 0 0 1-.515-1.076A11.448 11.448 0 0 0 4 8Z" clip-rule="evenodd"/></svg></button><button type="button" class="wl-icon-btn wl-remove-btn" title="Remove from watchlist" aria-label="Remove NVO from watchlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" clip-rule="evenodd"/></svg></button></td>
+          </tr>
+      </tbody>
+    </table>
+    <p class="wl-foot">Quotes delayed 15 minutes for NYSE/Nasdaq. Crypto prices are real-time. Last refresh 15:42:07 ET.</p>
+  </section>
+  <aside class="wl-side">
+    <section class="side-card"><h2>Biggest movers in this list</h2><ul class="mover-list"><li><a href="/quote/SOL-USD">SOL-USD</a> <span class="is-up">+4.51%</span></li><li><a href="/quote/NVO">NVO</a> <span class="is-down">−3.32%</span></li><li><a href="/quote/NVDA">NVDA</a> <span class="is-up">+2.70%</span></li><li><a href="/quote/TSLA">TSLA</a> <span class="is-down">−2.14%</span></li><li><a href="/quote/ASML">ASML</a> <span class="is-up">+1.84%</span></li></ul></section>
+    <section class="side-card"><h2>News for your watchlist</h2>
+      <ul class="news-list">
+        <li><a href="/news/8812-1">Chipmakers extend rally as data-centre orders beat estimates</a><span class="company">Reuters &middot; 38 min ago</span></li>
+        <li><a href="/news/8812-2">Tesla slips after delivery guidance trimmed for Q4</a><span class="company">Bloomberg &middot; 1 h ago</span></li>
+        <li><a href="/news/8812-3">Ether falls as ETF outflows continue for a third session</a><span class="company">CoinDesk &middot; 2 h ago</span></li>
+        <li><a href="/news/8812-4">Novo Nordisk shares drop on pricing pressure in the US</a><span class="company">FT &middot; 3 h ago</span></li>
+      </ul>
+    </section>
+  </aside>
+</main>
+<footer class="site-footer">Bluefin Invest LLC, member FINRA/SIPC. Investing involves risk, including loss of principal. &copy; 2025</footer>
+</body>
+</html>

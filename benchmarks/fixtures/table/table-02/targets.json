@@ -1,0 +1,100 @@
+{
+  "suite": "table-02",
+  "category": "table",
+  "title": "Invoices list with status badges, row actions and bulk selection",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "testid-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 migrates from Bootstrap to CSS Modules, swaps the sidebar for a top nav, re-sorts invoices by due date, moves the Status column to the front and inserts 'Balance due', renders each row's actions in an <invoice-actions> declarative shadow root ('Download' becomes 'Export PDF'; 'Void' moves into a hidden overflow menu as 'Void invoice'), adds a 'Needs attention' summary table repeating the overdue invoices with identical status pills, turns the status tabs into a segmented control ('Outstanding' -> 'Unpaid') plus a mobile <select>, and drops data-invoice/data-testid/ids.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Bulk-select checkbox of invoice INV-1043 (Kettle & Crumb Bakery)",
+      "css": "#invoices-table tbody tr:nth-child(6) .row-check",
+      "xpath": "//tr[td[2]='INV-1043']//input[@type='checkbox']",
+      "mutations": [
+        "class-obfuscation",
+        "wrapper-divs",
+        "sibling-reorder",
+        "insertion",
+        "id-change"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Download-PDF row action of invoice INV-1038 (v2 label 'Export PDF')",
+      "css": "#invoices-table tr[data-invoice='INV-1038'] button[data-testid='download-pdf']",
+      "xpath": "//a[normalize-space()='INV-1038']/ancestor::tr//button[normalize-space()='Download']",
+      "mutations": [
+        "shadow-dom",
+        "copy-change",
+        "testid-change",
+        "class-obfuscation",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Status badge of invoice INV-1045 (value 'Overdue')",
+      "css": "#invoices-table tbody tr:nth-child(4) td:nth-child(7) > span.badge",
+      "xpath": "//tr[@data-invoice='INV-1045']//span[contains(@class,'badge')]",
+      "mutations": [
+        "class-obfuscation",
+        "sibling-reorder",
+        "attribute-churn",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Amount cell of invoice INV-1033 (Halcyon Architecture, $12,480.00)",
+      "css": "#invoices-table > tbody > tr:nth-child(16) > td:nth-child(6)",
+      "xpath": "//tr[td[2]='INV-1033']/td[6]",
+      "mutations": [
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "id-change"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Void' action of invoice INV-1047 (moved into the row's overflow menu as 'Void invoice' in v2)",
+      "css": "#invoices-table tbody tr:nth-child(2) .btn-void",
+      "xpath": "//tr[@data-invoice='INV-1047']//button[@data-testid='void-invoice']",
+      "mutations": [
+        "shadow-dom",
+        "structure-move",
+        "copy-change",
+        "testid-change",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Outstanding' status filter tab above the invoice list (v2: 'Unpaid' segment)",
+      "css": "ul.nav-tabs a[href='?status=outstanding']",
+      "xpath": "//ul[contains(@class,'nav-tabs')]//a[starts-with(normalize-space(),'Outstanding')]",
+      "mutations": [
+        "tag-change",
+        "copy-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "wrapper-divs"
+      ]
+    }
+  ]
+}

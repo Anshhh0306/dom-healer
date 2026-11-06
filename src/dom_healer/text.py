@@ -65,11 +65,24 @@ CANONICAL_WORDS: dict[str, str] = {
     "see": "view",
     "colour": "color",
     "send": "submit",
-    "confirm": "submit",
+    "retype": "confirm",
+    "verify": "confirm",
+    "repeat": "confirm",
+    "reenter": "confirm",
     "photo": "image",
     "picture": "image",
     "avatar": "image",
     "e": "",  # "e-mail" -> "email" handled below; stray "e" dropped
+    # units / abbreviations ("30d" is split into "30" + "d")
+    "d": "day",
+    "h": "hour",
+    "hr": "hour",
+    "w": "week",
+    "wk": "week",
+    "mo": "month",
+    "yr": "year",
+    "min": "minute",
+    "sec": "second",
 }
 
 STOPWORDS = frozenset(
@@ -85,20 +98,37 @@ def normalize_text(text: str | None, limit: int = 200) -> str:
     return text[:limit] if len(text) > limit else text
 
 
+_TOKEN = re.compile(r"\d+|[^\W\d_]+")
+
+
 @lru_cache(maxsize=16384)
 def words(text: str) -> tuple[str, ...]:
     """Lower-case alphanumeric words of ``text``."""
-    return tuple(_WORD.findall(text.replace("e-mail", "email")))
+    return tuple(_WORD.findall(text.lower().replace("e-mail", "email").replace("re-enter", "reenter")))
 
 
-@lru_cache(maxsize=16384)
+def _stem(word: str) -> str:
+    """Very light plural stripping ("reviews" -> "review", "categories" -> "category")."""
+    if len(word) > 4 and word.endswith("ies"):
+        return word[:-3] + "y"
+    if len(word) > 3 and word[-1] == "s" and word[-2] not in "sui":
+        return word[:-1]
+    return word
+
+
+@lru_cache(maxsize=32768)
 def canonical_words(text: str) -> frozenset[str]:
-    """Words of ``text`` mapped through :data:`CANONICAL_WORDS`, minus stopwords."""
+    """Normalised word set: digit/letter runs split ("30d" -> "30", "d"), light stemming,
+    :data:`CANONICAL_WORDS` synonyms applied, stopwords removed."""
     out = set()
-    for w in words(text):
+    canon = CANONICAL_WORDS
+    for w in _TOKEN.findall(text.lower().replace("e-mail", "email").replace("re-enter", "reenter")):
         if w in STOPWORDS:
             continue
-        w = CANONICAL_WORDS.get(w, w)
+        w = canon.get(w, w)
+        if len(w) > 3 and w[-1] == "s":
+            w = _stem(w)
+            w = canon.get(w, w)
         if w:
             out.add(w)
     return frozenset(out)
@@ -130,7 +160,7 @@ def text_similarity(a: str, b: str) -> float:
         return 1.0 if a else 0.0
     if not a or not b:
         return 0.0
-    ta, tb = trigrams(a), trigrams(b)
+    ta, tb = trigrams(a[:120]), trigrams(b[:120])
     dice = 2.0 * len(ta & tb) / (len(ta) + len(tb))
     wa, wb = canonical_words(a), canonical_words(b)
     if wa and wb:
@@ -176,17 +206,7 @@ def lcs_ratio(a: tuple[str, ...], b: tuple[str, ...]) -> float:
 
 #: Utility-class fragments (Tailwind/Bootstrap) that carry styling, not identity.
 UTILITY_TOKENS = frozenset(
-    """
-    flex grid block inline hidden items center justify between around evenly start end gap px py p m mx my mt mb ml mr
-    pt pb pl pr ps pe w h min max full auto screen text font bg border rounded shadow sm md lg xl xs xxl 2xl hover focus
-    active disabled dark col cols row rows span container wrapper wrap inner outer relative absolute fixed sticky static
-    top bottom left right inset z overflow truncate bold semibold medium normal light thin white black gray grey slate
-    zinc neutral stone red green blue indigo purple pink yellow orange emerald teal cyan sky violet fuchsia rose amber
-    lime opacity transition duration ease cursor pointer select none sr only space x y leading tracking uppercase
-    lowercase capitalize underline ring outline divide order self place object cover contain aspect video square is has
-    js d mw mh vh vw fs fw fst lh ls ms me ps pe g gx gy align baseline nowrap break all visible invisible clearfix
-    float shrink grow basis fill stroke current transparent opacity backdrop blur
-    """.split()
+    ["flex", "grid", "block", "inline", "hidden", "items", "center", "justify", "between", "around", "evenly", "start", "end", "gap", "px", "py", "p", "m", "mx", "my", "mt", "mb", "ml", "mr", "pt", "pb", "pl", "pr", "ps", "pe", "w", "h", "min", "max", "full", "auto", "screen", "text", "font", "bg", "border", "rounded", "shadow", "sm", "md", "lg", "xl", "xs", "xxl", "2xl", "hover", "focus", "active", "disabled", "dark", "col", "cols", "row", "rows", "span", "container", "wrapper", "wrap", "inner", "outer", "relative", "absolute", "fixed", "sticky", "static", "top", "bottom", "left", "right", "inset", "z", "overflow", "truncate", "bold", "semibold", "medium", "normal", "light", "thin", "white", "black", "gray", "grey", "slate", "zinc", "neutral", "stone", "red", "green", "blue", "indigo", "purple", "pink", "yellow", "orange", "emerald", "teal", "cyan", "sky", "violet", "fuchsia", "rose", "amber", "lime", "opacity", "transition", "duration", "ease", "cursor", "pointer", "select", "none", "sr", "only", "space", "x", "y", "leading", "tracking", "uppercase", "lowercase", "capitalize", "underline", "ring", "outline", "divide", "order", "self", "place", "object", "cover", "contain", "aspect", "video", "square", "is", "has", "js", "d", "mw", "mh", "vh", "vw", "fs", "fw", "fst", "lh", "ls", "ms", "me", "ps", "pe", "g", "gx", "gy", "align", "baseline", "nowrap", "break", "all", "visible", "invisible", "clearfix", "float", "shrink", "grow", "basis", "fill", "stroke", "current", "transparent", "opacity", "backdrop", "blur"]
 )
 
 _HASHY = re.compile(r"^(?=[a-z0-9]*\d)(?=[a-z0-9]*[a-z])[a-z0-9]{4,}$", re.I)
@@ -271,6 +291,21 @@ _GENERATED_ID = (
     re.compile(r"[-_]\d+$"),  # "input-12"
     re.compile(r"^\d"),
 )
+
+
+_RANDOM_VALUE = (
+    re.compile(r"^:?r[0-9a-z]{1,4}:?$"),
+    re.compile(r"^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$", re.I),
+    re.compile(r"^[0-9a-f]{12,}$", re.I),
+)
+
+
+@lru_cache(maxsize=8192)
+def looks_random(value: str) -> bool:
+    """Weaker check for attribute *values* (SKUs like ``"MH-300"`` are fine; hashes/UUIDs are not)."""
+    if not value or len(value) > 64:
+        return True
+    return any(p.match(value) for p in _RANDOM_VALUE) or is_obfuscated_class(value)
 
 
 @lru_cache(maxsize=8192)

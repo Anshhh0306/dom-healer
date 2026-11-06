@@ -1,0 +1,99 @@
+{
+  "suite": "form-08",
+  "category": "form",
+  "title": "Hotel booking form: dates, guest steppers, room type, special requests — The Linden Hotel",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion",
+    "tag-change"
+  ],
+  "notes": "v1 is a hand-written BEM booking page (date inputs with arrival_date/departure_date, +/- steppers labelled 'Add adult', <article> room cards with radios, a <dl> price summary). v2 is a React rebuild with StyleX atomic classes (x1abc23d ...): the dates move into an <lh-date-range> declarative shadow root (labels 'Arrive'/'Depart', names checkIn/checkOut), guests become a list of rows with 'Increase adults'/'Decrease adults' icon buttons (Infants added), room cards become whole-card <label>s sorted by price descending with slug values, special requests move up into a new 'Make it special' section, and the summary becomes div rows. Decoys: identical icon-only stepper buttons for children and infants, a sticky mobile bar repeating the £1,213.80 total and a second 'Reserve' button, a header 'Book a room' link.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Check-in date input",
+      "css": "#checkin",
+      "xpath": "//input[@name='arrival_date']",
+      "mutations": [
+        "shadow-dom",
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Icon-only '+' button that adds an adult guest",
+      "css": ".stepper--adults .stepper__btn--plus",
+      "xpath": "//button[@aria-label='Add adult']",
+      "mutations": [
+        "class-obfuscation",
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs",
+        "decoy",
+        "insertion"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "'Junior Suite' room-type radio button",
+      "css": "input[name='room_type'][value='JRS']",
+      "xpath": "//h3[text()='Junior Suite']/ancestor::article//input[@type='radio']",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "sibling-reorder",
+        "tag-change",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Special requests textarea",
+      "css": "textarea#special-requests",
+      "xpath": "//textarea[@name='special_requests']",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "copy-change",
+        "structure-move",
+        "sibling-reorder"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Book now' submit button in the stay summary",
+      "css": ".booking-summary button[type='submit']",
+      "xpath": "//aside//button[normalize-space()='Book now']",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Total price (£1,213.80) in the stay summary",
+      "css": ".booking-summary .summary-total dd",
+      "xpath": "//dt[text()='Total']/following-sibling::dd",
+      "mutations": [
+        "class-obfuscation",
+        "tag-change",
+        "structure-move",
+        "decoy"
+      ]
+    }
+  ]
+}

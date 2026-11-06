@@ -1,0 +1,106 @@
+{
+  "suite": "ecommerce-01",
+  "category": "ecommerce",
+  "title": "Product listing grid with filters sidebar — outdoor gear store",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "testid-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 migrates the listing to Tailwind utilities and an Algolia InstantSearch filter panel rendered inside <rl-filter-panel>'s declarative shadow root (brand options re-sorted by count, React useId ids, values now the brand display name). A hidden mobile filter dialog duplicates the brand checkboxes and Min/Max inputs. Product cards become nested divs, are re-sorted ('Recommended') and lose data-sku/data-testid; 'Add to cart' reads 'Add to bag'; wishlist hearts are relabelled 'Add … to favorites'. A new 'Staff picks' rail above the grid repeats the Ridgeline Ascent 2P and Cairn & Co. Ultra Trekker with identical prices and CTAs.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Brand filter checkbox 'Cairn & Co.' in the filters sidebar",
+      "css": "#brand-cairn-and-co",
+      "xpath": "//fieldset[@data-facet='brand']//input[@value='cairn-and-co']",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "attribute-churn",
+        "sibling-reorder",
+        "decoy",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "'Add to cart' button of the 'Ridgeline Ascent 2P Tent' product card",
+      "css": "ul.product-grid > li:nth-child(3) button.product-card__atc",
+      "xpath": "//a[normalize-space()='Ridgeline Ascent 2P Tent']/ancestor::li[contains(@class,'product-card')]//button[normalize-space()='Add to cart']",
+      "mutations": [
+        "copy-change",
+        "testid-change",
+        "class-obfuscation",
+        "wrapper-divs",
+        "sibling-reorder",
+        "decoy",
+        "tag-change"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Sale price ($319.96) of the 'Cairn & Co. Ultra Trekker 2P Tent' card",
+      "css": "li[data-sku='CC-UT2'] .price--sale",
+      "xpath": "(//ul[@class='product-grid']/li)[5]//span[@class='price price--sale']",
+      "mutations": [
+        "class-obfuscation",
+        "attribute-churn",
+        "sibling-reorder",
+        "decoy",
+        "insertion",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Sort by' dropdown above the product grid",
+      "css": "#sort-by",
+      "xpath": "//label[normalize-space()='Sort by']/following-sibling::select",
+      "mutations": [
+        "id-change",
+        "attribute-churn",
+        "class-obfuscation",
+        "copy-change"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Wishlist (heart) icon button of the 'Ridgeline Ascent 2P Tent' card",
+      "css": "[data-testid='wishlist-RL-ASC2']",
+      "xpath": "//button[@aria-label='Save Ridgeline Ascent 2P Tent to wishlist']",
+      "mutations": [
+        "testid-change",
+        "attribute-churn",
+        "copy-change",
+        "structure-move",
+        "decoy",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Maximum price input of the price-range filter",
+      "css": ".price-range input[name='price_max']",
+      "xpath": "//input[@placeholder='Max']",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "class-obfuscation",
+        "decoy",
+        "wrapper-divs"
+      ]
+    }
+  ]
+}

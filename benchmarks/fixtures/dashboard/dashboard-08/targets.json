@@ -1,0 +1,100 @@
+{
+  "suite": "dashboard-08",
+  "category": "dashboard",
+  "title": "IoT device fleet console — Sparrowgrid Fleet",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 is a SvelteKit rewrite (scoped svelte-* classes). The device list becomes a <device-grid> web component whose cards are <device-card> web components, i.e. nested declarative shadow roots; cards are re-sorted with devices that need attention first, 'Update firmware' becomes 'Update to 2.4.0' and every reboot button shares the aria-label 'Reboot device'. Another sensor (SM-C11) also reports 18% battery. The summary chips become filter buttons in a new order with the label as bare text. The rollout panel moves before the map (now a <fleet-map> shadow root), swaps its action order and a confirmation <dialog> repeats 'Pause rollout'. The site select is relabelled 'Location'.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Update firmware' button on the device card SM-A14",
+      "css": ".sg-device[data-device-id=\"SM-A14\"] .btn-fw",
+      "xpath": "//div[h3[text()='SM-A14']]/following-sibling::div[contains(@class,'actions')]/button[normalize-space()='Update firmware']",
+      "mutations": [
+        "shadow-dom",
+        "copy-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "attribute-churn",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Battery level of the irrigation valve VALVE-07 (18%)",
+      "css": "[data-device-id=\"VALVE-07\"] .sg-device__stats li:first-child .v",
+      "xpath": "//div[@data-device-id='VALVE-07']//span[@class='k' and text()='Battery']/following-sibling::span",
+      "mutations": [
+        "shadow-dom",
+        "sibling-reorder",
+        "class-obfuscation",
+        "attribute-churn",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Site switcher select in the top bar",
+      "css": "#site-select",
+      "xpath": "//label[span='Site']/select",
+      "mutations": [
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "class-obfuscation",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Icon-only 'Reboot' button of the gateway GW-North-01",
+      "css": "button[aria-label=\"Reboot GW-North-01\"]",
+      "xpath": "//div[@data-device-id='GW-NORTH-01']//button[@title='Reboot']",
+      "mutations": [
+        "shadow-dom",
+        "attribute-churn",
+        "sibling-reorder",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Count in the 'Offline' fleet-status summary chip (9)",
+      "css": ".sg-chip--offline .sg-chip__count",
+      "xpath": "//span[text()='Offline']/preceding-sibling::span",
+      "mutations": [
+        "tag-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Pause rollout' button of the firmware 2.4.0 rollout panel",
+      "css": "#pause-rollout",
+      "xpath": "//button[normalize-space()='Pause rollout']",
+      "mutations": [
+        "id-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "structure-move",
+        "decoy"
+      ]
+    }
+  ]
+}

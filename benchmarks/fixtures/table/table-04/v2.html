@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fulfil orders – Packwise</title>
+<style>
+body{margin:0;font-family:Inter,Arial,sans-serif;background:#f6f7f9}
+</style>
+</head>
+<body>
+<pw-app-header>
+  <template shadowrootmode="open">
+    <style>:host{display:block}.hdr{display:flex;align-items:center;gap:24px;height:56px;padding:0 24px;background:#0f2430;color:#fff}.logo{font-weight:800;color:#fff;text-decoration:none}nav a{color:#9fb6c3;text-decoration:none;margin-right:16px}nav a[aria-current]{color:#fff}.site{margin-left:auto;background:#1d3b4c;color:#fff;border:0;border-radius:6px;padding:6px 10px}</style>
+    <header class="hdr">
+      <a class="logo" href="/">Packwise</a>
+      <nav aria-label="Main"><a href="/fulfil" aria-current="page">Fulfil</a><a href="/orders">Orders</a><a href="/inventory">Inventory</a><a href="/returns">Returns</a><a href="/analytics">Analytics</a><a href="/home">Home</a></nav>
+      <button class="site" type="button" aria-haspopup="listbox">Leeds DC</button>
+      <span class="user">Dan Okafor</span>
+    </header>
+  </template>
+</pw-app-header>
+<main class="css-nfy7ue7">
+  <div class="css-ku85ipw">
+    <div><h1 class="css-qw08f70">Fulfil orders</h1><span class="css-ul0uzxz">Leeds DC &middot; Northcote Outdoor Co.</span></div>
+    <div class="css-qokxaze" role="tablist" aria-label="Order status">
+      <button type="button" role="tab" aria-selected="true" class="css-axwkn84">Unfulfilled <span class="css-9utmqia">14</span></button>
+      <button type="button" role="tab" aria-selected="false" class="css-g0s3sl6">On hold <span class="css-9utmqia">3</span></button>
+      <button type="button" role="tab" aria-selected="false" class="css-g0s3sl6">Shipped today <span class="css-9utmqia">41</span></button>
+    </div>
+  </div>
+  <div class="css-lsuaegz" role="status"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z" clip-rule="evenodd"/></svg><p>DPD collection today at <strong>15:30</strong> &middot; 9 parcels booked. Royal Mail collects at 17:00.</p></div>
+  <div class="css-vce29i4">
+    <div class="css-fn3numv"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd"/></svg><input type="search" class="css-3q26j75" placeholder="Search orders, customers, SKUs" aria-label="Search"></div>
+    <select class="css-fj2gymx" aria-label="Sort orders"><option selected>Ship-by time</option><option>Order date</option><option>Destination</option></select>
+  </div>
+  <div class="css-njkhjwo" role="toolbar" aria-label="Bulk actions"><span class="css-9lgmaxb">0 selected</span><button type="button" class="css-kolbwhp" data-dh-target="t5"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg>Print labels</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div>
+  <div class="css-fbghn98">
+    <div class="css-ke9a2wh">
+      <table class="css-v9xxd1q" id="fulfilment-queue">
+        <thead>
+          <tr>
+            <th class="css-3u55yw4"><input type="checkbox" class="css-g73qcg9" aria-label="Select all"></th>
+            <th class="css-tmzchbc">Order</th><th class="css-tmzchbc">Ship by</th><th class="css-tmzchbc">Customer</th><th class="css-tmzchbc">Destination</th><th class="css-tmzchbc">Items</th><th class="css-tmzchbc">Carrier</th><th class="css-tmzchbc"><span class="css-7k06l0d">Actions</span></th>
+          </tr>
+        </thead>
+        <tbody class="css-xcr64el">
+          <tr class="css-k7aihi6"><th colspan="8" scope="rowgroup" class="css-6hb0t9k"><span>Ready to ship</span><span class="css-9utmqia">9</span></th></tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58229"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58229">#SO-58229</a><span class="css-ul0uzxz">Web store</span></td>
+            <td class="css-u3qafkz"><span class="css-15spml2">Today 15:30</span></td>
+            <td class="css-u3qafkz">Harriet Mallory</td>
+            <td class="css-u3qafkz"><span class="css-pfjfxia" aria-hidden="true"></span>Harrogate, GB</td>
+            <td class="css-u3qafkz">3 &times; <span class="css-ul0uzxz">Trailhead 28L Daypack — Moss</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:r1:" name="shipments[0].carrierCode" aria-label="Carrier for SO-58229"><option value="rm48">Royal Mail · Tracked 48</option><option value="rm24">Royal Mail · Tracked 24</option><option value="dpd" selected>DPD · Next day</option><option value="evri">Evri · Standard</option><option value="dhl">DHL · Express Worldwide</option><option value="ups">UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label" data-dh-target="t3"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></td>
+          </tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58241"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58241">#SO-58241</a><span class="css-ul0uzxz">Web store</span></td>
+            <td class="css-u3qafkz"><span class="css-15spml2">Today 15:30</span></td>
+            <td class="css-u3qafkz">Oliver Brennan</td>
+            <td class="css-u3qafkz"><span class="css-pfjfxia" aria-hidden="true"></span>Sheffield, GB</td>
+            <td class="css-u3qafkz">5 &times; <span class="css-ul0uzxz">Camp Cook Set — Titanium</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:r2:" name="shipments[1].carrierCode" aria-label="Carrier for SO-58241"><option value="rm48">Royal Mail · Tracked 48</option><option value="rm24">Royal Mail · Tracked 24</option><option value="dpd" selected>DPD · Next day</option><option value="evri">Evri · Standard</option><option value="dhl">DHL · Express Worldwide</option><option value="ups">UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc" data-dh-target="t2">Mark as shipped</button></div></td>
+          </tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58232"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58232">#SO-58232</a><span class="css-ul0uzxz">Marketplace</span></td>
+            <td class="css-u3qafkz"><span class="css-ngja3sc">Today 16:15</span></td>
+            <td class="css-u3qafkz">Sanne de Vries</td>
+            <td class="css-u3qafkz"><span class="css-pfjfxia" aria-hidden="true"></span>Rotterdam, NL</td>
+            <td class="css-u3qafkz">2 &times; <span class="css-ul0uzxz">Fjell 2P Tent — Sand</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:r3:" name="shipments[2].carrierCode" aria-label="Carrier for SO-58232"><option value="rm48">Royal Mail · Tracked 48</option><option value="rm24">Royal Mail · Tracked 24</option><option value="dpd">DPD · Next day</option><option value="evri">Evri · Standard</option><option value="dhl" selected>DHL · Express Worldwide</option><option value="ups">UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></td>
+          </tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58238"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58238">#SO-58238</a><span class="css-ul0uzxz">Marketplace</span></td>
+            <td class="css-u3qafkz"><span class="css-ngja3sc">Today 16:15</span></td>
+            <td class="css-u3qafkz">Jakub Nowak</td>
+            <td class="css-u3qafkz"><span class="css-pfjfxia" aria-hidden="true"></span>Kraków, PL</td>
+            <td class="css-u3qafkz">1 &times; <span class="css-ul0uzxz">Alpine 45L Pack — Slate</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:r4:" name="shipments[3].carrierCode" aria-label="Carrier for SO-58238"><option value="rm48">Royal Mail · Tracked 48</option><option value="rm24">Royal Mail · Tracked 24</option><option value="dpd">DPD · Next day</option><option value="evri">Evri · Standard</option><option value="dhl" selected>DHL · Express Worldwide</option><option value="ups">UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></td>
+          </tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58244"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58244">#SO-58244</a><span class="css-ul0uzxz">Web store</span></td>
+            <td class="css-u3qafkz"><span class="css-ngja3sc">Today 16:15</span></td>
+            <td class="css-u3qafkz">Daan Bakker</td>
+            <td class="css-u3qafkz" data-dh-target="t4"><span class="css-pfjfxia" aria-hidden="true"></span>Rotterdam, NL</td>
+            <td class="css-u3qafkz">1 &times; <span class="css-ul0uzxz">Packable Hammock — Olive</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:r5:" name="shipments[4].carrierCode" aria-label="Carrier for SO-58244"><option value="rm48">Royal Mail · Tracked 48</option><option value="rm24">Royal Mail · Tracked 24</option><option value="dpd">DPD · Next day</option><option value="evri">Evri · Standard</option><option value="dhl" selected>DHL · Express Worldwide</option><option value="ups">UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></td>
+          </tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58237"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58237">#SO-58237</a><span class="css-ul0uzxz">Web store</span></td>
+            <td class="css-u3qafkz"><span class="css-ngja3sc">Today 17:00</span></td>
+            <td class="css-u3qafkz">Eleanor Whitcombe</td>
+            <td class="css-u3qafkz"><span class="css-pfjfxia" aria-hidden="true"></span>Truro, GB</td>
+            <td class="css-u3qafkz">2 &times; <span class="css-ul0uzxz">Coastal Rain Shell — W, L</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:r6:" name="shipments[5].carrierCode" aria-label="Carrier for SO-58237" data-dh-target="t1"><option value="rm48">Royal Mail · Tracked 48</option><option value="rm24" selected>Royal Mail · Tracked 24</option><option value="dpd">DPD · Next day</option><option value="evri">Evri · Standard</option><option value="dhl">DHL · Express Worldwide</option><option value="ups">UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></td>
+          </tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58242"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58242">#SO-58242</a><span class="css-ul0uzxz">Click &amp; collect</span></td>
+            <td class="css-u3qafkz"><span class="css-ngja3sc">Today 17:00</span></td>
+            <td class="css-u3qafkz">Amelia Hartley</td>
+            <td class="css-u3qafkz"><span class="css-pfjfxia" aria-hidden="true"></span>Bath, GB</td>
+            <td class="css-u3qafkz">1 &times; <span class="css-ul0uzxz">Trail Running Shoes — UK 6</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:r7:" name="shipments[6].carrierCode" aria-label="Carrier for SO-58242"><option value="rm48" selected>Royal Mail · Tracked 48</option><option value="rm24">Royal Mail · Tracked 24</option><option value="dpd">DPD · Next day</option><option value="evri">Evri · Standard</option><option value="dhl">DHL · Express Worldwide</option><option value="ups">UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></td>
+          </tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58233"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58233" data-dh-target="t6">#SO-58233</a><span class="css-ul0uzxz">Web store</span></td>
+            <td class="css-u3qafkz"><span class="css-ngja3sc">Tomorrow 12:00</span></td>
+            <td class="css-u3qafkz">Priya Nair</td>
+            <td class="css-u3qafkz"><span class="css-pfjfxia" aria-hidden="true"></span>Leicester, GB</td>
+            <td class="css-u3qafkz">1 &times; <span class="css-ul0uzxz">Merino Base Layer — W, S</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:r8:" name="shipments[7].carrierCode" aria-label="Carrier for SO-58233"><option value="rm48">Royal Mail · Tracked 48</option><option value="rm24">Royal Mail · Tracked 24</option><option value="dpd">DPD · Next day</option><option value="evri" selected>Evri · Standard</option><option value="dhl">DHL · Express Worldwide</option><option value="ups">UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></td>
+          </tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58245"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58245">#SO-58245</a><span class="css-ul0uzxz">Web store</span></td>
+            <td class="css-u3qafkz"><span class="css-ngja3sc">Tomorrow 12:00</span></td>
+            <td class="css-u3qafkz">Grace Thornton</td>
+            <td class="css-u3qafkz"><span class="css-pfjfxia" aria-hidden="true"></span>Cardiff, GB</td>
+            <td class="css-u3qafkz">2 &times; <span class="css-ul0uzxz">Wool Beanie — Charcoal</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:r9:" name="shipments[8].carrierCode" aria-label="Carrier for SO-58245"><option value="rm48">Royal Mail · Tracked 48</option><option value="rm24">Royal Mail · Tracked 24</option><option value="dpd">DPD · Next day</option><option value="evri" selected>Evri · Standard</option><option value="dhl">DHL · Express Worldwide</option><option value="ups">UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></td>
+          </tr>
+        </tbody>
+        <tbody class="css-xcr64el">
+          <tr class="css-k7aihi6"><th colspan="8" scope="rowgroup" class="css-6hb0t9k"><span>Awaiting stock</span><span class="css-9utmqia">5</span></th></tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58240"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58240">#SO-58240</a><span class="css-ul0uzxz">Web store</span></td>
+            <td class="css-u3qafkz"><span class="css-15spml2">Today 15:30</span></td>
+            <td class="css-u3qafkz">Fiona Gallagher</td>
+            <td class="css-u3qafkz"><span class="css-pfjfxia" aria-hidden="true"></span>Galway, IE</td>
+            <td class="css-u3qafkz">2 &times; <span class="css-ul0uzxz">Thermal Flask 750 ml — Forest</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:ra:" name="shipments[9].carrierCode" aria-label="Carrier for SO-58240"><option value="rm48">Royal Mail · Tracked 48</option><option value="rm24">Royal Mail · Tracked 24</option><option value="dpd" selected>DPD · Next day</option><option value="evri">Evri · Standard</option><option value="dhl">DHL · Express Worldwide</option><option value="ups">UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc" disabled aria-describedby="awaiting-note">Mark as shipped</button></div></td>
+          </tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58235"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58235">#SO-58235</a><span class="css-ul0uzxz">Web store</span></td>
+            <td class="css-u3qafkz"><span class="css-ngja3sc">Today 16:15</span></td>
+            <td class="css-u3qafkz">Tomás Ruiz</td>
+            <td class="css-u3qafkz"><span class="css-pfjfxia" aria-hidden="true"></span>Bilbao, ES</td>
+            <td class="css-u3qafkz">4 &times; <span class="css-ul0uzxz">Summit Trekking Poles (pair)</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:rb:" name="shipments[10].carrierCode" aria-label="Carrier for SO-58235"><option value="rm48">Royal Mail · Tracked 48</option><option value="rm24">Royal Mail · Tracked 24</option><option value="dpd">DPD · Next day</option><option value="evri">Evri · Standard</option><option value="dhl" selected>DHL · Express Worldwide</option><option value="ups">UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc" disabled aria-describedby="awaiting-note">Mark as shipped</button></div></td>
+          </tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58243"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58243">#SO-58243</a><span class="css-ul0uzxz">Marketplace</span></td>
+            <td class="css-u3qafkz"><span class="css-ngja3sc">Today 16:45</span></td>
+            <td class="css-u3qafkz">Lukas Becker</td>
+            <td class="css-u3qafkz"><span class="css-pfjfxia" aria-hidden="true"></span>Munich, DE</td>
+            <td class="css-u3qafkz">3 &times; <span class="css-ul0uzxz">Insulated Gloves — L</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:rc:" name="shipments[11].carrierCode" aria-label="Carrier for SO-58243"><option value="rm48">Royal Mail · Tracked 48</option><option value="rm24">Royal Mail · Tracked 24</option><option value="dpd">DPD · Next day</option><option value="evri">Evri · Standard</option><option value="dhl">DHL · Express Worldwide</option><option value="ups" selected>UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc" disabled aria-describedby="awaiting-note">Mark as shipped</button></div></td>
+          </tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58231"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58231">#SO-58231</a><span class="css-ul0uzxz">Web store</span></td>
+            <td class="css-u3qafkz"><span class="css-ngja3sc">Today 17:00</span></td>
+            <td class="css-u3qafkz">Callum Reid</td>
+            <td class="css-u3qafkz"><span class="css-pfjfxia" aria-hidden="true"></span>Inverness, GB</td>
+            <td class="css-u3qafkz">1 &times; <span class="css-ul0uzxz">Ridgeline Down Jacket — M, Navy</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:rd:" name="shipments[12].carrierCode" aria-label="Carrier for SO-58231"><option value="rm48" selected>Royal Mail · Tracked 48</option><option value="rm24">Royal Mail · Tracked 24</option><option value="dpd">DPD · Next day</option><option value="evri">Evri · Standard</option><option value="dhl">DHL · Express Worldwide</option><option value="ups">UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc" disabled aria-describedby="awaiting-note">Mark as shipped</button></div></td>
+          </tr>
+          <tr class="css-cgfg3i6">
+            <td class="css-y78h2dc"><input type="checkbox" class="css-g73qcg9" aria-label="Select SO-58246"></td>
+            <td class="css-u3qafkz"><a class="css-yoadf45" href="/fulfil/orders/58246">#SO-58246</a><span class="css-ul0uzxz">Web store</span></td>
+            <td class="css-u3qafkz"><span class="css-ngja3sc">Today 17:00</span></td>
+            <td class="css-u3qafkz">Rhys Morgan</td>
+            <td class="css-u3qafkz"><span class="css-pfjfxia" aria-hidden="true"></span>Swansea, GB</td>
+            <td class="css-u3qafkz">1 &times; <span class="css-ul0uzxz">Headtorch 400 lm</span></td>
+            <td class="css-u3qafkz"><div class="css-xinif69"><select class="css-fj2gymx" id="carrier-:re:" name="shipments[13].carrierCode" aria-label="Carrier for SO-58246"><option value="rm48">Royal Mail · Tracked 48</option><option value="rm24" selected>Royal Mail · Tracked 24</option><option value="dpd">DPD · Next day</option><option value="evri">Evri · Standard</option><option value="dhl">DHL · Express Worldwide</option><option value="ups">UPS · Standard EU</option></select><svg class="css-fcmxzjf" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></div></td>
+            <td class="css-wd9bm5a"><div class="css-6tc4izn"><button type="button" class="css-ey5is1e" aria-label="Print shipping label" title="Print shipping label"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg></button><button type="button" class="css-xsab8hc" disabled aria-describedby="awaiting-note">Mark as shipped</button></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p id="awaiting-note" class="css-ul0uzxz">Orders awaiting stock can be shipped once all lines are allocated.</p>
+  </div>
+  <div class="css-qhu1i1o" style="display:none" aria-hidden="true">
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58229</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Harriet Mallory</dd><dt>Ship to</dt><dd>Harrogate, GB</dd><dt>Carrier</dt><dd>DPD · Next day</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58241</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Oliver Brennan</dd><dt>Ship to</dt><dd>Sheffield, GB</dd><dt>Carrier</dt><dd>DPD · Next day</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58232</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Sanne de Vries</dd><dt>Ship to</dt><dd>Rotterdam, NL</dd><dt>Carrier</dt><dd>DHL · Express Worldwide</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58238</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Jakub Nowak</dd><dt>Ship to</dt><dd>Kraków, PL</dd><dt>Carrier</dt><dd>DHL · Express Worldwide</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58244</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Daan Bakker</dd><dt>Ship to</dt><dd>Rotterdam, NL</dd><dt>Carrier</dt><dd>DHL · Express Worldwide</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58237</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Eleanor Whitcombe</dd><dt>Ship to</dt><dd>Truro, GB</dd><dt>Carrier</dt><dd>Royal Mail · Tracked 24</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58242</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Amelia Hartley</dd><dt>Ship to</dt><dd>Bath, GB</dd><dt>Carrier</dt><dd>Royal Mail · Tracked 48</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58233</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Priya Nair</dd><dt>Ship to</dt><dd>Leicester, GB</dd><dt>Carrier</dt><dd>Evri · Standard</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58245</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Grace Thornton</dd><dt>Ship to</dt><dd>Cardiff, GB</dd><dt>Carrier</dt><dd>Evri · Standard</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58240</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Fiona Gallagher</dd><dt>Ship to</dt><dd>Galway, IE</dd><dt>Carrier</dt><dd>DPD · Next day</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58235</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Tomás Ruiz</dd><dt>Ship to</dt><dd>Bilbao, ES</dd><dt>Carrier</dt><dd>DHL · Express Worldwide</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58243</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Lukas Becker</dd><dt>Ship to</dt><dd>Munich, DE</dd><dt>Carrier</dt><dd>UPS · Standard EU</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58231</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Callum Reid</dd><dt>Ship to</dt><dd>Inverness, GB</dd><dt>Carrier</dt><dd>Royal Mail · Tracked 48</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+    <article class="css-if435m3"><h3 class="css-w01cfw6">#SO-58246</h3><dl class="css-krtpe7k"><dt>Customer</dt><dd>Rhys Morgan</dd><dt>Ship to</dt><dd>Swansea, GB</dd><dt>Carrier</dt><dd>Royal Mail · Tracked 24</dd></dl><div class="css-x66z56m"><button type="button" class="css-kolbwhp">Print label</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div></article>
+  </div>
+  <div class="css-t5dah7s" hidden><span class="css-9lgmaxb">0 selected</span><button type="button" class="css-kolbwhp"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 2.75C5 1.784 5.784 1 6.75 1h6.5c.966 0 1.75.784 1.75 1.75v3.552c.377.046.752.097 1.126.153A2.212 2.212 0 0 1 18 8.653v4.097A2.25 2.25 0 0 1 15.75 15h-.241l.305 1.984A1.75 1.75 0 0 1 14.084 19H5.915a1.75 1.75 0 0 1-1.73-2.016L4.492 15H4.25A2.25 2.25 0 0 1 2 12.75V8.653c0-1.082.775-2.034 1.874-2.198.374-.056.75-.107 1.127-.153L5 2.75Z" clip-rule="evenodd"/></svg>Print labels</button><button type="button" class="css-xsab8hc">Mark as shipped</button></div>
+</main>
+<footer class="css-aicq2ys">Packwise 3.0 &middot; <a href="/help">Help centre</a> &middot; <a href="/status">Status</a></footer>
+</body>
+</html>

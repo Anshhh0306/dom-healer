@@ -1,0 +1,99 @@
+{
+  "suite": "ecommerce-05",
+  "category": "ecommerce",
+  "title": "Search results with faceted filters, sort and pagination — general marketplace",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 replaces the left refinement column with a sticky filter bar of <details> popovers (brands re-ordered by popularity, new ids) plus a hidden 'All filters' dialog that duplicates the brand checkboxes. Sort moves into <bz-sort-menu>'s shadow root with new name/values and 'Relevance' copy. Results switch from list rows to a grid of cards with vanilla-extract hashed classes; data-asin becomes data-product-id and data-index is renumbered after re-ranking (index 4 is now a different product); the seller has also re-worded the Orsini Milano listing title. A sponsored rail repeats the Vellora Duetto with its price and an 'Add to cart' button, and a compact 'Page 1 of 20 · Next' pager is inserted above the results.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Bellanca' checkbox in the Brand facet",
+      "css": "#facet-brand li:nth-child(4) input[type='checkbox']",
+      "xpath": "//div[@id='facet-brand']//li[.//span[normalize-space()='Bellanca']]//input",
+      "mutations": [
+        "structure-move",
+        "sibling-reorder",
+        "decoy",
+        "id-change",
+        "class-obfuscation",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "'Sort by' dropdown in the results header",
+      "css": "#s-result-sort-select",
+      "xpath": "//form[@id='sort-form']//select[@name='s']",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "'Next' page link of the pagination below the results",
+      "css": ".s-pagination a.s-pagination-next",
+      "xpath": "//a[normalize-space()='Next']",
+      "mutations": [
+        "decoy",
+        "class-obfuscation",
+        "tag-change",
+        "insertion"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Add to cart' button of the 'Vellora Duetto Dual Boiler Espresso Machine' result",
+      "css": "div[data-asin='B0D4XKQ2PZ'] button.a-button-add",
+      "xpath": "//div[@data-index='4']//button[normalize-space()='Add to cart']",
+      "mutations": [
+        "attribute-churn",
+        "sibling-reorder",
+        "decoy",
+        "class-obfuscation",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Title link of the 'Orsini Milano Semi-Automatic Espresso Machine with Built-in Grinder' result",
+      "css": ".s-main-slot > div:nth-child(2) h2 a",
+      "xpath": "//a[@class='s-title-link'][contains(.,'Orsini Milano')]",
+      "mutations": [
+        "sibling-reorder",
+        "copy-change",
+        "tag-change",
+        "class-obfuscation",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Price ($599.99) of the 'Vellora Duetto' result",
+      "css": "div[data-asin='B0D4XKQ2PZ'] .a-price",
+      "xpath": "//h2[contains(.,'Vellora Duetto')]/ancestor::div[@data-component-type='s-search-result']//span[@class='a-price']",
+      "mutations": [
+        "class-obfuscation",
+        "attribute-churn",
+        "decoy",
+        "tag-change",
+        "sibling-reorder"
+      ]
+    }
+  ]
+}

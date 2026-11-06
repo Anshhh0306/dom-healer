@@ -1,0 +1,101 @@
+{
+  "suite": "dashboard-04",
+  "category": "dashboard",
+  "title": "Sales pipeline kanban board — Kestrel CRM",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v1's pipeline summary lives in a <kpi-strip> web component (declarative shadow root); v2 moves it out into emotion-styled React markup with <p> values, a reordered layout and the label 'Weighted forecast' (a hidden forecast drawer repeats the figure). Deal cards are wrapped in react-beautiful-dnd draggables, sorted by close date, and a new 'Demo scheduled' stage is inserted; card ids are gone and the quick actions become an aria-labelled hover toolbar ('Log a call'). Owner avatars become <k-avatar> shadow-DOM components. The icon rail gains labels, a new 'Inbox' item and a new order (a hidden mobile tab bar repeats 'Reports'). The owner <select> becomes a listbox button. A 'Recently viewed' menu repeats deal titles.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Title link of the deal 'Meridian Hotels — rooftop array' in the Proposal column",
+      "css": ".kanban-column[data-stage=\"proposal\"] .deal-card:nth-child(2) .deal-title",
+      "xpath": "//section[@data-stage='proposal']//a[normalize-space()='Meridian Hotels — rooftop array']",
+      "mutations": [
+        "class-obfuscation",
+        "wrapper-divs",
+        "sibling-reorder",
+        "insertion",
+        "attribute-churn",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Icon-only 'Log call' quick action on the deal card 'Cobalt Ridge Winery — battery backup'",
+      "css": "#deal-1047 button[aria-label=\"Log call\"]",
+      "xpath": "//article[.//a[normalize-space()='Cobalt Ridge Winery — battery backup']]//button[@title='Log call']",
+      "mutations": [
+        "id-change",
+        "attribute-churn",
+        "wrapper-divs",
+        "sibling-reorder",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Deal-count badge of the Negotiation column (5)",
+      "css": "[data-stage=\"negotiation\"] .column-count",
+      "xpath": "//h2[text()='Negotiation']/following-sibling::span[@class='column-count']",
+      "mutations": [
+        "class-obfuscation",
+        "tag-change",
+        "insertion",
+        "attribute-churn",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Weighted value' figure of the pipeline summary ($1,229,710)",
+      "css": ".pipeline-summary .summary-item:nth-child(2) dd",
+      "xpath": "//dt[text()='Weighted value']/following-sibling::dd",
+      "mutations": [
+        "shadow-dom",
+        "tag-change",
+        "copy-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Icon-only 'Reports' link of the left navigation rail",
+      "css": "nav.icon-rail a[aria-label=\"Reports\"]",
+      "xpath": "//nav[@aria-label='Primary']/a[7]",
+      "mutations": [
+        "sibling-reorder",
+        "insertion",
+        "attribute-churn",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Owner filter of the board toolbar",
+      "css": "select#owner-filter",
+      "xpath": "//select[@name='owner']",
+      "mutations": [
+        "tag-change",
+        "id-change",
+        "attribute-churn",
+        "class-obfuscation",
+        "wrapper-divs"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asheville, NC Real Estate &amp; Homes for Sale – 47 Listings | Hearthway</title>
+  <meta name="description" content="47 Asheville, NC homes for sale. See photos, prices, open houses and neighborhood info on Hearthway.">
+  <style>
+    /* tailwind build 3.4 (purged) — only a few custom utilities are inlined here */
+    .aspect-\[4\/3\]{aspect-ratio:4/3}
+    .bg-white\/90{background-color:rgb(255 255 255/.9)}
+    dialog:not([open]){display:none}
+  </style>
+</head>
+<body class="min-h-full bg-slate-50 font-sans text-slate-900 antialiased">
+<div id="__next">
+  <div role="region" aria-label="Announcement" class="bg-teal-800 px-4 py-2 text-center text-sm text-teal-50">
+    <span>New: draw your own search area on the map.</span>
+    <a class="ml-1 font-semibold underline underline-offset-2" href="/blog/draw-to-search">Try it</a>
+  </div>
+
+  <header class="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center gap-6 px-4 py-3">
+      <a href="/" class="flex items-center gap-2 text-xl font-bold tracking-tight text-teal-700" aria-label="Hearthway home">
+        <svg class="h-7 w-7" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>
+        <span>Hearthway</span>
+      </a>
+      <form role="search" action="/search" method="get" class="relative flex max-w-md flex-1 items-center max-lg:sr-only">
+        <label for=":r0:" class="sr-only">City, ZIP, neighborhood or address</label>
+        <input id=":r0:" name="q" value="Asheville, NC" autocomplete="off" class="w-full rounded-l-full border border-slate-300 py-2 pl-4 pr-3 text-sm focus:border-teal-600 focus:outline-none">
+        <button type="submit" class="rounded-r-full border border-teal-600 bg-teal-600 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-700">Search homes</button>
+      </form>
+      <nav aria-label="Primary">
+        <ul class="flex items-center gap-5 text-sm font-medium text-slate-700">
+          <li><a href="/buy" aria-current="page" class="text-teal-700 underline decoration-2 underline-offset-8">Buy</a></li>
+          <li><a href="/sell" class="hover:text-teal-700">Sell</a></li>
+          <li><a href="/rent" class="hover:text-teal-700">Rent</a></li>
+          <li><a href="/agents" class="hover:text-teal-700">Find an agent</a></li>
+          <li><a href="/mortgages" class="hover:text-teal-700">Mortgages</a></li>
+        </ul>
+      </nav>
+      <div class="ml-auto flex items-center gap-3 text-sm">
+        <a href="/saved" class="inline-flex items-center gap-1 text-slate-700 hover:text-teal-700">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+          <span>Saved</span>
+        </a>
+        <a href="/login" class="rounded-full border border-slate-300 px-4 py-1.5 font-semibold hover:border-teal-600">Log in</a>
+      </div>
+    </div>
+  </header>
+
+  <form id="quick-filters" action="/nc/asheville/homes" method="get" aria-label="Quick filters" class="sticky top-14 z-20 flex items-center gap-2 overflow-x-auto border-b border-slate-200 bg-white px-3 py-2 md:hidden">
+    <input name="min_price" inputmode="numeric" placeholder="Min price" aria-label="Min price" value="300000" class="w-28 shrink-0 rounded-full border border-slate-300 px-3 py-1.5 text-sm">
+    <input name="max_price" inputmode="numeric" placeholder="Max price" aria-label="Max price" value="900000" class="w-28 shrink-0 rounded-full border border-slate-300 px-3 py-1.5 text-sm">
+    <select name="beds" aria-label="Beds" class="shrink-0 rounded-full border border-slate-300 py-1.5 pl-3 pr-7 text-sm">
+      <option value="">Beds</option>
+      <option value="1" selected>1+ bd</option>
+      <option value="2">2+ bd</option>
+      <option value="3">3+ bd</option>
+      <option value="4">4+ bd</option>
+    </select>
+    <button type="button" aria-controls="filters-sheet" class="inline-flex shrink-0 items-center gap-1 rounded-full border border-slate-300 px-3 py-1.5 text-sm font-medium">
+      <span>Filters</span><span class="rounded-full bg-teal-600 px-1.5 text-xs text-white">5</span>
+    </button>
+  </form>
+
+  <div class="mx-auto flex max-w-7xl flex-col gap-6 px-4 pb-16 md:flex-row-reverse">
+    <main id="results" class="min-w-0 flex-1">
+      <nav aria-label="Breadcrumb" class="py-3 text-xs text-slate-500">
+        <ol class="flex flex-wrap items-center gap-1">
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/nc" class="hover:underline">NC</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/nc/buncombe-county" class="hover:underline">Buncombe County</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" class="text-slate-700">Asheville</li>
+        </ol>
+      </nav>
+
+      <div class="flex flex-wrap items-end justify-between gap-4 border-b border-slate-200 pb-4">
+        <div>
+          <h1 class="text-2xl font-semibold tracking-tight">Asheville, NC homes for sale</h1>
+          <p class="mt-1 text-sm text-slate-500"><span class="font-medium text-slate-900" data-dh-target="t6">47 results</span> · Updated 6 min ago · Canopy MLS</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <div role="group" aria-label="View" class="inline-flex rounded-lg border border-slate-300 p-0.5 text-sm">
+            <button type="button" aria-pressed="true" class="rounded-md bg-slate-900 px-3 py-1 font-medium text-white">List</button>
+            <button type="button" aria-pressed="false" class="rounded-md px-3 py-1 font-medium text-slate-600">Map</button>
+          </div>
+          <label for=":r2:" class="text-sm text-slate-500">Sort</label>
+          <select id=":r2:" name="sort" form="srp-filters-7c1e" class="rounded-lg border border-slate-300 py-1.5 pl-3 pr-8 text-sm">
+            <option value="RECOMMENDED">Recommended</option>
+            <option value="NEWEST">Newest listings</option>
+            <option value="PRICE_LOW">Price: low to high</option>
+            <option value="PRICE_HIGH">Price: high to low</option>
+            <option value="SQFT">Largest first</option>
+            <option value="PRICE_PER_SQFT">Price per sq ft</option>
+          </select>
+          <button type="button" aria-haspopup="dialog" aria-controls="save-search-modal" class="inline-flex items-center gap-1 rounded-lg bg-teal-50 px-3 py-1.5 text-sm font-semibold text-teal-700 hover:bg-teal-100">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"></path></svg>
+            <span>Save search</span>
+          </button>
+        </div>
+      </div>
+
+      <div aria-label="Active filters" role="group" class="flex flex-wrap items-center gap-2 py-3">
+        <button type="button" aria-label="Remove filter: $300K to $900K" class="inline-flex items-center gap-1 rounded-full bg-slate-200 px-3 py-1 text-xs font-medium">$300K – $900K <span aria-hidden="true">×</span></button>
+        <button type="button" aria-label="Remove filter: 1+ beds" class="inline-flex items-center gap-1 rounded-full bg-slate-200 px-3 py-1 text-xs font-medium">1+ bd <span aria-hidden="true">×</span></button>
+        <button type="button" aria-label="Remove filter: House" class="inline-flex items-center gap-1 rounded-full bg-slate-200 px-3 py-1 text-xs font-medium">House <span aria-hidden="true">×</span></button>
+        <button type="button" aria-label="Remove filter: Townhouse" class="inline-flex items-center gap-1 rounded-full bg-slate-200 px-3 py-1 text-xs font-medium">Townhouse <span aria-hidden="true">×</span></button>
+        <button type="button" aria-label="Remove filter: Condo" class="inline-flex items-center gap-1 rounded-full bg-slate-200 px-3 py-1 text-xs font-medium">Condo <span aria-hidden="true">×</span></button>
+      </div>
+
+      <div role="list" class="grid gap-5 sm:grid-cols-2">
+        <div role="listitem">
+          <article class="group relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="relative aspect-[4/3] bg-slate-200">
+              <div class="absolute left-3 top-3 flex gap-1"><span class="rounded-full bg-white/90 px-2 py-0.5 text-xs font-medium">Pool</span><span class="rounded-full bg-white/90 px-2 py-0.5 text-xs font-medium">0.62 ac</span></div>
+              <button type="button" aria-label="Save home" class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/90"><svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"></path></svg></button>
+            </div>
+            <div class="space-y-1 p-4">
+              <div class="text-xl font-bold">$725,000</div>
+              <div class="flex gap-3 text-sm text-slate-600"><span><strong>4</strong> beds</span><span><strong>3</strong> baths</span><span><strong>2,640</strong> sq ft</span></div>
+              <a href="/home/207-lakeshore-dr-asheville-nc-28804" class="block truncate text-sm text-slate-600 hover:underline">207 Lakeshore Dr, Asheville, NC 28804</a>
+            </div>
+            <div class="flex items-center justify-between border-t border-slate-100 px-4 py-2 text-xs text-slate-500"><span>House · Listed by Blue Ridge Partners</span><a href="/home/207-lakeshore-dr-asheville-nc-28804#tour" class="font-semibold text-teal-700">Schedule tour</a></div>
+          </article>
+        </div>
+        <div role="listitem">
+          <article class="group relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="relative aspect-[4/3] bg-slate-200">
+              <div class="absolute left-3 top-3 flex gap-1"><span class="rounded-full bg-emerald-600 px-2 py-0.5 text-xs font-medium text-white">New</span></div>
+              <button type="button" aria-label="Save home" class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/90"><svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"></path></svg></button>
+            </div>
+            <div class="space-y-1 p-4">
+              <div class="text-xl font-bold">$389,900</div>
+              <div class="flex gap-3 text-sm text-slate-600"><span><strong>2</strong> beds</span><span><strong>2.5</strong> baths</span><span><strong>1,320</strong> sq ft</span></div>
+              <a href="/home/18-brookside-commons-dr-4-asheville-nc-28806" class="block truncate text-sm text-slate-600 hover:underline">18 Brookside Commons Dr #4, Asheville, NC 28806</a>
+            </div>
+            <div class="flex items-center justify-between border-t border-slate-100 px-4 py-2 text-xs text-slate-500"><span>Townhouse · $185/mo HOA</span><a href="/home/18-brookside-commons-dr-4-asheville-nc-28806#tour" class="font-semibold text-teal-700">Schedule tour</a></div>
+          </article>
+        </div>
+        <div role="listitem">
+          <article class="group relative overflow-hidden rounded-xl border-2 border-amber-300 bg-amber-50 shadow-sm">
+            <div class="relative aspect-[4/3] bg-amber-100">
+              <div class="absolute left-3 top-3 flex gap-1"><span class="rounded-full bg-amber-500 px-2 py-0.5 text-xs font-semibold text-white">Sponsored</span></div>
+            </div>
+            <div class="space-y-1 p-4">
+              <div class="text-xs font-semibold uppercase tracking-wide text-amber-700">New construction</div>
+              <div class="text-xl font-bold">From $629,900</div>
+              <div class="flex gap-3 text-sm text-slate-600"><span><strong>3–4</strong> beds</span><span><strong>2.5–3</strong> baths</span></div>
+              <a href="/communities/the-reserve-at-reynolds-mountain" class="block truncate text-sm text-slate-600 hover:underline">The Reserve at Reynolds Mountain, Asheville, NC 28804</a>
+            </div>
+            <div class="flex items-center justify-between border-t border-amber-200 px-4 py-2 text-xs text-slate-500"><span>Townhouse community · 12 plans</span><a href="/communities/the-reserve-at-reynolds-mountain#contact" class="font-semibold text-amber-700">Contact builder</a></div>
+          </article>
+        </div>
+        <div role="listitem">
+          <article class="group relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="relative aspect-[4/3] bg-slate-200">
+              <div class="absolute left-3 top-3 flex gap-1"><span class="rounded-full bg-white/90 px-2 py-0.5 text-xs font-medium">Open Sat 1–3 pm</span></div>
+              <button type="button" aria-label="Save home" class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/90"><svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"></path></svg></button>
+            </div>
+            <div class="space-y-1 p-4">
+              <div class="text-xl font-bold">$549,000</div>
+              <div class="flex gap-3 text-sm text-slate-600"><span><strong>3</strong> beds</span><span><strong>2</strong> baths</span><span><strong>1,780</strong> sq ft</span></div>
+              <a href="/home/41-kenilworth-rd-asheville-nc-28803" class="block truncate text-sm text-slate-600 hover:underline">41 Kenilworth Rd, Asheville, NC 28803</a>
+            </div>
+            <div class="flex items-center justify-between border-t border-slate-100 px-4 py-2 text-xs text-slate-500"><span>House · Built 1938</span><a href="/home/41-kenilworth-rd-asheville-nc-28803#tour" class="font-semibold text-teal-700">Schedule tour</a></div>
+          </article>
+        </div>
+        <div role="listitem">
+          <article class="group relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="relative aspect-[4/3] bg-slate-200">
+              <div class="absolute left-3 top-3 flex gap-1"><span class="rounded-full bg-white/90 px-2 py-0.5 text-xs font-medium">Mountain view</span></div>
+              <button type="button" aria-label="Save home" class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/90"><svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"></path></svg></button>
+            </div>
+            <div class="space-y-1 p-4">
+              <div class="text-xl font-bold">$899,000</div>
+              <div class="flex gap-3 text-sm text-slate-600"><span><strong>4</strong> beds</span><span><strong>3.5</strong> baths</span><span><strong>3,120</strong> sq ft</span></div>
+              <a href="/home/15-ridgecrest-overlook-asheville-nc-28804" class="block truncate text-sm text-slate-600 hover:underline">15 Ridgecrest Overlook, Asheville, NC 28804</a>
+            </div>
+            <div class="flex items-center justify-between border-t border-slate-100 px-4 py-2 text-xs text-slate-500"><span>House · Built 2017</span><a href="/home/15-ridgecrest-overlook-asheville-nc-28804#tour" class="font-semibold text-teal-700">Schedule tour</a></div>
+          </article>
+        </div>
+        <div role="listitem">
+          <article class="group relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="relative aspect-[4/3] bg-slate-200">
+              <div class="absolute left-3 top-3 flex gap-1"><span class="rounded-full bg-rose-600 px-2 py-0.5 text-xs font-medium text-white">Price cut $10K</span></div>
+              <button type="button" aria-label="Save home" class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/90"><svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"></path></svg></button>
+            </div>
+            <div class="space-y-1 p-4">
+              <div class="text-xl font-bold">$315,000</div>
+              <div class="flex gap-3 text-sm text-slate-600"><span><strong>1</strong> bed</span><span><strong>1</strong> bath</span><span><strong>812</strong> sq ft</span></div>
+              <a href="/home/60-n-market-st-507-asheville-nc-28801" class="block truncate text-sm text-slate-600 hover:underline">60 N Market St Unit 507, Asheville, NC 28801</a>
+            </div>
+            <div class="flex items-center justify-between border-t border-slate-100 px-4 py-2 text-xs text-slate-500"><span>Condo · $310/mo HOA</span><a href="/home/60-n-market-st-507-asheville-nc-28801#tour" class="font-semibold text-teal-700">Schedule tour</a></div>
+          </article>
+        </div>
+        <div role="listitem">
+          <article class="group relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="relative aspect-[4/3] bg-slate-200">
+              <div class="absolute left-3 top-3 flex gap-1"><span class="rounded-full bg-white/90 px-2 py-0.5 text-xs font-medium">2-car garage</span></div>
+              <button type="button" aria-label="Save home" class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/90"><svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"></path></svg></button>
+            </div>
+            <div class="space-y-1 p-4">
+              <div class="text-xl font-bold">$462,500</div>
+              <div class="flex gap-3 text-sm text-slate-600"><span><strong>3</strong> beds</span><span><strong>2</strong> baths</span><span><strong>1,540</strong> sq ft</span></div>
+              <a href="/home/9-hollow-creek-ln-asheville-nc-28805" class="block truncate text-sm text-slate-600 hover:underline">9 Hollow Creek Ln, Asheville, NC 28805</a>
+            </div>
+            <div class="flex items-center justify-between border-t border-slate-100 px-4 py-2 text-xs text-slate-500"><span>House · Built 2004</span><a href="/home/9-hollow-creek-ln-asheville-nc-28805#tour" class="font-semibold text-teal-700">Schedule tour</a></div>
+          </article>
+        </div>
+      </div>
+
+      <nav aria-label="Pagination" class="mt-8 flex items-center justify-between text-sm">
+        <span class="text-slate-500">Showing 1–6 of 47</span>
+        <ul class="flex items-center gap-1">
+          <li><a href="?page=1" aria-current="page" class="grid h-9 w-9 place-items-center rounded-lg bg-teal-600 font-semibold text-white">1</a></li>
+          <li><a href="?page=2" class="grid h-9 w-9 place-items-center rounded-lg hover:bg-slate-100">2</a></li>
+          <li><a href="?page=3" class="grid h-9 w-9 place-items-center rounded-lg hover:bg-slate-100">3</a></li>
+          <li><span class="px-1 text-slate-400">…</span></li>
+          <li><a href="?page=8" class="grid h-9 w-9 place-items-center rounded-lg hover:bg-slate-100">8</a></li>
+          <li><a href="?page=2" rel="next" aria-label="Next page" class="grid h-9 w-9 place-items-center rounded-lg hover:bg-slate-100">›</a></li>
+        </ul>
+      </nav>
+
+      <hw-market-stats region="asheville-nc" class="mt-10 block">
+        <template shadowrootmode="open">
+          <style>:host{display:block}.card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:20px;font:14px/1.5 system-ui}.head{font-size:16px;font-weight:600;margin:0 0 12px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0}.stat dt{color:#64748b;font-size:12px}.stat dd{margin:0;font-size:18px;font-weight:700}.foot{color:#94a3b8;font-size:12px;margin:12px 0 0}</style>
+          <section class="card" part="card" aria-labelledby="mk-h">
+            <h2 class="head" id="mk-h">Asheville market at a glance</h2>
+            <dl class="stats">
+              <div class="stat"><dt>Median days on market</dt><dd>34</dd></div>
+              <div class="stat"><dt>Median list price</dt><dd>$498K</dd></div>
+              <div class="stat"><dt>Sold last 30 days</dt><dd>212</dd></div>
+              <div class="stat"><dt>Median $/sq ft</dt><dd>$318</dd></div>
+            </dl>
+            <p class="foot">Canopy MLS data through Nov 5, 2026.</p>
+          </section>
+        </template>
+      </hw-market-stats>
+    </main>
+
+    <aside aria-labelledby=":r3:" class="md:w-80 md:shrink-0 md:pt-3">
+      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm md:sticky md:top-20">
+        <div class="flex items-center justify-between border-b border-slate-100 px-5 py-3">
+          <h2 id=":r3:" class="text-base font-semibold">Filters</h2>
+          <span class="rounded-full bg-teal-50 px-2 py-0.5 text-xs font-medium text-teal-700">5 active</span>
+        </div>
+        <form id="srp-filters-7c1e" action="/nc/asheville/homes" method="get" novalidate class="divide-y divide-slate-100">
+          <input type="hidden" name="location" value="asheville-nc">
+          <input type="hidden" name="listingStatus" value="FOR_SALE">
+
+          <div class="px-5 py-4">
+            <div role="group" aria-labelledby=":r4:">
+              <p id=":r4:" class="mb-2 text-sm font-semibold">Home type</p>
+              <div class="flex flex-wrap gap-2">
+                <label class="relative inline-flex cursor-pointer items-center">
+                  <input type="checkbox" name="homeType" value="house" checked class="peer absolute h-px w-px opacity-0">
+                  <span class="rounded-full border border-slate-300 px-3 py-1 text-sm peer-checked:border-teal-600 peer-checked:bg-teal-50 peer-checked:text-teal-800">House</span>
+                </label>
+                <label class="relative inline-flex cursor-pointer items-center">
+                  <input type="checkbox" name="homeType" value="townhouse" checked class="peer absolute h-px w-px opacity-0" data-dh-target="t3">
+                  <span class="rounded-full border border-slate-300 px-3 py-1 text-sm peer-checked:border-teal-600 peer-checked:bg-teal-50 peer-checked:text-teal-800">Townhouse</span>
+                </label>
+                <label class="relative inline-flex cursor-pointer items-center">
+                  <input type="checkbox" name="homeType" value="condo" checked class="peer absolute h-px w-px opacity-0">
+                  <span class="rounded-full border border-slate-300 px-3 py-1 text-sm peer-checked:border-teal-600 peer-checked:bg-teal-50 peer-checked:text-teal-800">Condo</span>
+                </label>
+                <label class="relative inline-flex cursor-pointer items-center">
+                  <input type="checkbox" name="homeType" value="multi_family" class="peer absolute h-px w-px opacity-0">
+                  <span class="rounded-full border border-slate-300 px-3 py-1 text-sm peer-checked:border-teal-600 peer-checked:bg-teal-50 peer-checked:text-teal-800">Multi-family</span>
+                </label>
+                <label class="relative inline-flex cursor-pointer items-center">
+                  <input type="checkbox" name="homeType" value="manufactured" class="peer absolute h-px w-px opacity-0">
+                  <span class="rounded-full border border-slate-300 px-3 py-1 text-sm peer-checked:border-teal-600 peer-checked:bg-teal-50 peer-checked:text-teal-800">Manufactured</span>
+                </label>
+                <label class="relative inline-flex cursor-pointer items-center">
+                  <input type="checkbox" name="homeType" value="coop" class="peer absolute h-px w-px opacity-0">
+                  <span class="rounded-full border border-slate-300 px-3 py-1 text-sm peer-checked:border-teal-600 peer-checked:bg-teal-50 peer-checked:text-teal-800">Co-op</span>
+                </label>
+                <label class="relative inline-flex cursor-pointer items-center">
+                  <input type="checkbox" name="homeType" value="land" class="peer absolute h-px w-px opacity-0">
+                  <span class="rounded-full border border-slate-300 px-3 py-1 text-sm peer-checked:border-teal-600 peer-checked:bg-teal-50 peer-checked:text-teal-800">Lot / land</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-5 py-4">
+            <hw-price-range currency="USD" min="0" max="5000000" class="block">
+              <template shadowrootmode="open">
+                <style>:host{display:block;font:14px/1.4 system-ui;color:#0f172a}.fs{border:0;margin:0;padding:0}.lg{font-weight:600;padding:0;margin-bottom:8px}.hist{display:flex;align-items:flex-end;gap:2px;height:36px;margin-bottom:8px}.hist span{flex:1;background:#99f6e4;border-radius:2px 2px 0 0}.row{display:flex;align-items:flex-end;gap:8px}.col{flex:1}.lbl{display:block;font-size:12px;color:#64748b;margin-bottom:2px}.box{display:flex;align-items:center;border:1px solid #cbd5e1;border-radius:8px;padding:0 8px}.cur{color:#94a3b8}.inp{border:0;outline:0;width:100%;padding:8px 4px;font:inherit}.dash{padding-bottom:9px;color:#94a3b8}</style>
+                <fieldset class="fs" part="fieldset">
+                  <legend class="lg">Price</legend>
+                  <div class="hist" aria-hidden="true"><span style="height:18%"></span><span style="height:42%"></span><span style="height:76%"></span><span style="height:100%"></span><span style="height:81%"></span><span style="height:57%"></span><span style="height:33%"></span><span style="height:20%"></span><span style="height:9%"></span></div>
+                  <div class="row">
+                    <div class="col">
+                      <label class="lbl" for="hw-pr-min">Minimum</label>
+                      <div class="box"><span class="cur" aria-hidden="true">$</span><input class="inp" id="hw-pr-min" name="priceMin" inputmode="numeric" autocomplete="off" placeholder="No min" value="300000" data-dh-target="t1"></div>
+                    </div>
+                    <span class="dash" aria-hidden="true">to</span>
+                    <div class="col">
+                      <label class="lbl" for="hw-pr-max">Maximum</label>
+                      <div class="box"><span class="cur" aria-hidden="true">$</span><input class="inp" id="hw-pr-max" name="priceMax" inputmode="numeric" autocomplete="off" placeholder="No max" value="900000"></div>
+                    </div>
+                  </div>
+                </fieldset>
+              </template>
+            </hw-price-range>
+            <input type="hidden" name="min_price" value="300000">
+            <input type="hidden" name="max_price" value="900000">
+          </div>
+
+          <div class="px-5 py-4">
+            <div class="grid grid-cols-2 gap-3">
+              <div class="space-y-1">
+                <label for=":r6:" class="block text-sm font-semibold">Beds</label>
+                <div class="relative">
+                  <select id=":r6:" name="bedrooms" class="w-full appearance-none rounded-lg border border-slate-300 bg-white py-2 pl-3 pr-8 text-sm" data-dh-target="t2">
+                    <option value="">Any</option>
+                    <option value="0">Studio+</option>
+                    <option value="1" selected>1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                    <option value="5">5+</option>
+                  </select>
+                  <svg class="pointer-events-none absolute right-2 top-2.5 h-4 w-4 text-slate-400" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7l5 5 5-5"></path></svg>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <label for=":r7:" class="block text-sm font-semibold">Baths</label>
+                <div class="relative">
+                  <select id=":r7:" name="bathrooms" class="w-full appearance-none rounded-lg border border-slate-300 bg-white py-2 pl-3 pr-8 text-sm">
+                    <option value="">Any</option>
+                    <option value="1">1+</option>
+                    <option value="1.5">1.5+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                  </select>
+                  <svg class="pointer-events-none absolute right-2 top-2.5 h-4 w-4 text-slate-400" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7l5 5 5-5"></path></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-5 py-4">
+            <hw-checkbox-group name="features" class="block">
+              <template shadowrootmode="open">
+                <style>:host{display:block;font:14px/1.4 system-ui;color:#0f172a}.grp{border:0;margin:0;padding:0}.ttl{font-weight:600;padding:0;margin-bottom:8px}.opts{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px}.opt{display:flex;align-items:center;gap:8px}.cb{width:16px;height:16px;accent-color:#0d9488}.txt{cursor:pointer}</style>
+                <fieldset class="grp" part="group">
+                  <legend class="ttl">Features</legend>
+                  <div class="opts">
+                    <div class="opt"><input class="cb" type="checkbox" id="ft-1c9" name="features" value="has_mountain_view"><label class="txt" for="ft-1c9">Mountain view</label></div>
+                    <div class="opt"><input class="cb" type="checkbox" id="ft-4e2" name="features" value="has_garage"><label class="txt" for="ft-4e2">Garage</label></div>
+                    <div class="opt"><input class="cb" type="checkbox" id="ft-77a" name="features" value="has_central_air"><label class="txt" for="ft-77a">Central air</label></div>
+                    <div class="opt"><input class="cb" type="checkbox" id="ft-b30" name="features" value="has_pool" data-dh-target="t4"><label class="txt" for="ft-b30">Pool</label></div>
+                    <div class="opt"><input class="cb" type="checkbox" id="ft-0d5" name="features" value="has_fireplace"><label class="txt" for="ft-0d5">Fireplace</label></div>
+                    <div class="opt"><input class="cb" type="checkbox" id="ft-e81" name="features" value="has_basement"><label class="txt" for="ft-e81">Basement</label></div>
+                    <div class="opt"><input class="cb" type="checkbox" id="ft-5f6" name="features" value="has_waterfront"><label class="txt" for="ft-5f6">Waterfront</label></div>
+                    <div class="opt"><input class="cb" type="checkbox" id="ft-29c" name="features" value="has_solar"><label class="txt" for="ft-29c">Solar panels</label></div>
+                    <div class="opt"><input class="cb" type="checkbox" id="ft-a4b" name="features" value="has_ev_charger"><label class="txt" for="ft-a4b">EV charger</label></div>
+                  </div>
+                </fieldset>
+              </template>
+            </hw-checkbox-group>
+          </div>
+
+          <details class="group px-5 py-4" open>
+            <summary class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold">More filters <span class="text-slate-400 group-open:rotate-180">⌄</span></summary>
+            <div class="mt-3 space-y-3">
+              <div class="space-y-1">
+                <label for=":r8:" class="block text-sm text-slate-600">Keywords</label>
+                <input id=":r8:" type="search" name="keyword" placeholder="Mountain view, workshop, ADU…" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm">
+              </div>
+              <div class="space-y-1">
+                <label for=":r9:" class="block text-sm text-slate-600">Max HOA</label>
+                <select id=":r9:" name="maxHoa" class="w-full rounded-lg border border-slate-300 py-2 pl-3 pr-8 text-sm">
+                  <option value="">No max</option>
+                  <option value="100">$100/mo</option>
+                  <option value="250">$250/mo</option>
+                  <option value="500">$500/mo</option>
+                  <option value="NO_HOA">No HOA only</option>
+                </select>
+              </div>
+              <div class="space-y-1">
+                <label for=":ra:" class="block text-sm text-slate-600">Time on Hearthway</label>
+                <select id=":ra:" name="daysOnMarket" class="w-full rounded-lg border border-slate-300 py-2 pl-3 pr-8 text-sm">
+                  <option value="">Any</option>
+                  <option value="1">1 day</option>
+                  <option value="7">7 days</option>
+                  <option value="30">30 days</option>
+                  <option value="90">90 days</option>
+                </select>
+              </div>
+              <label class="flex items-center justify-between text-sm"><span>Open houses only</span><input type="checkbox" role="switch" name="openHouse" class="h-5 w-9 rounded-full"></label>
+              <label class="flex items-center justify-between text-sm"><span>Has 3D tour</span><input type="checkbox" role="switch" name="has3dTour" class="h-5 w-9 rounded-full"></label>
+            </div>
+          </details>
+
+          <div class="sticky bottom-0 bg-white px-5 py-4">
+            <div class="flex gap-3">
+              <button type="reset" class="flex-1 rounded-lg border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">Clear all</button>
+              <button type="submit" class="flex-[2] rounded-lg bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700" data-dh-target="t5">Show results</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </aside>
+  </div>
+
+  <dialog id="filters-sheet" aria-labelledby=":rb:" class="fixed inset-x-0 bottom-0 m-0 w-full max-w-none rounded-t-2xl p-0">
+    <form method="get" action="/nc/asheville/homes" class="flex max-h-[85vh] flex-col">
+      <div class="flex items-center justify-between border-b border-slate-200 px-4 py-3">
+        <h2 id=":rb:" class="text-base font-semibold">Filters</h2>
+        <button type="button" aria-label="Close filters" class="grid h-8 w-8 place-items-center rounded-full hover:bg-slate-100">×</button>
+      </div>
+      <div class="flex-1 space-y-5 overflow-y-auto px-4 py-4">
+        <div role="group" aria-label="Home type" class="flex flex-wrap gap-2">
+          <label class="inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1 text-sm"><input type="checkbox" name="homeType" value="house" checked><span>House</span></label>
+          <label class="inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1 text-sm"><input type="checkbox" name="homeType" value="townhouse" checked><span>Townhouse</span></label>
+          <label class="inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1 text-sm"><input type="checkbox" name="homeType" value="condo" checked><span>Condo</span></label>
+        </div>
+        <div role="group" aria-label="Features" class="grid grid-cols-2 gap-2">
+          <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="features" value="has_pool"><span>Pool</span></label>
+          <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="features" value="has_garage"><span>Garage</span></label>
+          <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="features" value="has_mountain_view"><span>Mountain view</span></label>
+          <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="features" value="has_fireplace"><span>Fireplace</span></label>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 border-t border-slate-200 px-4 py-3">
+        <span class="mr-auto text-sm text-slate-500">47 results</span>
+        <button type="reset" class="rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold">Clear all</button>
+        <button type="submit" class="rounded-lg bg-teal-600 px-4 py-2 text-sm font-semibold text-white">Show results</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="save-search-modal" role="dialog" aria-modal="true" aria-labelledby=":rc:" hidden class="fixed inset-0 z-50 grid place-items-center bg-slate-900/50 p-4">
+    <div class="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+      <h2 id=":rc:" class="text-lg font-semibold">Save this search</h2>
+      <p class="mt-1 text-sm text-slate-500">We'll email you when new homes match: Asheville, NC · $300K–$900K · 1+ bd · House, Townhouse, Condo.</p>
+      <div class="mt-4 space-y-3">
+        <div class="space-y-1">
+          <label for=":rd:" class="block text-sm font-medium">Search name</label>
+          <input id=":rd:" name="searchName" value="Asheville under $900K" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm">
+        </div>
+        <div class="space-y-1">
+          <label for=":re:" class="block text-sm font-medium">Email me</label>
+          <select id=":re:" name="alertFrequency" class="w-full rounded-lg border border-slate-300 py-2 pl-3 pr-8 text-sm">
+            <option value="INSTANT">Instantly</option>
+            <option value="DAILY" selected>Once a day</option>
+            <option value="WEEKLY">Once a week</option>
+            <option value="NEVER">Don't email me</option>
+          </select>
+        </div>
+      </div>
+      <div class="mt-6 flex justify-end gap-2">
+        <button type="button" class="rounded-lg px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-100">Cancel</button>
+        <button type="button" class="rounded-lg bg-teal-600 px-4 py-2 text-sm font-semibold text-white">Save search</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-slate-900 px-4 py-12 text-sm text-slate-300">
+    <div class="mx-auto grid max-w-7xl gap-8 sm:grid-cols-2 lg:grid-cols-5">
+      <div>
+        <h3 class="mb-3 font-semibold text-white">Explore</h3>
+        <ul class="space-y-2">
+          <li><a href="/nc/black-mountain/homes" class="hover:text-white">Black Mountain homes</a></li>
+          <li><a href="/nc/weaverville/homes" class="hover:text-white">Weaverville homes</a></li>
+          <li><a href="/nc/hendersonville/homes" class="hover:text-white">Hendersonville homes</a></li>
+          <li><a href="/nc/candler/homes" class="hover:text-white">Candler homes</a></li>
+          <li><a href="/nc/fairview/homes" class="hover:text-white">Fairview homes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-3 font-semibold text-white">Tools</h3>
+        <ul class="space-y-2">
+          <li><a href="/home-value" class="hover:text-white">Home value estimate</a></li>
+          <li><a href="/mortgage-calculator" class="hover:text-white">Mortgage calculator</a></li>
+          <li><a href="/open-houses" class="hover:text-white">Open houses near me</a></li>
+          <li><a href="/guides/first-time-buyers" class="hover:text-white">First-time buyer guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-3 font-semibold text-white">Company</h3>
+        <ul class="space-y-2">
+          <li><a href="/about" class="hover:text-white">About</a></li>
+          <li><a href="/careers" class="hover:text-white">Careers</a></li>
+          <li><a href="/newsroom" class="hover:text-white">Newsroom</a></li>
+          <li><a href="/contact" class="hover:text-white">Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-3 font-semibold text-white">Legal</h3>
+        <ul class="space-y-2">
+          <li><a href="/privacy" class="hover:text-white">Privacy</a></li>
+          <li><a href="/terms" class="hover:text-white">Terms</a></li>
+          <li><a href="/fair-housing" class="hover:text-white">Fair housing</a></li>
+          <li><a href="/accessibility" class="hover:text-white">Accessibility</a></li>
+          <li><a href="/privacy/choices" class="hover:text-white">Your privacy choices</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-3 font-semibold text-white">Get the app</h3>
+        <p class="text-slate-400">Get instant alerts for new Asheville listings.</p>
+        <div class="mt-3 flex gap-2">
+          <a href="/app/ios" class="rounded-lg border border-slate-600 px-3 py-1.5 hover:border-slate-400">iOS</a>
+          <a href="/app/android" class="rounded-lg border border-slate-600 px-3 py-1.5 hover:border-slate-400">Android</a>
+        </div>
+      </div>
+    </div>
+    <div class="mx-auto mt-10 max-w-7xl border-t border-slate-700 pt-6 text-xs text-slate-400">
+      <p>Hearthway Realty, Inc. · NC Firm License #C31877 · Equal Housing Opportunity</p>
+      <p class="mt-1">© 2026 Hearthway Realty, Inc.</p>
+    </div>
+  </footer>
+
+  <div role="dialog" aria-label="Cookie preferences" class="fixed bottom-4 left-4 z-40 max-w-sm rounded-xl border border-slate-200 bg-white p-4 text-sm shadow-lg">
+    <p>We use cookies to personalize listings and measure site traffic. <a href="/privacy#cookies" class="text-teal-700 underline">Learn more</a></p>
+    <div class="mt-3 flex gap-2">
+      <button type="button" class="rounded-lg bg-slate-900 px-3 py-1.5 font-semibold text-white">Accept all</button>
+      <button type="button" class="rounded-lg border border-slate-300 px-3 py-1.5 font-semibold">Manage</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

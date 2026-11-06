@@ -20,12 +20,17 @@ from lxml import etree
 
 from dom_healer.semantics import (
     FORM_CONTROL_TAGS,
-    LANDMARK_ROLES,
     STRUCTURAL_ROLES,
     element_family,
-    is_hidden,
 )
-from dom_healer.text import class_tokens, identifier_tokens, looks_generated, normalize_text, words
+from dom_healer.text import (
+    class_tokens,
+    identifier_tokens,
+    looks_generated,
+    looks_random,
+    normalize_text,
+    words,
+)
 
 if TYPE_CHECKING:  # pragma: no cover
     from dom_healer.index import PageIndex
@@ -69,6 +74,7 @@ class ElementFingerprint:
     heading: str = ""
     context: str = ""
     next_context: str = ""
+    container: str = ""
     row: str = ""
     column_header: str = ""
     form: str = ""
@@ -246,7 +252,7 @@ def _ancestor_tokens(node: Element, index: PageIndex, out: set[str]) -> None:
     for key, value in node.items():
         if key.startswith("data-") and key not in ("data-reactroot",):
             out.update(identifier_tokens(key[5:]))
-            if value and len(value) <= 40 and not looks_generated(value):
+            if value and len(value) <= 40 and not looks_random(value):
                 out.update(identifier_tokens(value))
         elif key == "aria-label":
             out.update(words(normalize_text(value)))
@@ -308,27 +314,29 @@ def accessible_name(el: Element, index: PageIndex) -> tuple[str, str]:
 
 
 def _table_context(cell: Element, row: Element, table: Element | None, index: PageIndex) -> tuple[str, str]:
-    cells = [c for c in row.iter() if c is not row and isinstance(c.tag, str) and index.role(c) in ("cell", "header")]
-    try:
-        col = next(i for i, c in enumerate(cells) if c is cell)
-    except StopIteration:  # pragma: no cover - cell is always inside its own row
-        col = -1
-    row_text = " | ".join(t for t in (normalize_text(c.text_content(), 60) for c in cells if c is not cell) if t)
+    cells = index.row_cells(row)
+    col = next((i for i, c in enumerate(cells) if c is cell), -1)
+    row_text = " | ".join(t for t in (index.node_text(c, 60) for c in cells if c is not cell) if t)
     header = ""
     if table is not None and col >= 0:
-        for candidate_row in table.iter():
-            if candidate_row is row or not isinstance(candidate_row.tag, str):
-                continue
-            if index.role(candidate_row) != "row":
-                continue
-            hcells = [c for c in candidate_row.iter() if c is not candidate_row and isinstance(c.tag, str)
-                      and index.role(c) in ("cell", "header")]
-            n_headers = sum(1 for c in hcells if index.role(c) == "header")
-            if hcells and n_headers >= 0.6 * len(hcells):
-                if col < len(hcells):
-                    header = normalize_text(hcells[col].text_content(), 60)
-                break
+        hcells = index.header_cells(table)
+        if hcells is not None and hcells is not cells and col < len(hcells):
+            header = index.node_text(hcells[col], 60)
     return normalize_text(row_text, 200), header
+
+
+def _container_text(el: Element, own_len: int, index: PageIndex, levels: int = 6) -> str:
+    """Text of the nearest ancestor that holds text besides ``el`` (card, line item, field group)."""
+    node = el
+    for _ in range(levels):
+        parent = node.getparent()
+        if parent is None or parent.tag in ("body", "html"):
+            break
+        text = index.node_text(parent)
+        if len(text) > own_len + 12:
+            return text
+        node = parent
+    return ""
 
 
 def build_fingerprint(el: Element, index: PageIndex, selector: str = "") -> ElementFingerprint:
@@ -339,37 +347,26 @@ def build_fingerprint(el: Element, index: PageIndex, selector: str = "") -> Elem
     input_type = attrs.get("type", "") if tag == "input" else ""
     classes = (el.get("class") or "").split()
 
-    # One walk over the ancestors collects path, semantics, context containers and visibility.
-    tag_path: list[str] = []
-    sem_path: list[str] = []
-    anc_tokens: set[str] = set()
-    form_sig = ""
-    landmark = ""
-    cell = el if role in ("cell", "header") else None
-    row = None
-    table = None
-    for level, anc in enumerate(el.iterancestors(), start=1):
-        anc_tag = anc.tag
-        tag_path.append(anc_tag)
-        anc_role = index.role(anc)
-        if anc_role in STRUCTURAL_ROLES:
-            sem_path.append(anc_role)
-        if level <= _ANCESTOR_TOKEN_LEVELS:
-            _ancestor_tokens(anc, index, anc_tokens)
-        if not form_sig and (anc_tag == "form" or anc_role in ("form", "search")):
-            form_sig = _form_signature(anc) or anc_tag
-        if not landmark and anc_role in LANDMARK_ROLES:
-            landmark = anc_role
-        if anc_role in ("cell", "header") and cell is None and level <= 6:
-            cell = anc
-        elif anc_role == "row" and cell is not None and row is None:
-            row = anc
-        elif anc_role == "table" and row is not None and table is None:
-            table = anc
-    tag_path.reverse()
-    sem_path.reverse()
-    depth = len(tag_path)
-    tag_path.append(tag)
+    # Ancestor information is memoised per node in the index (candidates share most ancestors).
+    parent_el = el.getparent()
+    if parent_el is not None:
+        anc = index.ancestry(parent_el)
+        tag_path = [*anc.tag_path, tag]
+        sem_path = list(anc.sem_path)
+        anc_tokens: set[str] = set().union(*anc.tokens) if anc.tokens else set()
+        form_sig, landmark = anc.form, anc.landmark
+        cell = el if role in ("cell", "header") else anc.cell
+    else:
+        tag_path, sem_path, anc_tokens, form_sig, landmark = [tag], [], set(), "", ""
+        cell = el if role in ("cell", "header") else None
+    row = table = None
+    if cell is not None:
+        cell_parent = cell.getparent()
+        row = index.ancestry(cell_parent).row if cell_parent is not None else None
+        if row is not None:
+            row_parent = row.getparent()
+            table = index.ancestry(row_parent).table if row_parent is not None else None
+    depth = len(tag_path) - 1
 
     name, label = accessible_name(el, index)
 
@@ -393,7 +390,8 @@ def build_fingerprint(el: Element, index: PageIndex, selector: str = "") -> Elem
     if cell is not None and row is not None:
         row_text, header = _table_context(cell, row, table, index)
 
-    full_text = normalize_text(el.text_content(), 200) if tag not in _TEXT_SKIP else ""
+    full_text = index.node_text(el, 200) if tag not in _TEXT_SKIP else ""
+    container = _container_text(el, len(full_text), index)
     return ElementFingerprint(
         tag=tag,
         role=role,
@@ -408,6 +406,7 @@ def build_fingerprint(el: Element, index: PageIndex, selector: str = "") -> Elem
         heading=index.heading_before(el),
         context=index.text_before(el),
         next_context=index.text_after(el),
+        container=container,
         row=row_text,
         column_header=header,
         form=form_sig,
@@ -423,7 +422,7 @@ def build_fingerprint(el: Element, index: PageIndex, selector: str = "") -> Elem
         children=[c.tag for c in el if isinstance(c.tag, str)][:12],
         depth=depth,
         position=index.position(el),
-        hidden=is_hidden(el),
+        hidden=index.hidden(el),
         shadow_depth=index.doc.shadow_depth(el),
         selector=selector,
     )

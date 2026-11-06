@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Servers – corvid-prod – Fleetdeck</title>
+<style>
+body{margin:0;font:13px/1.45 "Roboto",Arial,sans-serif;color:#202124;background:#f1f3f4}
+.console{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.console-nav{background:#263238;color:#cfd8dc;padding:16px 0}.console-brand{display:block;color:#fff;font-weight:700;font-size:17px;padding:0 18px 12px;text-decoration:none}
+.project-switch{margin:0 12px 12px;width:calc(100% - 24px)}
+.console-nav a.nav-item{display:block;padding:8px 18px;color:#cfd8dc;text-decoration:none}.console-nav a.nav-item.is-active{background:#37474f;color:#fff;border-left:3px solid #4fc3f7}
+.console-top{display:flex;align-items:center;gap:16px;height:48px;padding:0 20px;background:#fff;border-bottom:1px solid #dadce0}
+.global-search{margin-left:auto;width:320px;padding:6px 10px;border:1px solid #dadce0;border-radius:4px}
+.servers{padding:20px}.servers-head{display:flex;align-items:center;justify-content:space-between}
+.count-pill{font-size:12px;background:#e8eaed;border-radius:10px;padding:2px 8px;vertical-align:middle}
+.env-filter{display:flex;gap:4px;margin:12px 0}.env-filter a{padding:4px 10px;border-radius:4px;color:#3c4043;text-decoration:none}.env-filter a.is-active{background:#e8f0fe;color:#1967d2}
+.btn{padding:6px 12px;border:1px solid #dadce0;background:#fff;border-radius:4px;cursor:pointer}.btn-primary{background:#1a73e8;border-color:#1a73e8;color:#fff}
+.inv-table{width:100%;border-collapse:collapse;background:#fff;box-shadow:0 1px 2px rgba(60,64,67,.3)}
+.inv-table th{text-align:left;font-weight:500;color:#5f6368;padding:8px 10px;border-bottom:1px solid #dadce0;white-space:nowrap}
+.inv-table td{padding:7px 10px;border-bottom:1px solid #f1f3f4;white-space:nowrap}.mono{font-family:"Roboto Mono",monospace}
+.status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}.status-dot--ok{background:#1e8e3e}.status-dot--warn{background:#f9ab00}.status-dot--off{background:#9aa0a6}.status-dot--maint{background:#4285f4}
+.env-tag{font-size:11px;padding:1px 6px;border-radius:3px;background:#e8eaed}.env-tag--production{background:#fce8e6;color:#c5221f}
+.act{border:1px solid transparent;background:none;padding:3px 8px;border-radius:4px;cursor:pointer;color:#1a73e8}.act:hover{background:#f1f3f4}.act:disabled{color:#9aa0a6}
+.pager{display:flex;justify-content:flex-end;gap:12px;padding:10px;color:#5f6368}
+.console-footer{padding:12px 20px;color:#5f6368;font-size:12px}
+</style>
+</head>
+<body>
+<div class="console">
+  <aside class="console-nav">
+    <a class="console-brand" href="/">Fleetdeck</a>
+    <select class="project-switch" aria-label="Project"><option selected>corvid-prod</option><option>corvid-staging</option><option>corvid-research</option></select>
+    <nav aria-label="Resources"><a class="nav-item" href="/corvid-prod/overview">Overview</a><a class="nav-item is-active" href="/corvid-prod/servers">Servers</a><a class="nav-item" href="/corvid-prod/clusters">Clusters</a><a class="nav-item" href="/corvid-prod/load-balancers">Load balancers</a><a class="nav-item" href="/corvid-prod/networks">Networks</a><a class="nav-item" href="/corvid-prod/volumes">Volumes</a><a class="nav-item" href="/corvid-prod/alerts">Alerts</a><a class="nav-item" href="/corvid-prod/audit-log">Audit log</a></nav>
+  </aside>
+  <div class="console-main">
+    <header class="console-top">
+      <div class="breadcrumb"><a href="/corvid-prod">corvid-prod</a> / Servers</div>
+      <input type="search" class="global-search" placeholder="Search resources (Ctrl+K)" aria-label="Search resources">
+      <a class="account" href="/account">Mira Sato</a>
+    </header>
+    <section class="servers">
+      <div class="servers-head">
+        <h1>Servers <span class="count-pill">142</span></h1>
+        <div class="servers-actions"><button type="button" class="btn" id="btn-refresh">Refresh</button> <button type="button" class="btn btn-primary" id="btn-add-server">Add server</button></div>
+      </div>
+      <div class="env-filter" role="tablist"><a class="is-active" href="?env=all">All (142)</a><a href="?env=production">Production (88)</a><a href="?env=staging">Staging (21)</a><a href="?env=tooling">Tooling (24)</a><a href="?env=development">Development (9)</a></div>
+      <table class="inv-table">
+        <thead>
+          <tr>
+            <th class="th-check"><input type="checkbox" aria-label="Select all servers"></th>
+            <th>Hostname</th>
+            <th>Status</th>
+            <th>Environment</th>
+            <th>Region</th>
+            <th>IP address</th>
+            <th>OS</th>
+            <th>Size</th>
+            <th data-dh-target="t5">Uptime</th>
+            <th class="th-actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr id="srv-0101" data-host="api-gw-01.fra1" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0101" aria-label="Select api-gw-01.fra1"></td>
+              <td class="col-host"><a href="/servers/srv-0101" class="host-link">api-gw-01.fra1</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--production">production</span></td>
+              <td class="col-region">fra1</td>
+              <td class="col-ip mono">10.24.1.11</td>
+              <td class="col-os">Ubuntu 24.04 LTS</td>
+              <td class="col-size">8 vCPU · 32 GB</td>
+              <td class="col-uptime">41d 6h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0102" data-host="api-gw-02.fra1" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0102" aria-label="Select api-gw-02.fra1"></td>
+              <td class="col-host"><a href="/servers/srv-0102" class="host-link">api-gw-02.fra1</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--production">production</span></td>
+              <td class="col-region">fra1</td>
+              <td class="col-ip mono">10.24.1.12</td>
+              <td class="col-os">Ubuntu 24.04 LTS</td>
+              <td class="col-size">8 vCPU · 32 GB</td>
+              <td class="col-uptime">41d 6h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0188" data-host="prod-api-07.fra1" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0188" aria-label="Select prod-api-07.fra1" data-dh-target="t4"></td>
+              <td class="col-host"><a href="/servers/srv-0188" class="host-link">prod-api-07.fra1</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--production">production</span></td>
+              <td class="col-region">fra1</td>
+              <td class="col-ip mono">10.24.2.37</td>
+              <td class="col-os">Ubuntu 22.04 LTS</td>
+              <td class="col-size">16 vCPU · 64 GB</td>
+              <td class="col-uptime">12d 3h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0412" data-host="cache-redis-03.fra1" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0412" aria-label="Select cache-redis-03.fra1"></td>
+              <td class="col-host"><a href="/servers/srv-0412" class="host-link">cache-redis-03.fra1</a></td>
+              <td class="col-status" data-dh-target="t2"><span class="status-dot status-dot--warn" aria-hidden="true"></span>Degraded</td>
+              <td class="col-env"><span class="env-tag env-tag--production">production</span></td>
+              <td class="col-region">fra1</td>
+              <td class="col-ip mono">10.24.3.19</td>
+              <td class="col-os">Debian 12</td>
+              <td class="col-size">4 vCPU · 32 GB</td>
+              <td class="col-uptime">3d 22h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0193" data-host="db-pg-primary-02.ams3" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0193" aria-label="Select db-pg-primary-02.ams3"></td>
+              <td class="col-host"><a href="/servers/srv-0193" class="host-link">db-pg-primary-02.ams3</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--production">production</span></td>
+              <td class="col-region">ams3</td>
+              <td class="col-ip mono">10.31.0.21</td>
+              <td class="col-os">Rocky Linux 9.4</td>
+              <td class="col-size">32 vCPU · 256 GB</td>
+              <td class="col-uptime">97d 14h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot" data-dh-target="t1">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0194" data-host="db-pg-replica-04.ams3" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0194" aria-label="Select db-pg-replica-04.ams3"></td>
+              <td class="col-host"><a href="/servers/srv-0194" class="host-link">db-pg-replica-04.ams3</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--production">production</span></td>
+              <td class="col-region">ams3</td>
+              <td class="col-ip mono">10.31.0.24</td>
+              <td class="col-os">Rocky Linux 9.4</td>
+              <td class="col-size">32 vCPU · 256 GB</td>
+              <td class="col-uptime">97d 14h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0520" data-host="etl-worker-02.ams3" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0520" aria-label="Select etl-worker-02.ams3"></td>
+              <td class="col-host"><a href="/servers/srv-0520" class="host-link">etl-worker-02.ams3</a></td>
+              <td class="col-status"><span class="status-dot status-dot--off" aria-hidden="true"></span>Stopped</td>
+              <td class="col-env"><span class="env-tag env-tag--staging">staging</span></td>
+              <td class="col-region">ams3</td>
+              <td class="col-ip mono">10.31.4.8</td>
+              <td class="col-os">Ubuntu 22.04 LTS</td>
+              <td class="col-size">8 vCPU · 32 GB</td>
+              <td class="col-uptime">&mdash;</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console" disabled><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot" disabled>Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0230" data-host="k8s-cp-01.lon1" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0230" aria-label="Select k8s-cp-01.lon1"></td>
+              <td class="col-host"><a href="/servers/srv-0230" class="host-link">k8s-cp-01.lon1</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--production">production</span></td>
+              <td class="col-region">lon1</td>
+              <td class="col-ip mono">10.40.0.10</td>
+              <td class="col-os">Flatcar 4081.2</td>
+              <td class="col-size">4 vCPU · 16 GB</td>
+              <td class="col-uptime">63d 1h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0377" data-host="k8s-worker-14.sfo2" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0377" aria-label="Select k8s-worker-14.sfo2"></td>
+              <td class="col-host"><a href="/servers/srv-0377" class="host-link">k8s-worker-14.sfo2</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--production">production</span></td>
+              <td class="col-region">sfo2</td>
+              <td class="col-ip mono">10.52.6.114</td>
+              <td class="col-os">Flatcar 4081.2</td>
+              <td class="col-size">16 vCPU · 64 GB</td>
+              <td class="col-uptime">8d 19h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console" data-dh-target="t6"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0261" data-host="web-edge-11.lon1" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0261" aria-label="Select web-edge-11.lon1"></td>
+              <td class="col-host"><a href="/servers/srv-0261" class="host-link">web-edge-11.lon1</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--production">production</span></td>
+              <td class="col-region">lon1</td>
+              <td class="col-ip mono" data-dh-target="t3">10.40.3.21</td>
+              <td class="col-os">Debian 12</td>
+              <td class="col-size">2 vCPU · 4 GB</td>
+              <td class="col-uptime">22d 7h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0262" data-host="web-edge-12.lon1" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0262" aria-label="Select web-edge-12.lon1"></td>
+              <td class="col-host"><a href="/servers/srv-0262" class="host-link">web-edge-12.lon1</a></td>
+              <td class="col-status"><span class="status-dot status-dot--warn" aria-hidden="true"></span>Degraded</td>
+              <td class="col-env"><span class="env-tag env-tag--production">production</span></td>
+              <td class="col-region">lon1</td>
+              <td class="col-ip mono">10.40.3.22</td>
+              <td class="col-os">Debian 12</td>
+              <td class="col-size">2 vCPU · 4 GB</td>
+              <td class="col-uptime">0d 4h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0145" data-host="search-os-01.fra1" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0145" aria-label="Select search-os-01.fra1"></td>
+              <td class="col-host"><a href="/servers/srv-0145" class="host-link">search-os-01.fra1</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--production">production</span></td>
+              <td class="col-region">fra1</td>
+              <td class="col-ip mono">10.24.5.41</td>
+              <td class="col-os">Ubuntu 24.04 LTS</td>
+              <td class="col-size">16 vCPU · 128 GB</td>
+              <td class="col-uptime">30d 2h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0610" data-host="ci-runner-05.sfo2" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0610" aria-label="Select ci-runner-05.sfo2"></td>
+              <td class="col-host"><a href="/servers/srv-0610" class="host-link">ci-runner-05.sfo2</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--tooling">tooling</span></td>
+              <td class="col-region">sfo2</td>
+              <td class="col-ip mono">10.52.9.15</td>
+              <td class="col-os">Ubuntu 24.04 LTS</td>
+              <td class="col-size">8 vCPU · 16 GB</td>
+              <td class="col-uptime">1d 11h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0007" data-host="vpn-gw-01.lon1" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0007" aria-label="Select vpn-gw-01.lon1"></td>
+              <td class="col-host"><a href="/servers/srv-0007" class="host-link">vpn-gw-01.lon1</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--tooling">tooling</span></td>
+              <td class="col-region">lon1</td>
+              <td class="col-ip mono">10.40.9.2</td>
+              <td class="col-os">OpenBSD 7.6</td>
+              <td class="col-size">2 vCPU · 2 GB</td>
+              <td class="col-uptime">211d 9h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0533" data-host="staging-api-02.ams3" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0533" aria-label="Select staging-api-02.ams3"></td>
+              <td class="col-host"><a href="/servers/srv-0533" class="host-link">staging-api-02.ams3</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--staging">staging</span></td>
+              <td class="col-region">ams3</td>
+              <td class="col-ip mono">10.31.2.12</td>
+              <td class="col-os">Ubuntu 24.04 LTS</td>
+              <td class="col-size">4 vCPU · 16 GB</td>
+              <td class="col-uptime">5d 0h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0301" data-host="mq-rabbit-02.fra1" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0301" aria-label="Select mq-rabbit-02.fra1"></td>
+              <td class="col-host"><a href="/servers/srv-0301" class="host-link">mq-rabbit-02.fra1</a></td>
+              <td class="col-status"><span class="status-dot status-dot--maint" aria-hidden="true"></span>Maintenance</td>
+              <td class="col-env"><span class="env-tag env-tag--production">production</span></td>
+              <td class="col-region">fra1</td>
+              <td class="col-ip mono">10.24.6.12</td>
+              <td class="col-os">Debian 12</td>
+              <td class="col-size">8 vCPU · 32 GB</td>
+              <td class="col-uptime">&mdash;</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0640" data-host="metrics-prom-01.sfo2" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0640" aria-label="Select metrics-prom-01.sfo2"></td>
+              <td class="col-host"><a href="/servers/srv-0640" class="host-link">metrics-prom-01.sfo2</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--tooling">tooling</span></td>
+              <td class="col-region">sfo2</td>
+              <td class="col-ip mono">10.52.8.30</td>
+              <td class="col-os">Ubuntu 22.04 LTS</td>
+              <td class="col-size">8 vCPU · 64 GB</td>
+              <td class="col-uptime">44d 18h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0641" data-host="log-loki-02.sfo2" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0641" aria-label="Select log-loki-02.sfo2"></td>
+              <td class="col-host"><a href="/servers/srv-0641" class="host-link">log-loki-02.sfo2</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--tooling">tooling</span></td>
+              <td class="col-region">sfo2</td>
+              <td class="col-ip mono">10.52.8.42</td>
+              <td class="col-os">Ubuntu 22.04 LTS</td>
+              <td class="col-size">8 vCPU · 64 GB</td>
+              <td class="col-uptime">44d 18h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0090" data-host="backup-01.ams3" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0090" aria-label="Select backup-01.ams3"></td>
+              <td class="col-host"><a href="/servers/srv-0090" class="host-link">backup-01.ams3</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--tooling">tooling</span></td>
+              <td class="col-region">ams3</td>
+              <td class="col-ip mono">10.31.9.5</td>
+              <td class="col-os">Debian 12</td>
+              <td class="col-size">4 vCPU · 16 GB</td>
+              <td class="col-uptime">120d 3h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0702" data-host="ml-gpu-03.sfo2" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0702" aria-label="Select ml-gpu-03.sfo2"></td>
+              <td class="col-host"><a href="/servers/srv-0702" class="host-link">ml-gpu-03.sfo2</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--research">research</span></td>
+              <td class="col-region">sfo2</td>
+              <td class="col-ip mono">10.52.12.63</td>
+              <td class="col-os">Ubuntu 22.04 LTS</td>
+              <td class="col-size">32 vCPU · 256 GB · A100</td>
+              <td class="col-uptime">2d 8h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0815" data-host="dev-sandbox-09.lon1" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0815" aria-label="Select dev-sandbox-09.lon1"></td>
+              <td class="col-host"><a href="/servers/srv-0815" class="host-link">dev-sandbox-09.lon1</a></td>
+              <td class="col-status"><span class="status-dot status-dot--off" aria-hidden="true"></span>Stopped</td>
+              <td class="col-env"><span class="env-tag env-tag--development">development</span></td>
+              <td class="col-region">lon1</td>
+              <td class="col-ip mono">10.40.12.9</td>
+              <td class="col-os">Fedora 40</td>
+              <td class="col-size">2 vCPU · 8 GB</td>
+              <td class="col-uptime">&mdash;</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console" disabled><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot" disabled>Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+            <tr id="srv-0003" data-host="bastion-01.fra1" class="inv-row">
+              <td class="td-check"><input type="checkbox" name="server" value="srv-0003" aria-label="Select bastion-01.fra1"></td>
+              <td class="col-host"><a href="/servers/srv-0003" class="host-link">bastion-01.fra1</a></td>
+              <td class="col-status"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Running</td>
+              <td class="col-env"><span class="env-tag env-tag--tooling">tooling</span></td>
+              <td class="col-region">fra1</td>
+              <td class="col-ip mono">10.24.0.5</td>
+              <td class="col-os">Debian 12</td>
+              <td class="col-size">1 vCPU · 2 GB</td>
+              <td class="col-uptime">180d 0h</td>
+              <td class="col-actions"><button type="button" class="act act-console" title="Open web console"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3.25 3A2.25 2.25 0 0 0 1 5.25v9.5A2.25 2.25 0 0 0 3.25 17h13.5A2.25 2.25 0 0 0 19 14.75v-9.5A2.25 2.25 0 0 0 16.75 3H3.25Zm.943 8.752a.75.75 0 0 1 .055-1.06L6.128 9l-1.88-1.693a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 0 1-1.06-.055ZM9.75 10.25a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z" clip-rule="evenodd"/></svg></button><button type="button" class="act act-reboot">Reboot</button><button type="button" class="act act-more" aria-label="More actions"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0 5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm1.5 7a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" clip-rule="evenodd"/></svg></button></td>
+            </tr>
+        </tbody>
+      </table>
+      <div class="pager"><span>1&ndash;22 of 142</span><button type="button" class="btn" disabled>Previous</button><button type="button" class="btn">Next</button></div>
+    </section>
+    <footer class="console-footer">Fleetdeck 2024.11 &middot; Region data refreshed every 60 s &middot; <a href="/docs">Docs</a></footer>
+  </div>
+</div>
+</body>
+</html>

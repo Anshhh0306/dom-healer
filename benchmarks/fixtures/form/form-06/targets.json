@@ -1,0 +1,101 @@
+{
+  "suite": "form-06",
+  "category": "form",
+  "title": "Support request form: topic, order number, message, attachments, priority — Voltaic Home",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion",
+    "tag-change"
+  ],
+  "notes": "v1 is a Foundation 6 page (grid-x/cell, labels wrapping inputs, ticket[...] names). v2 is a React + MUI v5 rebuild: MuiTextField/MuiSelect markup with css-xxxxxxx emotion classes and ':r5:' ids, notched-outline <legend><span> copies of every label, the topic select becomes a role=combobox div with a hidden native input, the description gets MUI's hidden autosize <textarea> twin, and fields are regrouped (product/topic first, contact details last, priority before attachments, priorities reordered with 'High' added). Decoys: a new 'Product' combobox, a 'Popular answers' card repeating the order-number help link, a hidden MUI dialog with a second 'Submit request' button, and a <vh-support-chat> widget (declarative shadow root) with its own textarea and send button.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Topic dropdown ('What can we help with?')",
+      "css": "#support-topic",
+      "xpath": "//select[@name='ticket[topic]']",
+      "mutations": [
+        "tag-change",
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Order number input",
+      "css": "input#order-number",
+      "xpath": "//input[@placeholder='e.g. VH-104233']",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs",
+        "sibling-reorder"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Issue description textarea",
+      "css": ".message-field textarea",
+      "xpath": "//textarea[@id='ticket-description']",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Urgent' priority radio button",
+      "css": "input[name='ticket[priority]'][value='urgent']",
+      "xpath": "//input[@type='radio' and @value='urgent']",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "sibling-reorder",
+        "wrapper-divs",
+        "copy-change"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Where do I find my order number?' help link under the order number field",
+      "css": "a.order-help-link",
+      "xpath": "//a[normalize-space()='Where do I find my order number?']",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Send request' submit button",
+      "css": "#new_ticket .button.expanded",
+      "xpath": "//button[normalize-space()='Send request']",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "decoy"
+      ]
+    }
+  ]
+}

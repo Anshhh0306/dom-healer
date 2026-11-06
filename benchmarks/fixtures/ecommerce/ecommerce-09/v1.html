@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Lists – Wishlist | Hollis &amp; Wren</title>
+<style>
+body{margin:0;font:15px/1.55 "Libre Franklin",Arial,sans-serif;color:#2f3b33;background:#fffdf9}
+.site-header__main{display:flex;align-items:center;justify-content:space-between;padding:18px 36px}
+.lists-layout{display:grid;grid-template-columns:240px 1fr;gap:36px;padding:24px 36px}
+.list-header{display:flex;justify-content:space-between;align-items:flex-start}
+.wishlist-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;list-style:none;padding:0}
+.wishlist-item{position:relative;border:1px solid #ece4d8;border-radius:6px;padding:12px}
+.remove-item{position:absolute;top:8px;right:8px;border:0;background:#fff;border-radius:50%}
+.price-now{font-weight:700}.price-was{color:#8a8a8a}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body class="template-lists">
+<header class="site-header">
+  <div class="site-header__bar"><p>Free shipping on orders over $75 · Gift wrap available at checkout</p></div>
+  <div class="site-header__main">
+    <a class="site-header__logo" href="/">Hollis <span class="amp">&amp;</span> Wren</a>
+    <nav class="site-nav" aria-label="Shop"><ul class="site-nav__list"><li class="site-nav__item"><a class="site-nav__link" href="/collections/new">New</a></li><li class="site-nav__item"><a class="site-nav__link" href="/collections/home-decor">Home Decor</a></li><li class="site-nav__item"><a class="site-nav__link" href="/collections/kitchen-and-dining">Kitchen &amp; Dining</a></li><li class="site-nav__item"><a class="site-nav__link" href="/collections/bed-and-bath">Bed &amp; Bath</a></li><li class="site-nav__item"><a class="site-nav__link" href="/collections/garden">Garden</a></li><li class="site-nav__item"><a class="site-nav__link" href="/collections/gifts">Gifts</a></li><li class="site-nav__item"><a class="site-nav__link" href="/collections/sale">Sale</a></li></ul></nav>
+    <div class="site-header__icons">
+      <a class="site-header__icon" href="/search" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 4a7 7 0 1 0 4.2 12.6l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg></a>
+      <a class="site-header__icon" href="/account" aria-label="Account"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-8 8a8 8 0 0 1 16 0"/></svg></a>
+      <a class="site-header__icon is-active" href="/lists" aria-label="Wishlist, 8 items"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7-4.4-9.3-8.6C1.2 8.3 3 5 6.4 5c2 0 3.3 1.1 4.1 2.3h3C14.3 6.1 15.6 5 17.6 5 21 5 22.8 8.3 21.3 11.4 19 15.6 12 20 12 20z"/></svg><span class="site-header__badge">8</span></a>
+      <a class="site-header__icon" href="/cart" aria-label="Cart, 2 items"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 7h12l1 13H5L6 7zm3 0V6a3 3 0 0 1 6 0v1"/></svg><span class="site-header__badge">2</span></a>
+    </div>
+  </div>
+</header>
+<main class="lists-page">
+  <div class="lists-layout">
+    <aside class="lists-sidebar">
+      <h2 class="lists-sidebar__title">Your lists</h2>
+      <nav class="lists-nav" aria-label="Your lists"><ul class="lists-nav__list"><li class="lists-nav__item is-active"><a class="lists-nav__link" href="/lists/WL-55821">Wishlist <span class="lists-nav__count">(8)</span></a></li><li class="lists-nav__item"><a class="lists-nav__link" href="/lists/WL-55902">Birthday ideas for Mom <span class="lists-nav__count">(5)</span></a></li><li class="lists-nav__item"><a class="lists-nav__link" href="/lists/WL-56017" data-dh-target="t5">Kitchen refresh <span class="lists-nav__count">(7)</span></a></li><li class="lists-nav__item"><a class="lists-nav__link" href="/lists/WL-56240">Housewarming gifts <span class="lists-nav__count">(3)</span></a></li></ul></nav>
+      <button type="button" class="button button--text create-list"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg> Create a new list</button>
+      <div class="lists-sidebar__tip"><h3>Tip</h3><p>Turn on price-drop alerts and we'll email you when something on your list goes on sale.</p></div>
+    </aside>
+    <section class="list-detail" aria-labelledby="list-title">
+      <div class="list-header">
+        <div class="list-header__title">
+          <h1 class="list-header__name" id="list-title">Wishlist</h1>
+          <p class="list-meta">8 items · Private · Created March 3, 2026</p>
+        </div>
+        <div class="list-header__actions">
+          <hw-share-button list-id="WL-55821">
+            <template shadowrootmode="open">
+              <style>:host{display:inline-block}.share-btn{display:inline-flex;gap:6px;align-items:center;border:1px solid #2f3b33;border-radius:4px;padding:8px 14px;background:#fff}</style>
+              <button type="button" id="share-list-btn" class="share-btn" part="button" data-dh-target="t1"><svg class="share-btn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 12v7h16v-7M12 3v12M8 7l4-4 4 4"/></svg>Share list</button>
+            </template>
+          </hw-share-button>
+          <button type="button" class="button button--secondary add-all">Add all to cart</button>
+          <button type="button" class="icon-button" aria-label="More list options"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5h.01M12 12h.01M12 19h.01"/></svg></button>
+        </div>
+      </div>
+      <div class="list-toolbar">
+        <div class="list-toolbar__field"><label for="list-privacy">Privacy</label><select id="list-privacy" name="privacy" class="list-toolbar__select" data-dh-target="t4"><option value="private" selected>Private — only you</option><option value="shared">Shared — anyone with the link</option><option value="public">Public — searchable</option></select></div>
+        <div class="list-toolbar__field"><label for="list-sort">Sort by</label><select id="list-sort" name="sort" class="list-toolbar__select"><option selected>Date added</option><option>Price: low to high</option><option>Price: high to low</option><option>Priority</option></select></div>
+        <div class="list-toolbar__field list-toolbar__field--check"><input type="checkbox" id="in-stock-only" name="in_stock"><label for="in-stock-only">In stock only</label></div>
+        <div class="list-toolbar__field list-toolbar__field--check"><input type="checkbox" id="price-alerts" name="price_alerts" checked><label for="price-alerts">Price-drop alerts</label></div>
+      </div>
+      <ul class="wishlist-grid">
+          <li class="wishlist-item" data-item-id="88190">
+            <div class="wishlist-item__media"><a href="/products/linen-throw-pillow-cover-20-terracotta" tabindex="-1"><img class="wishlist-item__img" src="/media/products/88190_400.jpg" alt="Linen Throw Pillow Cover, 20&quot; – Terracotta" width="200" height="200"></a></div>
+            <div class="wishlist-item__body">
+              <a class="item-name" href="/products/linen-throw-pillow-cover-20-terracotta">Linen Throw Pillow Cover, 20&quot; – Terracotta</a>
+              <p class="wishlist-item__price"><span class="price-now">$34.00</span></p>
+              <p class="wishlist-item__added">Added October 30, 2026</p>
+              <div class="wishlist-item__actions">
+                <button type="button" class="button button--primary move-to-cart" data-test="move-to-cart">Move to cart</button>
+                <button type="button" class="remove-item" aria-label="Remove Linen Throw Pillow Cover, 20&quot; – Terracotta from list"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+              </div>
+            </div>
+          </li>
+          <li class="wishlist-item" data-item-id="88213">
+            <div class="wishlist-item__media"><a href="/products/stoneware-pour-over-coffee-set" tabindex="-1"><img class="wishlist-item__img" src="/media/products/88213_400.jpg" alt="Stoneware Pour-Over Coffee Set" width="200" height="200"></a><span class="wishlist-item__badge wishlist-item__badge--price-dropped">Price dropped</span></div>
+            <div class="wishlist-item__body">
+              <a class="item-name" href="/products/stoneware-pour-over-coffee-set">Stoneware Pour-Over Coffee Set</a>
+              <p class="wishlist-item__price"><span class="price-now" data-dh-target="t6">$54.00</span> <s class="price-was">$64.00</s></p>
+              <p class="wishlist-item__added">Added October 28, 2026</p>
+              <div class="wishlist-item__actions">
+                <button type="button" class="button button--primary move-to-cart" data-test="move-to-cart" data-dh-target="t2">Move to cart</button>
+                <button type="button" class="remove-item" aria-label="Remove Stoneware Pour-Over Coffee Set from list"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+              </div>
+            </div>
+          </li>
+          <li class="wishlist-item" data-item-id="88231">
+            <div class="wishlist-item__media"><a href="/products/brass-taper-candle-holders-set-of-3" tabindex="-1"><img class="wishlist-item__img" src="/media/products/88231_400.jpg" alt="Brass Taper Candle Holders, Set of 3" width="200" height="200"></a></div>
+            <div class="wishlist-item__body">
+              <a class="item-name" href="/products/brass-taper-candle-holders-set-of-3">Brass Taper Candle Holders, Set of 3</a>
+              <p class="wishlist-item__price"><span class="price-now">$42.00</span></p>
+              <p class="wishlist-item__added">Added October 21, 2026</p>
+              <div class="wishlist-item__actions">
+                <button type="button" class="button button--primary move-to-cart" data-test="move-to-cart">Move to cart</button>
+                <button type="button" class="remove-item" aria-label="Remove Brass Taper Candle Holders, Set of 3 from list"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+              </div>
+            </div>
+          </li>
+          <li class="wishlist-item" data-item-id="88245">
+            <div class="wishlist-item__media"><a href="/products/hand-thrown-ceramic-vase-sage" tabindex="-1"><img class="wishlist-item__img" src="/media/products/88245_400.jpg" alt="Hand-Thrown Ceramic Vase, Sage" width="200" height="200"></a></div>
+            <div class="wishlist-item__body">
+              <a class="item-name" href="/products/hand-thrown-ceramic-vase-sage">Hand-Thrown Ceramic Vase, Sage</a>
+              <p class="wishlist-item__price"><span class="price-now">$68.00</span></p>
+              <p class="wishlist-item__added">Added October 12, 2026</p>
+              <div class="wishlist-item__actions">
+                <button type="button" class="button button--primary move-to-cart" data-test="move-to-cart">Move to cart</button>
+                <button type="button" class="remove-item" aria-label="Remove Hand-Thrown Ceramic Vase, Sage from list" data-dh-target="t3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+              </div>
+            </div>
+          </li>
+          <li class="wishlist-item" data-item-id="88262">
+            <div class="wishlist-item__media"><a href="/products/chunky-knit-throw-blanket-oatmeal" tabindex="-1"><img class="wishlist-item__img" src="/media/products/88262_400.jpg" alt="Chunky Knit Throw Blanket, Oatmeal" width="200" height="200"></a><span class="wishlist-item__badge wishlist-item__badge--bestseller">Bestseller</span></div>
+            <div class="wishlist-item__body">
+              <a class="item-name" href="/products/chunky-knit-throw-blanket-oatmeal">Chunky Knit Throw Blanket, Oatmeal</a>
+              <p class="wishlist-item__price"><span class="price-now">$89.00</span></p>
+              <p class="wishlist-item__added">Added October 3, 2026</p>
+              <div class="wishlist-item__actions">
+                <button type="button" class="button button--primary move-to-cart" data-test="move-to-cart">Move to cart</button>
+                <button type="button" class="remove-item" aria-label="Remove Chunky Knit Throw Blanket, Oatmeal from list"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+              </div>
+            </div>
+          </li>
+          <li class="wishlist-item" data-item-id="88270">
+            <div class="wishlist-item__media"><a href="/products/olive-wood-salad-servers" tabindex="-1"><img class="wishlist-item__img" src="/media/products/88270_400.jpg" alt="Olive Wood Salad Servers" width="200" height="200"></a></div>
+            <div class="wishlist-item__body">
+              <a class="item-name" href="/products/olive-wood-salad-servers">Olive Wood Salad Servers</a>
+              <p class="wishlist-item__price"><span class="price-now">$26.00</span></p>
+              <p class="wishlist-item__added">Added September 26, 2026</p>
+              <div class="wishlist-item__actions">
+                <button type="button" class="button button--primary move-to-cart" data-test="move-to-cart">Move to cart</button>
+                <button type="button" class="remove-item" aria-label="Remove Olive Wood Salad Servers from list"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+              </div>
+            </div>
+          </li>
+          <li class="wishlist-item" data-item-id="88288">
+            <div class="wishlist-item__media"><a href="/products/woven-seagrass-storage-basket-large" tabindex="-1"><img class="wishlist-item__img" src="/media/products/88288_400.jpg" alt="Woven Seagrass Storage Basket, Large" width="200" height="200"></a><span class="wishlist-item__badge wishlist-item__badge--only-3-left">Only 3 left</span></div>
+            <div class="wishlist-item__body">
+              <a class="item-name" href="/products/woven-seagrass-storage-basket-large">Woven Seagrass Storage Basket, Large</a>
+              <p class="wishlist-item__price"><span class="price-now">$48.00</span></p>
+              <p class="wishlist-item__added">Added September 19, 2026</p>
+              <div class="wishlist-item__actions">
+                <button type="button" class="button button--primary move-to-cart" data-test="move-to-cart">Move to cart</button>
+                <button type="button" class="remove-item" aria-label="Remove Woven Seagrass Storage Basket, Large from list"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+              </div>
+            </div>
+          </li>
+          <li class="wishlist-item" data-item-id="88301">
+            <div class="wishlist-item__media"><a href="/products/botanical-print-set-11-14-set-of-2" tabindex="-1"><img class="wishlist-item__img" src="/media/products/88301_400.jpg" alt="Botanical Print Set, 11×14 (Set of 2)" width="200" height="200"></a></div>
+            <div class="wishlist-item__body">
+              <a class="item-name" href="/products/botanical-print-set-11-14-set-of-2">Botanical Print Set, 11×14 (Set of 2)</a>
+              <p class="wishlist-item__price"><span class="price-now">$72.00</span></p>
+              <p class="wishlist-item__added">Added September 2, 2026</p>
+              <div class="wishlist-item__actions">
+                <button type="button" class="button button--primary move-to-cart" data-test="move-to-cart">Move to cart</button>
+                <button type="button" class="remove-item" aria-label="Remove Botanical Print Set, 11×14 (Set of 2) from list"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+              </div>
+            </div>
+          </li>
+      </ul>
+    </section>
+  </div>
+  <section class="saved-for-later" aria-labelledby="saved-title">
+    <h2 class="saved-for-later__title" id="saved-title">Saved for later (3)</h2>
+    <p class="saved-for-later__note">Items you saved from your cart.</p>
+    <ul class="saved-for-later__list"><li class="saved-item"><img class="saved-item__img" src="/media/products/rattan-pendant-light-18-in_200.jpg" alt="" width="100" height="100"><div class="saved-item__info"><a class="saved-item__name" href="/products/rattan-pendant-light-18-in">Rattan Pendant Light, 18 in</a><span class="saved-item__price">$129.00</span></div><button type="button" class="button button--secondary move-to-cart">Move to cart</button><button type="button" class="saved-item__delete">Delete</button></li><li class="saved-item"><img class="saved-item__img" src="/media/products/cotton-waffle-robe-size-m_200.jpg" alt="" width="100" height="100"><div class="saved-item__info"><a class="saved-item__name" href="/products/cotton-waffle-robe-size-m">Cotton Waffle Robe, Size M</a><span class="saved-item__price">$58.00</span></div><button type="button" class="button button--secondary move-to-cart">Move to cart</button><button type="button" class="saved-item__delete">Delete</button></li><li class="saved-item"><img class="saved-item__img" src="/media/products/marble-mortar-and-pestle_200.jpg" alt="" width="100" height="100"><div class="saved-item__info"><a class="saved-item__name" href="/products/marble-mortar-and-pestle">Marble Mortar &amp; Pestle</a><span class="saved-item__price">$38.00</span></div><button type="button" class="button button--secondary move-to-cart">Move to cart</button><button type="button" class="saved-item__delete">Delete</button></li></ul>
+  </section>
+  <div id="share-dialog" class="dialog" role="dialog" aria-modal="true" aria-labelledby="share-dialog-title" hidden>
+    <h2 id="share-dialog-title">Share "Wishlist"</h2>
+    <p>Anyone with this link can view your list.</p>
+    <label class="visually-hidden" for="share-url">List link</label><input id="share-url" type="text" readonly value="https://hollisandwren.com/lists/WL-55821?share=7f3a91">
+    <button type="button" class="button button--primary">Copy link</button>
+    <button type="button" class="button button--text dialog__close">Close</button>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__cols">
+    <div class="site-footer__col"><h2>Help</h2><ul><li><a href="/pages/contact">Contact</a></li><li><a href="/pages/shipping">Shipping</a></li><li><a href="/pages/returns">Returns</a></li><li><a href="/pages/gift-cards">Gift cards</a></li></ul></div>
+    <div class="site-footer__col"><h2>About</h2><ul><li><a href="/pages/makers">Our makers</a></li><li><a href="/pages/stores">Stores</a></li><li><a href="/pages/careers">Careers</a></li></ul></div>
+    <div class="site-footer__col"><h2>Newsletter</h2><form action="/newsletter" method="post"><label class="visually-hidden" for="footer-email">Email</label><input id="footer-email" type="email" name="email" placeholder="Your email"><button type="submit" class="button button--primary">Subscribe</button></form></div>
+  </div>
+  <p class="site-footer__legal">© 2026 Hollis &amp; Wren · <a href="/policies/privacy">Privacy</a> · <a href="/policies/terms">Terms</a></p>
+</footer>
+</body>
+</html>

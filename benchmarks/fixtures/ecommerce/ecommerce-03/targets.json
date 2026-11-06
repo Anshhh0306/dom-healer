@@ -1,0 +1,101 @@
+{
+  "suite": "ecommerce-03",
+  "category": "ecommerce",
+  "title": "Shopping cart — cast-iron & kitchenware store",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 is a Next.js rebuild with CSS-modules hashes. The cart <table> becomes a <ul> of CartLine cards, ordered most-recently-added first; quantity steppers become a QuantitySelector with text inputs, new React ids and reworded aria-labels; 'Remove' links become icon+text buttons. A 'Saved for later' list (more 'Remove' buttons), a protection-plan upsell and a mobile checkout bar repeating the estimated total are added. The order summary moves into <hs-order-summary>'s shadow root, where a gift-card form with its own 'Apply' button now precedes the promo-code form and the subtotal shows the same amount as the total.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Quantity input of the 'Pre-Seasoned Cast-Iron Skillet, 26 cm' line item",
+      "css": "table.cart-items tbody tr:nth-child(2) input.qty-input",
+      "xpath": "//table[@id='cart']/tbody/tr[2]//input[@name='updates[]']",
+      "mutations": [
+        "tag-change",
+        "class-obfuscation",
+        "sibling-reorder",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Increase-quantity (+) button of the 'Enameled Cast-Iron Dutch Oven, 5.5 qt' line",
+      "css": "tr[data-line-id='41823117'] .qty-plus",
+      "xpath": "//button[@aria-label='Increase quantity for Enameled Cast-Iron Dutch Oven, 5.5 qt']",
+      "mutations": [
+        "attribute-churn",
+        "copy-change",
+        "class-obfuscation",
+        "sibling-reorder",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "'Remove' action of the 'Bamboo Cutting Board Set (3-Piece)' line",
+      "css": "#cart-row-3 a.remove-link",
+      "xpath": "//tr[contains(.,'Bamboo Cutting Board Set')]//a[normalize-space()='Remove']",
+      "mutations": [
+        "tag-change",
+        "decoy",
+        "sibling-reorder",
+        "class-obfuscation",
+        "id-change"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Promo code text input in the order summary",
+      "css": "#promo-code",
+      "xpath": "//form[@class='promo-form']/input[@name='discount']",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "structure-move",
+        "wrapper-divs",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Apply' button of the promo code form",
+      "css": ".promo-form button[type='submit']",
+      "xpath": "//button[normalize-space()='Apply']",
+      "mutations": [
+        "shadow-dom",
+        "decoy",
+        "class-obfuscation",
+        "insertion"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Estimated total amount in the order summary",
+      "css": ".order-summary dd.summary-total",
+      "xpath": "//dl[@class='summary']/dd[last()]",
+      "mutations": [
+        "shadow-dom",
+        "tag-change",
+        "decoy",
+        "class-obfuscation"
+      ]
+    }
+  ]
+}

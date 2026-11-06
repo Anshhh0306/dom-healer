@@ -1,0 +1,95 @@
+{
+  "suite": "table-10",
+  "category": "table",
+  "title": "SaaS pricing comparison table (plans as columns, feature rows, CTA per plan)",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 is a Chakra UI rebuild: a new 'Business' plan column is inserted between Pro and Enterprise, feature rows are regrouped into new sections and reordered (Guest access -> 'Guest users'), plan-card tiles above the table and an aria-hidden sticky clone of the plan header repeat every price and CTA, the Monthly/Annual toggle becomes a native radio group ('Yearly'), 'Contact sales' becomes 'Talk to sales' while the site header gains a 'Contact sales' link, data-plan attributes disappear, and the FAQ moves into a <tl-faq> shadow root.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Start free trial' call-to-action in the Pro column header of the comparison table",
+      "css": "th[data-plan='pro'] a.plan-cta",
+      "xpath": "//table[contains(@class,'compare-table')]/thead/tr/th[4]/a",
+      "mutations": [
+        "class-obfuscation",
+        "attribute-churn",
+        "wrapper-divs",
+        "insertion",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Monthly price label of the Starter plan ('$8') in the comparison table header",
+      "css": ".compare-table thead th:nth-child(3) .price-amount",
+      "xpath": "//th[@data-plan='starter']//span[@class='price-amount']",
+      "mutations": [
+        "class-obfuscation",
+        "attribute-churn",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Enterprise-plan cell of the 'Audit log' feature row (included)",
+      "css": ".compare-table tbody tr:nth-child(17) td:nth-child(5)",
+      "xpath": "//tr[th[normalize-space()='Audit log']]/td[4]",
+      "mutations": [
+        "sibling-reorder",
+        "insertion",
+        "structure-move",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Row header of the 'Guest access' feature row (v2: 'Guest users')",
+      "css": ".compare-table tbody tr:nth-child(9) > th",
+      "xpath": "//th[@scope='row' and normalize-space()='Guest access']",
+      "mutations": [
+        "copy-change",
+        "sibling-reorder",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Annual' billing-period option of the Monthly/Annual toggle (v2: 'Yearly' radio)",
+      "css": ".billing-toggle button[data-period='annual']",
+      "xpath": "//div[@aria-label='Billing period']/button[2]",
+      "mutations": [
+        "tag-change",
+        "copy-change",
+        "attribute-churn",
+        "class-obfuscation",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Contact sales' call-to-action in the Enterprise column header (v2: 'Talk to sales')",
+      "css": "th[data-plan='enterprise'] .plan-cta",
+      "xpath": "(//a[normalize-space()='Contact sales'])[1]",
+      "mutations": [
+        "copy-change",
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "decoy"
+      ]
+    }
+  ]
+}

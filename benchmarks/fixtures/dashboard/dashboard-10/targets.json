@@ -1,0 +1,100 @@
+{
+  "suite": "dashboard-10",
+  "category": "dashboard",
+  "title": "LMS instructor dashboard — Lanternhall",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 is a Chakra UI rewrite (chakra-* plus emotion css-* classes). The horizontal global nav becomes a sidebar with icons, a new 'Analytics' item and Gradebook moved up (a hidden Chakra drawer repeats the nav; course cards also carry 'Gradebook' links). Course cards become <lh-course-card> web components (declarative shadow roots), sorted by course code, with the code moved into the banner and '64 students' -> '64 enrolled'. The grading table becomes a list sorted by newest due date with a new item on top and 'Start grading' -> 'Grade'. The announcement form becomes an <announcement-composer> shadow root: Subject (was Title) and 'Post to' (was Course) swap places, ids/names change and 'Post announcement' becomes 'Post'; hidden quick-reply forms in a new discussions card each have a 'Post' button.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Start grading' action of 'Lab Report 4: Enzyme Kinetics' (BIO 101) in the grading queue",
+      "css": "table.lh-grading-table tbody tr:first-child a.lh-btn",
+      "xpath": "//td[text()='Lab Report 4: Enzyme Kinetics']/following-sibling::td/a[text()='Start grading']",
+      "mutations": [
+        "copy-change",
+        "structure-move",
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Enrollment count on the CHEM 210 course card (64 students)",
+      "css": ".lh-course-card[data-course=\"CHEM-210\"] .enrollment-count",
+      "xpath": "//a[contains(text(),'CHEM 210')]/ancestor::div[@class='lh-course-card']//span[@class='enrollment-count']",
+      "mutations": [
+        "shadow-dom",
+        "copy-change",
+        "sibling-reorder",
+        "class-obfuscation",
+        "attribute-churn"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Course select of the 'Post an announcement' form",
+      "css": "#announcement-course",
+      "xpath": "//form[@id='announcement-form']//select[@name='course_id']",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "sibling-reorder"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Title input of the 'Post an announcement' form",
+      "css": "input#announcement-title",
+      "xpath": "//label[text()='Title']/following-sibling::input[1]",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "sibling-reorder",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Post announcement' submit button of the announcement form",
+      "css": "#announcement-form button[type=\"submit\"]",
+      "xpath": "//button[normalize-space()='Post announcement']",
+      "mutations": [
+        "shadow-dom",
+        "copy-change",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Gradebook' item of the global navigation",
+      "css": "nav.lh-global-nav a[href=\"/gradebook\"]",
+      "xpath": "//nav[@aria-label='Global']/a[5]",
+      "mutations": [
+        "structure-move",
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "decoy"
+      ]
+    }
+  ]
+}

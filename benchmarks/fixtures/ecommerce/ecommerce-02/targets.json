@@ -1,0 +1,99 @@
+{
+  "suite": "ecommerce-02",
+  "category": "ecommerce",
+  "title": "Product detail page — headphones audio store",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 is a React rebuild styled with Emotion (css-* hashes). A fixed 'Quick buy' bar is injected at the top of <body> with its own price and 'Add to cart' button; the accessory rail gains 'Add to cart' buttons. Colour swatches move into <ft-variant-picker>'s shadow root (option names as values, new 'Moss Green' colour, different order). The gallery thumbnails become a vertical tablist with a video thumbnail inserted first. Info links become role=tab buttons in a new order, and the reviews move into the third-party <ft-reviews> shadow root, re-sorted by 'Most recent' with a new review on top and 'Helpful (n)' vote buttons.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "'Fjord Blue' colour swatch radio input",
+      "css": "#color-fjord-blue",
+      "xpath": "//fieldset[@id='color-picker']//input[@value='fjord-blue']",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "attribute-churn",
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Main 'Add to cart' button in the product form",
+      "css": "form#product-form button.add-to-cart",
+      "xpath": "//button[normalize-space()='Add to cart']",
+      "mutations": [
+        "decoy",
+        "class-obfuscation",
+        "wrapper-divs",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Current price ($279.00) in the buy box",
+      "css": ".pdp-info .price__current",
+      "xpath": "//div[@class='price']/span[1]",
+      "mutations": [
+        "class-obfuscation",
+        "decoy",
+        "wrapper-divs",
+        "tag-change"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Gallery thumbnail showing the side-profile image",
+      "css": ".gallery__thumbs li:nth-child(2) > button",
+      "xpath": "//ul[@class='gallery__thumbs']/li[2]/button",
+      "mutations": [
+        "insertion",
+        "sibling-reorder",
+        "attribute-churn",
+        "copy-change",
+        "class-obfuscation",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Yes (23)' helpful-vote button on Marisol K.'s review 'Best noise cancelling under $300'",
+      "css": "#review-88213 .review__helpful",
+      "xpath": "//li[.//h3[normalize-space()='Best noise cancelling under $300']]//button[starts-with(normalize-space(),'Yes')]",
+      "mutations": [
+        "shadow-dom",
+        "copy-change",
+        "sibling-reorder",
+        "insertion",
+        "id-change",
+        "tag-change"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Reviews (1,284)' tab in the product information tabs",
+      "css": ".pdp-tabs a[href='#reviews']",
+      "xpath": "//nav[@class='pdp-tabs']/a[4]",
+      "mutations": [
+        "tag-change",
+        "sibling-reorder",
+        "copy-change",
+        "class-obfuscation"
+      ]
+    }
+  ]
+}

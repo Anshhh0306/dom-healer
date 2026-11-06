@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coastal Premier Division table 2025/26 – Touchline</title>
+<style>
+body{margin:0;font:15px/1.5 Georgia,"Times New Roman",serif;color:#141414;background:#fff}
+.site-header{border-bottom:4px solid #c8102e}.masthead{display:flex;align-items:center;gap:24px;padding:10px 24px;background:#141414}
+.logo{color:#fff;font:700 24px/1 Arial,sans-serif;text-decoration:none;letter-spacing:-.5px}.sport-nav a,.section-nav a{font-family:Arial,sans-serif;text-decoration:none}
+.sport-nav a{color:#bbb;margin-right:14px;font-size:13px}.sport-nav a.is-current{color:#fff}.signin{margin-left:auto;color:#fff;font:13px Arial,sans-serif}
+.section-nav{padding:8px 24px;background:#f4f4f4}.section-nav a{color:#141414;margin-right:18px;font-size:14px}.section-nav a.is-current{color:#c8102e;font-weight:700}
+.page{display:grid;grid-template-columns:1fr 300px;gap:32px;max-width:1200px;margin:0 auto;padding:20px 24px}
+.league-tabs{display:flex;gap:2px;border-bottom:1px solid #ddd;font-family:Arial,sans-serif}.league-tab{padding:8px 14px;color:#444;text-decoration:none;font-size:14px}.league-tab.is-active{border-bottom:3px solid #c8102e;color:#141414;font-weight:700}
+.table-controls{display:flex;justify-content:space-between;align-items:center;margin:12px 0;font-family:Arial,sans-serif}
+.view-btn{border:1px solid #ccc;background:#fff;padding:4px 12px;font-size:13px}.view-btn.is-active{background:#141414;color:#fff;border-color:#141414}
+.standings{width:100%;border-collapse:collapse;font:14px Arial,sans-serif}.standings th{font-size:12px;color:#666;font-weight:400;padding:6px;border-bottom:2px solid #141414;text-align:center}
+.standings td{padding:7px 6px;border-bottom:1px solid #e6e6e6;text-align:center}.standings td.team,.standings th.team{text-align:left}
+.standings .pts{font-weight:700}.crest{vertical-align:middle;margin-right:8px}
+.zone-cl td.pos{box-shadow:inset 4px 0 #1d70b8}.zone-cc td.pos{box-shadow:inset 4px 0 #00a499}.zone-rel td.pos{box-shadow:inset 4px 0 #c8102e}
+.result{display:inline-block;width:20px;height:20px;line-height:20px;border-radius:50%;color:#fff;font-size:11px;margin:0 1px}.result--w{background:#00843d}.result--d{background:#888}.result--l{background:#c8102e}
+.legend{list-style:none;padding:0;font:13px Arial,sans-serif;color:#555}.swatch{display:inline-block;width:10px;height:10px;margin-right:6px}
+.side h2{font:700 16px Arial,sans-serif;border-bottom:2px solid #141414;padding-bottom:4px}.scorers{width:100%;font:14px Arial,sans-serif;border-collapse:collapse}.scorers td{padding:5px 4px;border-bottom:1px solid #eee}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.site-footer{background:#141414;color:#bbb;padding:24px;font:13px Arial,sans-serif}.site-footer a{color:#ddd;margin-right:12px}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="masthead">
+    <a class="logo" href="/">Touchline</a>
+    <nav class="sport-nav" aria-label="Sports"><a class="is-current" href="/football">Football</a><a href="/rugby">Rugby</a><a href="/cricket">Cricket</a><a href="/tennis">Tennis</a><a href="/golf">Golf</a><a href="/cycling">Cycling</a></nav>
+    <a class="signin" href="/signin">Sign in</a>
+  </div>
+  <nav class="section-nav" aria-label="Football"><a href="/football">News</a><a href="/football/scores-fixtures">Scores &amp; Fixtures</a><a class="is-current" href="/football/tables">Tables</a><a href="/football/transfers">Transfers</a><a href="/football/video">Video</a><a href="/fantasy">Fantasy</a></nav>
+</header>
+<div class="page">
+  <main>
+    <h1>Coastal Premier Division table</h1>
+    <p class="standfirst">2025/26 season &middot; updated after Saturday's matches (matchday 12)</p>
+    <nav class="league-tabs" aria-label="Competitions"><a href="/football/tables/premier-division" class="league-tab is-active" aria-current="page">Premier Division</a><a href="/football/tables/championship" class="league-tab" data-dh-target="t5">Championship</a><a href="/football/tables/league-one" class="league-tab">League One</a><a href="/football/tables/womens-premier" class="league-tab">Women&#x27;s Premier</a><a href="/football/tables/coastal-cup" class="league-tab">Coastal Cup</a></nav>
+    <div class="table-controls">
+      <label>Season <select name="season"><option selected>2025/26</option><option>2024/25</option><option>2023/24</option></select></label>
+      <div class="view-toggle" role="group" aria-label="Table view"><button type="button" class="view-btn is-active" data-view="all" aria-pressed="true">All</button><button type="button" class="view-btn" data-view="home" aria-pressed="false">Home</button><button type="button" class="view-btn" data-view="away" aria-pressed="false" data-dh-target="t6">Away</button></div>
+    </div>
+    <table class="standings" id="league-table">
+      <caption class="visually-hidden">Coastal Premier Division table, 2025/26</caption>
+      <thead>
+        <tr>
+          <th scope="col" class="pos"><abbr title="Position">Pos</abbr></th>
+          <th scope="col" class="team">Team</th>
+          <th scope="col"><abbr title="Played">P</abbr></th>
+          <th scope="col"><abbr title="Won">W</abbr></th>
+          <th scope="col"><abbr title="Drawn">D</abbr></th>
+          <th scope="col"><abbr title="Lost">L</abbr></th>
+          <th scope="col"><abbr title="Goals for">F</abbr></th>
+          <th scope="col"><abbr title="Goals against">A</abbr></th>
+          <th scope="col" class="gd" data-dh-target="t4"><abbr title="Goal difference">GD</abbr></th>
+          <th scope="col" class="pts"><abbr title="Points">Pts</abbr></th>
+          <th scope="col" class="form">Form</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="zone-cl">
+          <td class="pos">1</td>
+          <td class="team"><img class="crest" src="/img/crests/kingsport-united.png" alt="" width="20" height="20"><a href="/teams/kingsport-united">Kingsport United</a></td>
+          <td>12</td><td>9</td><td>2</td><td>1</td><td>25</td><td>6</td>
+          <td class="gd">+19</td>
+          <td class="pts">29</td>
+          <td class="form"><span class="result result--w" title="W 3&ndash;1 v Riverside Rovers (A)">W</span><span class="result result--w" title="W 3&ndash;0 v Oakham Forest (A)">W</span><span class="result result--w" title="W 3&ndash;0 v Lakeside Athletic (A)">W</span><span class="result result--w" title="W 2&ndash;1 v Millbrook Town (A)">W</span><span class="result result--w" title="W 4&ndash;0 v Eastbrook Wanderers (H)">W</span></td>
+        </tr>
+        <tr class="zone-cl">
+          <td class="pos">2</td>
+          <td class="team"><img class="crest" src="/img/crests/ashford-athletic.png" alt="" width="20" height="20"><a href="/teams/ashford-athletic">Ashford Athletic</a></td>
+          <td>12</td><td>8</td><td>3</td><td>1</td><td>20</td><td>6</td>
+          <td class="gd">+14</td>
+          <td class="pts">27</td>
+          <td class="form" data-dh-target="t3"><span class="result result--w" title="W 4&ndash;1 v Granton Swifts (A)">W</span><span class="result result--w" title="W 4&ndash;1 v Port Ellis Dynamo (A)">W</span><span class="result result--w" title="W 1&ndash;0 v Fairhaven Orient (A)">W</span><span class="result result--d" title="D 0&ndash;0 v Northgate City (A)">D</span><span class="result result--w" title="W 4&ndash;0 v Elmstead Borough (A)">W</span></td>
+        </tr>
+        <tr class="zone-cl">
+          <td class="pos">3</td>
+          <td class="team"><img class="crest" src="/img/crests/northgate-city.png" alt="" width="20" height="20"><a href="/teams/northgate-city">Northgate City</a></td>
+          <td>12</td><td>6</td><td>4</td><td>2</td><td>21</td><td>11</td>
+          <td class="gd">+10</td>
+          <td class="pts">22</td>
+          <td class="form"><span class="result result--w" title="W 2&ndash;0 v Whitby Hollow (H)">W</span><span class="result result--w" title="W 6&ndash;1 v Castleford Park (H)">W</span><span class="result result--w" title="W 3&ndash;1 v Thornbury Villa (H)">W</span><span class="result result--d" title="D 0&ndash;0 v Ashford Athletic (H)">D</span><span class="result result--d" title="D 3&ndash;3 v Redmoor County (H)">D</span></td>
+        </tr>
+        <tr class="zone-cl">
+          <td class="pos">4</td>
+          <td class="team"><img class="crest" src="/img/crests/bayview-celtic.png" alt="" width="20" height="20"><a href="/teams/bayview-celtic" data-dh-target="t2">Bayview Celtic</a></td>
+          <td>12</td><td>6</td><td>4</td><td>2</td><td>19</td><td>11</td>
+          <td class="gd">+8</td>
+          <td class="pts">22</td>
+          <td class="form"><span class="result result--l" title="L 0&ndash;1 v Elmstead Borough (A)">L</span><span class="result result--l" title="L 2&ndash;3 v Harrowfield FC (A)">L</span><span class="result result--w" title="W 1&ndash;0 v Riverside Rovers (A)">W</span><span class="result result--d" title="D 1&ndash;1 v Oakham Forest (A)">D</span><span class="result result--w" title="W 2&ndash;0 v Lakeside Athletic (A)">W</span></td>
+        </tr>
+        <tr class="zone-cc">
+          <td class="pos">5</td>
+          <td class="team"><img class="crest" src="/img/crests/eastbrook-wanderers.png" alt="" width="20" height="20"><a href="/teams/eastbrook-wanderers">Eastbrook Wanderers</a></td>
+          <td>12</td><td>6</td><td>3</td><td>3</td><td>15</td><td>16</td>
+          <td class="gd">−1</td>
+          <td class="pts">21</td>
+          <td class="form"><span class="result result--w" title="W 2&ndash;1 v Harrowfield FC (A)">W</span><span class="result result--d" title="D 1&ndash;1 v Riverside Rovers (A)">D</span><span class="result result--l" title="L 0&ndash;3 v Oakham Forest (A)">L</span><span class="result result--d" title="D 2&ndash;2 v Lakeside Athletic (A)">D</span><span class="result result--l" title="L 0&ndash;4 v Kingsport United (A)">L</span></td>
+        </tr>
+        <tr>
+          <td class="pos">6</td>
+          <td class="team"><img class="crest" src="/img/crests/westcliff-albion.png" alt="" width="20" height="20"><a href="/teams/westcliff-albion">Westcliff Albion</a></td>
+          <td>12</td><td>5</td><td>5</td><td>2</td><td>17</td><td>7</td>
+          <td class="gd">+10</td>
+          <td class="pts">20</td>
+          <td class="form"><span class="result result--w" title="W 5&ndash;0 v Redmoor County (H)">W</span><span class="result result--w" title="W 2&ndash;0 v Stonebridge Rangers (H)">W</span><span class="result result--l" title="L 1&ndash;2 v Millbrook Town (H)">L</span><span class="result result--d" title="D 0&ndash;0 v Granton Swifts (A)">D</span><span class="result result--d" title="D 1&ndash;1 v Port Ellis Dynamo (A)">D</span></td>
+        </tr>
+        <tr>
+          <td class="pos">7</td>
+          <td class="team"><img class="crest" src="/img/crests/riverside-rovers.png" alt="" width="20" height="20"><a href="/teams/riverside-rovers">Riverside Rovers</a></td>
+          <td>12</td><td>5</td><td>4</td><td>3</td><td>17</td><td>10</td>
+          <td class="gd">+7</td>
+          <td class="pts">19</td>
+          <td class="form"><span class="result result--l" title="L 1&ndash;3 v Kingsport United (H)">L</span><span class="result result--d" title="D 1&ndash;1 v Eastbrook Wanderers (H)">D</span><span class="result result--l" title="L 0&ndash;1 v Bayview Celtic (H)">L</span><span class="result result--w" title="W 2&ndash;0 v Whitby Hollow (H)">W</span><span class="result result--w" title="W 3&ndash;1 v Castleford Park (H)">W</span></td>
+        </tr>
+        <tr>
+          <td class="pos">8</td>
+          <td class="team"><img class="crest" src="/img/crests/harrowfield-fc.png" alt="" width="20" height="20"><a href="/teams/harrowfield-fc">Harrowfield FC</a></td>
+          <td>12</td><td>6</td><td>1</td><td>5</td><td>14</td><td>11</td>
+          <td class="gd">+3</td>
+          <td class="pts">19</td>
+          <td class="form"><span class="result result--l" title="L 1&ndash;2 v Eastbrook Wanderers (H)">L</span><span class="result result--w" title="W 3&ndash;2 v Bayview Celtic (H)">W</span><span class="result result--w" title="W 2&ndash;0 v Whitby Hollow (H)">W</span><span class="result result--w" title="W 1&ndash;0 v Castleford Park (H)">W</span><span class="result result--w" title="W 2&ndash;1 v Thornbury Villa (H)">W</span></td>
+        </tr>
+        <tr>
+          <td class="pos">9</td>
+          <td class="team"><img class="crest" src="/img/crests/stonebridge-rangers.png" alt="" width="20" height="20"><a href="/teams/stonebridge-rangers">Stonebridge Rangers</a></td>
+          <td>12</td><td>5</td><td>3</td><td>4</td><td>15</td><td>13</td>
+          <td class="gd">+2</td>
+          <td class="pts" data-dh-target="t1">18</td>
+          <td class="form"><span class="result result--w" title="W 1&ndash;0 v Millbrook Town (H)">W</span><span class="result result--l" title="L 0&ndash;2 v Westcliff Albion (A)">L</span><span class="result result--l" title="L 1&ndash;2 v Granton Swifts (A)">L</span><span class="result result--w" title="W 2&ndash;1 v Port Ellis Dynamo (A)">W</span><span class="result result--d" title="D 0&ndash;0 v Fairhaven Orient (A)">D</span></td>
+        </tr>
+        <tr>
+          <td class="pos">10</td>
+          <td class="team"><img class="crest" src="/img/crests/thornbury-villa.png" alt="" width="20" height="20"><a href="/teams/thornbury-villa">Thornbury Villa</a></td>
+          <td>12</td><td>5</td><td>1</td><td>6</td><td>14</td><td>14</td>
+          <td class="gd">0</td>
+          <td class="pts">16</td>
+          <td class="form"><span class="result result--l" title="L 0&ndash;2 v Port Ellis Dynamo (A)">L</span><span class="result result--l" title="L 0&ndash;3 v Fairhaven Orient (A)">L</span><span class="result result--l" title="L 1&ndash;3 v Northgate City (A)">L</span><span class="result result--w" title="W 3&ndash;0 v Elmstead Borough (A)">W</span><span class="result result--l" title="L 1&ndash;2 v Harrowfield FC (A)">L</span></td>
+        </tr>
+        <tr>
+          <td class="pos">11</td>
+          <td class="team"><img class="crest" src="/img/crests/oakham-forest.png" alt="" width="20" height="20"><a href="/teams/oakham-forest">Oakham Forest</a></td>
+          <td>12</td><td>5</td><td>1</td><td>6</td><td>14</td><td>17</td>
+          <td class="gd">−3</td>
+          <td class="pts">16</td>
+          <td class="form"><span class="result result--w" title="W 2&ndash;1 v Lakeside Athletic (H)">W</span><span class="result result--l" title="L 0&ndash;3 v Kingsport United (H)">L</span><span class="result result--w" title="W 3&ndash;0 v Eastbrook Wanderers (H)">W</span><span class="result result--d" title="D 1&ndash;1 v Bayview Celtic (H)">D</span><span class="result result--w" title="W 2&ndash;0 v Whitby Hollow (H)">W</span></td>
+        </tr>
+        <tr>
+          <td class="pos">12</td>
+          <td class="team"><img class="crest" src="/img/crests/millbrook-town.png" alt="" width="20" height="20"><a href="/teams/millbrook-town">Millbrook Town</a></td>
+          <td>12</td><td>5</td><td>0</td><td>7</td><td>12</td><td>17</td>
+          <td class="gd">−5</td>
+          <td class="pts">15</td>
+          <td class="form"><span class="result result--l" title="L 0&ndash;1 v Stonebridge Rangers (A)">L</span><span class="result result--l" title="L 1&ndash;2 v Lakeside Athletic (H)">L</span><span class="result result--w" title="W 2&ndash;1 v Westcliff Albion (A)">W</span><span class="result result--l" title="L 1&ndash;2 v Kingsport United (H)">L</span><span class="result result--w" title="W 1&ndash;0 v Granton Swifts (A)">W</span></td>
+        </tr>
+        <tr>
+          <td class="pos">13</td>
+          <td class="team"><img class="crest" src="/img/crests/fairhaven-orient.png" alt="" width="20" height="20"><a href="/teams/fairhaven-orient">Fairhaven Orient</a></td>
+          <td>12</td><td>4</td><td>2</td><td>6</td><td>13</td><td>14</td>
+          <td class="gd">−1</td>
+          <td class="pts">14</td>
+          <td class="form"><span class="result result--l" title="L 1&ndash;2 v Castleford Park (H)">L</span><span class="result result--w" title="W 3&ndash;0 v Thornbury Villa (H)">W</span><span class="result result--l" title="L 0&ndash;1 v Ashford Athletic (H)">L</span><span class="result result--d" title="D 0&ndash;0 v Redmoor County (H)">D</span><span class="result result--d" title="D 0&ndash;0 v Stonebridge Rangers (H)">D</span></td>
+        </tr>
+        <tr>
+          <td class="pos">14</td>
+          <td class="team"><img class="crest" src="/img/crests/castleford-park.png" alt="" width="20" height="20"><a href="/teams/castleford-park">Castleford Park</a></td>
+          <td>12</td><td>4</td><td>2</td><td>6</td><td>12</td><td>18</td>
+          <td class="gd">−6</td>
+          <td class="pts">14</td>
+          <td class="form"><span class="result result--w" title="W 2&ndash;1 v Fairhaven Orient (A)">W</span><span class="result result--l" title="L 1&ndash;6 v Northgate City (A)">L</span><span class="result result--d" title="D 1&ndash;1 v Elmstead Borough (A)">D</span><span class="result result--l" title="L 0&ndash;1 v Harrowfield FC (A)">L</span><span class="result result--l" title="L 1&ndash;3 v Riverside Rovers (A)">L</span></td>
+        </tr>
+        <tr>
+          <td class="pos">15</td>
+          <td class="team"><img class="crest" src="/img/crests/redmoor-county.png" alt="" width="20" height="20"><a href="/teams/redmoor-county">Redmoor County</a></td>
+          <td>12</td><td>3</td><td>4</td><td>5</td><td>15</td><td>17</td>
+          <td class="gd">−2</td>
+          <td class="pts">13</td>
+          <td class="form"><span class="result result--l" title="L 0&ndash;5 v Westcliff Albion (A)">L</span><span class="result result--w" title="W 3&ndash;0 v Granton Swifts (A)">W</span><span class="result result--w" title="W 4&ndash;1 v Port Ellis Dynamo (A)">W</span><span class="result result--d" title="D 0&ndash;0 v Fairhaven Orient (A)">D</span><span class="result result--d" title="D 3&ndash;3 v Northgate City (A)">D</span></td>
+        </tr>
+        <tr>
+          <td class="pos">16</td>
+          <td class="team"><img class="crest" src="/img/crests/elmstead-borough.png" alt="" width="20" height="20"><a href="/teams/elmstead-borough">Elmstead Borough</a></td>
+          <td>12</td><td>3</td><td>3</td><td>6</td><td>7</td><td>20</td>
+          <td class="gd">−13</td>
+          <td class="pts">12</td>
+          <td class="form"><span class="result result--w" title="W 1&ndash;0 v Bayview Celtic (H)">W</span><span class="result result--d" title="D 1&ndash;1 v Whitby Hollow (H)">D</span><span class="result result--d" title="D 1&ndash;1 v Castleford Park (H)">D</span><span class="result result--l" title="L 0&ndash;3 v Thornbury Villa (H)">L</span><span class="result result--l" title="L 0&ndash;4 v Ashford Athletic (H)">L</span></td>
+        </tr>
+        <tr>
+          <td class="pos">17</td>
+          <td class="team"><img class="crest" src="/img/crests/granton-swifts.png" alt="" width="20" height="20"><a href="/teams/granton-swifts">Granton Swifts</a></td>
+          <td>12</td><td>3</td><td>2</td><td>7</td><td>11</td><td>22</td>
+          <td class="gd">−11</td>
+          <td class="pts">11</td>
+          <td class="form"><span class="result result--l" title="L 1&ndash;4 v Ashford Athletic (H)">L</span><span class="result result--l" title="L 0&ndash;3 v Redmoor County (H)">L</span><span class="result result--w" title="W 2&ndash;1 v Stonebridge Rangers (H)">W</span><span class="result result--d" title="D 0&ndash;0 v Westcliff Albion (H)">D</span><span class="result result--l" title="L 0&ndash;1 v Millbrook Town (H)">L</span></td>
+        </tr>
+        <tr class="zone-rel">
+          <td class="pos">18</td>
+          <td class="team"><img class="crest" src="/img/crests/port-ellis-dynamo.png" alt="" width="20" height="20"><a href="/teams/port-ellis-dynamo">Port Ellis Dynamo</a></td>
+          <td>12</td><td>2</td><td>4</td><td>6</td><td>11</td><td>17</td>
+          <td class="gd">−6</td>
+          <td class="pts">10</td>
+          <td class="form"><span class="result result--w" title="W 2&ndash;0 v Thornbury Villa (H)">W</span><span class="result result--l" title="L 1&ndash;4 v Ashford Athletic (H)">L</span><span class="result result--l" title="L 1&ndash;4 v Redmoor County (H)">L</span><span class="result result--l" title="L 1&ndash;2 v Stonebridge Rangers (H)">L</span><span class="result result--d" title="D 1&ndash;1 v Westcliff Albion (H)">D</span></td>
+        </tr>
+        <tr class="zone-rel">
+          <td class="pos">19</td>
+          <td class="team"><img class="crest" src="/img/crests/lakeside-athletic.png" alt="" width="20" height="20"><a href="/teams/lakeside-athletic">Lakeside Athletic</a></td>
+          <td>12</td><td>2</td><td>3</td><td>7</td><td>11</td><td>19</td>
+          <td class="gd">−8</td>
+          <td class="pts">9</td>
+          <td class="form"><span class="result result--l" title="L 1&ndash;2 v Oakham Forest (A)">L</span><span class="result result--w" title="W 2&ndash;1 v Millbrook Town (A)">W</span><span class="result result--l" title="L 0&ndash;3 v Kingsport United (H)">L</span><span class="result result--d" title="D 2&ndash;2 v Eastbrook Wanderers (H)">D</span><span class="result result--l" title="L 0&ndash;2 v Bayview Celtic (H)">L</span></td>
+        </tr>
+        <tr class="zone-rel">
+          <td class="pos">20</td>
+          <td class="team"><img class="crest" src="/img/crests/whitby-hollow.png" alt="" width="20" height="20"><a href="/teams/whitby-hollow">Whitby Hollow</a></td>
+          <td>12</td><td>1</td><td>3</td><td>8</td><td>4</td><td>21</td>
+          <td class="gd">−17</td>
+          <td class="pts">6</td>
+          <td class="form"><span class="result result--l" title="L 0&ndash;2 v Northgate City (A)">L</span><span class="result result--d" title="D 1&ndash;1 v Elmstead Borough (A)">D</span><span class="result result--l" title="L 0&ndash;2 v Harrowfield FC (A)">L</span><span class="result result--l" title="L 0&ndash;2 v Riverside Rovers (A)">L</span><span class="result result--l" title="L 0&ndash;2 v Oakham Forest (A)">L</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <ul class="legend">
+      <li><span class="swatch" style="background:#1d70b8"></span>Atlantic Champions Cup group stage</li>
+      <li><span class="swatch" style="background:#00a499"></span>Atlantic Conference play-off</li>
+      <li><span class="swatch" style="background:#c8102e"></span>Relegation</li>
+    </ul>
+  </main>
+  <aside class="side">
+    <h2>Top scorers</h2>
+    <table class="scorers"><tbody><tr><td>1</td><td>Tomasz Wilk</td><td>Kingsport United</td><td>11</td></tr><tr><td>2</td><td>Jamal Okonjo</td><td>Bayview Celtic</td><td>9</td></tr><tr><td>3</td><td>Lucas Ferreira</td><td>Riverside Rovers</td><td>8</td></tr><tr><td>4</td><td>Callum Bright</td><td>Ashford Athletic</td><td>8</td></tr><tr><td>5</td><td>Eoin Gallagher</td><td>Stonebridge Rangers</td><td>7</td></tr><tr><td>6</td><td>Mats Lindgren</td><td>Northgate City</td><td>6</td></tr><tr><td>7</td><td>Ryo Takeda</td><td>Bayview Celtic</td><td>6</td></tr><tr><td>8</td><td>Kofi Mensah</td><td>Harrowfield FC</td><td>5</td></tr></tbody></table>
+    <h2>Most read</h2>
+    <ol class="most-read"><li><a href="/football/news/1">Kingsport stretch lead with late winner at Millbrook</a></li><li><a href="/football/news/2">Whitby Hollow part company with head coach</a></li><li><a href="/football/news/3">Bayview Celtic striker Okonjo called up for national team</a></li></ol>
+  </aside>
+</div>
+<footer class="site-footer">
+  <nav aria-label="Competitions"><a href="/football/tables/premier-division">Premier Division</a><a href="/football/tables/championship">Championship</a><a href="/football/tables/league-one">League One</a><a href="/football/tables/womens-premier">Women's Premier</a></nav>
+  <p>&copy; 2025 Touchline Media Ltd. Data provided by Statline.</p>
+</footer>
+</body>
+</html>

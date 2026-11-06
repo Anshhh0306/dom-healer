@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · Copperleaf</title>
+<style>
+body{margin:0;font:15px/1.5 "Söhne",Arial,sans-serif;color:#14282c;background:#f6f5f2}
+.Header_root__2vMoG{position:sticky;top:0;display:flex;align-items:center;gap:28px;padding:12px 40px;background:#fff;box-shadow:0 1px 0 #e7e2d8}
+.Layout_grid__T7ylP{display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);gap:24px;max-width:1240px;margin:0 auto;padding:24px 40px}
+.Card_root__aPSbi{background:#fff;border-radius:16px;padding:20px;box-shadow:0 1px 3px rgba(19,52,59,.08)}
+.Amount_credit__ImORg{color:#1d7a4d}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="Header_root__2vMoG">
+    <a class="Header_logo__T0DdG" href="/overview" aria-label="Copperleaf home"><span class="Header_mark__DNeur"></span>Copperleaf</a>
+    <nav class="MainNav_root__b3ZBT" aria-label="Main">
+      <a class="MainNav_link__MthLx MainNav_active__GhdJJ" href="/overview" aria-current="page">Overview</a>
+      <a class="MainNav_link__MthLx" href="/accounts">Accounts</a>
+      <a class="MainNav_link__MthLx" href="/cards">Cards</a>
+      <a class="MainNav_link__MthLx" href="/pay">Pay &amp; transfer</a>
+      <a class="MainNav_link__MthLx" href="/budgets">Budgets &amp; goals</a>
+      <div class="MainNav_more__EsDh4">
+        <button type="button" class="MainNav_link__MthLx" aria-haspopup="menu" aria-expanded="false">More <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="Menu_panel__yrs2p" role="menu" hidden>
+          <a role="menuitem" class="Menu_item__3FrAV" href="/documents" data-dh-target="t5">Statements &amp; documents</a>
+          <a role="menuitem" class="Menu_item__3FrAV" href="/rewards">Rewards</a>
+          <a role="menuitem" class="Menu_item__3FrAV" href="/settings">Settings</a>
+        </div>
+      </div>
+    </nav>
+    <div class="Header_actions__LeDfU">
+      <button type="button" class="Button_root__gLyaF Button_primary__tkGmh Header_cta__NDGym">Move money</button>
+      <button type="button" class="IconButton_root__Hvfre" aria-label="Messages, 2 unread"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg></button>
+      <button type="button" class="Avatar_root__2caVA" aria-label="Profile and settings">DO</button>
+    </div>
+  </header>
+  <div class="Layout_grid__T7ylP">
+    <main class="Layout_main__hKBEQ">
+      <div class="Greeting_root__hVmqM">
+        <h1 class="Greeting_title__YxHD1">Hi Daniela</h1>
+        <p class="Greeting_sub__LMAqc">Here’s where your money stands today.</p>
+      </div>
+      <section class="Accounts_root__nmCX6" aria-labelledby="accounts-title">
+        <div class="Section_head__DPel0"><h2 id="accounts-title" class="Section_title__LCNI1">Your accounts</h2><span class="Section_aside__n038J">Cash $24,604.68</span><a class="Section_link__eaHKm" href="/accounts/open">Open account</a></div>
+        <account-carousel aria-label="Your accounts">
+          <template shadowrootmode="open">
+            <style>:host{display:block} .track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px,1fr);gap:12px;list-style:none;margin:0;padding:0;overflow-x:auto} .acct{border-radius:14px;padding:16px;background:#fff;box-shadow:0 1px 3px rgba(19,52,59,.12)} .amount{font:600 22px/1.2 'Söhne',Arial,sans-serif;margin:2px 0 0} .label{margin:12px 0 0;color:#5f6f72;font-size:13px}</style>
+            <div class="viewport" part="viewport">
+              <ul class="track" role="list">
+            <li class="slide" data-kind="checking">
+              <article class="acct">
+                <header class="acct-head"><span class="kind">Checking</span><span class="mask">••4821</span></header>
+                <h3 class="name"><a href="/accounts/chk-4821">Everyday Checking</a></h3>
+                <p class="label">Available balance</p>
+                <p class="amount">$3,214.56</p>
+              </article>
+            </li>
+            <li class="slide" data-kind="credit-card">
+              <article class="acct">
+                <header class="acct-head"><span class="kind">Credit card</span><span class="mask">••0193</span></header>
+                <h3 class="name"><a href="/accounts/cc-0193">Copperleaf Rewards Card</a></h3>
+                <p class="label">Current balance</p>
+                <p class="amount">$1,284.40</p>
+              </article>
+            </li>
+            <li class="slide" data-kind="savings">
+              <article class="acct">
+                <header class="acct-head"><span class="kind">Savings</span><span class="mask">••7730</span></header>
+                <h3 class="name"><a href="/accounts/sav-7730">High-Yield Savings</a></h3>
+                <p class="label">Available balance</p>
+                <p class="amount" data-dh-target="t2">$18,940.12</p>
+              </article>
+            </li>
+            <li class="slide" data-kind="savings">
+              <article class="acct">
+                <header class="acct-head"><span class="kind">Savings</span><span class="mask">••7731</span></header>
+                <h3 class="name"><a href="/accounts/sav-7731">Vacation Fund</a></h3>
+                <p class="label">Available balance</p>
+                <p class="amount">$2,450.00</p>
+              </article>
+            </li>
+            <li class="slide" data-kind="loan">
+              <article class="acct">
+                <header class="acct-head"><span class="kind">Loan</span><span class="mask">••5512</span></header>
+                <h3 class="name"><a href="/accounts/ln-5512">Auto Loan</a></h3>
+                <p class="label">Principal remaining</p>
+                <p class="amount">$11,962.77</p>
+              </article>
+            </li>
+              </ul>
+            </div>
+            <div class="controls"><button type="button" class="prev" aria-label="Previous accounts"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button type="button" class="next" aria-label="Next accounts"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button></div>
+          </template>
+        </account-carousel>
+      </section>
+      <div class="QuickActions_root__WQffD" role="toolbar" aria-label="Quick actions">
+        <a class="QuickActions_tile__g8A8A" href="/pay/bills"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v16H3zM16 3v4M8 3v4M3 11h18"/></svg><span>Pay a bill</span></a>
+        <button type="button" class="QuickActions_tile__g8A8A QuickActions_primary__FezhG" data-dh-target="t1">Move money</button>
+        <a class="QuickActions_tile__g8A8A" href="/deposit"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg><span>Deposit a check</span></a>
+        <a class="QuickActions_tile__g8A8A" href="/send"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg><span>Send to a friend</span></a>
+      </div>
+      <aside class="Insight_root__4urVu" role="note">
+        <p><strong>Nice work:</strong> you spent 12% less on dining out in October than in September.</p>
+      </aside>
+      <section class="Card_root__aPSbi" aria-labelledby="activity-title">
+        <div class="Card_header__Dr45K">
+          <h2 id="activity-title" class="Section_title__LCNI1">Activity</h2>
+          <div class="Select_root__kZeFx">
+            <select class="Select_native__q3yvq" name="accountId" aria-label="Show activity for" data-dh-target="t6">
+              <option value="" selected>All accounts</option>
+              <option value="chk-4821">Checking ••4821</option>
+              <option value="cc-0193">Rewards Card ••0193</option>
+              <option value="sav-7730">Savings ••7730</option>
+              <option value="sav-7731">Vacation Fund ••7731</option>
+            </select>
+            <svg class="Select_chevron__lirpE" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <a class="Section_link__eaHKm" href="/activity">View all activity</a>
+        </div>
+        <div class="TxnList_root__inSAG">
+          <div class="TxnList_group__6WNKq">
+            <h3 class="TxnList_date__gR4Va">Pending</h3>
+            <ul class="TxnList_rows__e2wd4">
+            <li class="TxnRow_root__TDeK5 TxnRow_pending__WysFF">
+              <span class="TxnRow_avatar__IFaB6" aria-hidden="true">J</span>
+              <div class="TxnRow_main__JG9L5"><p class="TxnRow_merchant__I9mBS">Juniper Street Grocers</p><p class="TxnRow_meta__dk6Va">Groceries · ••0193 · Pending</p></div>
+              <span class="Amount_root__C6lR9 Amount_debit__tNG7q">−$31.07</span>
+            </li>
+            </ul>
+          </div>
+          <div class="TxnList_group__6WNKq">
+            <h3 class="TxnList_date__gR4Va">Wednesday, Nov 4</h3>
+            <ul class="TxnList_rows__e2wd4">
+            <li class="TxnRow_root__TDeK5">
+              <span class="TxnRow_avatar__IFaB6" aria-hidden="true">J</span>
+              <div class="TxnRow_main__JG9L5"><p class="TxnRow_merchant__I9mBS">Juniper Street Grocers</p><p class="TxnRow_meta__dk6Va">Groceries · ••0193</p></div>
+              <span class="Amount_root__C6lR9 Amount_debit__tNG7q">−$86.42</span>
+            </li>
+            <li class="TxnRow_root__TDeK5">
+              <span class="TxnRow_avatar__IFaB6" aria-hidden="true">N</span>
+              <div class="TxnRow_main__JG9L5"><p class="TxnRow_merchant__I9mBS">Northgate Transit</p><p class="TxnRow_meta__dk6Va">Transportation · ••4821</p></div>
+              <span class="Amount_root__C6lR9 Amount_debit__tNG7q">−$2.75</span>
+            </li>
+            </ul>
+          </div>
+          <div class="TxnList_group__6WNKq">
+            <h3 class="TxnList_date__gR4Va">Tuesday, Nov 3</h3>
+            <ul class="TxnList_rows__e2wd4">
+            <li class="TxnRow_root__TDeK5">
+              <span class="TxnRow_avatar__IFaB6" aria-hidden="true">P</span>
+              <div class="TxnRow_main__JG9L5"><p class="TxnRow_merchant__I9mBS">Payroll — Ardent Systems</p><p class="TxnRow_meta__dk6Va">Income · ••4821</p></div>
+              <span class="Amount_root__C6lR9 Amount_credit__ImORg">+$2,840.00</span>
+            </li>
+            <li class="TxnRow_root__TDeK5">
+              <span class="TxnRow_avatar__IFaB6" aria-hidden="true">S</span>
+              <div class="TxnRow_main__JG9L5"><p class="TxnRow_merchant__I9mBS">Sunline Utilities</p><p class="TxnRow_meta__dk6Va">Bills &amp; utilities · ••4821</p></div>
+              <span class="Amount_root__C6lR9 Amount_debit__tNG7q" data-dh-target="t3">−$142.18</span>
+            </li>
+            </ul>
+          </div>
+          <div class="TxnList_group__6WNKq">
+            <h3 class="TxnList_date__gR4Va">Monday, Nov 2</h3>
+            <ul class="TxnList_rows__e2wd4">
+            <li class="TxnRow_root__TDeK5">
+              <span class="TxnRow_avatar__IFaB6" aria-hidden="true">P</span>
+              <div class="TxnRow_main__JG9L5"><p class="TxnRow_merchant__I9mBS">Pinecone Coffee Roasters</p><p class="TxnRow_meta__dk6Va">Dining out · ••0193</p></div>
+              <span class="Amount_root__C6lR9 Amount_debit__tNG7q">−$6.80</span>
+            </li>
+            <li class="TxnRow_root__TDeK5">
+              <span class="TxnRow_avatar__IFaB6" aria-hidden="true">T</span>
+              <div class="TxnRow_main__JG9L5"><p class="TxnRow_merchant__I9mBS">Transfer to Vacation Fund</p><p class="TxnRow_meta__dk6Va">Transfer · ••4821</p></div>
+              <span class="Amount_root__C6lR9 Amount_debit__tNG7q">−$200.00</span>
+            </li>
+            </ul>
+          </div>
+          <div class="TxnList_group__6WNKq">
+            <h3 class="TxnList_date__gR4Va">Sunday, Nov 1</h3>
+            <ul class="TxnList_rows__e2wd4">
+            <li class="TxnRow_root__TDeK5">
+              <span class="TxnRow_avatar__IFaB6" aria-hidden="true">R</span>
+              <div class="TxnRow_main__JG9L5"><p class="TxnRow_merchant__I9mBS">Riverside Apartments</p><p class="TxnRow_meta__dk6Va">Rent · ••4821</p></div>
+              <span class="Amount_root__C6lR9 Amount_debit__tNG7q">−$1,650.00</span>
+            </li>
+            </ul>
+          </div>
+          <div class="TxnList_group__6WNKq">
+            <h3 class="TxnList_date__gR4Va">Saturday, Oct 31</h3>
+            <ul class="TxnList_rows__e2wd4">
+            <li class="TxnRow_root__TDeK5">
+              <span class="TxnRow_avatar__IFaB6" aria-hidden="true">M</span>
+              <div class="TxnRow_main__JG9L5"><p class="TxnRow_merchant__I9mBS">Mossgate Pharmacy</p><p class="TxnRow_meta__dk6Va">Health · ••0193</p></div>
+              <span class="Amount_root__C6lR9 Amount_debit__tNG7q">−$23.19</span>
+            </li>
+            </ul>
+          </div>
+          <div class="TxnList_group__6WNKq">
+            <h3 class="TxnList_date__gR4Va">Friday, Oct 30</h3>
+            <ul class="TxnList_rows__e2wd4">
+            <li class="TxnRow_root__TDeK5">
+              <span class="TxnRow_avatar__IFaB6" aria-hidden="true">I</span>
+              <div class="TxnRow_main__JG9L5"><p class="TxnRow_merchant__I9mBS">Interest payment</p><p class="TxnRow_meta__dk6Va">Income · ••7730</p></div>
+              <span class="Amount_root__C6lR9 Amount_credit__ImORg">+$61.47</span>
+            </li>
+            <li class="TxnRow_root__TDeK5">
+              <span class="TxnRow_avatar__IFaB6" aria-hidden="true">S</span>
+              <div class="TxnRow_main__JG9L5"><p class="TxnRow_merchant__I9mBS">Streamline Fiber</p><p class="TxnRow_meta__dk6Va">Bills &amp; utilities · ••4821</p></div>
+              <span class="Amount_root__C6lR9 Amount_debit__tNG7q">−$64.99</span>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <aside class="Layout_side__DEyBn">
+      <section class="Card_root__aPSbi" aria-labelledby="budget-title">
+        <div class="Card_header__Dr45K"><h2 id="budget-title" class="Section_title__LCNI1">Budgets · November</h2><a class="Section_link__eaHKm" href="/budgets">See all</a></div>
+        <ul class="BudgetList_root__CJrg9">
+          <li class="BudgetRow_root__12t4M">
+            <div class="BudgetRow_top__wMJ6d">
+              <span class="BudgetRow_name__J8LfU" id="budget-bills-name">Bills &amp; utilities</span>
+              <span class="BudgetRow_figures__rL8Ep">$207 / $320</span>
+              <button type="button" class="IconButton_root__Hvfre BudgetRow_edit__ad151" aria-label="Edit budget" aria-describedby="budget-bills-name"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></button>
+            </div>
+            <progress class="BudgetRow_meter__2yhnJ" max="100" value="65">65%</progress>
+          </li>
+          <li class="BudgetRow_root__12t4M">
+            <div class="BudgetRow_top__wMJ6d">
+              <span class="BudgetRow_name__J8LfU" id="budget-shopping-name">Shopping</span>
+              <span class="BudgetRow_figures__rL8Ep">$112 / $200</span>
+              <button type="button" class="IconButton_root__Hvfre BudgetRow_edit__ad151" aria-label="Edit budget" aria-describedby="budget-shopping-name"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></button>
+            </div>
+            <progress class="BudgetRow_meter__2yhnJ" max="100" value="56">56%</progress>
+          </li>
+          <li class="BudgetRow_root__12t4M">
+            <div class="BudgetRow_top__wMJ6d">
+              <span class="BudgetRow_name__J8LfU" id="budget-dining-name">Dining out</span>
+              <span class="BudgetRow_figures__rL8Ep">$48 / $250</span>
+              <button type="button" class="IconButton_root__Hvfre BudgetRow_edit__ad151" aria-label="Edit budget" aria-describedby="budget-dining-name" data-dh-target="t4"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></button>
+            </div>
+            <progress class="BudgetRow_meter__2yhnJ" max="100" value="19">19%</progress>
+          </li>
+          <li class="BudgetRow_root__12t4M">
+            <div class="BudgetRow_top__wMJ6d">
+              <span class="BudgetRow_name__J8LfU" id="budget-groceries-name">Groceries</span>
+              <span class="BudgetRow_figures__rL8Ep">$86 / $600</span>
+              <button type="button" class="IconButton_root__Hvfre BudgetRow_edit__ad151" aria-label="Edit budget" aria-describedby="budget-groceries-name"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></button>
+            </div>
+            <progress class="BudgetRow_meter__2yhnJ" max="100" value="14">14%</progress>
+          </li>
+          <li class="BudgetRow_root__12t4M">
+            <div class="BudgetRow_top__wMJ6d">
+              <span class="BudgetRow_name__J8LfU" id="budget-transport-name">Transportation</span>
+              <span class="BudgetRow_figures__rL8Ep">$3 / $120</span>
+              <button type="button" class="IconButton_root__Hvfre BudgetRow_edit__ad151" aria-label="Edit budget" aria-describedby="budget-transport-name"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></button>
+            </div>
+            <progress class="BudgetRow_meter__2yhnJ" max="100" value="2">2%</progress>
+          </li>
+          <li class="BudgetRow_root__12t4M">
+            <div class="BudgetRow_top__wMJ6d">
+              <span class="BudgetRow_name__J8LfU" id="budget-entertainment-name">Entertainment</span>
+              <span class="BudgetRow_figures__rL8Ep">$0 / $100</span>
+              <button type="button" class="IconButton_root__Hvfre BudgetRow_edit__ad151" aria-label="Edit budget" aria-describedby="budget-entertainment-name"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></button>
+            </div>
+            <progress class="BudgetRow_meter__2yhnJ" max="100" value="0">0%</progress>
+          </li>
+        </ul>
+      </section>
+      <section class="Card_root__aPSbi" aria-labelledby="goals-title">
+        <div class="Card_header__Dr45K"><h2 id="goals-title" class="Section_title__LCNI1">Savings goals</h2></div>
+        <div class="Goal_root__zcGQo">
+          <p class="Goal_name__eVPnw">Emergency fund · High-Yield Savings</p>
+          <p class="Goal_saved__Zqk7H">$18,940.12</p>
+          <p class="Goal_target__b9p66">of $20,000 goal</p>
+          <progress class="Goal_meter__ihKq5" max="100" value="95">95%</progress>
+        </div>
+        <div class="Goal_root__zcGQo">
+          <p class="Goal_name__eVPnw">Lisbon trip · Vacation Fund</p>
+          <p class="Goal_saved__Zqk7H">$2,450.00</p>
+          <p class="Goal_target__b9p66">of $4,000 goal</p>
+          <progress class="Goal_meter__ihKq5" max="100" value="61">61%</progress>
+        </div>
+      </section>
+      <section class="Card_root__aPSbi" aria-labelledby="bills-title">
+        <div class="Card_header__Dr45K"><h2 id="bills-title" class="Section_title__LCNI1">Coming up</h2></div>
+        <ul class="Bills_list__E66as">
+          <li class="Bills_item__aKfJT"><span>Rewards Card payment</span><time>Nov 18</time><strong>$1,284.40</strong></li>
+          <li class="Bills_item__aKfJT"><span>Auto Loan</span><time>Nov 20</time><strong>$386.12</strong></li>
+          <li class="Bills_item__aKfJT"><span>Streamline Fiber</span><time>Nov 30</time><strong>$64.99</strong></li>
+          <li class="Bills_item__aKfJT"><span>Sunline Utilities</span><time>Dec 3</time><strong>est. $140.00</strong></li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+  <footer class="Footer_root__A444i">
+    <nav class="Footer_nav__RkpL2" aria-label="Footer">
+      <a href="/documents">Statements &amp; documents</a><a href="/privacy">Privacy &amp; security</a><a href="/accessibility">Accessibility</a><a href="/fees">Fees</a><a href="/contact">Contact us</a>
+    </nav>
+    <p class="Footer_legal__I19km">Copperleaf Bank, N.A. Deposits insured up to applicable limits. Equal Housing Lender. © 2026 Copperleaf Financial Corp.</p>
+  </footer>
+</div>
+</body>
+</html>

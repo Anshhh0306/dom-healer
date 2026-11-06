@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book your stay | The Linden Hotel, Edinburgh</title>
+<meta name="description" content="Book direct at The Linden, a boutique hotel on Edinburgh's Royal Terrace.">
+<style>
+  body { margin: 0; font: 16px/1.55 "Lora", Georgia, serif; color: #1c1917; background: #fbf8f3; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .utility-bar { background: #14532d; color: #ecfdf5; font: 13px/1 system-ui; padding: 8px 0; }
+  .site-header__inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .main-nav__list { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+  .booking__layout { display: grid; grid-template-columns: 1fr 340px; gap: 40px; align-items: start; }
+  .form-section { border: 0; border-top: 1px solid #e7e0d4; padding: 24px 0; margin: 0; }
+  .form-row { display: flex; gap: 16px; align-items: flex-end; }
+  .stepper { display: flex; align-items: center; gap: 8px; }
+  .stepper__btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #a8a29e; background: #fff; }
+  .room-card { display: grid; grid-template-columns: 96px 1fr 140px; gap: 16px; padding: 16px; border: 1px solid #e7e0d4; margin-bottom: 12px; background: #fff; }
+  .room-card__amount { font-size: 22px; }
+  .booking-summary { position: sticky; top: 96px; background: #fff; border: 1px solid #e7e0d4; padding: 24px; }
+  .btn { display: inline-block; padding: 12px 20px; border-radius: 2px; font: 600 15px system-ui; }
+  .btn--primary { background: #14532d; color: #fff; border: 0; } .btn--block { width: 100%; }
+</style>
+</head>
+<body>
+<div class="utility-bar">
+  <div class="container utility-bar__inner">
+    <span class="utility-bar__text">Free cancellation up to 48 hours before arrival on flexible rates</span>
+    <a class="utility-bar__phone" href="tel:+441315550192">+44 131 555 0192</a>
+    <ul class="lang-list">
+      <li class="lang-list__item"><a href="/en/book" aria-current="true">EN</a></li>
+      <li class="lang-list__item"><a href="/fr/book">FR</a></li>
+      <li class="lang-list__item"><a href="/de/book">DE</a></li>
+    </ul>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="none" stroke="#14532d" stroke-width="2"/><path d="M18 7c-6 6-6 14 0 22 6-8 6-16 0-22zm0 4v18" stroke="#14532d" fill="none"/></svg><span class="brand__name">The Linden</span><span class="brand__tag">Edinburgh</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul class="main-nav__list">
+<li class="main-nav__item"><a class="main-nav__link" href="/rooms">Rooms &amp; Suites</a></li>
+<li class="main-nav__item"><a class="main-nav__link" href="/dining">Dining</a></li>
+<li class="main-nav__item"><a class="main-nav__link" href="/spa">Spa</a></li>
+<li class="main-nav__item"><a class="main-nav__link" href="/offers">Offers</a></li>
+<li class="main-nav__item"><a class="main-nav__link" href="/events">Weddings &amp; Events</a></li>
+<li class="main-nav__item"><a class="main-nav__link" href="/gallery">Gallery</a></li>
+<li class="main-nav__item"><a class="main-nav__link" href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--outline header-cta" href="/book">Book now</a>
+  </div>
+</header>
+<main class="booking container">
+  <ol class="booking-steps">
+    <li class="booking-steps__step booking-steps__step--current">1. Stay details</li>
+    <li class="booking-steps__step">2. Payment</li>
+    <li class="booking-steps__step">3. Confirmation</li>
+  </ol>
+  <h1 class="booking__title">Book your stay</h1>
+  <div class="booking__layout">
+    <form id="booking-form" class="booking-form" action="/reservations" method="post">
+      <input type="hidden" name="property_code" value="LDN-EDI">
+      <input type="hidden" name="rate_plan" value="BAR">
+      <fieldset class="form-section form-section--dates">
+        <legend class="form-section__title">Dates &amp; guests</legend>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="checkin">Check-in</label>
+            <input type="date" id="checkin" name="arrival_date" value="2026-12-18" min="2026-11-05" required data-dh-target="t1">
+          </div>
+          <div class="form-field">
+            <label for="checkout">Check-out</label>
+            <input type="date" id="checkout" name="departure_date" value="2026-12-22" min="2026-11-06" required>
+          </div>
+          <p class="form-row__note">4 nights</p>
+        </div>
+        <div class="form-row">
+          <div class="form-field stepper stepper--adults" data-field="adults">
+            <span class="stepper__label" id="adults-label">Adults</span>
+            <button type="button" class="stepper__btn stepper__btn--minus" aria-label="Remove adult"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+            <input type="number" id="adults" name="adults" value="2" min="1" max="4" readonly aria-labelledby="adults-label">
+            <button type="button" class="stepper__btn stepper__btn--plus" aria-label="Add adult" data-dh-target="t2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          </div>
+          <div class="form-field stepper stepper--children" data-field="children">
+            <span class="stepper__label" id="children-label">Children <small>(2&ndash;12)</small></span>
+            <button type="button" class="stepper__btn stepper__btn--minus" aria-label="Remove child" disabled><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+            <input type="number" id="children" name="children" value="0" min="0" max="3" readonly aria-labelledby="children-label">
+            <button type="button" class="stepper__btn stepper__btn--plus" aria-label="Add child"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          </div>
+          <div class="form-field">
+            <label for="rooms">Rooms</label>
+            <select id="rooms" name="rooms"><option value="1" selected>1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option></select>
+          </div>
+        </div>
+        <div class="form-field form-field--promo">
+          <label for="promo">Promo or corporate code <span class="optional">(optional)</span></label>
+          <input type="text" id="promo" name="promo_code" autocomplete="off">
+        </div>
+      </fieldset>
+      <fieldset class="form-section form-section--rooms">
+        <legend class="form-section__title">Choose your room</legend>
+        <div class="room-list">
+<article class="room-card" data-room="CDB">
+  <div class="room-card__media"><svg width="96" height="64" viewBox="0 0 96 64" aria-hidden="true"><rect width="96" height="64" rx="6" fill="#a8a29e"/><path d="M14 46V26h20a10 10 0 0 1 10 10v10M14 40h68v6" stroke="#fff" stroke-width="3" fill="none"/></svg></div>
+  <div class="room-card__body">
+    <h3 class="room-card__name">Classic Double</h3>
+    <p class="room-card__desc">A cosy double overlooking the Royal Terrace gardens.</p>
+    <ul class="room-card__features"><li>22 m²</li><li>Sleeps 2</li><li>Garden view</li></ul>
+  </div>
+  <div class="room-card__price">
+    <span class="room-card__amount">£189</span><span class="room-card__per">per night</span>
+    <label class="room-card__select"><input type="radio" name="room_type" value="CDB" id="room-CDB"> Select</label>
+  </div>
+</article>
+<article class="room-card" data-room="SKG">
+  <div class="room-card__media"><svg width="96" height="64" viewBox="0 0 96 64" aria-hidden="true"><rect width="96" height="64" rx="6" fill="#78716c"/><path d="M14 46V26h20a10 10 0 0 1 10 10v10M14 40h68v6" stroke="#fff" stroke-width="3" fill="none"/></svg></div>
+  <div class="room-card__body">
+    <h3 class="room-card__name">Superior King</h3>
+    <p class="room-card__desc">More space, a king bed and a writing desk by the window.</p>
+    <ul class="room-card__features"><li>28 m²</li><li>Sleeps 2</li><li>City view</li></ul>
+  </div>
+  <div class="room-card__price">
+    <span class="room-card__amount">£229</span><span class="room-card__per">per night</span>
+    <label class="room-card__select"><input type="radio" name="room_type" value="SKG" id="room-SKG"> Select</label>
+  </div>
+</article>
+<article class="room-card" data-room="JRS">
+  <div class="room-card__media"><svg width="96" height="64" viewBox="0 0 96 64" aria-hidden="true"><rect width="96" height="64" rx="6" fill="#57534e"/><path d="M14 46V26h20a10 10 0 0 1 10 10v10M14 40h68v6" stroke="#fff" stroke-width="3" fill="none"/></svg></div>
+  <div class="room-card__body">
+    <h3 class="room-card__name">Junior Suite</h3>
+    <p class="room-card__desc">Separate sitting area, king bed and a rainfall shower.</p>
+    <ul class="room-card__features"><li>38 m²</li><li>Sleeps 3</li><li>Calton Hill view</li></ul>
+  </div>
+  <div class="room-card__price">
+    <span class="room-card__amount">£289</span><span class="room-card__per">per night</span>
+    <label class="room-card__select"><input type="radio" name="room_type" value="JRS" id="room-JRS" checked data-dh-target="t3"> Select</label>
+  </div>
+</article>
+<article class="room-card" data-room="LDS">
+  <div class="room-card__media"><svg width="96" height="64" viewBox="0 0 96 64" aria-hidden="true"><rect width="96" height="64" rx="6" fill="#44403c"/><path d="M14 46V26h20a10 10 0 0 1 10 10v10M14 40h68v6" stroke="#fff" stroke-width="3" fill="none"/></svg></div>
+  <div class="room-card__body">
+    <h3 class="room-card__name">Linden Suite</h3>
+    <p class="room-card__desc">Two rooms, a freestanding bath and a private terrace.</p>
+    <ul class="room-card__features"><li>55 m²</li><li>Sleeps 4</li><li>Terrace</li></ul>
+  </div>
+  <div class="room-card__price">
+    <span class="room-card__amount">£420</span><span class="room-card__per">per night</span>
+    <label class="room-card__select"><input type="radio" name="room_type" value="LDS" id="room-LDS"> Select</label>
+  </div>
+</article>
+        </div>
+        <div class="rate-options">
+          <label class="rate-option"><input type="radio" name="rate" value="flex" checked> <strong>Flexible rate</strong> &ndash; free cancellation until 48 hours before arrival</label>
+          <label class="rate-option"><input type="radio" name="rate" value="advance"> <strong>Advance purchase</strong> &ndash; non-refundable, save 15%</label>
+        </div>
+      </fieldset>
+      <fieldset class="form-section form-section--guest">
+        <legend class="form-section__title">Guest details</legend>
+        <div class="form-row">
+          <div class="form-field form-field--title">
+            <label for="guest-title">Title</label>
+            <select id="guest-title" name="guest[title]"><option value="Mr">Mr</option>
+<option value="Mrs">Mrs</option>
+<option value="Ms" selected>Ms</option>
+<option value="Mx">Mx</option>
+<option value="Dr">Dr</option></select>
+          </div>
+          <div class="form-field">
+            <label for="guest-first">First name</label>
+            <input type="text" id="guest-first" name="guest[first_name]" autocomplete="given-name" value="Aisha" required>
+          </div>
+          <div class="form-field">
+            <label for="guest-last">Last name</label>
+            <input type="text" id="guest-last" name="guest[last_name]" autocomplete="family-name" value="Rahman" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="guest-email">Email</label>
+            <input type="email" id="guest-email" name="guest[email]" autocomplete="email" value="aisha.rahman@outlook.com" required>
+          </div>
+          <div class="form-field">
+            <label for="guest-phone">Phone</label>
+            <input type="tel" id="guest-phone" name="guest[phone]" autocomplete="tel" value="+44 7700 900461">
+          </div>
+          <div class="form-field">
+            <label for="arrival-time">Estimated arrival</label>
+            <select id="arrival-time" name="arrival_time"><option value="Before 12:00">Before 12:00</option>
+<option value="12:00 – 15:00">12:00 – 15:00</option>
+<option value="15:00 – 18:00" selected>15:00 – 18:00</option>
+<option value="18:00 – 21:00">18:00 – 21:00</option>
+<option value="After 21:00">After 21:00</option></select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="special-requests">Special requests</label>
+          <textarea id="special-requests" class="special-requests" name="special_requests" rows="4" placeholder="e.g. early check-in, extra pillows, celebrating an anniversary" data-dh-target="t4"></textarea>
+          <p class="form-field__hint">Requests are subject to availability and can't be guaranteed.</p>
+        </div>
+        <label class="checkbox"><input type="checkbox" name="accept_policy" value="1" required> I have read the <a href="/policies">cancellation policy</a></label>
+      </fieldset>
+    </form>
+    <aside class="booking-summary" aria-labelledby="summary-title">
+      <h2 id="summary-title" class="booking-summary__title">Your stay</h2>
+      <dl class="summary-list">
+        <dt>Dates</dt><dd>Fri 18 Dec &ndash; Tue 22 Dec 2026</dd>
+        <dt>Guests</dt><dd>2 adults</dd>
+        <dt>Room</dt><dd>Junior Suite, flexible rate</dd>
+        <dt>4 nights &times; &pound;289.00</dt><dd>&pound;1,156.00</dd>
+        <dt>Edinburgh Visitor Levy (5%)</dt><dd>&pound;57.80</dd>
+      </dl>
+      <dl class="summary-total">
+        <dt>Total</dt><dd class="summary-total__amount" data-dh-target="t6">&pound;1,213.80</dd>
+      </dl>
+      <p class="booking-summary__note">Includes VAT. Pay nothing today on flexible rates.</p>
+      <button type="submit" form="booking-form" class="btn btn--primary btn--block btn-book" data-dh-target="t5">Book now</button>
+      <ul class="booking-summary__perks">
+        <li>Best rate guaranteed when you book direct</li>
+        <li>Free Wi-Fi and late checkout until 12:00</li>
+      </ul>
+    </aside>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__col">
+      <h2 class="site-footer__heading">The Linden Hotel</h2>
+      <address>14 Royal Terrace<br>Edinburgh EH7 5AB<br>Scotland</address>
+      <p><a href="tel:+441315550192">+44 131 555 0192</a><br><a href="mailto:stay@thelindenhotel.co.uk">stay@thelindenhotel.co.uk</a></p>
+    </div>
+    <div class="site-footer__col">
+      <h2 class="site-footer__heading">Explore</h2>
+      <ul class="site-footer__list">
+<li><a href="/rooms">Rooms &amp; Suites</a></li>
+<li><a href="/dining">Dining at Rowan</a></li>
+<li><a href="/spa">The Spa</a></li>
+<li><a href="/offers">Offers</a></li>
+<li><a href="/vouchers">Gift vouchers</a></li>
+      </ul>
+    </div>
+    <div class="site-footer__col">
+      <h2 class="site-footer__heading">Information</h2>
+      <ul class="site-footer__list">
+<li><a href="/faq">FAQs</a></li>
+<li><a href="/getting-here">Getting here</a></li>
+<li><a href="/accessibility">Accessibility</a></li>
+<li><a href="/careers">Careers</a></li>
+<li><a href="/press">Press</a></li>
+      </ul>
+    </div>
+    <div class="site-footer__col">
+      <h2 class="site-footer__heading">Newsletter</h2>
+      <form class="newsletter" action="/newsletter" method="post">
+        <label for="nl-email">Seasonal offers, straight to your inbox</label>
+        <input id="nl-email" type="email" name="email" placeholder="Email address">
+        <button type="submit" class="btn btn--small">Sign up</button>
+      </form>
+    </div>
+  </div>
+  <div class="container site-footer__legal">
+    <p>&copy; 2026 The Linden Hotel Ltd. Registered in Scotland SC412907.</p>
+    <ul class="site-footer__legal-links">
+<li><a href="/privacy">Privacy</a></li>
+<li><a href="/cookies">Cookies</a></li>
+<li><a href="/terms">Terms</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

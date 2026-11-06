@@ -1,0 +1,102 @@
+{
+  "suite": "form-05",
+  "category": "form",
+  "title": "Account preferences: notification toggles, language & time zone, danger zone — Driftwood",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion",
+    "tag-change"
+  ],
+  "notes": "v1 is a server-rendered settings page (semantic BEM-ish classes, Rails check_box hidden inputs, a notification table with Email/Push columns, a 'Danger zone' section). v2 is a Tailwind UI rewrite: the settings sidebar becomes a horizontal secondary nav (reordered, 'Billing & plan' -> 'Plans & billing'), 'Language & region' now comes before 'Notifications', the notification table becomes a list of Headless UI role=switch buttons with rows reordered and columns Push/Email/In-app, the time-zone select gains optgroups, and the danger zone moves into a <dw-danger-zone> declarative shadow root. Decoys: a portal-rendered confirmation dialog with its own 'Delete account' button placed before the app root, a user menu with another 'Plans & billing' link, a 'Push' switch on every row and a sticky 'You have unsaved changes' bar with a second 'Save changes' button.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Push-notification toggle of the 'Mentions' row",
+      "css": "table.notify-matrix tbody tr:nth-child(3) td:nth-child(3) input[type='checkbox']",
+      "xpath": "//input[@type='checkbox' and @name='notify[mentions][push]']",
+      "mutations": [
+        "tag-change",
+        "class-obfuscation",
+        "sibling-reorder",
+        "id-change",
+        "attribute-churn",
+        "decoy",
+        "insertion"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Language select",
+      "css": "#pref-language",
+      "xpath": "//select[@name='user[locale]']",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs",
+        "sibling-reorder"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Time zone select",
+      "css": "select.timezone-select",
+      "xpath": "//select[@name='user[time_zone]']",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "wrapper-divs",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Delete account' button in the danger zone",
+      "css": "#danger-zone .button--danger",
+      "xpath": "//section[@id='danger-zone']//button[normalize-space()='Delete account']",
+      "mutations": [
+        "shadow-dom",
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "structure-move",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Save preferences' submit button of the preferences form",
+      "css": ".settings-actions .button--primary",
+      "xpath": "//button[text()='Save preferences']",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "structure-move",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Billing & plan' link in the settings navigation",
+      "css": ".settings-nav__item:nth-child(5) a",
+      "xpath": "//nav[@aria-label='Settings']//a[normalize-space()='Billing & plan']",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "sibling-reorder",
+        "structure-move",
+        "attribute-churn",
+        "decoy"
+      ]
+    }
+  ]
+}

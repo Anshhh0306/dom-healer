@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in · Quillstack</title>
+<meta name="description" content="Sign in to your Quillstack workspace to write, organise and share your team's knowledge.">
+<meta name="theme-color" content="#4338ca">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root { --brand: #4338ca; --ink: #1f2933; --muted: #616e7c; --line: #e4e7eb; --danger: #cf1124; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.5 "Inter", system-ui, sans-serif; color: var(--ink); background: #f5f7fa; }
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .announcement-bar { background: #312e81; color: #e0e7ff; text-align: center; font-size: 13px; padding: 8px; }
+  .site-header { background: #fff; border-bottom: 1px solid var(--line); }
+  .site-header__inner { display: flex; align-items: center; gap: 32px; height: 64px; }
+  .site-nav__list { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
+  .auth-layout { display: grid; grid-template-columns: minmax(0, 440px) minmax(0, 1fr); gap: 64px; max-width: 1120px; margin: 48px auto; padding: 0 24px; }
+  .auth-card { background: #fff; border-radius: 12px; padding: 40px; box-shadow: 0 1px 3px rgba(15, 23, 42, .08); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 6px; font-weight: 600; cursor: pointer; }
+  .btn--sso { width: 100%; border: 1px solid var(--line); background: #fff; padding: 10px 16px; margin-bottom: 8px; }
+  .btn-primary { background: var(--brand); color: #fff; border: 0; padding: 12px 16px; }
+  .btn-block { width: 100%; }
+  .divider { display: flex; align-items: center; gap: 12px; color: var(--muted); margin: 24px 0; }
+  .form-group { margin-bottom: 20px; }
+  .form-group__row { display: flex; justify-content: space-between; }
+  .form-control { width: 100%; padding: 10px 12px; border: 1px solid #cbd2d9; border-radius: 6px; }
+  .form-control--error { border-color: var(--danger); }
+  .alert--error { display: flex; gap: 12px; padding: 12px 16px; background: #ffe3e3; color: #8a041a; border-radius: 8px; }
+  .site-footer { background: #1f2933; color: #cbd2d9; padding: 48px 0 24px; margin-top: 64px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+</head>
+<body class="page page--auth">
+<a class="skip-link sr-only" href="#main">Skip to content</a>
+<div class="announcement-bar" role="region" aria-label="Announcement">
+  <p class="announcement-bar__text">Quillstack 4.2 is here: AI page summaries, offline editing and a much faster search.
+    <a class="announcement-bar__link" href="/blog/quillstack-4-2">Read the release notes</a></p>
+</div>
+<header class="site-header">
+  <div class="site-header__inner container">
+    <a class="site-header__logo" href="/" aria-label="Quillstack home">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#4338ca"/><path d="M8 19 15 8l5 4-7 11H8z" fill="#fff"/></svg>
+      <span class="logo__wordmark">Quillstack</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+<li class="site-nav__item"><a class="site-nav__link" href="/product">Product</a></li>
+<li class="site-nav__item"><a class="site-nav__link" href="/solutions">Solutions</a></li>
+<li class="site-nav__item"><a class="site-nav__link" href="/templates">Templates</a></li>
+<li class="site-nav__item"><a class="site-nav__link" href="/customers">Customers</a></li>
+<li class="site-nav__item"><a class="site-nav__link" href="/pricing">Pricing</a></li>
+<li class="site-nav__item"><a class="site-nav__link" href="https://docs.quillstack.io">Docs</a></li>
+      </ul>
+    </nav>
+    <div class="site-header__actions">
+      <a class="site-header__link" href="/contact-sales">Contact sales</a>
+      <a class="btn btn--outline btn--sm" href="/signup">Start free trial</a>
+    </div>
+  </div>
+</header>
+<main id="main" class="auth-layout">
+  <section class="auth-card" aria-labelledby="auth-title">
+    <header class="auth-card__header">
+      <h1 id="auth-title" class="auth-card__title">Sign in to Quillstack</h1>
+      <p class="auth-card__subtitle">Welcome back! Pick up right where your team left off.</p>
+    </header>
+    <div class="sso-buttons" role="group" aria-label="Sign in with a provider">
+        <button type="button" class="btn btn--sso btn--google" data-testid="sso-google" data-provider="google">
+          <svg class="btn__icon" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z" fill="#4285F4"/><path d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18z" fill="#34A853"/><path d="M3.97 10.72A5.4 5.4 0 0 1 3.68 9c0-.6.1-1.18.29-1.72V4.95H.96A9 9 0 0 0 0 9c0 1.45.35 2.83.96 4.05z" fill="#FBBC05"/><path d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z" fill="#EA4335"/></svg>
+          <span class="btn__label">Sign in with Google</span>
+        </button>
+        <button type="button" class="btn btn--sso btn--github" data-testid="sso-github" data-provider="github" data-dh-target="t5">
+          <svg class="btn__icon" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path fill="currentColor" d="M9 .2a9 9 0 0 0-2.85 17.54c.45.08.62-.2.62-.43v-1.53c-2.5.55-3.03-1.2-3.03-1.2-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.9.07 1.38.93 1.38.93.8 1.38 2.11.98 2.62.75.08-.58.32-.98.57-1.2-2-.23-4.1-1-4.1-4.45 0-.98.35-1.79.93-2.42-.1-.23-.4-1.14.08-2.38 0 0 .76-.24 2.48.92a8.6 8.6 0 0 1 4.5 0c1.72-1.16 2.47-.92 2.47-.92.5 1.24.19 2.15.1 2.38.57.63.92 1.44.92 2.42 0 3.46-2.1 4.22-4.1 4.44.32.28.61.83.61 1.67v2.48c0 .24.16.52.62.43A9 9 0 0 0 9 .2z"/></svg>
+          <span class="btn__label">Sign in with GitHub</span>
+        </button>
+        <button type="button" class="btn btn--sso btn--microsoft" data-testid="sso-microsoft" data-provider="microsoft">
+          <svg class="btn__icon" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="7.5" height="7.5" fill="#F25022"/><rect x="9.5" y="1" width="7.5" height="7.5" fill="#7FBA00"/><rect x="1" y="9.5" width="7.5" height="7.5" fill="#00A4EF"/><rect x="9.5" y="9.5" width="7.5" height="7.5" fill="#FFB900"/></svg>
+          <span class="btn__label">Sign in with Microsoft</span>
+        </button>
+    </div>
+    <div class="divider" role="separator"><span class="divider__text">or sign in with e-mail</span></div>
+    <div class="alert alert--error" role="alert" id="login-error">
+      <svg class="alert__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <p class="alert__text">The e-mail or password you entered is incorrect. You have <strong>4 attempts</strong> left before your account is temporarily locked.</p>
+    </div>
+    <form id="login-form" class="auth-form" action="/session" method="post" novalidate>
+      <input type="hidden" name="authenticity_token" value="Jx3Uq9mV0tYb8rKc2nW5eLh7sPfA1dZo4gTi6uQyXk">
+      <input type="hidden" name="return_to" value="/w/northbeam/home">
+      <div class="form-group">
+        <label class="form-label" for="login-email">E-mail</label>
+        <input class="form-control" id="login-email" type="email" name="email" value="dana.whitfield@northbeam.io" autocomplete="username" placeholder="you@company.com" required data-dh-target="t1">
+        <p class="form-hint">Use the e-mail address you signed up with.</p>
+      </div>
+      <div class="form-group">
+        <div class="form-group__row">
+          <label class="form-label" for="login-password">Password</label>
+          <a class="link-forgot" href="/password/new" data-dh-target="t4">Forgot password?</a>
+        </div>
+        <div class="input-group">
+          <input class="form-control form-control--error" id="login-password" type="password" name="password" autocomplete="current-password" aria-invalid="true" aria-describedby="login-error" required data-dh-target="t2">
+          <button type="button" class="input-group__btn" aria-label="Show password" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+      </div>
+      <div class="form-check">
+        <input class="form-check__input" type="checkbox" id="remember-me" name="remember" value="1" data-dh-target="t3">
+        <label class="form-check__label" for="remember-me">Remember me for 30 days</label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" data-testid="login-submit" data-dh-target="t6">Sign in</button>
+    </form>
+    <p class="auth-card__alt">Does your company use SAML? <a class="auth-card__link" href="/sso">Sign in with single sign-on</a></p>
+    <p class="auth-card__footer">New to Quillstack? <a class="auth-card__link" href="/signup">Start a 14-day free trial</a></p>
+  </section>
+  <aside class="auth-aside" aria-label="Why teams choose Quillstack">
+    <figure class="quote">
+      <blockquote class="quote__text">
+        <p>&ldquo;We moved 1,400 pages of specs out of shared drives and into Quillstack over a weekend. New engineers are productive in days, not weeks.&rdquo;</p>
+      </blockquote>
+      <figcaption class="quote__author">
+        <span class="avatar" aria-hidden="true">PR</span>
+        <span class="quote__name">Priya Raman</span>
+        <span class="quote__role">VP Engineering, Northbeam</span>
+      </figcaption>
+    </figure>
+    <ul class="feature-list">
+      <li class="feature-list__item"><svg class="feature-list__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Docs, wikis and runbooks in one searchable place</span></li>
+      <li class="feature-list__item"><svg class="feature-list__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Real-time co-editing with comments and suggestions</span></li>
+      <li class="feature-list__item"><svg class="feature-list__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>SOC 2 Type II, SAML SSO and SCIM provisioning</span></li>
+      <li class="feature-list__item"><svg class="feature-list__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Integrations with Slack, Jira, GitHub and Figma</span></li>
+    </ul>
+    <p class="logo-cloud__title">Trusted by 9,000+ teams</p>
+    <ul class="logo-cloud">
+      <li class="logo-cloud__item">Northbeam</li>
+      <li class="logo-cloud__item">Ardent Health</li>
+      <li class="logo-cloud__item">Larkfield</li>
+      <li class="logo-cloud__item">Polymer Labs</li>
+      <li class="logo-cloud__item">Tidewater</li>
+      <li class="logo-cloud__item">Cobalt Freight</li>
+    </ul>
+  </aside>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__grid container">
+    <div class="site-footer__brand">
+      <a class="site-footer__logo" href="/"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#4338ca"/><path d="M8 19 15 8l5 4-7 11H8z" fill="#fff"/></svg><span>Quillstack</span></a>
+      <p class="site-footer__tagline">Write it down once. Find it forever.</p>
+    </div>
+    <nav class="site-footer__col" aria-labelledby="footer-col-1">
+      <h2 id="footer-col-1" class="site-footer__heading">Product</h2>
+      <ul class="site-footer__list">
+<li class="site-footer__item"><a class="site-footer__link" href="/features">Features</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="/integrations">Integrations</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="/templates">Templates</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="/changelog">What&#x27;s new</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="/download">Desktop &amp; mobile apps</a></li>
+      </ul>
+    </nav>
+    <nav class="site-footer__col" aria-labelledby="footer-col-2">
+      <h2 id="footer-col-2" class="site-footer__heading">Company</h2>
+      <ul class="site-footer__list">
+<li class="site-footer__item"><a class="site-footer__link" href="/about">About us</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="/careers">Careers</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="/blog">Blog</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="/press">Press kit</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="/contact">Contact us</a></li>
+      </ul>
+    </nav>
+    <nav class="site-footer__col" aria-labelledby="footer-col-3">
+      <h2 id="footer-col-3" class="site-footer__heading">Resources</h2>
+      <ul class="site-footer__list">
+<li class="site-footer__item"><a class="site-footer__link" href="https://help.quillstack.io">Help center</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="https://docs.quillstack.io/api">API reference</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="https://community.quillstack.io">Community forum</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="/webinars">Webinars</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="https://status.quillstack.io">System status</a></li>
+      </ul>
+    </nav>
+    <nav class="site-footer__col" aria-labelledby="footer-col-4">
+      <h2 id="footer-col-4" class="site-footer__heading">Legal</h2>
+      <ul class="site-footer__list">
+<li class="site-footer__item"><a class="site-footer__link" href="/legal/terms">Terms of service</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="/legal/privacy">Privacy policy</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="/security">Security</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="/legal/cookies">Cookie settings</a></li>
+<li class="site-footer__item"><a class="site-footer__link" href="/legal/dpa">Data processing addendum</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="site-footer__bottom container">
+    <p class="site-footer__copy">&copy; 2026 Quillstack, Inc. &middot; 548 Market St, San Francisco, CA 94104</p>
+    <div class="lang-switcher">
+      <label class="sr-only" for="footer-locale">Language</label>
+      <select id="footer-locale" class="lang-switcher__select" name="locale">
+<option value="en" selected>English</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="ja">日本語</option>
+<option value="pt-BR">Português (Brasil)</option>
+      </select>
+    </div>
+    <ul class="social-links">
+      <li class="social-links__item"><a class="social-links__link" href="https://x.com/quillstack" aria-label="Quillstack on X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg></a></li>
+      <li class="social-links__item"><a class="social-links__link" href="https://www.linkedin.com/company/quillstack" aria-label="Quillstack on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg></a></li>
+      <li class="social-links__item"><a class="social-links__link" href="https://www.youtube.com/@quillstack" aria-label="Quillstack on YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg></a></li>
+      <li class="social-links__item"><a class="social-links__link" href="https://github.com/quillstack" aria-label="Quillstack on GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg></a></li>
+    </ul>
+  </div>
+</footer>
+<div class="cookie-banner" role="region" aria-label="Cookie notice">
+  <p class="cookie-banner__text">We use cookies to keep you signed in and to understand how Quillstack is used. <a href="/legal/cookies">Learn more</a></p>
+  <div class="cookie-banner__actions">
+    <button type="button" class="btn btn--ghost btn--sm">Reject optional</button>
+    <button type="button" class="btn btn--outline btn--sm">Accept all</button>
+  </div>
+</div>
+</body>
+</html>

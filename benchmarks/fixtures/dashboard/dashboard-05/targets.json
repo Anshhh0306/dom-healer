@@ -1,0 +1,100 @@
+{
+  "suite": "dashboard-05",
+  "category": "dashboard",
+  "title": "Online banking account overview — Copperleaf Bank",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "tag-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v1 is a traditional bank layout (utility bar, underlined nav, account list, transactions <table>). v2 is a CSS-modules SPA: accounts render inside an <account-carousel> web component (declarative shadow root) in a new order with <p> balances, and a new 'Savings goals' card repeats the savings balance. 'Transfer money' becomes 'Move money' (second tile; a header CTA repeats it). The transactions table becomes an activity feed grouped by day with a pending item inserted. Budgets are sorted by % used and every edit button shares the aria-label 'Edit budget'. 'Statements & documents' moves into a 'More' menu (the footer repeats it). The account filter loses its id and visible label.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Primary 'Transfer money' quick-action button",
+      "css": "#btn-transfer",
+      "xpath": "//section[contains(@class,'quick-actions')]/button[1]",
+      "mutations": [
+        "id-change",
+        "copy-change",
+        "class-obfuscation",
+        "sibling-reorder",
+        "tag-change",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Balance of the 'High-Yield Savings ••7730' account ($18,940.12)",
+      "css": "li[data-account=\"sav-7730\"] .balance",
+      "xpath": "//a[text()='High-Yield Savings']/ancestor::li//span[@class='balance']",
+      "mutations": [
+        "shadow-dom",
+        "tag-change",
+        "sibling-reorder",
+        "attribute-churn",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Amount of the 'Sunline Utilities' transaction (−$142.18)",
+      "css": "table.txn-table tbody tr:nth-child(3) td.amount",
+      "xpath": "//td[text()='Sunline Utilities']/following-sibling::td[contains(@class,'amount')]",
+      "mutations": [
+        "tag-change",
+        "structure-move",
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "wrapper-divs"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "Icon-only edit button of the 'Dining out' budget",
+      "css": "button[aria-label=\"Edit Dining out budget\"]",
+      "xpath": "//li[@data-category='dining']//button[contains(@class,'budget-edit')]",
+      "mutations": [
+        "attribute-churn",
+        "sibling-reorder",
+        "class-obfuscation"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "'Statements & documents' item of the main navigation",
+      "css": ".cb-mainnav a[href=\"/statements\"]",
+      "xpath": "//nav[@aria-label='Main']//a[contains(text(),'Statements')]",
+      "mutations": [
+        "structure-move",
+        "wrapper-divs",
+        "attribute-churn",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "Account filter select of the recent transactions list",
+      "css": "#txn-account-filter",
+      "xpath": "//label[text()='Account']/following-sibling::select",
+      "mutations": [
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "wrapper-divs",
+        "class-obfuscation"
+      ]
+    }
+  ]
+}

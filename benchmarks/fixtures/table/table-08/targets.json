@@ -1,0 +1,101 @@
+{
+  "suite": "table-08",
+  "category": "table",
+  "title": "Bank transaction ledger with expandable detail rows and category selects",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion"
+  ],
+  "notes": "v2 is a Vue rewrite (scoped data-v attributes, renamed classes): transactions are grouped into one tbody per day with a day-heading row (the Date column disappears) and ordered chronologically inside each day, the expand toggle moves to the first column with an sr-only 'Toggle details' label, Paid in/Paid out become Money in/Money out in swapped order, detail rows get hashed ids and 'Report a problem' replaces 'Dispute this transaction', the category selects get optgroups, a 'Pending' table repeats a TfL payment, and search + export move into an <lb-ledger-toolbar> shadow root with a hidden export menu duplicating 'Export CSV'.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Icon-only expand/collapse toggle of the 30 Oct 'Tesco Stores 3214' transaction (£48.37)",
+      "css": "tr[data-txn-id='tx_7733'] button.txn-toggle",
+      "xpath": "//tr[td[2][contains(.,'Tesco Stores 3214')]][1]//button[@aria-label='Show details']",
+      "mutations": [
+        "structure-move",
+        "copy-change",
+        "attribute-churn",
+        "sibling-reorder",
+        "class-obfuscation",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "Category <select> of the 30 Oct 'TfL Travel Charge' transaction",
+      "css": "#ledger tr[data-txn-id='tx_7731'] select.txn-category",
+      "xpath": "//tr[contains(.,'TfL Travel Charge')]//select[@name='category']",
+      "mutations": [
+        "sibling-reorder",
+        "insertion",
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "'Paid out' amount cell of the 29 Oct Amazon Marketplace transaction (£42.99)",
+      "css": "#ledger tbody tr[data-txn-id='tx_7728'] td.amount-out",
+      "xpath": "//tr[td[2]//span[.='AMZN Mktp UK*2K4L91']]/td[4]",
+      "mutations": [
+        "sibling-reorder",
+        "copy-change",
+        "class-obfuscation",
+        "attribute-churn",
+        "structure-move"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Dispute this transaction' button in the expanded detail row of the 25 Oct Sainsbury's payment (v2: 'Report a problem')",
+      "css": "#txn-detail-tx_7712 .btn-dispute",
+      "xpath": "//tr[@id='txn-detail-tx_7712']//button[normalize-space()='Dispute this transaction']",
+      "mutations": [
+        "copy-change",
+        "id-change",
+        "class-obfuscation",
+        "wrapper-divs",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Download-as-CSV link of the transaction list (v2: 'Export CSV' in the ledger toolbar)",
+      "css": "a.download-csv",
+      "xpath": "//a[normalize-space()='Download (CSV)']",
+      "mutations": [
+        "shadow-dom",
+        "copy-change",
+        "class-obfuscation",
+        "attribute-churn",
+        "structure-move",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Search transactions' text input above the ledger",
+      "css": "#txn-search",
+      "xpath": "//input[@placeholder='Search transactions']",
+      "mutations": [
+        "shadow-dom",
+        "id-change",
+        "copy-change",
+        "wrapper-divs",
+        "structure-move"
+      ]
+    }
+  ]
+}

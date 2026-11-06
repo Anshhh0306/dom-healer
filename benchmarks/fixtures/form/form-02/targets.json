@@ -1,0 +1,99 @@
+{
+  "suite": "form-02",
+  "category": "form",
+  "title": "Multi-section account registration — Harvest Lane grocery delivery",
+  "mutations": [
+    "class-obfuscation",
+    "wrapper-divs",
+    "sibling-reorder",
+    "shadow-dom",
+    "decoy",
+    "id-change",
+    "copy-change",
+    "attribute-churn",
+    "structure-move",
+    "insertion",
+    "tag-change"
+  ],
+  "notes": "v1 is a Bootstrap 5 form with four numbered fieldsets. v2 is a Next.js rewrite with CSS-module class names (Field_label__xxxxx), React useId ids (':r6:') and react-hook-form style names (confirmPassword, address.state, acceptTerms). Sections are reordered (login details first, email moved out of 'Personal information'), the address row becomes ZIP / City / State, and the marketing opt-in now precedes the terms checkbox. The password rules list moves into a <hl-password-rules> declarative shadow root. Decoys: a promo bar email form above the header, a second password input next to the confirmation, a sticky mobile 'Create account' bar and an aria-live announcer that repeats the 'Passwords don't match' error.",
+  "targets": [
+    {
+      "id": "t1",
+      "description": "Email input of the registration form",
+      "css": "#reg-email",
+      "xpath": "//fieldset[@id='personal-info']//input[@type='email']",
+      "mutations": [
+        "class-obfuscation",
+        "wrapper-divs",
+        "id-change",
+        "copy-change",
+        "structure-move",
+        "sibling-reorder",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t2",
+      "description": "State select of the delivery address",
+      "css": "select#reg-state",
+      "xpath": "//select[@name='state']",
+      "mutations": [
+        "class-obfuscation",
+        "wrapper-divs",
+        "id-change",
+        "attribute-churn",
+        "sibling-reorder"
+      ]
+    },
+    {
+      "id": "t3",
+      "description": "Confirm-password input",
+      "css": "input[name='password_confirmation']",
+      "xpath": "//label[normalize-space()='Confirm password']/following-sibling::input",
+      "mutations": [
+        "class-obfuscation",
+        "wrapper-divs",
+        "id-change",
+        "attribute-churn",
+        "copy-change",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t4",
+      "description": "'Passwords do not match' validation message under the confirm-password field",
+      "css": "#reg-password-confirm ~ .invalid-feedback",
+      "xpath": "//div[@class='invalid-feedback' and contains(., 'do not match')]",
+      "mutations": [
+        "class-obfuscation",
+        "copy-change",
+        "id-change",
+        "decoy"
+      ]
+    },
+    {
+      "id": "t5",
+      "description": "Terms of Service agreement checkbox",
+      "css": "#reg-terms",
+      "xpath": "//input[@type='checkbox'][@name='terms']",
+      "mutations": [
+        "class-obfuscation",
+        "id-change",
+        "attribute-churn",
+        "sibling-reorder",
+        "copy-change"
+      ]
+    },
+    {
+      "id": "t6",
+      "description": "'Create account' submit button",
+      "css": "form#registration-form .btn-success",
+      "xpath": "//button[normalize-space()='Create account']",
+      "mutations": [
+        "class-obfuscation",
+        "wrapper-divs",
+        "decoy"
+      ]
+    }
+  ]
+}
