@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dom-healer"
+version = "0.1.0"
+description = "Self-healing DOM selectors: structural element fingerprints + fast candidate ranking for resilient browser automation."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "dom-healer contributors" }]
+keywords = ["selenium", "playwright", "selectors", "self-healing", "test-automation", "xpath", "css", "dom"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+]
+dependencies = [
+    "lxml>=5.0",
+    "cssselect>=1.2",
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+ml = ["scikit-learn>=1.3"]
+mcp = ["mcp>=2.0"]
+bs4 = ["beautifulsoup4>=4.12"]
+bench = ["scikit-learn>=1.3", "matplotlib>=3.7"]
+dev = [
+    "scikit-learn>=1.3",
+    "matplotlib>=3.7",
+    "beautifulsoup4>=4.12",
+    "mcp>=2.0",
+    "pytest>=8",
+    "pytest-cov>=5",
+    "ruff>=0.5",
+]
+
+[project.scripts]
+dom-healer = "dom_healer.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Anshhh0306/dom-healer"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dom_healer = ["data/*.json", "py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.coverage.run]
+source = ["dom_healer"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM"]
+ignore = ["E501"]
